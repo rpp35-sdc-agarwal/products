@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
-import RelatedItems from './relatedItems/relatedItems.jsx'
+import RelatedItems from './relatedItems/RelatedItems.jsx'
 
 
 class App extends React.Component {

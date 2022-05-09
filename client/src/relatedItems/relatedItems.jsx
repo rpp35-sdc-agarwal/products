@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Carousel from './Carousel.jsx'
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <div>Hello from related</div>
+      <Carousel />
     )
   }
 }
