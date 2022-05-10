@@ -6,7 +6,7 @@ class RelatedItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      imgs: ["https://via.placeholder.com/1600x300"]
+      imgs: ["https://via.placeholder.com/1600x300","https://via.placeholder.com/1600x300","https://via.placeholder.com/1600x300"]
 
     }
   }
