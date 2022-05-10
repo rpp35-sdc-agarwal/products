@@ -43,9 +43,11 @@ class Carousel extends React.Component {
     return (
         <div className="carousel-container">
             <div className="carousel-wrapper">
+              {this.state.currentIndex > 0 &&
               <button onClick={this.prev} className="left-arrow">
                   &lt;
               </button>
+              }
                 <div className="carousel-content-wrapper">
                     <div className="carousel-content"
                     style={{ transform: `translateX(-${this.state.currentIndex * 100}%)` }}
@@ -53,9 +55,11 @@ class Carousel extends React.Component {
                         {imgs}
                     </div>
                 </div>
+              {this.state.currentIndex < (this.state.length - 1) &&
               <button onClick={this.next} className="right-arrow">
                   &gt;
               </button>
+              }
             </div>
         </div>
     )
