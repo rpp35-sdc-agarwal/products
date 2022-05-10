@@ -6,11 +6,23 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      currentIndex: 0,
+      length: this.props.imgs.length
+    }
+  }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.imgs.length !== prevProps.imgs.length) {
+      this.setState({
+        length: this.props.imgs.length
+      })
     }
   }
 
   render() {
+    var imgs = this.props.imgs.map((img) => {
+      return <img src={img}></img>
+    })
 
     return (
         <div className="carousel-container">
@@ -20,7 +32,7 @@ class Carousel extends React.Component {
               </button>
                 <div className="carousel-content-wrapper">
                     <div className="carousel-content">
-                        {this.props.children}
+                        {imgs}
                     </div>
                 </div>
               <button className="right-arrow">

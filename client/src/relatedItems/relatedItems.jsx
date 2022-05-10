@@ -6,6 +6,7 @@ class RelatedItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      imgs: ["https://via.placeholder.com/1600x300"]
 
     }
   }
@@ -13,11 +14,7 @@ class RelatedItems extends React.Component {
   render() {
     return (
     <div style={{ maxWidth: 1200, marginLeft: 'auto', marginRight: 'auto', marginTop: 64 }}>
-      {<Carousel >
-        <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
-        <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
-        <img src="https://via.placeholder.com/1600x300" alt="placeholder" />
-      </Carousel>}
+      {<Carousel imgs={this.state.imgs}/>}
 
     </div>
     )
