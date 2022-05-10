@@ -8,6 +8,7 @@
   display: flex;
   width: 100%;
   position: relative;
+  left:0;
 }
 
 .carousel-content-wrapper {
@@ -58,4 +59,6 @@
 
 .carousel-content.show-3 > * {
   width: calc(100% / 3);
+  transform: translateX(-15px);
+
 }
