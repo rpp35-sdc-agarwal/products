@@ -19,15 +19,15 @@ class Carousel extends React.Component {
     }
   }
 
-  next = () => {
+  next(){
     if (this.state.currentIndex < (this.state.length - 1)) {
         this.setState({
           currentIndex: this.state.currentIndex + 1
         })
     }
-}
+  }
 
-  prev = () => {
+  prev(){
     if (this.state.currentIndex > 0) {
         this.setState({
           currentIndex: this.state.currentIndex - 1
@@ -44,7 +44,7 @@ class Carousel extends React.Component {
         <div className="carousel-container">
             <div className="carousel-wrapper">
               {this.state.currentIndex > 0 &&
-              <button onClick={this.prev} className="left-arrow">
+              <button onClick={this.prev.bind(this)} className="left-arrow">
                   &lt;
               </button>
               }
@@ -56,7 +56,7 @@ class Carousel extends React.Component {
                     </div>
                 </div>
               {this.state.currentIndex < (this.state.length - 1) &&
-              <button onClick={this.next} className="right-arrow">
+              <button onClick={this.next.bind(this)} className="right-arrow">
                   &gt;
               </button>
               }
