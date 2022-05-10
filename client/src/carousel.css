@@ -21,6 +21,7 @@
   transition: all 250ms linear;
   -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
   scrollbar-width: none;  /* hide scrollbar in Firefox */
+  padding: 5px;
 }
 
 /* hide scrollbar in webkit browser */
@@ -32,6 +33,7 @@
   width: 100%;
   flex-shrink: 0;
   flex-grow: 1;
+  margin: 5px;
 }
 
 .left-arrow, .right-arrow {
@@ -52,4 +54,8 @@
 
 .right-arrow {
   right: 24px;
+}
+
+.carousel-content.show-3 > * {
+  width: calc(100% / 3);
 }

@@ -11,13 +11,13 @@ class Carousel extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.imgs.length !== prevProps.imgs.length) {
-      this.setState({
-        length: this.props.imgs.length
-      })
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.cho.length !== prevProps.imgs.length) {
+  //     this.setState({
+  //       length: this.props.imgs.length
+  //     })
+  //   }
+  // }
 
   next(){
     if (this.state.currentIndex < (this.state.length - 1)) {
@@ -37,7 +37,14 @@ class Carousel extends React.Component {
 
   render() {
     var imgs = this.props.imgs.map((img) => {
-      return <img src={img}></img>
+      return (
+        <div>
+          <div style={{padding: 5}}>
+
+            <img src={img} style={{width: '100%'}}></img>
+          </div>
+        </div>
+      )
     })
 
     return (
@@ -49,8 +56,8 @@ class Carousel extends React.Component {
               </button>
               }
                 <div className="carousel-content-wrapper">
-                    <div className="carousel-content"
-                    style={{ transform: `translateX(-${this.state.currentIndex * 100}%)` }}
+                    <div className={`carousel-content show-${this.props.show}`}
+                    style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
                     >
                         {imgs}
                     </div>
