@@ -11,12 +11,15 @@ class App extends React.Component {
   }
   render() {
     return(
-      <div>
+      <div data-testid="test_app">
         This is a test message.
       </div>
     )
   }
 }
 
-const root = createRoot(document.getElementById('app'));
+const container = document.getElementById('app') || document.createElement('div');
+const root = createRoot(container);
 root.render(<App />);
+
+export default App;
