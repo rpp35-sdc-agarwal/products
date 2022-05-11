@@ -62,3 +62,22 @@
   transform: translateX(-15px);
 
 }
+.carousel-content.show-4 > * {
+  width: calc(100% / 4);
+  transform: translateX(-15px);
+
+}
+
+.parent {
+  display: flex;
+  height: 300px;
+}
+
+.child {
+  width: 200px;  /* Or whatever */
+  height: 300px; /* Or whatever */
+  margin-right: 15px;
+  border: 2px solid red  /* Magic! */
+
+}
+
