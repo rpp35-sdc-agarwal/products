@@ -20,7 +20,7 @@ class Carousel extends React.Component {
   // }
 
   next(){
-    if (this.state.currentIndex < (this.state.length - 1)) {
+    if (this.state.currentIndex < (this.state.length - this.props.show)) {
         this.setState({
           currentIndex: this.state.currentIndex + 1
         })
@@ -62,7 +62,7 @@ class Carousel extends React.Component {
                         {imgs}
                     </div>
                 </div>
-              {this.state.currentIndex < (this.state.length - 1) &&
+              {this.state.currentIndex < (this.state.length - this.props.show) &&
               <button onClick={this.next.bind(this)} className="right-arrow">
                   &gt;
               </button>
