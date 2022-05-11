@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../carousel.css';
+import RelatedList from './RelatedList.jsx'
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -36,16 +37,16 @@ class Carousel extends React.Component {
 }
 
   render() {
-    var imgs = this.props.imgs.map((img) => {
-      return (
-        <div>
-          <div style={{padding: 5}}>
+    // var imgs = this.props.imgs.map((img) => {
+    //   return (
+    //     <div>
+    //       <div style={{padding: 5}}>
 
-            <img src={img} style={{width: '100%'}}></img>
-          </div>
-        </div>
-      )
-    })
+    //         <img src={img} style={{width: '100%'}}></img>
+    //       </div>
+    //     </div>
+    //   )
+    // })
 
     return (
         <div className="carousel-container">
@@ -59,7 +60,7 @@ class Carousel extends React.Component {
                     <div className={`carousel-content show-${this.props.show}`}
                     style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
                     >
-                        {imgs}
+                        {<RelatedList imgs={this.props.imgs}/>}
                     </div>
                 </div>
               {this.state.currentIndex < (this.state.length - this.props.show) &&
