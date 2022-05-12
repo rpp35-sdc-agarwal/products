@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import '../carousel.css';
 import RelatedList from './RelatedList.jsx'
 
-class Carousel extends React.Component {
+class OutfitCarousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 2
+      currentIndex: 1
 
     }
   }
@@ -33,24 +33,25 @@ class Carousel extends React.Component {
 
 
     return (
-
       <div className="wrapper">
-        <div className="add">
-
-        </div>
         <div className="slider"
-        style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
+
         >
           <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
+          <div className="imageWrapper"
+          style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
+          >
+
+            <img src="https://via.placeholder.com/300"></img>
+            <img src="https://via.placeholder.com/300"></img>
+            <img src="https://via.placeholder.com/300"></img>
+            <img src="https://via.placeholder.com/300"></img>
+            <img src="https://via.placeholder.com/300"></img>
+          </div>
+
 
         </div>
       </div>
-
 
 
 
@@ -59,4 +60,4 @@ class Carousel extends React.Component {
 
 }
 
-export default Carousel
+export default OutfitCarousel
