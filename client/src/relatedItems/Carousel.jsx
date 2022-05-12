@@ -33,17 +33,19 @@ class Carousel extends React.Component {
 
 
     return (
-
-      <div className="wrapper">
+      <div className={this.props.wrapper}>
         <div className="slider">
           <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
+          <img src="https://via.placeholder.com/300"></img>
+          <img src="https://via.placeholder.com/300"></img>
+
         </div>
-
-
       </div>
+
+
 
     )
   }

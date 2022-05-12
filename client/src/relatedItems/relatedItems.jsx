@@ -15,7 +15,9 @@ class RelatedItems extends React.Component {
   render() {
     return (
 
-      <Carousel />
+      // <Carousel />
+      // <Carousel />
+
 
 
     )

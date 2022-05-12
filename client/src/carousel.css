@@ -2,9 +2,14 @@
   box-sizing: border-box;
 }
 
-.wrapper {
+.wrapper1 {
   display: flex;
+  transform: translateX(0);
+}
 
+.wrapper2 {
+  display: flex;
+  transform: translateX(25%);
 }
 
 .slider {
@@ -16,6 +21,8 @@
   max-width: 25%;
   padding: .25rem;
 }
+
+
 
 
 

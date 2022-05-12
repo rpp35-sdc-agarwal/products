@@ -13,7 +13,11 @@ class App extends React.Component {
   }
   render() {
     return(
-      <Carousel />
+      <>
+        <Carousel wrapper={"wrapper1"}/>
+
+        <Carousel wrapper={"wrapper2"}/>
+      </>
 
     )
   }
