@@ -7,7 +7,7 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 2
+      currentIndex: 1
 
     }
   }
@@ -35,9 +35,11 @@ class Carousel extends React.Component {
     return (
 
       <div className="wrapper">
-        <div className="add">
+        {this.props.isOutfit &&
+          <div className="add">
 
-        </div>
+          </div>
+        }
         <div className="slider"
         style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
         >

@@ -14,8 +14,8 @@ class App extends React.Component {
   render() {
     return(
       <>
-        <Carousel show={4}/>
-        <Carousel show={4}/>
+        <Carousel show={4} isOutfit={false}/>
+        <Carousel show={4} isOutfit={true}/>
 
 
 
