@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from './Carousel.jsx'
-import Outfits from './Outfits.jsx'
+
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -14,16 +14,10 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-    <div style={{ maxWidth: 1200, marginLeft: 'auto', marginRight: 'auto', marginTop: 64 }}>
-      {<Carousel show={4} imgs={this.state.imgs}/>}
-      {<Outfits imgs={this.state.imgs}/>}
+
+      <Carousel />
 
 
-
-
-
-
-    </div>
     )
   }
 }
