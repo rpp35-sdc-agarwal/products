@@ -14,9 +14,13 @@ class App extends React.Component {
   render() {
     return(
       <>
-        <Carousel wrapper={"wrapper1"}/>
+        <Carousel slider={"slider1"}/>
+        <div className="add">
+          <img src="https://via.placeholder.com/300"></img>
+          <Carousel slider={"slider2"}/>
+        </div>
 
-        <Carousel wrapper={"wrapper2"}/>
+
       </>
 
     )
