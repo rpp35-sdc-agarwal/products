@@ -1,6 +1,6 @@
 import React from 'react';
 
-class extends React.Component {
+class Sort extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +10,11 @@ class extends React.Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        Sort
+      </div>
     )
   }
 }
+
+export default Sort;

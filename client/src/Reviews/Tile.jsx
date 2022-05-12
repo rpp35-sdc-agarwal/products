@@ -27,19 +27,20 @@ import React from 'react';
 // A user can provide feedback on any review.  However, they can only make one submission for each review. If the user selects either “Yes”, they should not be able to select “Yes” again.
 
 
-class Tile extends React.component {
+class Tile extends React.Component {
   constructor(props) {
-    super(props),
+    super(props);
     this.state = {
       //all the reviews from the api call will be here
-      reviews: this.props.reviews || null
-    }
+      //reviews: this.props.review
+    };
   }
 
 
   render() {
     return (
       <div className="rev-tile">
+        tile
         <div className="rev-stars"><span className="rev-username rev-date"></span></div>
         <div className="rev-summary"></div>
         <div className="rev-body"></div>
@@ -49,3 +50,5 @@ class Tile extends React.component {
     )
   }
 }
+
+export default Tile;
