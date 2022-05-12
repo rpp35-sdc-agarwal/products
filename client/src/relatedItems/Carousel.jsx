@@ -34,7 +34,9 @@ class Carousel extends React.Component {
 
     return (
       <div className="wrapper">
-        <div className={this.props.slider}>
+        <div className="slider"
+        style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
+        >
           <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
