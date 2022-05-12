@@ -3,3 +3,4 @@ node_modules/
 .babelrc
 client/dist/bundle.js
 config.js
+.DS_Store
