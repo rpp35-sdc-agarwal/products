@@ -6,6 +6,7 @@
   display: flex;
   transform: translateX(0);
   width: 100%;
+  overflow:hidden;
 }
 
 /* .wrapper2 {
@@ -16,6 +17,7 @@
 .slider {
   display: flex;
   width: 100%;
+  overflow:hidden
 }
 
 .slider2 {
