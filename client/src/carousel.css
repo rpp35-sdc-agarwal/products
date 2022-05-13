@@ -1,64 +1,49 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+.body {
+  margin: 0;
 }
 
 .wrapper {
-  display: flex;
-  transform: translateX(0);
-  width: 100%;
-  overflow:hidden;
-}
 
-/* .wrapper2 {
   display: flex;
-  transform: translateX(25%);
-} */
+
+}
 
 .slider {
   display: flex;
-  width: 100%;
-  overflow:hidden
-}
-
-.slider2 {
-  display: flex;
-}
-
-.slider > img {
-  flex: 0 0 25%;
-  max-width: 25%;
-  padding: .25rem;
-}
-
-.add {
-  position: absolute;
-  width: 150px;
-  height: 200px;
-  padding: .25rem;
-  top: 0;
-  left: 0;
-  border: 2px solid red;
-  z-index: 20;
+  overflow:hidden;
+  margin: 10px;
 }
 
 
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  max-width: 150px;
 
-.slider2 > img {
-  flex: 0 0 33%;
-  max-width: 33%;
-  padding: .25rem;
 }
 
-.imageWrapper {
-  display: flex;
-  width: 100%;
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.imageWrapper > img {
-  flex: 0 0 33%;
-  max-width: 33%;
-  padding: .25rem;
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
 }
+
+
+
+
+
 
 
 
