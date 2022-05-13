@@ -36,13 +36,19 @@ class Carousel extends React.Component {
         <div className="slider">
           <ul className="cardHolder">
             <div className="card related">
+              <div className="modal">
+
+              </div>
               <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
               <div className="container">
                 <h4><b>John Doe</b></h4>
                 <p>Architect and engineer</p>
               </div>
             </div>
-            <div className="card">
+            <div className="card related">
+              <div className="modal">
+
+              </div>
               <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
               <div className="container">
                 <h4><b>John Doe</b></h4>
