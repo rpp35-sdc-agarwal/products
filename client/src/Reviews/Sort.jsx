@@ -11,7 +11,12 @@ class Sort extends React.Component {
   render() {
     return (
       <div>
-        Sort
+        <label htmlFor="sorter">Sort on:</label>
+        <select name="sorter">
+            <option>Helpful</option>
+            <option>Newest</option>
+            <option>Relevant</option>
+        </select>
       </div>
     )
   }

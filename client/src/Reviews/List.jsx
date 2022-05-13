@@ -1,5 +1,5 @@
 import React from 'react';
-import sample from './SampleData.js';
+import { sampleRev } from './SampleData.js';
 import Sort from './Sort.jsx';
 import Tile from './Tile.jsx';
 
@@ -7,8 +7,8 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: sample,
-      reviews: sample.results
+      data: sampleRev,
+      reviews: sampleRev.results
     }
   }
 
