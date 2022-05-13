@@ -3,7 +3,7 @@ import '../carousel.css'
 
 const Card = ({img}) => {
   return (
-    <div className="card related">
+    <div className={`card related`}>
       <div className="modal">
 
       </div>
