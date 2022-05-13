@@ -1,17 +1,18 @@
 import React from 'react';
 import Card from './Card.jsx'
+import '../carousel.css'
 
 const RelatedList = ({imgs}) => {
-  var imgs = imgs.map((img) => {
+  var cards = imgs.map((img) => {
     return (
       <Card img={img} />
     )
 
   })
   return (
-    <>
-      {imgs}
-    </>
+    <ul className="cardHolder">
+      {cards}
+    </ul>
   )
 }
 

@@ -35,51 +35,7 @@ class Carousel extends React.Component {
 
       <div className="wrapper">
         <div className="slider">
-          <ul className="cardHolder">
-            <Card />
-
-            <div className="card related">
-              <div className="modal">
-
-              </div>
-              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-              <div className="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect and engineer</p>
-              </div>
-            </div>
-
-            <div className="card related">
-              <div className="modal">
-
-              </div>
-              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-              <div className="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect and engineer</p>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-              <div className="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect and engineer</p>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-              <div className="container">
-                <h4><b>John Doe</b></h4>
-                <p>Architect and engineer</p>
-              </div>
-            </div>
-          </ul>
-          {/* <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img>
-          <img src="https://via.placeholder.com/300"></img> */}
+          <RelatedList imgs={this.props.imgs} />
 
         </div>
       </div>
