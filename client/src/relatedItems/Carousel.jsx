@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../carousel.css';
 import RelatedList from './RelatedList.jsx'
+import Card from './Card.jsx'
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -35,6 +36,8 @@ class Carousel extends React.Component {
       <div className="wrapper">
         <div className="slider">
           <ul className="cardHolder">
+            <Card />
+
             <div className="card related">
               <div className="modal">
 
@@ -45,6 +48,7 @@ class Carousel extends React.Component {
                 <p>Architect and engineer</p>
               </div>
             </div>
+
             <div className="card related">
               <div className="modal">
 
