@@ -19,8 +19,6 @@ class RelatedItems extends React.Component {
         <Carousel imgs={this.state.imgs}/>
         <OutfitCarousel imgs={this.state.imgs}/>
       </>
-
-
     )
   }
 }

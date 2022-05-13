@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../carousel.css';
-import RelatedList from './RelatedList.jsx'
+import RelatedList from './RelatedList.jsx';
+import AddOutfit from './AddOutfit.jsx'
+
 
 class OutfitCarousel extends React.Component {
   constructor(props) {
@@ -33,11 +35,13 @@ class OutfitCarousel extends React.Component {
 
     return (
       <div className="wrapper">
-          <div className="slider outfit">
-            <RelatedList imgs={this.props.imgs} type={"outfit"} isRelated={false}/>
+        <AddOutfit />
 
-          </div>
+        <div className="slider">
+          <RelatedList imgs={this.props.imgs} type={"outfit"} isRelated={false}/>
+
         </div>
+      </div>
 
 
     )
