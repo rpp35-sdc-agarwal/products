@@ -21,6 +21,9 @@
 
 }
 
+.cardHolder {
+  display: flex;
+}
 
 .card {
   /* Add shadows to create the "card" effect */
@@ -40,6 +43,12 @@
 .container {
   padding: 2px 16px;
 }
+
+.card.related {
+  transform: translateX(0px);
+
+}
+
 
 
 

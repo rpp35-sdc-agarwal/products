@@ -33,52 +33,37 @@ class Carousel extends React.Component {
     return (
 
       <div className="wrapper">
-        <div className="slider"
-        style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
-        >
-
-          <div className="card">
-            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-            <div className="container">
-              <h4><b>John Doe</b></h4>
-              <p>Architect and engineer</p>
+        <div className="slider">
+          <ul className="cardHolder">
+            <div className="card related">
+              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+              <div className="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect and engineer</p>
+              </div>
             </div>
-          </div>
-          <div className="card">
-            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-            <div className="container">
-              <h4><b>John Doe</b></h4>
-              <p>Architect and engineer</p>
+            <div className="card">
+              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+              <div className="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect and engineer</p>
+              </div>
             </div>
-          </div>
-          <div className="card">
-            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-            <div className="container">
-              <h4><b>John Doe</b></h4>
-              <p>Architect and engineer</p>
+            <div className="card">
+              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+              <div className="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect and engineer</p>
+              </div>
             </div>
-          </div>
-          <div className="card">
-            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-            <div className="container">
-              <h4><b>John Doe</b></h4>
-              <p>Architect and engineer</p>
+            <div className="card">
+              <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+              <div className="container">
+                <h4><b>John Doe</b></h4>
+                <p>Architect and engineer</p>
+              </div>
             </div>
-          </div>
-          <div className="card">
-            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-            <div className="container">
-              <h4><b>John Doe</b></h4>
-              <p>Architect and engineer</p>
-            </div>
-          </div>
-          <div className="card">
-            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-            <div className="container">
-              <h4><b>John Doe</b></h4>
-              <p>Architect and engineer</p>
-            </div>
-          </div>
+          </ul>
           {/* <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
           <img src="https://via.placeholder.com/300"></img>
