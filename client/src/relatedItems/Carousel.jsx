@@ -33,14 +33,38 @@ class Carousel extends React.Component {
     return (
 
       <div className="wrapper">
-
-        <div className="card">
-
-        </div>
         <div className="slider"
         style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
         >
 
+          <div className="card">
+            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+            <div className="container">
+              <h4><b>John Doe</b></h4>
+              <p>Architect and engineer</p>
+            </div>
+          </div>
+          <div className="card">
+            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+            <div className="container">
+              <h4><b>John Doe</b></h4>
+              <p>Architect and engineer</p>
+            </div>
+          </div>
+          <div className="card">
+            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+            <div className="container">
+              <h4><b>John Doe</b></h4>
+              <p>Architect and engineer</p>
+            </div>
+          </div>
+          <div className="card">
+            <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+            <div className="container">
+              <h4><b>John Doe</b></h4>
+              <p>Architect and engineer</p>
+            </div>
+          </div>
           <div className="card">
             <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
             <div className="container">
