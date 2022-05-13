@@ -31,28 +31,13 @@ class OutfitCarousel extends React.Component {
 
   render() {
 
-
     return (
       <div className="wrapper">
-        <div className="slider"
+          <div className="slider outfit">
+            <RelatedList imgs={this.props.imgs} />
 
-        >
-          <img src="https://via.placeholder.com/300"></img>
-          <div className="imageWrapper"
-          style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
-          >
-
-            <img src="https://via.placeholder.com/300"></img>
-            <img src="https://via.placeholder.com/300"></img>
-            <img src="https://via.placeholder.com/300"></img>
-            <img src="https://via.placeholder.com/300"></img>
-            <img src="https://via.placeholder.com/300"></img>
           </div>
-
-
         </div>
-      </div>
-
 
 
     )

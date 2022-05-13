@@ -18,7 +18,10 @@
 .slider {
   display: flex;
   overflow: scroll;
+}
 
+.slider.outfit {
+  transform: translateX(210px);
 }
 
 .cardHolder {

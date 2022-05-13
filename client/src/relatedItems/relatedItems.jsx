@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from './Carousel.jsx'
+import OutfitCarousel from './OutfitCarousel.jsx'
 
 
 class RelatedItems extends React.Component {
@@ -14,10 +15,10 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-
-      <Carousel imgs={this.state.imgs}/>
-      // <Carousel />
-
+      <>
+        <Carousel imgs={this.state.imgs}/>
+        <OutfitCarousel imgs={this.state.imgs}/>
+      </>
 
 
     )
