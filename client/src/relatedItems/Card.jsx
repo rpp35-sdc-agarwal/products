@@ -1,9 +1,9 @@
 import React from 'react';
 import '../carousel.css'
 
-const Card = ({img}) => {
+const Card = ({img, type}) => {
   return (
-    <div className={`card related`}>
+    <div className={`card ${type}`}>
       <div className="modal">
 
       </div>

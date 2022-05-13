@@ -34,7 +34,7 @@ class OutfitCarousel extends React.Component {
     return (
       <div className="wrapper">
           <div className="slider outfit">
-            <RelatedList imgs={this.props.imgs} />
+            <RelatedList imgs={this.props.imgs} type={"outfit"}/>
 
           </div>
         </div>

@@ -35,7 +35,7 @@ class Carousel extends React.Component {
 
       <div className="wrapper">
         <div className="slider">
-          <RelatedList imgs={this.props.imgs} />
+          <RelatedList imgs={this.props.imgs} type={"related"}/>
 
         </div>
       </div>
