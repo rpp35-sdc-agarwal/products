@@ -4,6 +4,7 @@ import Carousel from './Carousel.jsx'
 import OutfitCarousel from './OutfitCarousel.jsx'
 
 
+
 class RelatedItems extends React.Component {
   constructor(props) {
     super(props)
@@ -11,6 +12,12 @@ class RelatedItems extends React.Component {
       imgs: ["https://via.placeholder.com/150", "https://via.placeholder.com/150","https://via.placeholder.com/150","https://via.placeholder.com/150"]
 
     }
+  }
+
+  componentDidMount() {
+    fetch('/hello')
+    .then(res => res.json())
+    .then(data => console.log(data))
   }
 
   render() {
