@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
+import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
 
 class App extends React.Component {
@@ -9,6 +10,7 @@ class App extends React.Component {
     this.state = {
       // TODO: this is a product id from the example, and it should be changed later
       currentProductId: '5',
+      productList: [...productListExample]
     }
   }
   
@@ -26,13 +28,14 @@ class App extends React.Component {
     */
   }
   render() {
+    console.log(this.state.productList);
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        <ProductOverview />
-        <ReviewsContainer />
+        {/* <ProductOverview />
+        <ReviewsContainer /> */}
         <Questions />
-        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} />
+        {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
       </div>
     )
   }

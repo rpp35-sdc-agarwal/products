@@ -1,4 +1,4 @@
-{
+const answersExample = {
   "question": "1",
   "page": 0,
   "count": 5,
@@ -30,4 +30,7 @@
     },
     // ...
   ]
-}
+};
+
+export default answersExample;
+
