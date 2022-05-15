@@ -1,0 +1,64 @@
+#galleryDiv {
+  width: 500px;
+  height : 500px;
+}
+
+#imageDiv {
+  width: 500px;
+  height : 500px;
+}
+
+#galleryCarouselDiv {
+  width: 50px;
+  height: 450px;
+  position:absolute;
+}
+
+
+#frame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+}
+
+.galleryCarouselFrame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+}
+
+.galleryCarouselImageFrame {
+  width: 50px;
+  height: 50px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.arrow {
+  border: solid gray;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  margin: 40%;
+}
+
+.arrow:hover {
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  margin: 40%;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrowDiv {
+  width: 50px;
+  height: 50px;
+}
