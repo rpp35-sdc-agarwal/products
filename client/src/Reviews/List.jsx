@@ -1,14 +1,11 @@
 import React from 'react';
-import { sampleRev } from './SampleData.js';
-import Sort from './Sort.jsx';
 import Tile from './Tile.jsx';
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: sampleRev,
-      reviews: sampleRev.results
+
     }
   }
 
@@ -16,8 +13,7 @@ class List extends React.Component {
 
   render() {
     return (
-      <div>
-        <Sort />
+      <div className="List">
         List
         <div>
           {/* {this.state.reviews.results.map((review) => {

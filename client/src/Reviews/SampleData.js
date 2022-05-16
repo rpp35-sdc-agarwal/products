@@ -48,7 +48,6 @@ var sampleMeta = {
     },
     "recommended": {
       0: 5
-
     },
     "characteristics": {
       "Size": {

@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './List.jsx';
+import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx'
 //possible bootstrap styling
@@ -9,10 +9,10 @@ import ProductBreakdown from './ProductBreakdown.jsx'
 
 function ReviewsContainer(props) {
   return (
-    <div>
+    <div className="ReviewsContainer">
       <RatingBreakdown />
       <ProductBreakdown />
-      <List />
+      <Sort />
     </div>
   )
 }

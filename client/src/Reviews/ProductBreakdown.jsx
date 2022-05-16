@@ -16,19 +16,21 @@ class ProductBreakdown extends React.Component {
     //corresponding value as a percentage
 
     //Size, Width, Comfort, Quality, Length, and Fit
+    //iterate throught the metadata object
+    //find out which categories are included in the metadata
+    //render the proper components corresponding to the categories
 
     return (
-      <div>
+      <div className="ProductBreakdown">
         ProductBreakdown
-
-        {/* {categories.map((cat) => {
+        {categories.map((cat) => {
           var rating = (parseInt(cat[1].value) / 5) * 100;
           return (
             <div key={cat[1].id}>
-              {cat[0]} <span>{rating}</span>
+              {cat[0]} <span className={cat[0].toLowerCase()}>{rating}</span>
             </div>
           )
-        })} */}
+        })}
       </div>
     )
   }
