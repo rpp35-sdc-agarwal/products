@@ -9,13 +9,13 @@ class RelatedItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      imgs: ["https://via.placeholder.com/150", "https://via.placeholder.com/150","https://via.placeholder.com/150","https://via.placeholder.com/150"]
+      imgs: ["https://via.placeholder.com/150", "https://via.placeholder.com/150","https://via.placeholder.com/150","https://via.placeholder.com/150", "https://via.placeholder.com/150"]
 
     }
   }
 
   componentDidMount() {
-    fetch('/hello')
+    fetch('/relatedItems')
     .then(res => res.json())
     .then(data => console.log(data))
   }
