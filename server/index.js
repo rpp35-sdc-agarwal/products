@@ -31,9 +31,9 @@ app.get('/products', (req, res) => {
   .catch(err => console.log('there was an error'))
 })
 
-app.get('/products/:product_id/relatedItems', (req, res) => {
-  var id = params.product_id
-  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}`, {
+app.get('/products/:product_id/related', (req, res) => {
+  var id = req.params.product_id
+  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/related`, {
     headers: {
       'Authorization': API
     }
