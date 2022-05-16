@@ -39,10 +39,30 @@ app.get('/products/:product_id/related', (req, res) => {
     }
   })
   .then(response => {
-
-    res.json(response.data)
+    var promises = [];
+    for (var i = 0; i < response.data.length; i++) {
+      var id = response.data[i]
+      promises.push(axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}`, {
+        headers: {
+          'Authorization': API
+        }
+      }))
+    }
+    return promises
 
   })
+  .then(promises => {
+    return Promise.all(promises)
+  })
+  .then(results => {
+    var data = [];
+    for (var i = 0; i < results.length; i++) {
+      data.push(results[i].data);
+    }
+    return data;
+  })
+  .then(data => res.json(data))
+
   .catch(err => console.log('there was an error'))
 
 
