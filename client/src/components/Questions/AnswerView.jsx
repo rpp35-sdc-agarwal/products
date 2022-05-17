@@ -1,5 +1,9 @@
 import React from 'react';
 
+
+/*
+
+*/
 class AnswerView extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +16,11 @@ class AnswerView extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='answer'>
+        A: {this.props.answer.body}
+        <div className='answer-info'>
+        <span>by {this.props.answer.answerer_name} </span> | <span>Helpful? <a>Yes</a></span> | <span><a>Report</a></span>
+        </div>
         
       </div>
     )

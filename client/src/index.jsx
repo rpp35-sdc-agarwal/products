@@ -34,7 +34,7 @@ class App extends React.Component {
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         {/* <ProductOverview />
         <ReviewsContainer /> */}
-        <Questions />
+        <Questions currentProductId={this.state.currentProductId} />
         {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
       </div>
     )

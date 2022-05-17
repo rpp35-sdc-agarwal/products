@@ -1,6 +1,10 @@
 import React from 'react';
 import QuestionView from './QuestionView.jsx';
 
+
+/*
+
+*/
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +15,7 @@ class QuestionList extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='question-list'>
         {this.props.questions.map((question, i) => 
           <QuestionView key={i} question={question} />
         )}
