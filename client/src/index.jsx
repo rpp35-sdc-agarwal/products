@@ -30,7 +30,6 @@ class App extends React.Component {
     console.log(this.state.productList);
     return(
       <div data-testid="test_app">
-        This is a test message.
         <ProductOverview />
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         {/* <ProductOverview />

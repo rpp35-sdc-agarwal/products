@@ -49,7 +49,7 @@ class ImageGallery extends React.Component {
 
   render() {
     return(
-      <div id = 'galleryDiv'>
+      <div id = 'galleryDiv' className = 'childDiv'>
 
         <GalleryThumbnails currentStyle = {this.state.currentStyle} handleImageChange={this.handleImageChange}/>
 

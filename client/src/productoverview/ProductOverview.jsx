@@ -4,6 +4,7 @@ import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import sampleData from '/Users/xuenjie/Fec/sampleData.js';
+import Slogan from './Slogan.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -15,12 +16,12 @@ class ProductOverview extends React.Component {
 
   render() {
     return(
-      <div>
-        Product Overview
+      <div id='container'>
         <ImageGallery styles = {this.state.data.productStyles.results}/>
-        <ProductInfo />
+        <ProductInfo productInfo = {this.state.data.productInfo}/>
         <StyleSelector />
         <AddToCart />
+        <Slogan productInfo = {this.state.data.productInfo}/>
       </div>
     )
   }
