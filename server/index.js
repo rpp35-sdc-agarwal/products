@@ -1,5 +1,5 @@
 const express = require('express');
-const API = require('../config.example.js')
+const API = require('../config.js')
 const axios = require('axios');
 
 const app = express();
