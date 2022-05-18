@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "react-dev": "webpack --mode development --watch",
     "server-dev": "npx nodemon server/index.js"
   },
@@ -30,11 +30,13 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
+    "@testing-library/react": "^13.2.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^8.14.0",
     "eslint-plugin-react": "^7.29.4",
     "install": "^0.13.0",
+    "jest": "^28.1.0",
     "nodemon": "^2.0.16",
     "npm": "^8.9.0",
     "style-loader": "^3.3.1",
