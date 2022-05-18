@@ -1,5 +1,6 @@
 import React from 'react';
 import '../carousel.css'
+import StarRating from './StarRating.jsx'
 
 
 const Card = ({product, type, isRelated, rating}) => {
@@ -17,6 +18,7 @@ const Card = ({product, type, isRelated, rating}) => {
         <h4><b>{product.category}</b></h4>
         <p>{product.name}</p>
       </div>
+      <StarRating rating={rating} />
 
     </div>
 
