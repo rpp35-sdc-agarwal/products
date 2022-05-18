@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 class StarRating extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class StarRating extends React.Component {
     const widthStyle = {
       width: this.state.rating
     }
-    const element = <FontAwesomeIcon icon={faCoffee} />
+    const element = <FontAwesomeIcon icon={faStar} />
     return (
       <div className="star-outer">
         <div className="star-inner" style={widthStyle} >
