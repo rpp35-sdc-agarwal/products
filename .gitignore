@@ -1,10 +1,6 @@
 node_modules/
 .eslintrc.js
 .babelrc
-<<<<<<< HEAD
-client/dist/bundle.js
-=======
 client/dist/bundle.js
 config.js
 .DS_Store
->>>>>>> cd1d5063d09d88d76288f8f47a1fe7743a34dd38
