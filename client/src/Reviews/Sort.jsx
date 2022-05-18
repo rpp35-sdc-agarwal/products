@@ -39,7 +39,7 @@ class Sort extends React.Component {
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
         </select>
-        <List />
+        <List filteredRevs={filteredRevs}/>
       </div>
     )
   }
