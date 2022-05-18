@@ -2,10 +2,10 @@ import React from 'react';
 import Card from './Card.jsx'
 import '../carousel.css'
 
-const RelatedList = ({imgs, type, isRelated}) => {
-  var cards = imgs.map((img) => {
+const RelatedList = ({products, type, isRelated}) => {
+  var cards = products.map((product) => {
     return (
-      <Card img={img} type={type} isRelated={isRelated}/>
+      <Card product={product} type={type} isRelated={isRelated}/>
     )
 
   })

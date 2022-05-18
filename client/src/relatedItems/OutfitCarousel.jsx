@@ -38,7 +38,7 @@ class OutfitCarousel extends React.Component {
         <AddOutfit />
 
         <div className="slider">
-          <RelatedList imgs={this.props.imgs} type={"outfit"} isRelated={false}/>
+          <RelatedList products={this.props.products} type={"outfit"} isRelated={false}/>
 
         </div>
       </div>

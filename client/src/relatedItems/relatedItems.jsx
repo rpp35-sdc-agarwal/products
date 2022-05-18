@@ -9,8 +9,8 @@ class RelatedItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      imgs: ["https://via.placeholder.com/150", "https://via.placeholder.com/150","https://via.placeholder.com/150","https://via.placeholder.com/150", "https://via.placeholder.com/150"]
 
+      products: this.props.products
     }
   }
 
@@ -23,8 +23,8 @@ class RelatedItems extends React.Component {
   render() {
     return (
       <>
-        <Carousel imgs={this.state.imgs}/>
-        <OutfitCarousel imgs={this.state.imgs}/>
+         <Carousel products={this.state.products}/>
+        {/* <OutfitCarousel products={this.state.products}/> */}
       </>
     )
   }

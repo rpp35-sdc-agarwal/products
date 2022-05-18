@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
 import Carousel from './relatedItems/Carousel.jsx';
 import RelatedItems from './relatedItems/RelatedItems.jsx';
+import listProducts from '../data/listProducts.js'
 
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
   }
   render() {
     return(
-      <RelatedItems />
+      <RelatedItems products={this.props.products}/>
 
 
     )
@@ -22,4 +23,4 @@ class App extends React.Component {
 }
 
 const root = createRoot(document.getElementById('app'));
-root.render(<App />);
+root.render(<App products={listProducts}/>);

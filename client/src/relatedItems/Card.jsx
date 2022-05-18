@@ -1,7 +1,7 @@
 import React from 'react';
 import '../carousel.css'
 
-const Card = ({img, type, isRelated}) => {
+const Card = ({product, type, isRelated}) => {
   return (
     <div className={`card ${type}`}>
       { isRelated &&
@@ -13,8 +13,8 @@ const Card = ({img, type, isRelated}) => {
 
       <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
       <div className="container">
-        <h4><b>John Doe</b></h4>
-        <p>Architect and engineer</p>
+        <h4><b>{product.category}</b></h4>
+        <p>{product.name}</p>
       </div>
     </div>
 
