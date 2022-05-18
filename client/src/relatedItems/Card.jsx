@@ -1,8 +1,8 @@
 import React from 'react';
 import '../carousel.css'
-import { Rating } from '@mui/material';
 
-const Card = ({product, type, isRelated}) => {
+
+const Card = ({product, type, isRelated, rating}) => {
   return (
     <div className={`card ${type}`}>
       { isRelated &&
@@ -17,7 +17,7 @@ const Card = ({product, type, isRelated}) => {
         <h4><b>{product.category}</b></h4>
         <p>{product.name}</p>
       </div>
-      <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+
     </div>
 
   )
