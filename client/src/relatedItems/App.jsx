@@ -1,23 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {createRoot} from 'react-dom/client';
-import RelatedItems from './RelatedItems.jsx';
+import '../carousel.css'
 
+const title = 'Hello React';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-  render() {
-    return(
-      <RelatedItems />
-
-
-    )
-  }
+function App() {
+  return <div>{title}</div>;
 }
 
 export default App;
