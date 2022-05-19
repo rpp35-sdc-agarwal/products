@@ -70,7 +70,7 @@ class RatingBreakdown extends React.Component {
 
   render() {
     return (
-      <div className="RatingBreakdown">
+      <div data-testid="test_revRatingBreakdown" className="RatingBreakdown">
         <h3>Ratings and Reviews</h3>
         <h1>{this.state.avgScore}</h1><span>{this.state.starVal}</span>
         <div>% recommended</div>

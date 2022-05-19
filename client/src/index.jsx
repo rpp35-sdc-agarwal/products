@@ -1,27 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
-<<<<<<< HEAD
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
-=======
-import productListExample from './examples/productList-example.js';
-import Questions from './components/Questions/Questions.jsx';
->>>>>>> cd1d5063d09d88d76288f8f47a1fe7743a34dd38
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-
-=======
-      // TODO: this is a product id from the example, and it should be changed later
-      currentProductId: '5',
-      productList: [...productListExample]
->>>>>>> cd1d5063d09d88d76288f8f47a1fe7743a34dd38
+      currentProductId: 71697
     }
   }
-  
+
   handleItemClick(productId) {
     this.setState({
       currentProductId: productId
@@ -39,15 +28,11 @@ class App extends React.Component {
     console.log(this.state.productList);
     return(
       <div data-testid="test_app">
-<<<<<<< HEAD
-        <ReviewsContainer />
-=======
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        {/* <ProductOverview />
-        <ReviewsContainer /> */}
-        <Questions currentProductId={this.state.currentProductId} />
+        {/* <ProductOverview /> */}
+        <ReviewsContainer product_id={this.state.currentProductId}/>
+        {/* <Questions currentProductId={this.state.currentProductId} /> */}
         {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
->>>>>>> cd1d5063d09d88d76288f8f47a1fe7743a34dd38
       </div>
     )
   }

@@ -9,10 +9,10 @@ import ProductBreakdown from './ProductBreakdown.jsx'
 
 function ReviewsContainer(props) {
   return (
-    <div className="ReviewsContainer">
+    <div data-testid="test_revContainer" className="ReviewsContainer">
       <RatingBreakdown />
       <ProductBreakdown />
-      <Sort />
+      <Sort product_id={props.product_id}/>
     </div>
   )
 }

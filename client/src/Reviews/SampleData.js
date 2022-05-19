@@ -1,6 +1,5 @@
-
 var sampleRev = {
-    "product": "2",
+    "product": 71697,
     "page": 0,
     "count": 5,
     "results": [
@@ -37,7 +36,7 @@ var sampleRev = {
         "photos": [],
       }
     ]
-  }
+  };
 var sampleMeta = {
     "product_id": "2",
     "ratings": {

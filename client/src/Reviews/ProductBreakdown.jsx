@@ -21,7 +21,7 @@ class ProductBreakdown extends React.Component {
     //render the proper components corresponding to the categories
 
     return (
-      <div className="ProductBreakdown">
+      <div data-testid="test_revProductBreakdown" className="ProductBreakdown">
         ProductBreakdown
         {categories.map((cat) => {
           var rating = (parseInt(cat[1].value) / 5) * 100;

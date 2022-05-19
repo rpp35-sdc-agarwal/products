@@ -1,32 +1,30 @@
 import React from 'react';
-import Tile from './Tile.jsx';
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      reviews: this.props.reviews
     }
   }
 
-  //call to the backend and store the returned data in state when the entire component mounts
-
   render() {
     return (
-      <div className="List">
+      <div data-testid="test_revList" className="List">
         List
         <div>
-          {/* {this.state.reviews.results.map((review) => {
+          {this.props.reviews.map((review) => {
             return (
-              <Tile review={review}/>
+              <div key={review.review_id} className="rev-tile">
+                <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name} {review.date.slice(0, 10)}</span></div>
+                <div className="rev-summary">{review.summary}</div>
+                <div className="rev-body">{review.body}</div>
+                <div className="rev-response">{review.response}</div>
+                <div className="rev-helpfulness">{review.helpfulness} people found this review helpful</div>
+              </div>
             )
-          })} */}
+          })}
         </div>
-        {
-        //dynamically render 2 tiles
-        //create a More Reviews button (add functionality in next iteration)
-        //create an add review button next to the more reviews button
-       }
        <button>More Reviews</button><button>Write A Review</button>
       </div>
     )
