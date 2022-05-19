@@ -117,7 +117,8 @@ const addPriceToProducts = (req, res, next) => {
       }
     }
   }
-  res.json(products)
+  res.products = products
+  next()
 }
 
 module.exports = {
