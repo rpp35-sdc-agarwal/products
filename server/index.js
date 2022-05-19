@@ -9,13 +9,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
-});
-
 app.get('/products', (req, res) => {
 
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products`, {
@@ -67,3 +60,9 @@ app.get('/products/:product_id/related', (req, res) => {
 
 
 })
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
+});

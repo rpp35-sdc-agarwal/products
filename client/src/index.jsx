@@ -1,17 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
+import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       // TODO: this is a product id from the example, and it should be changed later
-      currentProductId: '5',
-      productList: [...productListExample]
+      currentProductId: '',
+      productList: []
     }
+  }
+  
+  // Retrive products from the backend and update the productList and currentProductid
+  retrieveProducts () {
+    axios.get('/products')
+      .then((res) => {
+        this.setState({
+          productList: [...res.data]
+        }, () => {
+          console.log('products: ', this.state.productList);
+          this.setState({
+            currentProductId: this.state.productList[0].id
+          }, () => {
+            console.log('current product id: ', this.state.currentProductId)
+          })
+        })
+      })
+  }
+  
+  componentDidMount () {
+    console.log('in componentDidMount');
+    this.retrieveProducts();
   }
   
   handleItemClick(productId) {
@@ -28,7 +52,6 @@ class App extends React.Component {
     */
   }
   render() {
-    console.log(this.state.productList);
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}

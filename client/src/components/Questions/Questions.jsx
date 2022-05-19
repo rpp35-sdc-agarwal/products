@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search.jsx';
 import QuestionList from './QuestionList.jsx';
 import exampleQuestions from '../../examples/questionList-example.js'
+import QuestionPopup from './QuestionPopup.jsx';
 
 /*
   QuestionList should display up to 2 questions by default
@@ -11,7 +12,8 @@ class Questions extends React.Component {
     super(props);
     this.state = {
       questions: [exampleQuestions.results[0], exampleQuestions.results[1]],
-      search: ''
+      search: '',
+      add: false
     }
   }
   
@@ -29,6 +31,12 @@ class Questions extends React.Component {
     })
   }
   
+  addQuestion () {
+    this.setState({
+      add: !this.state.add
+    })
+  }
+  
   render() {
     return (
       <div id='QA' data-testid="test_questions">
@@ -36,7 +44,10 @@ class Questions extends React.Component {
         <Search handleSearch={this.handleSearch.bind(this)} />
         <QuestionList questions={this.state.questions} />
         <button onClick={this.showMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
-        <button>ADD A QUESTION +</button>
+        <button onClick={this.addQuestion.bind(this)}>ADD A QUESTION +</button>
+        <div>
+          {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} /> : null}
+        </div>
       </div>
     )
   }
