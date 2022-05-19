@@ -35,10 +35,6 @@ app.get('/products', (req, res) => {
 })
 
 app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts], (req, res) => {
-  var data = {
-    'products': res.products,
-    'styles': res.styles
-  }
-  res.json(data);
+
 
 })

@@ -117,9 +117,7 @@ const addPriceToProducts = (req, res, next) => {
       }
     }
   }
-  console.log('what are products', products)
-
-  next()
+  res.json(products)
 }
 
 module.exports = {
