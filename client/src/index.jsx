@@ -5,7 +5,6 @@ import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);

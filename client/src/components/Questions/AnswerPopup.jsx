@@ -14,7 +14,7 @@ class AnswerPopup extends React.Component {
   
   render() {
     return(
-      <div className='answer-modal'>
+      <div className='modal' id='answer-modal'>
         <div className="modal_content">
           <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
           <p>I'm A Pop Up!!!</p>
