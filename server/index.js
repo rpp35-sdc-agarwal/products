@@ -34,7 +34,7 @@ app.get('/products', (req, res) => {
   .catch(err => console.log('there was an error'))
 })
 
-app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles], (req, res) => {
+app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts], (req, res) => {
   var data = {
     'products': res.products,
     'styles': res.styles

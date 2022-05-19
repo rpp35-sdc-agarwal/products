@@ -86,7 +86,7 @@ const getRelatedStyles = (req, res, next) => {
   })
   .then(data => {
     res.styles = data
-    console.log('what is data in styles', data)
+
     next();
 
   })
@@ -95,7 +95,35 @@ const getRelatedStyles = (req, res, next) => {
 
 }
 
+const addPriceToProducts = (req, res, next) => {
+  var products = res.products;
+
+  for (var i = 0; i < res.styles.length; i++) {
+    console.log(res.styles[i]['product_id'])
+    var styles = res.styles[i].results;
+    console.log(styles.length)
+
+    for (var j = 0; j < styles.length; j++) {
+      console.log(styles[j]['default?'])
+
+      if (styles[j]['default?']) {
+        console.log('what is price', styles[j].original_price)
+        console.log('what is price', styles[j].sale_price)
+        if (styles[j].sale_price) {
+          products[i].sale_price = styles[j].sale_price;
+        }
+
+
+      }
+    }
+  }
+  console.log('what are products', products)
+
+  next()
+}
+
 module.exports = {
   getRelatedProducts: getRelatedProducts,
-  getRelatedStyles: getRelatedStyles
+  getRelatedStyles: getRelatedStyles,
+  addPriceToProducts: addPriceToProducts
 }
