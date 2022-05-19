@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-const getRelatedProducts = require('./middleware/relatedProducts.js')
+const getRelated = require('./middleware/relatedProducts.js')
 
 
 
@@ -34,7 +34,11 @@ app.get('/products', (req, res) => {
   .catch(err => console.log('there was an error'))
 })
 
-app.get('/products/:product_id/related', getRelatedProducts, (req, res) => {
-  res.json(res.products);
+app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles], (req, res) => {
+  var data = {
+    'products': res.products,
+    'styles': res.styles
+  }
+  res.json(data);
 
 })
