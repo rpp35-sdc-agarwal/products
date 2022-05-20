@@ -18,7 +18,8 @@ class Card extends React.Component {
       <div className="card">
         { this.props.isRelated &&
 
-          <div className="modal">
+          <div className="modal-card">
+
 
           </div>
         }
