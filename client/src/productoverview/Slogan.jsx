@@ -10,7 +10,7 @@ class Slogan extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id='sloganDiv' className='childDiv'>
         <div>
           {this.state.productInfo.slogan}
         </div>

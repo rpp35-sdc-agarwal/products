@@ -18,7 +18,7 @@ class ProductOverview extends React.Component {
     return(
       <div id='container'>
         <ImageGallery styles = {this.state.data.productStyles.results}/>
-        <ProductInfo productInfo = {this.state.data.productInfo}/>
+        <ProductInfo productInfo = {this.state.data.productInfo} styles = {this.state.data.productStyles.results}/>
         <StyleSelector />
         <AddToCart />
         <Slogan productInfo = {this.state.data.productInfo}/>

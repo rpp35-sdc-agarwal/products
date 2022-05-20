@@ -1,6 +1,6 @@
 #container {
   width: 800px;
-  height: 700px;
+  height: 800px;
 }
 
 #galleryDiv {
@@ -103,3 +103,7 @@
   float: left;
 }
 
+#sloganDiv {
+  width: 600px;
+  height: 200px;
+}

@@ -4,11 +4,16 @@ class ProductInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productInfo: this.props.productInfo
+      productInfo: this.props.productInfo,
+      currentStyle: this.props.styles[0],
     }
   }
 
+
+
   render() {
+    let salePriceHTML = <div><s>${this.state.currentStyle.sale_price}</s> <a style={{color: 'red'}}>${this.state.currentStyle.original_price}</a></div>
+    let originPriceHTML = <div>${this.state.currentStyle.original_price}</div>
     return(
       <div className='childDiv'>
         <div>
@@ -21,6 +26,9 @@ class ProductInfo extends React.Component {
           <h1>
             {this.state.productInfo.name}
           </h1>
+        </div>
+        <div>
+          {this.state.currentStyle.sale_price? salePriceHTML : originPriceHTML}
         </div>
       </div>
     )
