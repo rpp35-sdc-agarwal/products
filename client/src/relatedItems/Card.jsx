@@ -11,16 +11,22 @@ class Card extends React.Component {
     this.state = {
       compare: false
     }
+    this.compare = this.compare.bind(this);
+  }
+
+  compare() {
+    this.setState({
+      compare: !this.state.compare
+    })
   }
 
   render() {
 
     return (
       <div className="card">
-        { this.props.isRelated &&
-          <CardModal />
-
-
+        <button onClick={this.compare}>COMPARE</button>
+        { this.props.isRelated && this.state.compare &&
+          <CardModal toggleModal={this.compare}/>
         }
 
         <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
