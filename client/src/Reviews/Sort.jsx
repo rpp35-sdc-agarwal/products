@@ -17,7 +17,13 @@ class Sort extends React.Component {
   //Newest - This is a straightforward sort based on the date the review was submitted.  The most recent reviews should appear first.
   //Relevant - Relevance will be determined by a combination of both the date that the review was submitted as well as ‘helpfulness’ feedback received.  This combination should weigh the two characteristics such that recent reviews appear near the top, but do not outweigh reviews that have been found helpful.  Similarly, reviews that have been helpful should appear near the top, but should yield to more recent reviews if they are older.
 
-  componentDidMount() {
+  componentDidUpdate(oldProps) {
+    if (oldProps.product_id !== this.props.product_id) {
+      this.reviewReq(this.props.product_id)
+    }
+  }
+
+  reviewReq(productId) {
     var config = {
       method: 'get',
       url: 'http://localhost:3000/reviews',
@@ -115,7 +121,6 @@ class Sort extends React.Component {
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
         </select>
-        {/* filteredRevs={filteredRevs} */}
         <List reviews={this.state.reviews}/>
       </div>
     )

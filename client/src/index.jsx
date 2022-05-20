@@ -4,6 +4,7 @@ import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
+import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class App extends React.Component {
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         {/* <ProductOverview /> */}
         <ReviewsContainer product_id={this.state.currentProductId}/>
-        {/* <Questions currentProductId={this.state.currentProductId} /> */}
+        <Questions currentProductId={this.state.currentProductId} />
         {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
       </div>
     )

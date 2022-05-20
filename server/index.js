@@ -1,11 +1,9 @@
 const express = require('express');
 const API = require('../config.js')
-const axios = require('axios');
-
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const gitKey = require('../config.js');
+
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
@@ -115,7 +113,7 @@ app.get('/products/:product_id/related', (req, res) => {
 //    Reviews Routes
 /////////////////////////////////////////////////////////
 
-// TODO: Add routes for Reviews
+
 
 
 
@@ -127,7 +125,7 @@ app.get('/reviews', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
     method: 'get',
-    headers: { 'Authorization': gitKey },
+    headers: { 'Authorization': API },
     params: {
       product_id: parseInt(req.query.product_id),
       sort: req.query.filter
@@ -138,7 +136,8 @@ app.get('/reviews', (req, res) => {
       res.send(data.data);
     })
     .catch((err) => {
-      res.send(err);
+      console.log(err);
+      res.status(400).send(`There has been an error: ${err}`);
     })
 
 });
