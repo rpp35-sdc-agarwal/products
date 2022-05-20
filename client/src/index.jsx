@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
 import ProductOverview from './productoverview/ProductOverview.jsx';
+import axios from 'axios';
+import productListExample from './examples/productList-example.js';
+import Questions from './components/Questions/Questions.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,12 +13,36 @@ class App extends React.Component {
       // TODO: this is a product id from the example, and it should be changed later
       // currentProductId: '5',
       // productList: [...productListExample]
+      currentProductId: '',
+      productList: []
     }
+  }
+
+  // Retrive products from the backend and update the productList and currentProductId
+  retrieveProducts () {
+    axios.get('/products')
+      .then((res) => {
+        this.setState({
+          productList: [...res.data]
+        }, () => {
+          console.log('products: ', this.state.productList);
+          this.setState({
+            currentProductId: JSON.stringify(this.state.productList[0].id)
+          }, () => {
+            console.log('current product id: ', this.state.currentProductId)
+          })
+        })
+      })
+  }
+
+  componentDidMount () {
+    console.log('in App componentDidMount');
+    this.retrieveProducts();
   }
 
   handleItemClick(productId) {
     this.setState({
-      currentProductId: productId
+      currentProductId: JSON.stringify(productId)
     }, () => {
       console.log('updated state: ', this.state.currentProductId)
     })
@@ -27,7 +54,6 @@ class App extends React.Component {
     */
   }
   render() {
-    console.log(this.state.productList);
     return(
       <div data-testid="test_app">
         <ProductOverview />
