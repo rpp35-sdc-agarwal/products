@@ -15,7 +15,7 @@ class App extends React.Component {
     }
   }
   
-  // Retrive products from the backend and update the productList and currentProductid
+  // Retrive products from the backend and update the productList and currentProductId
   retrieveProducts () {
     axios.get('/products')
       .then((res) => {
@@ -24,7 +24,7 @@ class App extends React.Component {
         }, () => {
           console.log('products: ', this.state.productList);
           this.setState({
-            currentProductId: this.state.productList[0].id
+            currentProductId: JSON.stringify(this.state.productList[0].id)
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
           })
@@ -33,13 +33,13 @@ class App extends React.Component {
   }
   
   componentDidMount () {
-    console.log('in componentDidMount');
+    console.log('in App componentDidMount');
     this.retrieveProducts();
   }
   
   handleItemClick(productId) {
     this.setState({
-      currentProductId: productId
+      currentProductId: JSON.stringify(productId)
     }, () => {
       console.log('updated state: ', this.state.currentProductId)
     })
