@@ -15,7 +15,7 @@ class RelatedItems extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/relatedItems')
+    fetch('/products')
     .then(res => res.json())
     .then(data => console.log(data))
   }
