@@ -1,11 +1,39 @@
-
-.star-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005",
-  font-family: "",
-  font-weight: 900,
-  color:
+* {
+  padding: 0;
+  margin: 0
 }
 
-.star-outer {
+html {
+  height: 100%;
+}
 
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal_content {
+  background-color: white;
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.close {
+  color: Black;
+  float: right;
+}
+
+.close:hover {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
 }
