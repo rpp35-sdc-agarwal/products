@@ -24,7 +24,7 @@ class Card extends React.Component {
 
     return (
       <div className="card">
-        <button onClick={this.compare}>COMPARE</button>
+        <button className="card-modal-toggle" onClick={this.compare}>COMPARE</button>
         { this.props.isRelated && this.state.compare &&
           <CardModal toggleModal={this.compare}/>
         }
