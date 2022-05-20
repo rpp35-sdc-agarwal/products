@@ -1,5 +1,5 @@
 const axios = require('axios');
-const API = require('../../config.example.js')
+const API = require('../../config.js')
 
 
 const getRelatedProducts = (req, res, next) => {
