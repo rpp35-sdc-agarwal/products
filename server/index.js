@@ -9,12 +9,9 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
-});
+/////////////////////////////////////////////////////////
+//    Products Routes
+/////////////////////////////////////////////////////////
 
 app.get('/products', (req, res) => {
 
@@ -31,6 +28,23 @@ app.get('/products', (req, res) => {
   .catch(err => console.log('there was an error'))
 })
 
+/////////////////////////////////////////////////////////
+//    Product Overview Routes
+/////////////////////////////////////////////////////////
+
+// TODO: Add routes for Product Overview
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////
+//    Related Items Routes
+/////////////////////////////////////////////////////////
 app.get('/products/:product_id/related', (req, res) => {
   var id = req.params.product_id
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/related`, {
@@ -67,3 +81,43 @@ app.get('/products/:product_id/related', (req, res) => {
 
 
 })
+
+/////////////////////////////////////////////////////////
+//    Questions and Answers Routes
+/////////////////////////////////////////////////////////
+
+// TODO: Add routes for Questions and Answers
+
+// app.get('/products/:product_id/questions', (req, res) => {
+//   var id = req.params.product_id
+//   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/?product_id=${id}`, {
+//     headers: {
+//       'Authorization': API
+//     }
+//   })
+//   .then((data) => {
+//     console.log(data);
+//     res.send(data);
+//   })
+// })
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////
+//    Reviews Routes
+/////////////////////////////////////////////////////////
+
+// TODO: Add routes for Reviews
+
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
+});
