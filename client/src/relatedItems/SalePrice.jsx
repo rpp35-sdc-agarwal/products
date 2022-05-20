@@ -3,8 +3,8 @@ import React from 'react';
 const SalePrice = ({salePrice, price}) => {
   return (
     <>
-    <span>{salePrice} </span>
-    <span>{price}</span>
+    <span className="salePrice">{salePrice} </span>
+    <span className="defaultPrice">{price}</span>
     </>
   )
 }
