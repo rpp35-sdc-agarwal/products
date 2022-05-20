@@ -15,12 +15,12 @@ class CardModal extends React.Component {
 
   render() {
     return(
-      <div className="modal" >
-        <div className="modal_content">
-          <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
-          <p>I'm A Pop Up!!!</p>
-        </div>
+      <div className="modal-card">
+        {/* <span className="close" onClick={this.closePopup.bind(this)}>&times;</span> */}
+        <p>hello from modal</p>
+        <p>more text from modal hi hi hi</p>
       </div>
+
     )
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import '../carousel.css'
 import StarRating from './StarRating.jsx'
+import CardModal from './CardModal.jsx'
 
 
 class Card extends React.Component {
@@ -17,11 +18,9 @@ class Card extends React.Component {
     return (
       <div className="card">
         { this.props.isRelated &&
+          <CardModal />
 
-          <div className="modal-card">
 
-
-          </div>
         }
 
         <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
