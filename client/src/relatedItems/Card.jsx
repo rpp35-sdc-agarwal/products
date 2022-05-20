@@ -1,28 +1,39 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 // import '../carousel.css'
 import StarRating from './StarRating.jsx'
 
 
-const Card = ({product, type, isRelated, rating}) => {
-  return (
-    <div className={`card ${type}`}>
-      { isRelated &&
+class Card extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      compare: false
+    }
+  }
 
-        <div className="modal">
+  render() {
 
+    return (
+      <div className="card">
+        { this.props.isRelated &&
+
+          <div className="modal">
+
+          </div>
+        }
+
+        <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+        <div className="container">
+          <h4><b>{this.props.product.category}</b></h4>
+          <p>{this.props.product.name}</p>
         </div>
-      }
+        <StarRating rating={this.props.rating} />
 
-      <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
-      <div className="container">
-        <h4><b>{product.category}</b></h4>
-        <p>{product.name}</p>
       </div>
-      <StarRating rating={rating} />
 
-    </div>
-
-  )
+    )
+  }
 }
 
 export default Card;
