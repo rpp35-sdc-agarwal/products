@@ -13,7 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ratings: [1, 2, 3, 4, 4.2, 5, 2.7, 4, 3, 2, 1.1]
+      ratings: [1, 2, 3, 4, 4.2, 5, 2.7, 4, 3, 2, 1.1],
 
       // TODO: this is a product id from the example, and it should be changed later
       currentProductId: '',
@@ -58,30 +58,25 @@ class App extends React.Component {
   }
   render() {
     return(
-<<<<<<< HEAD
-      <RelatedItems products={this.props.products} ratings={this.state.ratings}/>
+      <div>
+        <RelatedItems products={this.props.products} ratings={this.state.ratings}/>
 
 
-=======
-      <div data-testid="test_app">
-        {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        {/* <ProductOverview />
-        <ReviewsContainer /> */}
-        <Questions currentProductId={this.state.currentProductId} />
-        {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
+        <div data-testid="test_app">
+          {/* Make sure to comment out components that are not built yet to avoid errors*/}
+          {/* <ProductOverview />
+          <ReviewsContainer /> */}
+          <Questions currentProductId={this.state.currentProductId} />
+          {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
+        </div>
       </div>
->>>>>>> ed1618c4eab8c6416f7c1ce896c8a06adb26ef8e
     )
   }
 }
 
-<<<<<<< HEAD
-const root = createRoot(document.getElementById('app'));
-root.render(<App products={listProducts}/>);
-=======
+
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
-root.render(<App />);
+root.render(<App products={listProducts}/>);
 
 export default App;
->>>>>>> ed1618c4eab8c6416f7c1ce896c8a06adb26ef8e
