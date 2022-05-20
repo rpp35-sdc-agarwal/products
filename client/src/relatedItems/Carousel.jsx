@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../carousel.css';
+// import '../carousel.css';
 import RelatedList from './RelatedList.jsx'
 import Card from './Card.jsx'
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../star.css'
+
 
 class StarRating extends React.Component {
   constructor(props) {

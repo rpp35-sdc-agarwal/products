@@ -1,5 +1,5 @@
 import React from 'react';
-import '../carousel.css'
+// import '../carousel.css'
 import StarRating from './StarRating.jsx'
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card.jsx'
-import '../carousel.css'
+
 
 const RelatedList = ({products, type, isRelated, ratings}) => {
   var cards = products.map((product, i) => {
