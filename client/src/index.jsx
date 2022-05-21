@@ -59,15 +59,16 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <RelatedItems products={this.props.products} ratings={this.state.ratings}/>
+
 
 
         <div data-testid="test_app">
           {/* Make sure to comment out components that are not built yet to avoid errors*/}
           {/* <ProductOverview />
           <ReviewsContainer /> */}
+          <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.props.products} ratings={this.state.ratings}/>
           <Questions currentProductId={this.state.currentProductId} />
-          {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
+          {/* <RelatedItems  /> */}
         </div>
       </div>
     )
