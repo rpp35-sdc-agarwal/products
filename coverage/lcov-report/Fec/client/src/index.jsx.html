@@ -132,6 +132,9 @@
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
+<<<<<<< HEAD
+<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+=======
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
@@ -152,6 +155,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,8 +174,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+=======
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -218,16 +225,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+=======
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
+import axios from 'axios';
+import productListExample from './examples/productList-example.js';
+import Questions from './components/Questions/Questions.jsx';
+=======
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import ReactDOM from 'react-dom';
@@ -240,19 +258,27 @@ import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
 &nbsp;
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
+=======
       ratings: [1, 2, 3, 4, 4.2, 5, 2.7, 4, 3, 2, 1.1],
 &nbsp;
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
       // TODO: this is a product id from the example, and it should be changed later
       currentProductId: '',
       productList: []
     }
   }
+<<<<<<< HEAD
+  
+=======
 &nbsp;
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
   // Retrive products from the backend and update the productList and currentProductId
   retrieveProducts () {
     axios.get('/products')
@@ -269,12 +295,20 @@ class App extends React.Component {
         })
       })
   }
+<<<<<<< HEAD
+  
+=======
 &nbsp;
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
   componentDidMount () {
     console.log('in App componentDidMount');
     this.retrieveProducts();
   }
+<<<<<<< HEAD
+  
+=======
 &nbsp;
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
 <span class="fstat-no" title="function not covered" >  ha</span>ndleItemClick(productId) {
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
       currentProductId: JSON.stringify(productId)
@@ -290,6 +324,14 @@ class App extends React.Component {
   }
   render() {
     return(
+<<<<<<< HEAD
+      &lt;div data-testid="test_app"&gt;
+        {/* Make sure to comment out components that are not built yet to avoid errors*/}
+        {/* &lt;ProductOverview /&gt;
+        &lt;ReviewsContainer /&gt; */}
+        &lt;Questions currentProductId={this.state.currentProductId} /&gt;
+        {/* &lt;RelatedItems handleItemClick={this.handleItemClick.bind(this)} /&gt; */}
+=======
       &lt;div&gt;
         {/* &lt;RelatedItems products={this.props.products} ratings={this.state.ratings}/&gt; */}
 &nbsp;
@@ -301,11 +343,19 @@ class App extends React.Component {
           {/* &lt;Questions currentProductId={this.state.currentProductId} /&gt; */}
           {/* &lt;RelatedItems handleItemClick={this.handleItemClick.bind(this)} /&gt; */}
         &lt;/div&gt;
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
       &lt;/div&gt;
     )
   }
 }
 &nbsp;
+<<<<<<< HEAD
+const container = document.getElementById('app') || document.createElement('div');
+const root = createRoot(container);
+root.render(&lt;App /&gt;);
+&nbsp;
+export default App;</pre></td></tr></table></pre>
+=======
 &nbsp;
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
@@ -313,13 +363,18 @@ root.render(&lt;App products={listProducts}/&gt;);
 &nbsp;
 export default App;
 &nbsp;</pre></td></tr></table></pre>
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
+                at Fri May 20 2022 22:27:16 GMT-0700 (Pacific Daylight Time)
+=======
                 at Sat May 21 2022 10:29:47 GMT-0700 (Pacific Daylight Time)
+>>>>>>> b999ba6137a38919a2f2303fac67ca2e5b436d23
             </div>
         <script src="../../../prettify.js"></script>
         <script>
