@@ -20,7 +20,7 @@ class Questions extends React.Component {
     }
     this.retrieveQuestions = this.retrieveQuestions.bind(this);
   }
-  
+
   async retrieveQuestions (productId) {
     let options = {
       method: 'get',
@@ -30,31 +30,34 @@ class Questions extends React.Component {
       }
     }
     
-    axios(options)
-      .then((res) => {
-        this.setState({
-          questions: [res.data.results[0], res.data.results[1]]
-        }, () => {
-          console.log('questions: ', this.state.questions)
-        })
-        return res.data.results;
-      })
-      .catch((err) => {
-        throw err;
-      })
+    let res = await axios(options);
+    return res.data.results;
   }
-  
+
   componentDidUpdate (prevProps) {
     // console.log('currentProductId in componentDidUpdate: ', this.state.productId)
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.setState({
         productId: this.props.currentProductId
       }, () => {
+        console.log('state.productId: ', this.state.productId)
         this.retrieveQuestions(this.state.productId)
+          .then((results) => {
+            console.log('results: ', results);
+            this.setState({
+              questions: [results[0], results[1]]
+            }, () => {
+              console.log('questions: ', this.state.questions)
+            })
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
     }
+    
   }
-  
+
   handleSearch (keyword) {
     this.setState({
       search: keyword
@@ -62,21 +65,27 @@ class Questions extends React.Component {
       console.log('searched: ', this.state.search);
     })
   }
-  
+
   showMoreQuestions () {
-    this.setState({
-      questions:[...exampleQuestions.results]
-    })
+    this.retrieveQuestions(this.state.productId)
+      .then((data) => {
+        console.log('data: ', data)
+        
+        this.setState({
+          questions:[...data]
+        })
+      })
+    
   }
-  
+
   addQuestion () {
     this.setState({
       add: !this.state.add
     })
   }
-  
+
   render() {
-    // console.log('in questions render')
+    console.log('in questions render')
     return (
       <div id='QA' data-testid="test_questions">
         Questions component placeholder
