@@ -9,20 +9,40 @@ class AnswerList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      expand: false,
     }
   }
   
-  
+  toggleExpand () {
+    this.setState({
+      expand: !this.state.expand
+    })
+  } 
   
   render() {
-    return (
-      <div className='answer-list'>
-        {Object.keys(this.props.answers).map((answerKey, i) => (
-          <AnswerView answer={this.props.answers[answerKey]} key={i} />
-        ))}
-      </div>
-    )
+    let answerKeys = Object.keys(this.props.answers)
+    if (answerKeys.length <= 2 || this.state.expand === true) {
+      return (
+        <div className='answer-list'>
+          {
+          answerKeys.map((answerKey, i) => (
+            <AnswerView answer={this.props.answers[answerKey]} key={i} />
+          ))
+        }
+        {answerKeys.length > 2 ? <p onClick={this.toggleExpand.bind(this)} className='toggle-button'>COLLAPSE ANSWERS</p> : null}
+        </div>
+      )
+    } else {
+      return (
+        <div className='answer-list'>
+          <AnswerView answer={this.props.answers[answerKeys[0]]} />
+          <AnswerView answer={this.props.answers[answerKeys[1]]} />
+          <p onClick={this.toggleExpand.bind(this)} className='toggle-button'>
+            SHOW MORE ANSWERS
+          </p>
+        </div>
+      )
+    }
   }
 }
 
