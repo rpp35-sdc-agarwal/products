@@ -2,10 +2,10 @@ import React from 'react';
 
 const SalePrice = ({salePrice, price}) => {
   return (
-    <>
-    <span className="salePrice">{salePrice} </span>
+    <div data-testid="test-modal-sale">
+    <span  className="salePrice">{salePrice} </span>
     <span className="defaultPrice">{price}</span>
-    </>
+    </div>
   )
 }
 
