@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
+import Carousel from './relatedItems/Carousel.jsx';
+import RelatedItems from './relatedItems/RelatedItems.jsx';
+import listProducts from '../data/listProducts.js'
+
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
@@ -10,6 +14,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      ratings: [1, 2, 3, 4, 4.2, 5, 2.7, 4, 3, 2, 1.1],
+
       // TODO: this is a product id from the example, and it should be changed later
       currentProductId: '',
       productList: []
@@ -53,19 +59,25 @@ class App extends React.Component {
   }
   render() {
     return(
-      <div data-testid="test_app">
-        {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        {/* <ProductOverview /> */}
-        <ReviewsContainer product_id={this.state.currentProductId}/>
-        <Questions currentProductId={this.state.currentProductId} />
-        {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
+      <div>
+        <RelatedItems products={this.props.products} ratings={this.state.ratings}/>
+
+
+        <div data-testid="test_app">
+          {/* Make sure to comment out components that are not built yet to avoid errors*/}
+          {/* <ProductOverview /> */}
+          <ReviewsContainer product_id={this.state.currentProductId}/>
+          <Questions currentProductId={this.state.currentProductId} />
+          {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
+        </div>
       </div>
     )
   }
 }
 
+
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
-root.render(<App />);
+root.render(<App products={listProducts}/>);
 
 export default App;

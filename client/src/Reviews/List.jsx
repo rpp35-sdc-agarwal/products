@@ -6,6 +6,11 @@ class List extends React.Component {
     this.state = {
       reviews: this.props.reviews
     }
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+
+  clickHandler() {
+
   }
 
   render() {
