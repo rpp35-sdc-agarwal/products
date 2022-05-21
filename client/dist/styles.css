@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #container {
   width: 800px;
   height: 800px;
@@ -107,8 +106,9 @@
 #sloganDiv {
   width: 600px;
   height: 200px;
-=======
-* {
+}
+
+/* * {
   padding: 0;
   margin: 0
 }
@@ -146,5 +146,4 @@ body {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
->>>>>>> ed1618c4eab8c6416f7c1ce896c8a06adb26ef8e
-}
+} */
