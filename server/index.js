@@ -145,7 +145,22 @@ app.get('/reviews', (req, res) => {
 });
 
 app.get('/reviews/meta', (req, res) => {
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta')
+  var config = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta',
+    method: 'get',
+    headers: { 'Authorization': API },
+    params: {
+      product_id: parseInt(req.query.product_id)
+    }
+  }
+  axios(config)
+    .then((data) => {
+      res.status(200).send(data.data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).send(`There has been an error`);
+    })
 });
 
 app.listen(PORT, () => {

@@ -5,7 +5,15 @@ class ProductBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      metaData: sampleMeta
+      metaData: {}
+    }
+  }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.metaData !== this.props.metaData) {
+      this.setState({
+        metaData: this.props.metaData
+      });
     }
   }
 
