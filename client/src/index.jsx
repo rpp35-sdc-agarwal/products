@@ -8,6 +8,7 @@ import listProducts from '../data/listProducts.js'
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
+import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -59,14 +60,14 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <RelatedItems products={this.props.products} ratings={this.state.ratings}/>
+        {/* <RelatedItems products={this.props.products} ratings={this.state.ratings}/> */}
 
 
         <div data-testid="test_app">
           {/* Make sure to comment out components that are not built yet to avoid errors*/}
-          {/* <ProductOverview />
-          <ReviewsContainer /> */}
-          <Questions currentProductId={this.state.currentProductId} />
+          {/* <ProductOverview /> */}
+          <ReviewsContainer product_id={this.state.currentProductId}/>
+          {/* <Questions currentProductId={this.state.currentProductId} /> */}
           {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
         </div>
       </div>
