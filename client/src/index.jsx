@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
+<<<<<<< HEAD
+import ProductOverview from './productoverview/ProductOverview.jsx';
+=======
 import Carousel from './relatedItems/Carousel.jsx';
 import RelatedItems from './relatedItems/RelatedItems.jsx';
 import listProducts from '../data/listProducts.js'
 
+>>>>>>> f1818ed002f7fd33ff22de3a2dd7f32cb3498202
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
@@ -17,6 +21,8 @@ class App extends React.Component {
       ratings: [1, 2, 3, 4, 4.2, 5, 2.7, 4, 3, 2, 1.1],
 
       // TODO: this is a product id from the example, and it should be changed later
+      // currentProductId: '5',
+      // productList: [...productListExample]
       currentProductId: '',
       productList: []
     }
@@ -54,11 +60,20 @@ class App extends React.Component {
     something like this:
       handleClick (e) {
         return this.props.handleItemClick(e.target.value);
-      }
+    }
     */
   }
   render() {
     return(
+<<<<<<< HEAD
+      <div data-testid="test_app">
+        <ProductOverview />
+        {/* Make sure to comment out components that are not built yet to avoid errors*/}
+        {/* <ProductOverview />
+        <ReviewsContainer /> */}
+        {/* <Questions currentProductId={this.state.currentProductId} /> */}
+        {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
+=======
       <div>
         {/* <RelatedItems products={this.props.products} ratings={this.state.ratings}/> */}
 
@@ -70,6 +85,7 @@ class App extends React.Component {
           <Questions currentProductId={this.state.currentProductId} />
           {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
         </div>
+>>>>>>> f1818ed002f7fd33ff22de3a2dd7f32cb3498202
       </div>
     )
   }
