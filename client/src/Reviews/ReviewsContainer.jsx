@@ -20,7 +20,7 @@ class ReviewsContainer extends React.Component {
   }
 
  componentDidMount() {
-   metaReq();
+   this.metaReq();
  }
 
   metaReq() {
