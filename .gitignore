@@ -4,4 +4,8 @@ node_modules/
 client/dist/bundle.js
 config.js
 .DS_Store
+<<<<<<< HEAD
 coverage/
+=======
+config.js.html
+>>>>>>> 84c84b962f8b8d0f541aa6428ebcc79d1757d7c3
