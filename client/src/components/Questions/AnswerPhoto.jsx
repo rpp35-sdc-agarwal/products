@@ -9,7 +9,7 @@ class AnswerPhoto extends React.Component {
   }
   render () {
     return (
-      <img src={photo.url}/>
+      <img src={this.props.photo.url}/>
     )
   }
 }
