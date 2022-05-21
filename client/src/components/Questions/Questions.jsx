@@ -20,7 +20,7 @@ class Questions extends React.Component {
     }
     this.retrieveQuestions = this.retrieveQuestions.bind(this);
   }
-  
+
   async retrieveQuestions (productId) {
     let options = {
       method: 'get',
@@ -33,7 +33,7 @@ class Questions extends React.Component {
     let res = await axios(options);
     return res.data.results;
   }
-  
+
   componentDidUpdate (prevProps) {
     // console.log('currentProductId in componentDidUpdate: ', this.state.productId)
     if (prevProps.currentProductId !== this.props.currentProductId) {
@@ -57,7 +57,7 @@ class Questions extends React.Component {
     }
     
   }
-  
+
   handleSearch (keyword) {
     this.setState({
       search: keyword
@@ -65,7 +65,7 @@ class Questions extends React.Component {
       console.log('searched: ', this.state.search);
     })
   }
-  
+
   showMoreQuestions () {
     this.retrieveQuestions(this.state.productId)
       .then((data) => {
@@ -77,13 +77,13 @@ class Questions extends React.Component {
       })
     
   }
-  
+
   addQuestion () {
     this.setState({
       add: !this.state.add
     })
   }
-  
+
   render() {
     console.log('in questions render')
     return (
