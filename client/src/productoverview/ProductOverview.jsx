@@ -3,7 +3,7 @@ import ImageGallery from './ImageGallery.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
-import sampleData from '/Users/xuenjie/Fec/sampleData.js';
+import sampleData from '../../../sampleData.js';
 import Slogan from './Slogan.jsx';
 
 class ProductOverview extends React.Component {

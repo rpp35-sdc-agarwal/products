@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
-<<<<<<< HEAD
-import ProductOverview from './productoverview/ProductOverview.jsx';
-=======
-import Carousel from './relatedItems/Carousel.jsx';
-import RelatedItems from './relatedItems/RelatedItems.jsx';
-import listProducts from '../data/listProducts.js'
-
->>>>>>> f1818ed002f7fd33ff22de3a2dd7f32cb3498202
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
 import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
+import ProductOverview from './productoverview/ProductOverview.jsx';
+import Carousel from './relatedItems/Carousel.jsx';
+import RelatedItems from './relatedItems/RelatedItems.jsx';
+import listProducts from '../data/listProducts.js'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -65,27 +62,12 @@ class App extends React.Component {
   }
   render() {
     return(
-<<<<<<< HEAD
       <div data-testid="test_app">
-        <ProductOverview />
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        {/* <ProductOverview />
-        <ReviewsContainer /> */}
-        {/* <Questions currentProductId={this.state.currentProductId} /> */}
+        <ProductOverview />
+        <ReviewsContainer product_id={this.state.currentProductId}/>
+        <Questions currentProductId={this.state.currentProductId} />
         {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
-=======
-      <div>
-        {/* <RelatedItems products={this.props.products} ratings={this.state.ratings}/> */}
-
-
-        <div data-testid="test_app">
-          {/* Make sure to comment out components that are not built yet to avoid errors*/}
-          {/* <ProductOverview /> */}
-          <ReviewsContainer product_id={this.state.currentProductId}/>
-          <Questions currentProductId={this.state.currentProductId} />
-          {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} /> */}
-        </div>
->>>>>>> f1818ed002f7fd33ff22de3a2dd7f32cb3498202
       </div>
     )
   }
