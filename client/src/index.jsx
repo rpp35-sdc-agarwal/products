@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
 import Carousel from './relatedItems/Carousel.jsx';
 import RelatedItems from './relatedItems/RelatedItems.jsx';
-import relatedProducts from '../data/relatedProducts.js'
+import listProducts from '../data/listProducts.js'
 
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
@@ -77,6 +77,6 @@ class App extends React.Component {
 
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
-root.render(<App products={relatedProducts}/>);
+root.render(<App products={listProducts}/>);
 
 export default App;
