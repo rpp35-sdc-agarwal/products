@@ -1,4 +1,114 @@
-* {
+#container {
+  width: 800px;
+  height: 800px;
+}
+
+#galleryDiv {
+  width: 500px;
+  height : 500px;
+}
+
+#imageDiv {
+  width: 500px;
+  height : 500px;
+  display: inline-block;
+}
+
+#galleryCarouselDiv {
+  width: 50px;
+  height: 450px;
+  position:absolute;
+}
+
+
+#frame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+}
+
+.galleryCarouselFrame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+}
+
+.galleryCarouselImageFrame {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.arrow {
+  border: solid gray;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  margin: 40%;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  margin: 40%;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrowDiv {
+  width: 50px;
+  height: 50px;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  top: 35%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  border-radius: .2rem;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-button:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-button.prev {
+  left: 60px;
+}
+
+.carousel-button.next {
+  left: 450px;
+}
+
+.childDiv {
+  float: left;
+}
+
+#sloganDiv {
+  width: 600px;
+  height: 200px;
+}
+
+/* * {
   padding: 0;
   margin: 0
 }
@@ -132,7 +242,7 @@ button {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
-}
+} */
 
 .toggle-button {
   font-weight: 550;
