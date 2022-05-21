@@ -4,4 +4,4 @@ node_modules/
 client/dist/bundle.js
 config.js
 .DS_Store
-coverage/Fec/config.js.html
+coverage/lcov-report/Fec/config.js.html
