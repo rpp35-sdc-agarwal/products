@@ -39,8 +39,9 @@ class Card extends React.Component {
         <div className="container">
           <h4><b>{this.props.product.category}</b></h4>
           <p>{this.props.product.name}</p>
+          <StarRating rating={this.props.rating} />
         </div>
-        <StarRating rating={this.props.rating} />
+
 
       </div>
 
