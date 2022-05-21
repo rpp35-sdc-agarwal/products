@@ -135,6 +135,22 @@ button {
 
 
 
+.modal-card {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.close {
+  color: Black;
+  float: right;
+}
 
 
 /*****************************************************/
@@ -208,9 +224,37 @@ button {
   z-index: 10;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
+.tooltip::before {
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #f8ce0b;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 .card.related {
   transform: translateX(0px);
 }

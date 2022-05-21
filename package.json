@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack --mode development --watch",
     "server-dev": "npx nodemon server/index.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "clear_jest": "jest --clearCache"
   },
   "repository": {
     "type": "git",
