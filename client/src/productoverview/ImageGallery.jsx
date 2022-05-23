@@ -5,7 +5,6 @@ class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      styles: this.props.styles,
       currentStyle: this.props.styles[0],
       currentImageIndex: 0
     }

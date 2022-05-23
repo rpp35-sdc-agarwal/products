@@ -11,7 +11,13 @@ class AddToCart extends React.Component {
   render() {
     return(
       <div className='childDiv'>
-        Add To Cart
+        <select>
+          <option value = ''>SELECT SIZE</option>
+        </select>
+        <select>
+          <option value = ''>-</option>
+        </select>
+        <button>Add To Cart</button>
       </div>
     )
   }

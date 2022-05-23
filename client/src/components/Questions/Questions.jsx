@@ -29,7 +29,7 @@ class Questions extends React.Component {
         'Authorization': API
       }
     }
-    
+
     let res = await axios(options);
     return res.data.results;
   }
@@ -55,7 +55,7 @@ class Questions extends React.Component {
           });
       })
     }
-    
+
   }
 
   handleSearch (keyword) {
@@ -70,12 +70,12 @@ class Questions extends React.Component {
     this.retrieveQuestions(this.state.productId)
       .then((data) => {
         console.log('data: ', data)
-        
+
         this.setState({
           questions:[...data]
         })
       })
-    
+
   }
 
   addQuestion () {

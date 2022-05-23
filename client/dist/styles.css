@@ -108,6 +108,24 @@
   height: 200px;
 }
 
+.styleThumbnail {
+  /* height:100%;
+  width:100%; */
+  object-fit: contain;
+  float: left;
+}
+
+.styleThumbnailImage {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#styleSelector {
+  width: 220px;
+  height: 110px;
+}
+
 /* * {
   padding: 0;
   margin: 0
@@ -135,7 +153,6 @@ button {
 
 
 
-<<<<<<< HEAD
 .modal-card {
   background-color: white;
   position: absolute;
@@ -152,8 +169,6 @@ button {
   color: Black;
   float: right;
 }
-=======
->>>>>>> cbf9710756977eb2b6474a5a96b0ecaddedc0206
 
 
 /*****************************************************/
@@ -237,7 +252,6 @@ button {
   color: #f8ce0b;
 }
 
-<<<<<<< HEAD
 
 .tooltip .tooltiptext {
   visibility: hidden;
@@ -256,7 +270,6 @@ button {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-=======
 .card.related {
   transform: translateX(0px);
 }
@@ -299,4 +312,3 @@ button {
 /*****************************************************/
 /* Reviews */
 /*****************************************************/
->>>>>>> cbf9710756977eb2b6474a5a96b0ecaddedc0206
