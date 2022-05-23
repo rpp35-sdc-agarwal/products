@@ -37,6 +37,7 @@ class Carousel extends React.Component {
           ratings={this.props.ratings}
           shift={this.props.shift}
           handleShift={this.props.handleShift}
+          handleShiftRight={this.props.handleShiftRight}
           />
 
         </div>

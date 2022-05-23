@@ -12,6 +12,10 @@ class RelatedList extends React.Component {
     this.props.handleShift()
   }
 
+  handleShiftRight() {
+    this.props.handleShiftRight()
+  }
+
   render() {
     var width = 210;
     var cards = this.props.products.map((product, i) => {
@@ -27,9 +31,11 @@ class RelatedList extends React.Component {
     return (
     <>
       <button className="shiftButton" onClick={this.handleShift.bind(this)}></button>
+      <button className="shiftButton right-side" onClick={this.handleShiftRight.bind(this)}></button>
       <ul className="cardHolder" style={{ transform: `translateX(-${shiftAmt}px)` }}>
         {cards}
       </ul>
+
     </>
     )
 

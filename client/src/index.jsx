@@ -25,6 +25,7 @@ class App extends React.Component {
       currentIndex: 0
     }
     this.shiftCarousel = this.shiftCarousel.bind(this);
+    this.shiftCarouselRight = this.shiftCarouselRight.bind(this);
   }
 
   // Retrive products from the backend and update the productList and currentProductId
@@ -69,6 +70,14 @@ class App extends React.Component {
       currentIndex: this.state.currentIndex + 1
     }, () => console.log('i clicked a button'))
   }
+
+  shiftCarouselRight() {
+    console.log('i made it here');
+    this.setState({
+      currentIndex: this.state.currentIndex -1
+    }, () => console.log('i clicked a button'))
+  }
+
   render() {
     return(
 
@@ -82,6 +91,7 @@ class App extends React.Component {
         ratings={this.state.ratings}
         shift={this.state.currentIndex}
         handleShift={this.shiftCarousel}
+        handleShiftRight={this.shiftCarouselRight}
         />
 
         <Questions currentProductId={this.state.currentProductId} />
