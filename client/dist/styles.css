@@ -202,6 +202,7 @@ button {
 .cardHolder {
   display: flex;
   padding: 0;
+  transition: 0.3s;
 }
 
 ul.cardHolder.outfit {
