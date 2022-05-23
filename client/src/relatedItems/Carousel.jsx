@@ -15,13 +15,13 @@ class Carousel extends React.Component {
   }
 
 
-//   next(){
-//     if (this.state.currentIndex < (this.state.length - this.props.show)) {
-//         this.setState({
-//           currentIndex: this.state.currentIndex + 1
-//         })
-//     }
-//   }
+  next(){
+
+    this.setState({
+      currentIndex: this.state.currentIndex + 1
+    })
+
+  }
 
 //   prev(){
 //     if (this.state.currentIndex > 0) {
@@ -41,7 +41,8 @@ class Carousel extends React.Component {
           isRelated={true}
           ratings={this.props.ratings}
           shift={this.state.currentIndex}
-          width={this.state.width}/>
+          width={this.state.width}
+          next={this.next.bind(this)}/>
 
         </div>
       </div>
