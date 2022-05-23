@@ -32,7 +32,7 @@ class Carousel extends React.Component {
       <div className="wrapper">
         <div className="slider">
           <RelatedList products={this.props.products}
-
+          type={this.props.type}
           isRelated={true}
           ratings={this.props.ratings}
           shift={this.props.shift}

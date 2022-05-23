@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import RelatedList from './RelatedList.jsx';
+import OutfitList from './OutfitList.jsx';
 import AddOutfit from './AddOutfit.jsx'
 
 
@@ -38,7 +38,15 @@ class OutfitCarousel extends React.Component {
         <AddOutfit />
 
         <div className="slider">
-          <RelatedList products={this.props.products} type={"outfit"} isRelated={false}/>
+          <OutfitList products={this.props.products}
+
+          isRelated={false}
+          ratings={this.props.ratings}
+          shift={this.props.shift}
+          handleShiftLeft={this.props.handleShiftLeft}
+          type={this.props.type}
+          handleShiftRight={this.props.handleShiftRight}
+          />
 
         </div>
       </div>

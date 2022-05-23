@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import Card from './Card.jsx'
 
 
-class RelatedList extends React.Component {
+class OutfitList extends React.Component {
   constructor(props) {
     super(props)
   }
 
   handleShiftLeft() {
-    this.props.handleShift()
+    this.props.handleShiftLeft()
   }
 
   handleShiftRight() {
@@ -53,4 +53,4 @@ class RelatedList extends React.Component {
 }
 
 
-export default RelatedList;
+export default OutfitList;

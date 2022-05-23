@@ -204,6 +204,14 @@ button {
   padding: 0;
 }
 
+ul.cardHolder.outfit {
+  transform: translateX(0px)
+}
+
+ul.cardHolder.related {
+  transform: translateX(0px)
+}
+
 .shiftButton {
   z-index: 2;
   height: 100px;

@@ -29,10 +29,17 @@ class RelatedItems extends React.Component {
          <Carousel products={this.state.products}
          ratings={this.props.ratings}
          handleShift={this.props.handleShift}
+         type={'related'}
 
          shift={this.props.shift}
          handleShiftRight={this.props.handleShiftRight}/>
-        {/* <OutfitCarousel products={this.state.products}/> */}
+        <OutfitCarousel
+         products={this.state.products}
+         ratings={this.props.ratings}
+         handleShiftLeft={this.props.handleOutfitLeft}
+         type={'outfit'}
+         shift={this.props.outfitShift}
+         handleShiftRight={this.props.handleOutfitRight}/>
       </>
     )
   }
