@@ -67,7 +67,7 @@ class App extends React.Component {
     console.log('i made it here');
     this.setState({
       currentIndex: this.state.currentIndex + 1
-    })
+    }, () => console.log('i clicked a button'))
   }
   render() {
     return(

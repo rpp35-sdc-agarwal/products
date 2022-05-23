@@ -11,7 +11,6 @@ class RelatedItems extends React.Component {
     this.state = {
 
       products: this.props.products,
-      shift: this.props.shift
 
     }
   }
@@ -30,7 +29,7 @@ class RelatedItems extends React.Component {
          <Carousel products={this.state.products}
          ratings={this.props.ratings}
          handleShift={this.props.handleShift}
-         shift={this.state.shift}
+         shift={this.props.shift}
 
          />
         {/* <OutfitCarousel products={this.state.products}/> */}

@@ -1,28 +1,40 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Card from './Card.jsx'
 
 
-const RelatedList = ({products, type, isRelated, ratings, shift, width, handleShift}) => {
-  var cards = products.map((product, i) => {
+class RelatedList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  handleShift() {
+    this.props.handleShift()
+  }
+
+  render() {
+    var width = 210;
+    var cards = this.props.products.map((product, i) => {
+      return (
+        <Card product={product}
+        isRelated={this.props.isRelated}
+        rating={this.props.ratings[i]}
+        />
+      )
+    })
+    var shiftAmt = this.props.shift * width
+    console.log('what is shiftAmt', shiftAmt)
     return (
-      <Card product={product}
-      type={type}
-      isRelated={isRelated}
-      rating={ratings[i]}
-      />
+    <>
+      <button className="shiftButton" onClick={this.handleShift.bind(this)}></button>
+      <ul className="cardHolder" style={{ transform: `translateX(-${shiftAmt}px)` }}>
+        {cards}
+      </ul>
+    </>
     )
 
-  })
-  var shiftAmt = shift * width
-  console.log('what is shiftAmt', shiftAmt)
-  return (
-    <>
-    <button onClick={handleShift}></button>
-    <ul className="cardHolder" style={{ transform: `translateX(-${shiftAmt}px)` }}>
-      {cards}
-    </ul>
-    </>
-  )
+  }
 }
+
 
 export default RelatedList;
