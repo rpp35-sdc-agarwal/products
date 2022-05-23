@@ -21,11 +21,11 @@ class Card extends React.Component {
   }
 
   render() {
+    var shift = this.props.shift*this.props.width
+
 
     return (
-      <div className="card">
-
-
+      <div className="card" style={{ transform: `translateX(-${shift}px)` }}>
         <button className="tooltip" onClick={this.compare}>
           <span class="tooltiptext">Compare</span>
         </button>

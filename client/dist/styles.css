@@ -200,6 +200,7 @@ button {
 
 .cardHolder {
   display: flex;
+  padding: 0;
 }
 
 .card {

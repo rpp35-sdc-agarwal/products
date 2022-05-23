@@ -8,7 +8,8 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 0
+      currentIndex: 2,
+      width: 210
 
     }
   }
@@ -38,7 +39,9 @@ class Carousel extends React.Component {
           <RelatedList products={this.props.products}
 
           isRelated={true}
-          ratings={this.props.ratings}/>
+          ratings={this.props.ratings}
+          shift={this.state.currentIndex}
+          width={this.state.width}/>
 
         </div>
       </div>
