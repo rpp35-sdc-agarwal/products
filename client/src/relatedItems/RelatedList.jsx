@@ -30,8 +30,17 @@ class RelatedList extends React.Component {
     console.log('what is shiftAmt', shiftAmt)
     return (
     <>
-      <button className="shiftButton" onClick={this.handleShift.bind(this)}></button>
-      <button className="shiftButton right-side" onClick={this.handleShiftRight.bind(this)}></button>
+      {
+        this.props.shift > 0 &&
+        <button className="shiftButton" onClick={this.handleShiftRight.bind(this)}></button>
+
+      }
+      {
+        this.props.shift < this.props.products.length - 4 &&
+        <button className="shiftButton right-side" onClick={this.handleShift.bind(this)}></button>
+      }
+
+
       <ul className="cardHolder" style={{ transform: `translateX(-${shiftAmt}px)` }}>
         {cards}
       </ul>
