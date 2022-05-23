@@ -21,8 +21,10 @@ class App extends React.Component {
       // currentProductId: '5',
       // productList: [...productListExample]
       currentProductId: '',
-      productList: []
+      productList: [],
+      currentIndex: 0
     }
+    this.shiftCarousel = this.shiftCarousel.bind(this);
   }
 
   // Retrive products from the backend and update the productList and currentProductId
@@ -60,6 +62,13 @@ class App extends React.Component {
     }
     */
   }
+
+  shiftCarousel() {
+    console.log('i made it here');
+    this.setState({
+      currentIndex: this.state.currentIndex + 1
+    })
+  }
   render() {
     return(
 
@@ -67,7 +76,14 @@ class App extends React.Component {
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
         <ReviewsContainer />
-        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.props.products} ratings={this.state.ratings}/>
+        <RelatedItems
+        handleItemClick={this.handleItemClick.bind(this)}
+        products={this.props.products}
+        ratings={this.state.ratings}
+        shift={this.state.currentIndex}
+        handleShift={this.shiftCarousel}
+        />
+
         <Questions currentProductId={this.state.currentProductId} />
 
       </div>
