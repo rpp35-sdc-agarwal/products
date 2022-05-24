@@ -27,7 +27,7 @@ class Card extends React.Component {
 
 
         <button className="tooltip" onClick={this.compare}>
-          <span class="tooltiptext">Compare</span>
+          <span className="tooltiptext">Compare</span>
         </button>
 
 
@@ -37,8 +37,9 @@ class Card extends React.Component {
 
         <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
         <div className="container">
-          <h4><b>{this.props.product.category}</b></h4>
-          <p>{this.props.product.name}</p>
+          {/* {possibly throwing errors} */}
+          {/* <h4><b>{this.props.product.category}</b></h4> */}
+          {/* <p>{this.props.product.name}</p> */}
           <StarRating rating={this.props.rating} />
         </div>
 

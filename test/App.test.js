@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import App from '../client/src/index.jsx';
 
-describe('CardModal component', () => {
-  test('CardModal component should exist', () => {
-    render(<App />);
-    const AppElement = screen.getByTestId('test_app');
+describe('App component', () => {
+  test('App component should exist', async () => {
+    const component = render(<App />);
+    const AppElement = await component.findByTestId('test_app');
     expect(AppElement).toBeInTheDocument();
   });
  });
