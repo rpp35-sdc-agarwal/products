@@ -22,11 +22,10 @@ class App extends React.Component {
       // productList: [...productListExample]
       currentProductId: '',
       productList: [],
-      currentIndex: 0,
+
       currentIndexOutfit: 0
     }
-    this.shiftCarousel = this.shiftCarousel.bind(this);
-    this.shiftCarouselRight = this.shiftCarouselRight.bind(this);
+
     this.shiftCarouselOutfitLeft = this.shiftCarouselOutfit.bind(this);
     this.shiftCarouselOutfitRight = this.shiftCarouselRightOutfit.bind(this);
   }
@@ -67,19 +66,7 @@ class App extends React.Component {
     */
   }
 
-  shiftCarousel() {
-    console.log('i made it here');
-    this.setState({
-      currentIndex: this.state.currentIndex + 1
-    }, () => console.log('i clicked a button'))
-  }
 
-  shiftCarouselRight() {
-    console.log('i made it here');
-    this.setState({
-      currentIndex: this.state.currentIndex -1
-    }, () => console.log('i clicked a button'))
-  }
 
   shiftCarouselOutfit() {
     console.log('i made it here');
@@ -106,10 +93,9 @@ class App extends React.Component {
         handleItemClick={this.handleItemClick.bind(this)}
         products={this.props.products}
         ratings={this.state.ratings}
-        shift={this.state.currentIndex}
+
         outfitShift={this.state.currentIndexOutfit}
-        handleShift={this.shiftCarousel}
-        handleShiftRight={this.shiftCarouselRight}
+
         handleOutfitLeft={this.shiftCarouselOutfitLeft}
         handleOutfitRight={this.shiftCarouselOutfitRight}
         />

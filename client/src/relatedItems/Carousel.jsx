@@ -8,11 +8,27 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      currentIndex: 0,
 
 
     }
     console.log('what are props', props)
+    this.handleShift = this.shiftCarousel.bind(this);
+    this.handleShiftRight = this.shiftCarouselRight.bind(this);
+  }
 
+  shiftCarousel() {
+    console.log('i made it here');
+    this.setState({
+      currentIndex: this.state.currentIndex + 1
+    }, () => console.log('i clicked a button'))
+  }
+
+  shiftCarouselRight() {
+    console.log('i made it here');
+    this.setState({
+      currentIndex: this.state.currentIndex -1
+    }, () => console.log('i clicked a button'))
   }
 
 
@@ -35,9 +51,9 @@ class Carousel extends React.Component {
           type={this.props.type}
           isRelated={true}
           ratings={this.props.ratings}
-          shift={this.props.shift}
-          handleShift={this.props.handleShift}
-          handleShiftRight={this.props.handleShiftRight}
+          shift={this.state.currentIndex}
+          handleShift={this.handleShift}
+          handleShiftRight={this.handleShiftRight}
           />
 
         </div>
