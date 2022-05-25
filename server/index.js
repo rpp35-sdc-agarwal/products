@@ -68,7 +68,9 @@ app.get('/products/:product_id', (req, res) => {
 /////////////////////////////////////////////////////////
 //    Related Items Routes
 /////////////////////////////////////////////////////////
-app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts], (req, res) => {
+app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts],(req, res) => {
+  console.log('what is params', req.params.product_id)
+
   res.json(res.products)
 })
 

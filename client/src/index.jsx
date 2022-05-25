@@ -69,7 +69,11 @@ class App extends React.Component {
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
         <ReviewsContainer />
-        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.state.productList} ratings={this.state.ratings}/>
+        <RelatedItems
+        handleItemClick={this.handleItemClick.bind(this)}
+        products={this.state.productList}
+        ratings={this.state.ratings}
+        currentProductId={this.state.currentProductId}/>
         <Questions currentProductId={this.state.currentProductId} />
 
       </div>
