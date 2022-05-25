@@ -65,10 +65,7 @@ app.get('/products/:product_id', (req, res) => {
 /////////////////////////////////////////////////////////
 app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts], (req, res) => {
   res.json(res.products)
-
 })
-
-
 
 /////////////////////////////////////////////////////////
 //    Questions and Answers Routes
