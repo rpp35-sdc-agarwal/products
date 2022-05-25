@@ -1,4 +1,6 @@
 import React from 'react';
+import Photos from './tileComponents/Photos.jsx';
+import Body from './tileComponents/ReviewBody.jsx';
 
 class List extends React.Component {
   constructor(props) {
@@ -39,6 +41,7 @@ class List extends React.Component {
   }
 
 
+
   clickHandler() {
     //when button is clicked pop up form
   }
@@ -56,6 +59,7 @@ class List extends React.Component {
       var moreRevs =  <button onClick={this.addTwoRevs}>More Reviews</button>
     }
 
+
     return (
       <div data-testid="test_revList" className="List">
         List
@@ -66,8 +70,8 @@ class List extends React.Component {
                 <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name} {review.date.slice(0, 10)}</span></div>
                 <div className="rev-summary">{review.summary}</div>
                 <div className="rev-body">
-                  {review.body}
-                  <div className="photos"></div>
+                  <Body body={review.body}/>
+                  <Photos photos={review.photos}/>
                 </div>
                 <div className="rev-response">{review.response}</div>
                 <div className="rev-helpfulness">{review.helpfulness} people found this review helpful</div>
