@@ -1,7 +1,7 @@
 import {render, fireEvent, waitFor, screen, cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
-import ReviewsContainer from './client/src/components/Reviews/ReviewsContainer.jsx';
+import ReviewsContainer from '../client/src/components/Reviews/ReviewsContainer.jsx';
 
 // test('' , () => {});
 
