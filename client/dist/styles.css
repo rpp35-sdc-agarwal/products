@@ -274,6 +274,14 @@ button {
   transform: translateX(0px);
 }
 
+.salePrice {
+  color: red;
+}
+
+.defaultPrice {
+  text-decoration: line-through;
+}
+
 /*****************************************************/
 /* Questions and Answers */
 /*****************************************************/
