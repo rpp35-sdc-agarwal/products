@@ -8,7 +8,7 @@ import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
 import ProductOverview from './productoverview/ProductOverview.jsx';
 import Carousel from './relatedItems/Carousel.jsx';
 import RelatedItems from './relatedItems/RelatedItems.jsx';
-import listProducts from '../data/listProducts.js'
+import relatedProducts from '../data/relatedProducts.js'
 
 
 class App extends React.Component {
@@ -79,6 +79,6 @@ class App extends React.Component {
 
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
-root.render(<App products={listProducts}/>);
+root.render(<App products={relatedProducts}/>);
 
 export default App;

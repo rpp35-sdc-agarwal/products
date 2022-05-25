@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 // import '../carousel.css'
 import StarRating from './StarRating.jsx'
 import CardModal from './CardModal.jsx'
+import SalePrice from './SalePrice.jsx'
+import DefaultPrice from './DefaultPrice.jsx'
 
 
 class Card extends React.Component {
@@ -21,6 +23,13 @@ class Card extends React.Component {
   }
 
   render() {
+    var price = null;
+    if (this.props.product.sale_price) {
+      price = <SalePrice price={this.props.product.default_price}
+              salePrice={this.props.product.sale_price} />
+    } else {
+      price = <DefaultPrice price={this.props.product.default_price} />
+    }
 
     return (
       <div className="card">
@@ -39,6 +48,7 @@ class Card extends React.Component {
         <div className="container">
           <h4><b>{this.props.product.category}</b></h4>
           <p>{this.props.product.name}</p>
+          {price}
           <StarRating rating={this.props.rating} />
         </div>
 
