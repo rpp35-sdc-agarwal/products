@@ -1,4 +1,4 @@
-import {render, screen, cleanup} from '@testing-library/react';
+import {render, screen, cleanup, waitForElement} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
 import App from '../../client/src/index.jsx';
@@ -13,7 +13,7 @@ describe('Questions component', () => {
   
   test('Search component should exist', () => {
     const component = render(<Questions />);
-    const SearchElement = component.getByTestId('test_search');
+    const SearchElement = component.getByTestId('test-search');
     expect(SearchElement).toBeInTheDocument();
   });
   
@@ -55,7 +55,5 @@ describe('Questions component', () => {
       console.log(err);
     });
   });
-  
-  
 });
 

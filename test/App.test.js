@@ -9,4 +9,4 @@ describe('App component', () => {
     const AppElement = await component.findByTestId('test_app');
     expect(AppElement).toBeInTheDocument();
   });
- });
+});
