@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from './Carousel.jsx'
 import OutfitCarousel from './OutfitCarousel.jsx'
-import axios from 'axios';
+
 
 
 class RelatedItems extends React.Component {

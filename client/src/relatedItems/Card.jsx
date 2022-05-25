@@ -14,6 +14,7 @@ class Card extends React.Component {
       compare: false
     }
     this.compare = this.compare.bind(this);
+    this.handleGetCard = this.handleGetCard.bind(this)
   }
 
   compare() {
@@ -21,6 +22,13 @@ class Card extends React.Component {
       compare: !this.state.compare
     })
   }
+
+  handleGetCard(e) {
+    var id = e.currentTarget.id
+
+    this.props.handleGetCard(id)
+  }
+
 
   render() {
     var price = null;
@@ -32,7 +40,7 @@ class Card extends React.Component {
     }
 
     return (
-      <div className="card">
+      <div onClick={this.handleGetCard} className="card" id={this.props.product.id}>
 
 
         <button className="tooltip" onClick={this.compare}>

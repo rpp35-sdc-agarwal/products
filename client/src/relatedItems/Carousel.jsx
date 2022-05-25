@@ -17,6 +17,7 @@ class Carousel extends React.Component {
     console.log('what are props', props)
     this.handleShift = this.shiftCarousel.bind(this);
     this.handleShiftRight = this.shiftCarouselRight.bind(this);
+    this.handleGetCard = this.handleGetCard.bind(this)
   }
 
   componentDidMount() {
@@ -44,6 +45,10 @@ class Carousel extends React.Component {
     }, () => console.log('i clicked a button'))
   }
 
+  handleGetCard(id) {
+    console.log('what is id in carousel', id)
+  }
+
 
 
 
@@ -67,6 +72,7 @@ class Carousel extends React.Component {
           shift={this.state.currentIndex}
           handleShift={this.handleShift}
           handleShiftRight={this.handleShiftRight}
+          handleGetCard={this.handleGetCard}
           />
 
         </div>
