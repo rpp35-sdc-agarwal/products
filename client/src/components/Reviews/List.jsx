@@ -15,7 +15,10 @@ class List extends React.Component {
 
   componentDidUpdate(oldProps) {
     if (oldProps.reviews !== this.props.reviews) {
-      this.addTwoRevs();
+      this.setState({
+        render: []
+      }, () => {this.addTwoRevs()})
+
       // console.log(this);
     }
   }
