@@ -3,18 +3,31 @@ import ReactDOM from 'react-dom';
 // import '../carousel.css';
 import RelatedList from './RelatedList.jsx'
 import Card from './Card.jsx'
+import axios from 'axios';
 
 class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       currentIndex: 0,
+      products: this.props.products
 
 
     }
     console.log('what are props', props)
     this.handleShift = this.shiftCarousel.bind(this);
     this.handleShiftRight = this.shiftCarouselRight.bind(this);
+  }
+
+  componentDidMount() {
+    //var id = Number(this.state.currentProductId)
+    axios.get(`/products/71699/related`)
+    .then(res => {
+      this.setState({
+       products: [...res.data]
+      })
+    })
+
   }
 
   shiftCarousel() {
@@ -47,7 +60,7 @@ class Carousel extends React.Component {
 
       <div className="wrapper" data-testid="test-carousel">
         <div className="slider">
-          <RelatedList products={this.props.products}
+          <RelatedList products={this.state.products}
           type={this.props.type}
           isRelated={true}
           ratings={this.props.ratings}
