@@ -42,6 +42,10 @@ class App extends React.Component {
       })
   }
 
+  // updateProduct() {
+  //   axios.post
+  // }
+
   componentDidMount () {
     console.log('in App componentDidMount');
     this.retrieveProducts();
