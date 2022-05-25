@@ -9,6 +9,7 @@ class RelatedItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      products: this.props.products
 
 
     }
@@ -17,14 +18,18 @@ class RelatedItems extends React.Component {
   componentDidMount() {
     //var id = Number(this.state.currentProductId)
     axios.get(`/products/71699/related`)
-    .then(res => console.log('did i get data', res.data))
+    .then(res => {
+      this.setState({
+       products: [...res.data]
+      })
+    })
 
   }
 
   render() {
     return (
       <>
-         <Carousel products={this.props.products}
+         <Carousel products={this.state.products}
          ratings={this.props.ratings}
          currentProductId={this.props.currentProductId}/>
         {/* <OutfitCarousel products={this.state.products}/> */}
