@@ -8,7 +8,7 @@ import listProducts from '../data/listProducts.js'
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
-import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
+import ReviewsContainer from './components/Reviews/ReviewsContainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class App extends React.Component {
         }, () => {
           console.log('products: ', this.state.productList);
           this.setState({
-            currentProductId: JSON.stringify(this.state.productList[0].id)
+            currentProductId: JSON.stringify(this.state.productList[1].id)
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
           })

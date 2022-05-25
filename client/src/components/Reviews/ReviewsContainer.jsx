@@ -19,9 +19,12 @@ class ReviewsContainer extends React.Component {
     this.metaReq = this.metaReq.bind(this);
   }
 
- componentDidMount() {
-   this.metaReq();
- }
+  componentDidUpdate(oldProps) {
+    if (oldProps.product_id !== this.props.product_id) {
+      this.metaReq();
+    }
+  }
+
 
   metaReq() {
     var config = {
@@ -43,7 +46,7 @@ class ReviewsContainer extends React.Component {
   render() {
     return (
       <div data-testid="test_revContainer" className="ReviewsContainer">
-        <RatingBreakdown />
+        <RatingBreakdown metaData={this.state.metaData}/>
         <ProductBreakdown metaData={this.state.metaData}/>
         <Sort product_id={this.props.product_id}/>
       </div>

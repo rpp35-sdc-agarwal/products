@@ -5,7 +5,8 @@ class ProductBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      metaData: sampleMeta
+      metaData: null,
+      categories: []
     }
   }
 
@@ -13,13 +14,12 @@ class ProductBreakdown extends React.Component {
     if (oldProps.metaData !== this.props.metaData) {
       this.setState({
         metaData: this.props.metaData
-      });
+      }, () => {this.setState({categories: Object.entries(this.state.metaData.characteristics)})});
     }
   }
 
   render() {
     //iterate through the characteristics object
-    var categories = Object.entries(this.state.metaData.characteristics);
     //render a div with each category as the header and the
     //corresponding value as a percentage
 
@@ -31,7 +31,7 @@ class ProductBreakdown extends React.Component {
     return (
       <div data-testid="test_revProductBreakdown" className="ProductBreakdown">
         ProductBreakdown
-        {categories.map((cat) => {
+        {this.state.categories.map((cat) => {
           var rating = (parseInt(cat[1].value) / 5) * 100;
           return (
             <div key={cat[1].id}>

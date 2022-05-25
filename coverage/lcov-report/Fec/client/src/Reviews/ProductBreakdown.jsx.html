@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/8</span>
+                <span class='fraction'>3/8</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/8</span>
+                <span class='fraction'>3/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -121,8 +121,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,17 +143,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,7 +162,8 @@ class ProductBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      metaData: sampleMeta
+      metaData: null,
+      categories: []
     }
   }
 &nbsp;
@@ -170,13 +171,12 @@ class ProductBreakdown extends React.Component {
 <span class="cstat-no" title="statement not covered" >    if (oldProps.metaData !== this.props.metaData) {</span>
 <span class="cstat-no" title="statement not covered" >      this.setState({</span>
         metaData: this.props.metaData
-      });
+      }, <span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.setState({categories: Object.entries(this.state.metaData.characteristics)})}</span>);
     }
   }
 &nbsp;
   render() {
     //iterate through the characteristics object
-      var categories = Object.entries(this.state.metaData.characteristics);
     //render a div with each category as the header and the
     //corresponding value as a percentage
 &nbsp;
@@ -188,9 +188,9 @@ class ProductBreakdown extends React.Component {
     return (
       &lt;div data-testid="test_revProductBreakdown" className="ProductBreakdown"&gt;
         ProductBreakdown
-        {categories.map((cat) =&gt; {
-          var rating = (parseInt(cat[1].value) / 5) * 100;
-          return (
+        {this.state.categories.map(<span class="fstat-no" title="function not covered" >(c</span>at) =&gt; {
+          var rating = <span class="cstat-no" title="statement not covered" >(parseInt(cat[1].value) / 5) * 100;</span>
+<span class="cstat-no" title="statement not covered" >          return (</span>
             &lt;div key={cat[1].id}&gt;
               {cat[0]} &lt;span className={cat[0].toLowerCase()}&gt;{rating}&lt;/span&gt;
             &lt;/div&gt;
@@ -208,7 +208,7 @@ export default ProductBreakdown;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sat May 21 2022 10:29:47 GMT-0700 (Pacific Daylight Time)
+                at Tue May 24 2022 18:33:18 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

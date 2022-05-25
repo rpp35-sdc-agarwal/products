@@ -5,23 +5,40 @@ class RatingBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      metaData: sampleMeta,
+      metaData: null,
       avgScore: null,
       starVal: null,
+      recommended: null,
       revBreakdown: {}
     };
     this.avgScore = this.avgScore.bind(this);
     this.breakdownObj = this.breakdownObj.bind(this);
     this.starPercent = this.starPercent.bind(this);
+    this.recommend = this.recommend.bind(this);
   }
 
-  componentDidMount() {
-    this.avgScore(this.state.metaData.ratings);
+
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.metaData !== this.props.metaData) {
+      this.setState((state) => {
+        return { metaData: this.props.metaData }
+      },
+      () => {this.avgScore(this.state.metaData.ratings);}
+      );
+    }
   }
 
-  starPercent() {
-    var avgScore = (this.state.avgScore / 5) * 100;
-    this.setState({ starVal: avgScore});
+  starPercent(avgScore) {
+    var starAvgScore = (avgScore / 5) * 100;
+    return starAvgScore;
+  }
+
+  recommend() {
+    var recTrue = parseInt(this.state.metaData.recommended.true);
+    var recFalse = parseInt(this.state.metaData.recommended.false);
+    var reco = (recTrue/(recTrue + recFalse)) * 100;
+    return reco;
   }
 
   avgScore(allScores) {
@@ -34,20 +51,20 @@ class RatingBreakdown extends React.Component {
       //multiply the key by its value
       var ratingProduct = rating * allScores[rating];
       //add the amount of ratings to total
-      total = total + allScores[rating];
+      total = total + parseInt(allScores[rating]);
       //push the result into the ratings array
       ratings.push(ratingProduct);
     }
     //add those values together
+
     ratings = ratings.reduce((previousVal, currentVal) => { return previousVal + currentVal });
     //divide them by the total number of ratings
-    this.setState(
-      {
-        avgScore: ratings / total,
-        revBreakdown: this.breakdownObj(total, allScores)
-      },
-      this.starPercent
-    );
+    this.setState({
+        avgScore: (ratings / total).toFixed(2),
+        revBreakdown: this.breakdownObj(total, allScores),
+        starVal: this.starPercent(ratings / total).toFixed(2),
+        recommended: this.recommend().toFixed(0)
+      });
   }
 
   breakdownObj(total, scores) {
@@ -62,7 +79,7 @@ class RatingBreakdown extends React.Component {
     for (var score in scores) {
       //calculate the percentage of total reviews for each score
       //store the percentages in an object
-      storage[score] = (scores[score] / total) * 100;
+      storage[score] = ((scores[score] / total) * 100).toFixed(2);
     }
     //return the storage obj
     return storage;
@@ -73,7 +90,7 @@ class RatingBreakdown extends React.Component {
       <div data-testid="test_revRatingBreakdown" className="RatingBreakdown">
         <h3>Ratings and Reviews</h3>
         <h1>{this.state.avgScore}</h1><span>{this.state.starVal}</span>
-        <div>% recommended</div>
+        <div>{this.state.recommended}% recommended</div>
         <div>
           score breakdown bars
           <div>5: {this.state.revBreakdown[5]}</div>
