@@ -10,7 +10,9 @@ class Carousel extends React.Component {
     super(props)
     this.state = {
       currentIndex: 0,
-      products: this.props.products
+      products: this.props.products,
+      overviewProduct: null,
+      modalProduct: null,
 
 
     }
@@ -25,7 +27,9 @@ class Carousel extends React.Component {
     axios.get(`/products/71699/related`)
     .then(res => {
       this.setState({
-       products: [...res.data]
+       products: [...res.data],
+       modalProduct: res.data[0],
+       overviewProduct: res.data[0]
       })
     })
 
@@ -47,6 +51,12 @@ class Carousel extends React.Component {
 
   handleGetCard(id) {
     console.log('what is id in carousel', id)
+    axios.get(`/products/${id}`)
+    .then(res => {
+      this.setState({
+        modalProduct: res.data
+      })
+    })
   }
 
 
