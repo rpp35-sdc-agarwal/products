@@ -140,11 +140,12 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 150px;
+  width: 250px;
   height: 100px;
   padding: 20px;
   border-radius: 5px;
   border: 2px solid black;
+  z-index: 5;
 }
 
 .close {

@@ -22,7 +22,7 @@ class CardModal extends React.Component {
       console.log('value', value)
       if (k !== 'features') {
         modalElements.push(
-          <ModalElement data={value} />
+          <ModalElement k={k} value={value} />
         )
       }
 
