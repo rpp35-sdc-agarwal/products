@@ -5,7 +5,7 @@ class ProductInfo extends React.Component {
     super(props);
     this.state = {
       productInfo: this.props.productInfo,
-      currentStyle: this.props.styles[0],
+      currentStyle: this.props.currentStyle,
     }
   }
 

@@ -5,7 +5,7 @@ class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStyle: this.props.styles[0],
+      currentStyle: this.props.currentStyle,
       currentImageIndex: 0
     }
     this.handleImageChange = this.handleImageChange.bind(this);

@@ -10,17 +10,18 @@ class ProductOverview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: sampleData
+      currentProduct: sampleData,
+      currentStyle: sampleData.productStyles.results[0]
     }
   }
 
   render() {
     return(
       <div id='container' data-testid="test_poContainer">
-        <ImageGallery styles = {this.state.currentProduct.productStyles.results}/>
-        <ProductInfo productInfo = {this.state.currentProduct.productInfo} styles = {this.state.currentProduct.productStyles.results}/>
-        <StyleSelector styles = {this.state.currentProduct.productStyles.results}/>
-        <AddToCart />
+        <ImageGallery currentStyle = {this.state.currentStyle}/>
+        <ProductInfo productInfo = {this.state.currentProduct.productInfo} currentStyle = {this.state.currentStyle}/>
+        <StyleSelector styles = {this.state.currentProduct.productStyles.results} currentStyle = {this.state.currentStyle}/>
+        <AddToCart currentStyle = {this.state.currentStyle}/>
         <Slogan productInfo = {this.state.currentProduct.productInfo}/>
       </div>
     )

@@ -4,7 +4,8 @@ class StyleSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      styles: this.props.styles
+      styles: this.props.styles,
+      currentStyle: this.props.currentStyle
     }
   }
 
@@ -12,7 +13,7 @@ class StyleSelector extends React.Component {
     return(
       <div className='childDiv'>
         <div>
-          STYLE >
+          STYLE > {this.state.currentStyle.name}
         </div>
         <div id = 'styleSelector'>
         {this.state.styles.map((style, index) =>
