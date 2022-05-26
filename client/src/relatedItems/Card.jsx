@@ -5,13 +5,15 @@ import StarRating from './StarRating.jsx'
 import CardModal from './CardModal.jsx'
 import SalePrice from './SalePrice.jsx'
 import DefaultPrice from './DefaultPrice.jsx'
-
+import axios from 'axios';
 
 class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      compare: false
+      compare: false,
+      overviewProduct: null,
+      modalProduct: null,
     }
     this.compare = this.compare.bind(this);
     this.handleGetCard = this.handleGetCard.bind(this)
@@ -23,10 +25,11 @@ class Card extends React.Component {
     })
   }
 
-  handleGetCard(e) {
-    var id = e.currentTarget.id
+  handleGetCard() {
 
-    this.props.handleGetCard(id)
+    console.log(this.props.product, 'what is product at card')
+
+
   }
 
 
@@ -40,7 +43,7 @@ class Card extends React.Component {
     }
 
     return (
-      <div onClick={this.handleGetCard} className="card" id={this.props.product.id}>
+      <div onClick={this.handleGetCard} className="card" >
 
 
         <button className="tooltip" onClick={this.compare}>
