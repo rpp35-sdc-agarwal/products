@@ -14,6 +14,20 @@ class CardModal extends React.Component {
   }
 
   render() {
+    var modalElements = [];
+    var modalData = this.props.modalData
+    for (var k in modalData) {
+      console.log('k', k)
+      var value = modalData[k]
+      console.log('value', value)
+      if (k !== 'features') {
+        modalElements.push(
+          <ModalElement data={value} />
+        )
+      }
+
+
+    }
     return(
       <div className="modal-card" data-testid="test-modal">
         <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
@@ -23,7 +37,7 @@ class CardModal extends React.Component {
             <th></th>
             <th>Category</th>
           </tr>
-          <ModalElement modalData={this.props.modalData} />
+          <tbody>{modalElements}</tbody>
 
         </table>
       </div>

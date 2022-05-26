@@ -1,17 +1,12 @@
 import React from 'react';
 
-const ModalElement = ({modalData}) => {
+const ModalElement = ({data}) => {
   return (
     <tr>
       <td>
-        {modalData.name}
+        {data}
       </td>
-      <td>
-        name
-      </td>
-      <td>
-        {modalData.slogan}
-      </td>
+
 
     </tr>
   )
