@@ -1,6 +1,6 @@
 import React from 'react';
 // import './styles/Questions.css'
-
+import ModalElement from './ModalElement.jsx'
 class CardModal extends React.Component {
   constructor(props) {
     super(props);
@@ -23,17 +23,8 @@ class CardModal extends React.Component {
             <th></th>
             <th>Category</th>
           </tr>
-          <tr>
-            <td>
-              {this.props.modalData.name}
-            </td>
-            <td>
-              name
-            </td>
-            <td>
-              {this.props.modalData.slogan}
-            </td>
-          </tr>
+          <ModalElement modalData={this.props.modalData} />
+
         </table>
       </div>
 
