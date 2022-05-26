@@ -20,37 +20,31 @@ class CardModal extends React.Component {
 
     var combinedFeatures = {}
 
-    for (var k in modalData) {
 
-      if (k === 'name' || k === 'category') {
-        var value = modalData[k]
-        modalElements.push(
-          <ModalElement k={k} modalValue={value}
-          overviewValue={this.props.overviewProduct[k]}/>
-        )
-      }
-    }
 
     var modalFeatures = modalData['features'];
     for (var i = 0; i < modalFeatures.length; i++) {
       var feature = modalFeatures[i]['feature']
       var modalValue = modalFeatures[i]['value']
       console.log('what is modalValue', modalValue)
-      console.log('what is feature', feature)
-      combinedFeatures[feature] = {
-        'modalValue': modalValue
+
+      if (modalValue !== null) {
+        combinedFeatures[modalValue] = {
+          'modalValue': true
+        }
       }
+
     }
 
     var overviewFeatures = overviewProduct['features'];
     for (var i = 0; i < overviewFeatures.length; i++) {
       var feature = overviewFeatures[i]['feature']
       var overviewValue = overviewFeatures[i]['value']
-      if (combinedFeatures[feature]) {
-        combinedFeatures[feature].overviewValue = overviewValue
-      } else {
-        combinedFeatures[feature] = {
-          'overviewValue': overviewValue
+      if (overviewValue !== null && combinedFeatures[overviewValue]) {
+        combinedFeatures[overviewValue].overviewValue = true
+      } else if (overviewValue !== null){
+        combinedFeatures[overviewValue] = {
+          'overviewValue': true
         }
       }
 
@@ -70,9 +64,9 @@ class CardModal extends React.Component {
         <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
         <table>
           <tr>
-            <th>Category</th>
+            <th>{this.props.overviewProduct.name}</th>
             <th></th>
-            <th>Category</th>
+            <th>{this.props.modalData.name}</th>
           </tr>
           <tbody>{modalElements}</tbody>
 

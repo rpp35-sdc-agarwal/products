@@ -1,14 +1,14 @@
 import React from 'react';
 
 const ModalElement = ({overviewValue, k, modalValue}) => {
-  var o = ' ';
+  var o = '';
   if (overviewValue) {
-    o = overviewValue;
+    o = "\u2713";
   }
 
-  var m = ' ';
+  var m = '';
   if (modalValue) {
-    m = modalValue;
+    m = "\u2713";
   }
 
   return (
