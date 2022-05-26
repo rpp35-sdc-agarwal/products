@@ -6,9 +6,15 @@ class AddToCart extends React.Component {
     this.state = {
       currentStyle: this.props.currentStyle,
       currentSku: ''
-    }
+    };
     this.renderQuantity = this.renderQuantity.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      currentStyle: props.currentStyle
+    })
   }
 
   renderQuantity() {

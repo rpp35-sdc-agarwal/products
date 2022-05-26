@@ -46,6 +46,12 @@ class ImageGallery extends React.Component {
     }
   }
 
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      currentStyle: props.currentStyle
+    })
+  }
+
   render() {
     return(
       <div id = 'galleryDiv' className = 'childDiv'>

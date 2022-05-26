@@ -13,6 +13,12 @@ class GalleryThumbnails extends React.Component {
     this.props.handleImageChange(e.target[Object.keys(e.target)[1]].value)
   }
 
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      currentStyle: props.currentStyle
+    })
+  }
+
   render() {
     return(
       <div id = 'galleryCarouselDiv'>

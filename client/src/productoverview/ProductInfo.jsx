@@ -9,6 +9,11 @@ class ProductInfo extends React.Component {
     }
   }
 
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      currentStyle: props.currentStyle
+    })
+  }
 
 
   render() {

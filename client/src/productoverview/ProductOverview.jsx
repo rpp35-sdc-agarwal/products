@@ -12,7 +12,22 @@ class ProductOverview extends React.Component {
     this.state = {
       currentProduct: sampleData,
       currentStyle: sampleData.productStyles.results[0]
+    };
+    this.handleStyleChange = this.handleStyleChange.bind(this);
+  }
+
+  handleStyleChange(styleId) {
+    let styles = this.state.currentProduct.productStyles.results;
+    let newStyle;
+    for (let i = 0; i < styles.length; i++) {
+      if (styles[i].style_id === styleId) {
+        newStyle = styles[i]
+        break;
+      }
     }
+    this.setState({
+      currentStyle: newStyle
+    })
   }
 
   render() {
@@ -20,7 +35,7 @@ class ProductOverview extends React.Component {
       <div id='container' data-testid="test_poContainer">
         <ImageGallery currentStyle = {this.state.currentStyle}/>
         <ProductInfo productInfo = {this.state.currentProduct.productInfo} currentStyle = {this.state.currentStyle}/>
-        <StyleSelector styles = {this.state.currentProduct.productStyles.results} currentStyle = {this.state.currentStyle}/>
+        <StyleSelector handleStyleChange={this.handleStyleChange} styles = {this.state.currentProduct.productStyles.results} currentStyle = {this.state.currentStyle}/>
         <AddToCart currentStyle = {this.state.currentStyle}/>
         <Slogan productInfo = {this.state.currentProduct.productInfo}/>
       </div>
