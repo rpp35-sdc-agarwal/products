@@ -6,13 +6,14 @@ import CardModal from './CardModal.jsx'
 import SalePrice from './SalePrice.jsx'
 import DefaultPrice from './DefaultPrice.jsx'
 import axios from 'axios';
+import relatedProducts from '../../data/relatedProducts.js'
 
 class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       compare: false,
-      overviewProduct: null,
+      overviewProduct: relatedProducts[0],
       modalProduct: null,
     }
     this.compare = this.compare.bind(this);
@@ -28,6 +29,9 @@ class Card extends React.Component {
   handleGetCard() {
 
     console.log(this.props.product, 'what is product at card')
+    this.setState({
+      modalProduct: this.props.product
+    }, () => console.log('what is state', this.state.modalProduct))
 
 
   }
@@ -52,7 +56,7 @@ class Card extends React.Component {
 
 
         { this.props.isRelated && this.state.compare &&
-          <CardModal toggleModal={this.compare}/>
+          <CardModal toggleModal={this.compare} modalData={this.state.modalProduct}/>
         }
 
         <img src="https://via.placeholder.com/150" alt="Avatar" ></img>

@@ -12,6 +12,7 @@ class Carousel extends React.Component {
     this.state = {
       currentIndex: 0,
       products: this.props.products,
+      modalProduct: null
 
     }
     console.log('what are props', props)
@@ -45,6 +46,8 @@ class Carousel extends React.Component {
       currentIndex: this.state.currentIndex -1
     }, () => console.log('i clicked a button'))
   }
+
+
 
 
 //   prev(){

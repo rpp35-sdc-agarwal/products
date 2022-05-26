@@ -25,13 +25,13 @@ class CardModal extends React.Component {
           </tr>
           <tr>
             <td>
-              value
+              {this.props.modalData.name}
             </td>
             <td>
               name
             </td>
             <td>
-              value
+              {this.props.modalData.slogan}
             </td>
           </tr>
         </table>
