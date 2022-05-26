@@ -1,16 +1,16 @@
 import React from 'react';
 
-const ModalElement = ({k, value}) => {
+const ModalElement = ({overviewValue, k, modalValue}) => {
   return (
     <tr>
       <td>
-        {k}
+        {overviewValue}
       </td>
       <td>
-        name
+      {k}
       </td>
       <td>
-        {value}
+        {modalValue}
       </td>
 
 

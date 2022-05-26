@@ -56,7 +56,8 @@ class Card extends React.Component {
 
 
         { this.props.isRelated && this.state.compare &&
-          <CardModal toggleModal={this.compare} modalData={this.props.product}/>
+          <CardModal toggleModal={this.compare} modalData={this.props.product}
+          overviewProduct={this.state.overviewProduct}/>
         }
 
         <img src="https://via.placeholder.com/150" alt="Avatar" ></img>

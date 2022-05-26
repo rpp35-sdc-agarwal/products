@@ -20,9 +20,11 @@ class CardModal extends React.Component {
       console.log('k', k)
       var value = modalData[k]
       console.log('value', value)
+
       if (k !== 'features') {
         modalElements.push(
-          <ModalElement k={k} value={value} />
+          <ModalElement k={k} modalValue={value}
+          overviewValue={this.props.overviewProduct[k]}/>
         )
       }
 
