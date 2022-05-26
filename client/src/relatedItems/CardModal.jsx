@@ -16,20 +16,33 @@ class CardModal extends React.Component {
   render() {
     var modalElements = [];
     var modalData = this.props.modalData
-    for (var k in modalData) {
-      console.log('k', k)
-      var value = modalData[k]
-      console.log('value', value)
+    var overviewProduct = this.props.overviewProduct;
 
-      if (k !== 'features') {
+    var combinedFeatures = {}
+
+    for (var k in modalData) {
+
+      if (k === 'name' || k === 'category') {
+        var value = modalData[k]
         modalElements.push(
           <ModalElement k={k} modalValue={value}
           overviewValue={this.props.overviewProduct[k]}/>
         )
       }
-
-
     }
+
+    var modalFeatures = modalData['features'];
+    for (var i = 0; i < modalFeatures.length; i++) {
+      var feature = modalFeatures[i]['feature']
+      var modalValue = modalFeatures[i]['value']
+      console.log('what is modalValue', modalValue)
+      console.log('what is feature', feature)
+      combinedFeatures[feature] = {
+        'modalValue': modalValue
+      }
+    }
+
+    console.log('what are conbined features', combinedFeatures)
     return(
       <div className="modal-card" data-testid="test-modal">
         <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
