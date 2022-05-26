@@ -14,10 +14,10 @@ class Card extends React.Component {
     this.state = {
       compare: false,
       overviewProduct: relatedProducts[0],
-      modalProduct: null,
+      // modalProduct: null,
     }
     this.compare = this.compare.bind(this);
-    this.handleGetCard = this.handleGetCard.bind(this)
+    // this.handleGetCard = this.handleGetCard.bind(this)
   }
 
   compare() {
@@ -26,15 +26,15 @@ class Card extends React.Component {
     })
   }
 
-  handleGetCard() {
+  // handleGetCard() {
 
-    console.log(this.props.product, 'what is product at card')
-    this.setState({
-      modalProduct: this.props.product
-    }, () => console.log('what is state', this.state.modalProduct))
+  //   console.log(this.props.product, 'what is product at card')
+  //   this.setState({
+  //     modalProduct: this.props.product
+  //   }, () => console.log('what is state', this.state.modalProduct))
 
 
-  }
+  // }
 
 
   render() {
@@ -56,7 +56,7 @@ class Card extends React.Component {
 
 
         { this.props.isRelated && this.state.compare &&
-          <CardModal toggleModal={this.compare} modalData={this.state.modalProduct}/>
+          <CardModal toggleModal={this.compare} modalData={this.props.product}/>
         }
 
         <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
