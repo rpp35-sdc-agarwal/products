@@ -56,6 +56,14 @@ class CardModal extends React.Component {
 
     }
 
+    for (var k in combinedFeatures) {
+      modalElements.push(
+        <ModalElement k={k}
+        modalValue={combinedFeatures[k].modalValue}
+        overviewValue={combinedFeatures[k].overviewValue} />
+      )
+    }
+
     console.log('what are conbined features', combinedFeatures)
     return(
       <div className="modal-card" data-testid="test-modal">
