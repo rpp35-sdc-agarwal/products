@@ -42,6 +42,20 @@ class CardModal extends React.Component {
       }
     }
 
+    var overviewFeatures = overviewProduct['features'];
+    for (var i = 0; i < overviewFeatures.length; i++) {
+      var feature = overviewFeatures[i]['feature']
+      var overviewValue = overviewFeatures[i]['value']
+      if (combinedFeatures[feature]) {
+        combinedFeatures[feature].overviewValue = overviewValue
+      } else {
+        combinedFeatures[feature] = {
+          'overviewValue': overviewValue
+        }
+      }
+
+    }
+
     console.log('what are conbined features', combinedFeatures)
     return(
       <div className="modal-card" data-testid="test-modal">
