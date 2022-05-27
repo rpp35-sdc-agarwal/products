@@ -22,6 +22,22 @@ class Card extends React.Component {
     })
   }
 
+  updateUrl() {
+    var id = this.props.product.id;
+    var state = history.state;
+    var url = ''
+    if (!state) {
+      url = `ip/${id}`;
+    } else {
+      url = `${id}`
+    }
+
+    var state = {
+      id: id
+    }
+    history.pushState(state, '', url)
+  }
+
   render() {
     var price = null;
     if (this.props.product.sale_price) {
@@ -32,7 +48,7 @@ class Card extends React.Component {
     }
 
     return (
-      <div className="card">
+      <div className="card" onClick={this.updateUrl.bind(this)}>
 
 
         <button className="tooltip" onClick={this.compare}>
