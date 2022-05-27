@@ -17,6 +17,9 @@ class ProductOverview extends React.Component {
   }
 
   handleStyleChange(styleId) {
+    if (this.state.currentStyle.style_id === styleId) {
+      return;
+    }
     let styles = this.state.currentProduct.productStyles.results;
     let newStyle;
     for (let i = 0; i < styles.length; i++) {

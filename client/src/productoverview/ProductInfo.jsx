@@ -17,7 +17,7 @@ class ProductInfo extends React.Component {
 
 
   render() {
-    let salePriceHTML = <div><s>${this.state.currentStyle.sale_price}</s> <a style={{color: 'red'}}>${this.state.currentStyle.original_price}</a></div>
+    let salePriceHTML = <div><s>${this.state.currentStyle.original_price}</s> <a style={{color: 'red'}}>${this.state.currentStyle.sale_price}</a></div>
     let originPriceHTML = <div>${this.state.currentStyle.original_price}</div>
     return(
       <div className='childDiv'>
