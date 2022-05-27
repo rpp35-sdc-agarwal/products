@@ -4,11 +4,11 @@ import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
 import Questions from './components/Questions/Questions.jsx';
-import ReviewsContainer from './Reviews/ReviewsContainer.jsx';
-import ProductOverview from './productoverview/ProductOverview.jsx';
-import Carousel from './relatedItems/Carousel.jsx';
-import RelatedItems from './relatedItems/RelatedItems.jsx';
-import relatedProducts from '../data/relatedProducts.js'
+import ReviewsContainer from './components/Reviews/ReviewsContainer.jsx';
+import ProductOverview from './components/ProductOverview/ProductOverview.jsx';
+import Carousel from './components/RelatedItems/Carousel.jsx';
+import RelatedItems from './components/RelatedItems/RelatedItems.jsx';
+import listProducts from '../data/listProducts.js'
 
 
 class App extends React.Component {
@@ -40,12 +40,15 @@ class App extends React.Component {
           })
         })
       })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
 
 
   componentDidMount () {
-    console.log('in App componentDidMount');
+    // console.log('in App componentDidMount');
     this.retrieveProducts();
   }
 
@@ -59,12 +62,11 @@ class App extends React.Component {
     something like this:
       handleClick (e) {
         return this.props.handleItemClick(e.target.value);
-    }
+      }
     */
   }
   render() {
     return(
-
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
@@ -75,7 +77,6 @@ class App extends React.Component {
         ratings={this.state.ratings}
         currentProductId={this.state.currentProductId}/>
         <Questions currentProductId={this.state.currentProductId} />
-
       </div>
 
     )
