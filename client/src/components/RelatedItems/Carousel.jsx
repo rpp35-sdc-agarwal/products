@@ -38,7 +38,8 @@ class Carousel extends React.Component {
         <div className="slider">
           <RelatedList products={this.props.products}
           isRelated={true}
-          ratings={this.props.ratings}/>
+          ratings={this.props.ratings}
+          handleItemClick={this.props.handleItemClick}/>
         </div>
       </div>
 

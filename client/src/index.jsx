@@ -21,7 +21,7 @@ class App extends React.Component {
       // currentProductId: '5',
       // productList: [...productListExample]
       currentProductId: '',
-      productList: []
+      productList: this.props.products
     }
   }
 
@@ -69,7 +69,7 @@ class App extends React.Component {
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
         <ReviewsContainer />
-        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.props.products} ratings={this.state.ratings}/>
+        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.state.productList} ratings={this.state.ratings}/>
         <Questions currentProductId={this.state.currentProductId} />
       </div>
 
