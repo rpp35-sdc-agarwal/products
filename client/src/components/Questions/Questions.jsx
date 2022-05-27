@@ -85,7 +85,6 @@ class Questions extends React.Component {
   }
 
   render() {
-    console.log('in questions render')
     return (
       <div id='QA' data-testid="test_questions">
         Questions component placeholder

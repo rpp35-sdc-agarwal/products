@@ -15,7 +15,7 @@ class QuestionList extends React.Component {
   
   render() {
     return (
-      <div className='question-list'>
+      <div className='question-list' data-testid="test_questionlist">
         {this.props.questions.map((question, i) => 
           <QuestionView key={i} question={question} />
         )}
