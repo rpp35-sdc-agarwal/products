@@ -43,6 +43,7 @@ class Carousel extends React.Component {
 // }
 
   render() {
+    console.log('props in carousel: ', this.props);
     return (
 
       <div className="wrapper">

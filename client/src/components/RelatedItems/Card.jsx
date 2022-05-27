@@ -36,7 +36,7 @@ class Card extends React.Component {
     return (
       <div className="card" >
         <button className="tooltip" onClick={this.compare}>
-          <span class="tooltiptext">Compare</span>
+          <span className="tooltiptext">Compare</span>
         </button>
 
 

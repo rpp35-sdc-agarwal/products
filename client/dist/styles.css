@@ -233,7 +233,6 @@ ul.cardHolder.related {
   transition: 0.3s;
   /* max-width: 150px; */
   margin: 30px;
-  position: relative;
 
 }
 
@@ -242,7 +241,12 @@ ul.cardHolder.related {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.tooltip {
+.modal {
+  padding: 10px 16px;
+  border: 5px solid blue;
+  width: 200px;
+  height: 100px;
+  z-index: 10;
   position: absolute;
   top: 0;
   right: 0;
@@ -258,7 +262,6 @@ ul.cardHolder.related {
   font-weight: 900;
   color: #f8ce0b;
 }
-
 
 .tooltip .tooltiptext {
   visibility: hidden;
@@ -316,7 +319,7 @@ ul.cardHolder.related {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
-} */
+} 
 
 .toggle-button {
   font-weight: 550;

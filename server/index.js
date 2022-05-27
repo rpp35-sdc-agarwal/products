@@ -99,13 +99,6 @@ app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRela
 /////////////////////////////////////////////////////////
 
 
-
-
-
-const PORT = process.env.PORT || 3000;
-
-
-
 app.get('/reviews', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
@@ -146,9 +139,10 @@ app.get('/reviews/meta', (req, res) => {
     })
 });
 
+
+
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
-
-
-
