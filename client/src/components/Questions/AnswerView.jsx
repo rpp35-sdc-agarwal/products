@@ -12,11 +12,9 @@ class AnswerView extends React.Component {
     }
   }
   
-  
-  
   render() {
     return (
-      <div className='answer'>
+      <div className='answer' data-testid='test-answerview'>
         A: {this.props.answer.body}
         {this.props.answer.photos.length !== 0 ? this.props.answer.photos.map((photo, i) => (
           <AnswerPhoto photo={photo} key={i} />
