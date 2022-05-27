@@ -209,6 +209,7 @@ button {
   transition: 0.3s;
   /* max-width: 150px; */
   margin: 30px;
+  position: relative;
 
 }
 
@@ -295,7 +296,7 @@ button {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
-} 
+}
 
 .toggle-button {
   font-weight: 550;

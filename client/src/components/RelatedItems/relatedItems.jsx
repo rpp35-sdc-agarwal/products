@@ -24,7 +24,8 @@ class RelatedItems extends React.Component {
          ratings={this.props.ratings}
          currentProductId={this.props.currentProductId}/>
         {/* <OutfitCarousel products={this.state.products}/> */}
-      </div>
+
+     </>
     )
   }
 }

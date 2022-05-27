@@ -6,7 +6,7 @@ import CardModal from './CardModal.jsx'
 import SalePrice from './SalePrice.jsx'
 import DefaultPrice from './DefaultPrice.jsx'
 import axios from 'axios';
-import relatedProducts from '../../data/relatedProducts.js'
+import relatedProducts from '../../../data/relatedProducts.js'
 
 class Card extends React.Component {
   constructor(props) {
