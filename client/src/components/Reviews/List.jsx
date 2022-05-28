@@ -82,7 +82,7 @@ class List extends React.Component {
           {this.state.render.map((review) => {
             return (
               <div key={review.review_id} className="rev-tile">
-                <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name}, {this.formatDate(review.date)}</span></div>
+                <div className="rev-stars">stars: {review.rating} <span className="rev-username rev-date"> {review.reviewer_name}, {this.formatDate(review.date)}</span></div>
                 <div className="rev-summary"><b>{review.summary}</b></div>
                 <div className="rev-body">
                   <Body body={review.body}/>
@@ -101,7 +101,7 @@ class List extends React.Component {
           })}
         </div>
        {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
-       {this.state.form ? <ReviewForm /> : null}
+       {this.state.form ? <ReviewForm closePopup={this.clickHandler}/> : null}
       </div>
     )
   }
