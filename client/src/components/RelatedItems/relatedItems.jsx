@@ -10,7 +10,8 @@ class RelatedItems extends React.Component {
     super(props)
     this.state = {
 
-      products: this.props.products
+      products: this.props.products,
+
     }
   }
 
@@ -20,13 +21,22 @@ class RelatedItems extends React.Component {
     .then(data => console.log(data))
   }
 
+
+
   render() {
     return (
       <div>
          <Carousel products={this.state.products}
-         ratings={this.props.ratings}/>
-        {/* <OutfitCarousel products={this.state.products}/> */}
-      </div>
+         ratings={this.props.ratings}
+         type={'related'}
+         />
+        <OutfitCarousel
+         products={this.state.products}
+         ratings={this.props.ratings}
+
+         type={'outfit'}
+         />
+      </>
     )
   }
 }
