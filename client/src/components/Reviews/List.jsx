@@ -23,7 +23,9 @@ class List extends React.Component {
               <div key={review.review_id} className="rev-tile">
                 <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name} {review.date.slice(0, 10)}</span></div>
                 <div className="rev-summary">{review.summary}</div>
-                <div className="rev-body">{review.body}</div>
+                <div className="rev-body">
+                  {review.body}
+                </div>
                 <div className="rev-response">{review.response}</div>
                 <div className="rev-helpfulness">{review.helpfulness} people found this review helpful</div>
               </div>
