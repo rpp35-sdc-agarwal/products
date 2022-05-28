@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRating from '../RelatedItems/StarRating.jsx';
 
 class ProductInfo extends React.Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class ProductInfo extends React.Component {
     this.state = {
       productInfo: this.props.productInfo,
       currentStyle: this.props.currentStyle,
+      rating: "60%"
     }
   }
 
@@ -22,7 +24,7 @@ class ProductInfo extends React.Component {
     return(
       <div className='childDiv'>
         <div>
-          Stars read all [#] Reviews
+          <StarRating rating={this.state.rating}/> read all [#] Reviews
         </div>
         <div>
           Category: {this.state.productInfo.category}

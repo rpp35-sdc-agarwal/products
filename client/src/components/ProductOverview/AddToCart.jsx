@@ -57,6 +57,7 @@ class AddToCart extends React.Component {
           {this.renderQuantity()}
         </select>
         <button>Add To Cart</button>
+        <button className="tooltip"></button>
       </div>
     )
   }
