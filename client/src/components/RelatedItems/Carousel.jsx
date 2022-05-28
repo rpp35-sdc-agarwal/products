@@ -8,31 +8,19 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 0,
-
+      currentIndex: 0
 
     }
-    console.log('what are props', props)
-    this.handleShift = this.shiftCarousel.bind(this);
-    this.handleShiftRight = this.shiftCarouselRight.bind(this);
-  }
-
-  shiftCarousel() {
-    console.log('i made it here');
-    this.setState({
-      currentIndex: this.state.currentIndex + 1
-    }, () => console.log('i clicked a button'))
-  }
-
-  shiftCarouselRight() {
-    console.log('i made it here');
-    this.setState({
-      currentIndex: this.state.currentIndex -1
-    }, () => console.log('i clicked a button'))
   }
 
 
-
+//   next(){
+//     if (this.state.currentIndex < (this.state.length - this.props.show)) {
+//         this.setState({
+//           currentIndex: this.state.currentIndex + 1
+//         })
+//     }
+//   }
 
 //   prev(){
 //     if (this.state.currentIndex > 0) {
@@ -49,14 +37,8 @@ class Carousel extends React.Component {
       <div className="wrapper">
         <div className="slider">
           <RelatedList products={this.props.products}
-          type={this.props.type}
           isRelated={true}
-          ratings={this.props.ratings}
-          shift={this.state.currentIndex}
-          handleShift={this.handleShift}
-          handleShiftRight={this.handleShiftRight}
-          />
-
+          ratings={this.props.ratings}/>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import OutfitList from './OutfitList.jsx';
+import RelatedList from './RelatedList.jsx';
 import AddOutfit from './AddOutfit.jsx'
 
 
@@ -9,25 +9,9 @@ class OutfitCarousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 0
+      currentIndex: 1
 
     }
-    this.shiftCarouselOutfitLeft = this.shiftCarouselOutfit.bind(this);
-    this.shiftCarouselOutfitRight = this.shiftCarouselRightOutfit.bind(this);
-  }
-
-  shiftCarouselOutfit() {
-    console.log('i made it here');
-    this.setState({
-      currentIndex: this.state.currentIndex + 1
-    }, () => console.log('i clicked a button'))
-  }
-
-  shiftCarouselRightOutfit() {
-    console.log('i made it here');
-    this.setState({
-      currentIndex: this.state.currentIndex -1
-    }, () => console.log('i clicked a button'))
   }
 
 
@@ -54,15 +38,7 @@ class OutfitCarousel extends React.Component {
         <AddOutfit />
 
         <div className="slider">
-          <OutfitList products={this.props.products}
-
-          isRelated={false}
-          ratings={this.props.ratings}
-          shift={this.state.currentIndex}
-          handleShiftLeft={this.shiftCarouselOutfitLeft}
-          type={this.props.type}
-          handleShiftRight={this.shiftCarouselOutfitRight}
-          />
+          <RelatedList products={this.props.products} type={"outfit"} isRelated={false}/>
 
         </div>
       </div>

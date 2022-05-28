@@ -31,10 +31,10 @@ class Card extends React.Component {
       price = <DefaultPrice price={this.props.product.default_price} />
     }
 
-
-
     return (
-      <div className="card" >
+      <div className="card">
+
+
         <button className="tooltip" onClick={this.compare}>
           <span className="tooltiptext">Compare</span>
         </button>
