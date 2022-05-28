@@ -35,9 +35,9 @@ class ProductOverview extends React.Component {
 
   render() {
     return(
-      <div id='container' data-testid="test_poContainer">
+      <div id='container' data-testid='test_ProductOverview'>
         <ImageGallery currentStyle = {this.state.currentStyle}/>
-        <ProductInfo productInfo = {this.state.currentProduct.productInfo} currentStyle = {this.state.currentStyle}/>
+        <ProductInfo productInfo = {this.state.currentProduct.productInfo} currentStyle = {this.state.currentStyle} avgRating={this.props.avgRating}/>
         <StyleSelector handleStyleChange={this.handleStyleChange} styles = {this.state.currentProduct.productStyles.results} currentStyle = {this.state.currentStyle}/>
         <AddToCart currentStyle = {this.state.currentStyle}/>
         <Slogan productInfo = {this.state.currentProduct.productInfo}/>

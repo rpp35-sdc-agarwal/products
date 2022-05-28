@@ -72,8 +72,8 @@ class App extends React.Component {
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        <ProductOverview />
-        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.props.products} ratings={this.state.ratings}/>
+        <ProductOverview avgRating={this.state.avgRating}/>
+        {/* <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.props.products} ratings={this.state.ratings}/> */}
         <Questions currentProductId={this.state.currentProductId} />
         <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
 
