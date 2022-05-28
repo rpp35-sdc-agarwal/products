@@ -5,13 +5,15 @@ import StarRating from './StarRating.jsx'
 import CardModal from './CardModal.jsx'
 import SalePrice from './SalePrice.jsx'
 import DefaultPrice from './DefaultPrice.jsx'
+import withLogging from './withLogging.jsx'
 
 
 class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      compare: false
+      compare: false,
+
     }
     this.compare = this.compare.bind(this);
   }
@@ -21,6 +23,8 @@ class Card extends React.Component {
       compare: !this.state.compare
     })
   }
+
+
 
   render() {
     var price = null;
@@ -32,7 +36,7 @@ class Card extends React.Component {
     }
 
     return (
-      <div className="card">
+      <div className="card" onClick={this.props.handleClick}>
 
 
         <button className="tooltip" onClick={this.compare}>
@@ -59,4 +63,5 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+const CardWithLogging = withLogging(Card, 'relatedItems')
+export default CardWithLogging;
