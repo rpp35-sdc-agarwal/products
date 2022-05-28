@@ -56,7 +56,6 @@ class RatingBreakdown extends React.Component {
       ratings.push(ratingProduct);
     }
     //add those values together
-
     ratings = ratings.reduce((previousVal, currentVal) => { return previousVal + currentVal });
     //divide them by the total number of ratings
     this.setState({
@@ -64,7 +63,9 @@ class RatingBreakdown extends React.Component {
         revBreakdown: this.breakdownObj(total, allScores),
         starVal: this.starPercent(ratings / total).toFixed(2),
         recommended: this.recommend().toFixed(0)
-      });
+    });
+
+    this.props.setAvg((ratings / total).toFixed(2));
   }
 
   breakdownObj(total, scores) {

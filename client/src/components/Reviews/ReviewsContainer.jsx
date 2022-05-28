@@ -46,7 +46,7 @@ class ReviewsContainer extends React.Component {
   render() {
     return (
       <div data-testid="test_revContainer" className="ReviewsContainer">
-        <RatingBreakdown metaData={this.state.metaData}/>
+        <RatingBreakdown setAvg={this.props.setAvg}metaData={this.state.metaData}/>
         <ProductBreakdown metaData={this.state.metaData}/>
         <Sort product_id={this.props.product_id}/>
       </div>
