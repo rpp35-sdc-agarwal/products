@@ -20,7 +20,7 @@ class AnswerView extends React.Component {
           <AnswerPhoto photo={photo} key={i} />
         )) : null}
         <div className='answer-info'>
-        <span>by {this.props.answer.answerer_name} </span> | <span>Helpful? Yes</span> | <span>Report</span>
+        <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-options'> Yes ({this.props.answer.helpfulness}) </span> | <span className='answer-options'> Report </span>
         </div>
         
       </div>

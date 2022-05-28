@@ -24,7 +24,7 @@ class QuestionView extends React.Component {
       <div>
         -------------------------------------------------
         <div className='question' data-testid="test_questionview">
-          Q: {this.props.question.question_body} <span>Helpful? <a>Yes</a></span> | <span onClick={this.addAnswer.bind(this)}>Add Answer</span>
+          Q: {this.props.question.question_body} <span> Helpful? </span> <span className='question-options'> Yes ({this.props.question.question_helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-options'>Add Answer</span>
         </div>
         {this.state.add ? <AnswerPopup toggleAnswer={this.addAnswer.bind(this)}/> : null}
         <div>
