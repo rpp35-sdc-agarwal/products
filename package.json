@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack --mode development --watch",
     "server-dev": "npx nodemon server/index.js",
-    "test": "jest --coverage --watch",
+    "test": "jest --coverage",
     "clear_jest": "jest --clearCache"
   },
   "repository": {
@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/Rpp35-Fec-Ethernet/Fec#readme",
   "jest": {
-    "testEnvironment": "jsdom"
+    "verbose": true,
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": ["jsx", "js"],
+    "testPathIgnorePatterns": ["/node_modules/", "/examples/"]
   },
   "dependencies": {
     "axios": "^0.27.2",

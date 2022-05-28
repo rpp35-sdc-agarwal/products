@@ -14,6 +14,7 @@ class Questions extends React.Component {
     super(props);
     this.state = {
       questions: [],
+      more: true,
       search: '',
       add: false,
       productId: ''
@@ -66,16 +67,24 @@ class Questions extends React.Component {
     })
   }
 
-  showMoreQuestions () {
-    this.retrieveQuestions(this.state.productId)
+  toggleQuestionList () {
+    if (this.state.more) {
+      this.retrieveQuestions(this.state.productId)
       .then((data) => {
         console.log('data: ', data)
         
         this.setState({
-          questions:[...data]
+          questions:[...data],
         })
       })
-    
+    } else {
+      this.setState({
+        questions:[this.state.questions[0], this.state.questions[1]]
+      })
+    }
+    this.setState({
+      more: !this.state.more
+    })
   }
 
   addQuestion () {
@@ -90,7 +99,8 @@ class Questions extends React.Component {
         Questions component placeholder
         <Search handleSearch={this.handleSearch.bind(this)} />
         <QuestionList questions={this.state.questions} />
-        <button onClick={this.showMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
+        {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE</button>}
+        
         <button onClick={this.addQuestion.bind(this)}>ADD A QUESTION +</button>
         <div>
           {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} /> : null}
