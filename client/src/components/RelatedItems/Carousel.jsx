@@ -31,15 +31,14 @@ class Carousel extends React.Component {
 // }
 
   render() {
+    console.log('props in carousel: ', this.props);
     return (
 
       <div className="wrapper">
         <div className="slider">
           <RelatedList products={this.props.products}
-
           isRelated={true}
           ratings={this.props.ratings}/>
-
         </div>
       </div>
 
