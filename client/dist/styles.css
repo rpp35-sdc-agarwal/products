@@ -33,6 +33,13 @@
   object-fit: contain;
 }
 
+.seletedCarouselFrame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+  border:1px solid black;
+}
+
 .galleryCarouselImageFrame {
   width: 50px;
   height: 50px;
@@ -312,7 +319,7 @@ button {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
-} 
+}
 
 .toggle-button {
   font-weight: 550;

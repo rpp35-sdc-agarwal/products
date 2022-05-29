@@ -12,9 +12,10 @@ class ProductInfo extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(props) {
+    let ratingPercentage = (Number(props.avgRating)/5*100).toString() + '%';
     this.setState({
       currentStyle: props.currentStyle,
-      avgRating: props.avgRating
+      avgRating: ratingPercentage
     })
   }
 
@@ -22,11 +23,10 @@ class ProductInfo extends React.Component {
   render() {
     let salePriceHTML = <div><s>${this.state.currentStyle.original_price}</s> <a style={{color: 'red'}}>${this.state.currentStyle.sale_price}</a></div>
     let originPriceHTML = <div>${this.state.currentStyle.original_price}</div>
-    let ratingPercentage = (Number(this.state.avgRating)/5*100).toString() + '%';
     return(
       <div className='childDiv'>
         <div>
-          <StarRating rating={ratingPercentage}/>{ratingPercentage} read all [#] Reviews
+          <StarRating rating={this.state.avgRating}/>read all [#] Reviews
         </div>
         <div>
           Category: {this.state.productInfo.category}
