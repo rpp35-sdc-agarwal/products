@@ -8,8 +8,18 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      relatedItems: [],
+      currentProductId: ''
 
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      this.setState({
+        currentProductId: this.props.currentProductId
+      }, () => console.log('state.id in carousel', this.state.currentProductId))
     }
   }
 
