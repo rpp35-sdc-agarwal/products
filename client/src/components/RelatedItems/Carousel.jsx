@@ -22,7 +22,12 @@ class Carousel extends React.Component {
         currentProductId: this.props.currentProductId
       }, () => {
         axios.get(`/products/${this.state.currentProductId}/related`)
-        .then((res) => console.log('what are related items', res.data) )
+        .then((res) => {
+          this.setState({
+            relatedItems: res.data
+          }, () => console.log(this.state.relatedItems))
+        })
+        .catch((err) => console.log('there was an error'))
       })
     }
   }
@@ -50,7 +55,7 @@ class Carousel extends React.Component {
 
       <div className="wrapper">
         <div className="slider">
-          <RelatedList products={this.props.products}
+          <RelatedList products={this.state.relatedItems}
           isRelated={true}
           ratings={this.props.ratings}/>
         </div>
