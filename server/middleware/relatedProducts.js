@@ -109,6 +109,7 @@ const addPriceToProducts = (req, res, next) => {
       if (styles[j]['default?']) {
         console.log('what is price', styles[j].original_price)
         console.log('what is price', styles[j].sale_price)
+        products[i].photo = styles[j].photos[0].thumbnail_url
         if (styles[j].sale_price) {
           products[i].sale_price = styles[j].sale_price;
         }

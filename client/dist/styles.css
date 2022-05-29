@@ -231,6 +231,12 @@ button {
   background: transparent;
 }
 
+.img-resize {
+  height: 250px;
+  width: 200px;
+  object-fit: cover;
+}
+
 .tooltip::before {
   content: "\f005";
   font-family: "Font Awesome 5 Free";
@@ -294,7 +300,7 @@ button {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
-} 
+}
 
 .toggle-button {
   font-weight: 550;

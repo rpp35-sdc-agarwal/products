@@ -31,6 +31,13 @@ class Card extends React.Component {
       price = <DefaultPrice price={this.props.product.default_price} />
     }
 
+    var photo = '';
+    if (this.props.product.photo) {
+      photo = this.props.product.photo;
+    } else {
+      photo = "https://via.placeholder.com/150"
+    }
+
     return (
       <div className="card">
 
@@ -44,8 +51,9 @@ class Card extends React.Component {
           <CardModal toggleModal={this.compare}/>
         }
 
-        <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+
         <div className="container">
+          <img class="img-resize" src={photo} alt="Avatar" ></img>
           <h4><b>{this.props.product.category}</b></h4>
           <p>{this.props.product.name}</p>
           {price}
