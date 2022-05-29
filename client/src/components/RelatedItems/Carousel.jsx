@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 // import '../carousel.css';
 import RelatedList from './RelatedList.jsx'
 import Card from './Card.jsx'
+import axios from 'axios';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -19,7 +20,10 @@ class Carousel extends React.Component {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.setState({
         currentProductId: this.props.currentProductId
-      }, () => console.log('state.id in carousel', this.state.currentProductId))
+      }, () => {
+        axios.get(`/products/${this.state.currentProductId}/related`)
+        .then((res) => console.log('what are related items', res.data) )
+      })
     }
   }
 
@@ -41,7 +45,7 @@ class Carousel extends React.Component {
 // }
 
   render() {
-    console.log('props in carousel: ', this.props);
+
     return (
 
       <div className="wrapper">
