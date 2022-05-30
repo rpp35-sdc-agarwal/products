@@ -1,8 +1,15 @@
+var cookieSession = require('cookie-session')
 const express = require('express');
 const API = require('../config.js')
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
+app.set('trust proxy', 1) // trust first proxy
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
 
 app.use(express.static(__dirname + '/../client/dist'));
@@ -10,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const getRelated = require('./middleware/relatedProducts.js')
+const addOutfit = require('./middleware/addOutfit.js')
 
 /////////////////////////////////////////////////////////
 //    Products Routes
@@ -51,6 +59,12 @@ app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRela
   res.json(res.products)
 
 })
+
+app.get('/products/:product_id/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit], (req, res) => {
+  res.json(res.outfit)
+})
+
+
 
 /////////////////////////////////////////////////////////
 //    Questions and Answers Routes
