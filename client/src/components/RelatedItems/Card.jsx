@@ -57,7 +57,10 @@ class Card extends React.Component {
           <h4><b>{this.props.product.category}</b></h4>
           <p>{this.props.product.name}</p>
           {price}
-          <StarRating rating={this.props.rating} />
+          {this.props.product.ratings &&
+
+            <StarRating rating={this.props.product.ratings} />
+          }
         </div>
 
 
