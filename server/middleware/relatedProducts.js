@@ -175,13 +175,38 @@ const getReviews = (req, res, next) => {
     return data;
   })
   .then(data => {
-    console.log('what is my data now', data)
+    for (var i = 0; i < res.products.length; i++) {
+      var ratings = data[i].ratings;
+      if (Object.keys(ratings).length > 0) {
+        res.products[i].ratings = avgScore(ratings)
+      }
+    }
+    console.log('what is products now', res.products)
+
     next()
   })
   .catch((err) => {console.log('there was an error')})
 }
 
-
+var avgScore = (allScores) => {
+  //store the ratings in a results array
+  var ratings = [];
+  var total = 0;
+  //determine the number of ratings, total and the amount corresponding to each value
+  //iterate through the object
+  for (var rating in allScores) {
+    //multiply the key by its value
+    var ratingProduct = rating * allScores[rating];
+    //add the amount of ratings to total
+    total = total + parseInt(allScores[rating]);
+    //push the result into the ratings array
+    ratings.push(ratingProduct);
+  }
+  //add those values together
+  ratings = ratings.reduce((previousVal, currentVal) => { return previousVal + currentVal });
+  ratings = (ratings / total).toFixed(2)
+  return ratings;
+}
 
 
 module.exports = {
