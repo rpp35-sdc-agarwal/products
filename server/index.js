@@ -47,7 +47,7 @@ app.get('/products', (req, res) => {
 /////////////////////////////////////////////////////////
 //    Related Items Routes
 /////////////////////////////////////////////////////////
-app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts], (req, res) => {
+app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts, getRelated.getReviews], (req, res) => {
   res.json(res.products)
 
 })

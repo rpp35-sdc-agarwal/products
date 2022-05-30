@@ -132,8 +132,61 @@ const addPriceToProducts = (req, res, next) => {
   next()
 }
 
+const getReviews = (req, res, next) => {
+  var id = req.params.product_id
+  console.log('what is id', id)
+
+  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/related`, {
+    headers: {
+      'Authorization': API
+    }
+  })
+  .then ((results) => {
+
+
+    var promises = []
+
+    for (var i = 0; i < results.data.length; i++) {
+
+      var id = results.data[i]
+
+      var config = {
+        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta',
+        method: 'get',
+        headers: { 'Authorization': API },
+        params: {
+          product_id: parseInt(id)
+        }
+      }
+      promises.push(axios(config))
+    }
+    return promises;
+  })
+  .then(promises => {
+
+    return Promise.all(promises)
+  })
+  .then(results => {
+    var data = [];
+    for (var i = 0; i < results.length; i++) {
+      data.push(results[i].data);
+    }
+
+    return data;
+  })
+  .then(data => {
+    console.log('what is my data now', data)
+    next()
+  })
+  .catch((err) => {console.log('there was an error')})
+}
+
+
+
+
 module.exports = {
   getRelatedProducts: getRelatedProducts,
   getRelatedStyles: getRelatedStyles,
-  addPriceToProducts: addPriceToProducts
+  addPriceToProducts: addPriceToProducts,
+  getReviews: getReviews
 }
