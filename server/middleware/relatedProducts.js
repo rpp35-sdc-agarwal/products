@@ -103,19 +103,29 @@ const addPriceToProducts = (req, res, next) => {
     var styles = res.styles[i].results;
     console.log(styles.length)
 
+    var photoFound = false;
     for (var j = 0; j < styles.length; j++) {
+
+
       console.log(styles[j]['default?'])
 
       if (styles[j]['default?']) {
         console.log('what is price', styles[j].original_price)
         console.log('what is price', styles[j].sale_price)
-        products[i].photo = styles[j].photos[0].thumbnail_url
+        var photo = styles[j].photos[0].thumbnail_url;
+        if (photo) {
+          products[i].photo = styles[j].photos[0].thumbnail_url
+          photoFound = true;
+        }
         if (styles[j].sale_price) {
           products[i].sale_price = styles[j].sale_price;
         }
-
-
       }
+    }
+
+    if (!photoFound) {
+      products[i].photo = styles[0].photos[0].thumbnail_url
+      console.log('i made it to the photos conditional')
     }
   }
   res.products = products
