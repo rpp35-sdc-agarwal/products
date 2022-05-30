@@ -55,7 +55,33 @@ const addStyleToOutfit = (req, res, next) => {
 
 }
 
+const outfitSession = (req, res, next) => {
+  var session = req.session.outfits
+  if (!session) {
+    console.log('am i in here? with no session')
+    req.session.outfits = []
+  }
+
+
+  var outfitToAddId = res.outfit.id;
+  var found = false;
+  for (var i = 0; i < req.session.outfits.length; i++) {
+    var outfitId = req.session.outfits[i].id;
+    if (outfitId === outfitToAddId) {
+      console.log('am i in here ad they are same')
+      found = true
+      break
+    }
+  }
+  if (!found) {
+
+    req.session.outfits.push(res.outfit)
+  }
+  next()
+}
+
 module.exports = {
   addOneOutfit: addOneOutfit,
-  addStyleToOutfit: addStyleToOutfit
+  addStyleToOutfit: addStyleToOutfit,
+  outfitSession: outfitSession
 }

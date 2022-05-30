@@ -60,8 +60,10 @@ app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRela
 
 })
 
-app.get('/products/:product_id/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit], (req, res) => {
-  res.json(res.outfit)
+app.get('/products/:product_id/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addOutfit.outfitSession], (req, res) => {
+
+
+  res.json(req.session.outfits)
 })
 
 
