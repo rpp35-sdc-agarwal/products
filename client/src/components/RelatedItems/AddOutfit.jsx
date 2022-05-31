@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AddOutfit = ({addOutfit}) => {
+const AddOutfit = ({addOutfit, currentProductId}) => {
   return (
-    <div className={`card `} onClick={()=>addOutfit(this.props.product.id)}>
+    <div className={`card `} onClick={()=>addOutfit(currentProductId)}>
 
       <img src="https://via.placeholder.com/150x200" alt="Avatar" ></img>
 

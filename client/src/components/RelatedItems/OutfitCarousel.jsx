@@ -18,11 +18,13 @@ class OutfitCarousel extends React.Component {
   }
 
   addOutfit(id) {
-    axios.get(`/products/${id}/addOutfit`)
+    axios.post(`/products/addOutfit`, {
+      "product_id": this.props.currentProductId
+    })
     .then((res) => {
       this.setState({
         outfitItems: res.data
-      }, () => console.log(this.state.relatedItems))
+      }, () => console.log(this.state.outfitItems))
     })
     .catch((err) => console.log('there was an error'))
 
@@ -65,7 +67,8 @@ class OutfitCarousel extends React.Component {
 
     return (
       <div className="wrapper">
-        <AddOutfit addOutfit={this.addOutfit}/>
+        <AddOutfit addOutfit={this.addOutfit}
+        currentProductId={this.props.currentProductId}/>
 
         <div className="slider">
           <RelatedList
