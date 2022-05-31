@@ -60,12 +60,15 @@ app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRela
 
 })
 
-app.post('/products/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addOutfit.outfitSession], (req, res) => {
+app.post('/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addOutfit.outfitSession], (req, res) => {
 
 
   res.json(req.session.outfits)
 })
-71703
+
+app.post('/deleteOutfit', [addOutfit.deleteOutfit], (req, res) => {
+  res.json(req.session.outfits)
+})
 
 
 /////////////////////////////////////////////////////////

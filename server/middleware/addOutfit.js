@@ -80,8 +80,25 @@ const outfitSession = (req, res, next) => {
   next()
 }
 
+const deleteOutfit = (req, res, next) => {
+  var id = req.body.product_id;
+  console.log('what is id', id)
+  console.log('what are outfits', req.session.outfits)
+  for (var i = 0; i < req.session.outfits.length; i++) {
+    var outfitId = JSON.stringify(req.session.outfits[i].id);
+    if (id === outfitId) {
+      console.log('i am in here, deleting')
+      req.session.outfits.splice(i, 1)
+
+      break;
+    }
+  }
+  next()
+}
+
 module.exports = {
   addOneOutfit: addOneOutfit,
   addStyleToOutfit: addStyleToOutfit,
-  outfitSession: outfitSession
+  outfitSession: outfitSession,
+  deleteOutfit: deleteOutfit
 }
