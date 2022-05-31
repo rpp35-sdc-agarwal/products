@@ -41,10 +41,19 @@ class Card extends React.Component {
     return (
       <div className="card">
 
+       {this.props.type === 'related' &&
 
         <button className="tooltip" onClick={this.compare}>
           <span className="tooltiptext">Compare</span>
         </button>
+       }
+
+        {this.props.type === 'outfit' &&
+
+        <button onClick={() => this.props.deleteOutfit(this.props.product.id)}>
+          outfit
+        </button>
+        }
 
 
         { this.props.isRelated && this.state.compare &&

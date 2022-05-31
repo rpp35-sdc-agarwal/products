@@ -15,10 +15,24 @@ class OutfitCarousel extends React.Component {
       currentProductId: ''
     }
     this.addOutfit = this.addOutfit.bind(this);
+    this.deleteOutfit = this.deleteOutfit.bind(this);
   }
 
   addOutfit(id) {
-    axios.post(`/products/addOutfit`, {
+    axios.post(`/addOutfit`, {
+      "product_id": this.props.currentProductId
+    })
+    .then((res) => {
+      this.setState({
+        outfitItems: res.data
+      }, () => console.log(this.state.outfitItems))
+    })
+    .catch((err) => console.log('there was an error'))
+
+  }
+
+  deleteOutfit(id) {
+    axios.post(`/deleteOutfit`, {
       "product_id": this.props.currentProductId
     })
     .then((res) => {
@@ -75,6 +89,7 @@ class OutfitCarousel extends React.Component {
           products={this.state.outfitItems}
           type={"outfit"}
           isRelated={false}
+          deleteOutfit={this.deleteOutfit}
           />
 
         </div>
