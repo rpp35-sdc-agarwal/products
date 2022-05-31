@@ -50,8 +50,7 @@ class List extends React.Component {
     var month = months[date.slice(5, 7)];
     var day = date.slice(8, 10);
     var year = date.slice(0, 4);
-    date = `${month} ${day}, ${year} `
-    console.log(date, month);
+    date = `${month} ${day}, ${year}`
     return date;
   }
 
@@ -101,7 +100,7 @@ class List extends React.Component {
           })}
         </div>
        {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
-       {this.state.form ? <ReviewForm closePopup={this.clickHandler}/> : null}
+       {this.state.form ? <ReviewForm closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
       </div>
     )
   }
