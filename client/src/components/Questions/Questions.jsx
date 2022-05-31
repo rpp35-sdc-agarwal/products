@@ -96,14 +96,13 @@ class Questions extends React.Component {
   render() {
     return (
       <div id='QA' data-testid="test_questions">
-        Questions component placeholder
         <Search handleSearch={this.handleSearch.bind(this)} />
         <QuestionList questions={this.state.questions} />
         {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE</button>}
         
-        <button onClick={this.addQuestion.bind(this)}>ADD A QUESTION +</button>
+        <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
         <div>
-          {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} /> : null}
+          {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} /> : null}
         </div>
       </div>
     )
