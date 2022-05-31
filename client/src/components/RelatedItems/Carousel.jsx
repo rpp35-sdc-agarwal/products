@@ -14,6 +14,8 @@ class Carousel extends React.Component {
       currentProductId: ''
 
     }
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -33,21 +35,21 @@ class Carousel extends React.Component {
   }
 
 
-//   next(){
-//     if (this.state.currentIndex < (this.state.length - this.props.show)) {
-//         this.setState({
-//           currentIndex: this.state.currentIndex + 1
-//         })
-//     }
-//   }
+  next(){
+    if (this.state.currentIndex < (this.state.relatedItems.length - 3)) {
+        this.setState({
+          currentIndex: this.state.currentIndex + 1
+        })
+    }
+  }
 
-//   prev(){
-//     if (this.state.currentIndex > 0) {
-//         this.setState({
-//           currentIndex: this.state.currentIndex - 1
-//         })
-//     }
-// }
+  prev(){
+    if (this.state.currentIndex > 0) {
+        this.setState({
+          currentIndex: this.state.currentIndex - 1
+        })
+    }
+}
 
   render() {
 
@@ -55,11 +57,19 @@ class Carousel extends React.Component {
 
       <div className="wrapper">
         <div className="slider">
+          <button onClick={this.next}>
+            addCard
+          </button>
           <RelatedList
           products={this.state.relatedItems}
           type={'related'}
           isRelated={true}
+          next={this.next}
+          prev={this.prev}
           />
+          <button onClick={this.prev}>
+            addCard
+          </button>
         </div>
       </div>
 
