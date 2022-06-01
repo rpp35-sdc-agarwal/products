@@ -89,9 +89,12 @@ class OutfitCarousel extends React.Component {
         currentProductId={this.props.currentProductId}/>
 
         <div className="slider">
-        <button onClick={this.next}>
-            addCard
+        {
+            this.state.currentIndex > 0 &&
+          <button className="cButton leftSide" onClick={this.prev}>
+            <i class="arrow left"></i>
           </button>
+          }
           <RelatedList
           products={this.state.outfitItems}
           type={"outfit"}
@@ -99,9 +102,12 @@ class OutfitCarousel extends React.Component {
           deleteOutfit={this.deleteOutfit}
           />
         </div>
-        <button onClick={this.prev}>
-            addCard
-          </button>
+        {this.state.currentIndex < (this.state.outfitItems.length - 3) &&
+
+        <button className="cButton rightSide" onClick={this.next}>
+          <i class="arrow right"></i>
+        </button>
+        }
       </div>
 
 

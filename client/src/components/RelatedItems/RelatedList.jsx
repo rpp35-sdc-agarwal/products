@@ -15,7 +15,7 @@ const RelatedList = ({products, type, isRelated, deleteOutfit, shift}) => {
 
   })
   return (
-    <ul className="cardHolder">
+    <ul className={`cardHolder ${type}`}>
       {cards}
     </ul>
   )

@@ -244,8 +244,15 @@ button {
 
 .cardHolder {
   display: flex;
-
 }
+
+ul.cardHolder.outfit {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
 
 .card {
   /* Add shadows to create the "card" effect */
