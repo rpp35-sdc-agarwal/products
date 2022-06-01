@@ -44,7 +44,7 @@ class Card extends React.Component {
 
     return (
       <div className={`card ${this.props.type}`}
-      style={{ transform: `translateX(${shift}px)` }}
+      style={{ transform: `translateX(-${shift}px)` }}
       >
 
        {this.props.type === 'related' &&
