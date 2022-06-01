@@ -15,6 +15,12 @@ const getRelated = require('./middleware/relatedProducts.js')
 //    Products Routes
 /////////////////////////////////////////////////////////
 
+app.get('/ip*', (req, res) => {
+  // send back html file?
+  console.log('i hit this route')
+  res.redirect('/');
+})
+
 app.get('/products', (req, res) => {
 
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products`, {
