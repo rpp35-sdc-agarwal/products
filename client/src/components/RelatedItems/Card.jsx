@@ -14,6 +14,7 @@ class Card extends React.Component {
       compare: false
     }
     this.compare = this.compare.bind(this);
+
   }
 
   compare() {
@@ -38,8 +39,13 @@ class Card extends React.Component {
       photo = "https://via.placeholder.com/150"
     }
 
+    var width = 310;
+    var shift = width * this.props.shift;
+
     return (
-      <div className="card">
+      <div className={`card ${this.props.type}`}
+      style={{ transform: `translateX(${shift}px)` }}
+      >
 
        {this.props.type === 'related' &&
 

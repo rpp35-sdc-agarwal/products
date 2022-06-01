@@ -1,15 +1,15 @@
 import React from 'react';
 import Card from './Card.jsx'
 
-const RelatedList = ({products, type, isRelated, deleteOutfit, prev, next}) => {
+const RelatedList = ({products, type, isRelated, deleteOutfit, shift}) => {
   var cards = products.map((product, i) => {
     return (
       <Card product={product}
       type={type}
       isRelated={isRelated}
       deleteOutfit={deleteOutfit}
-      next={next}
-      prev={prev}
+      shift={shift}
+
        key={i}/>
     )
 

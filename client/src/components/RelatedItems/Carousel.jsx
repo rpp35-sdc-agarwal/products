@@ -64,8 +64,7 @@ class Carousel extends React.Component {
           products={this.state.relatedItems}
           type={'related'}
           isRelated={true}
-          next={this.next}
-          prev={this.prev}
+          shift={this.state.currentIndex}
           />
           <button onClick={this.prev}>
             addCard
