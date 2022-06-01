@@ -8,6 +8,7 @@ class StyleSelector extends React.Component {
       currentStyle: this.props.currentStyle
     };
     this.handleStyleClick = this.handleStyleClick.bind(this);
+    this.isSelected = this.isSelected.bind(this);
   }
 
   handleStyleClick(e) {
@@ -20,6 +21,14 @@ class StyleSelector extends React.Component {
     })
   }
 
+  isSelected(styleId) {
+    if(styleId === this.state.currentStyle.style_id) {
+      return '';
+    } else {
+      return 'hideCheckMark';
+    }
+  }
+
   render() {
     return(
       <div className='childDiv'>
@@ -29,7 +38,8 @@ class StyleSelector extends React.Component {
         <div id = 'styleSelector'>
         {this.state.styles.map((style, index) =>
           <div className = 'styleThumbnail' key = {index}>
-            <img className = 'styleThumbnailImage' onClick={this.handleStyleClick}
+            <div className = {this.isSelected(style.style_id)}>&#10003;</div>
+            <img onClick={this.handleStyleClick}
               src = {style.photos[0].thumbnail_url} value = {style.style_id}
             />
           </div>

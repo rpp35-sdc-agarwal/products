@@ -7,7 +7,8 @@ class ProductInfo extends React.Component {
     this.state = {
       productInfo: this.props.productInfo,
       currentStyle: this.props.currentStyle,
-      avgRating: ''
+      avgRating: '',
+      totalReviews: 1
     }
   }
 
@@ -26,7 +27,7 @@ class ProductInfo extends React.Component {
     return(
       <div className='childDiv'>
         <div>
-          <StarRating rating={this.state.avgRating}/>read all [#] Reviews
+          <StarRating rating={this.state.avgRating}/> read all {this.state.totalReviews} Reviews
         </div>
         <div>
           Category: {this.state.productInfo.category}

@@ -84,7 +84,9 @@ class ImageGallery extends React.Component {
   UNSAFE_componentWillReceiveProps(props) {
     this.setState({
       currentStyle: props.currentStyle,
-      currentImageIndex: 0
+      currentImageIndex: 0,
+      thumbnailFirstIndex: 0,
+      thumbnailLastIndex: 5
     })
   }
 
