@@ -10,12 +10,14 @@ class OutfitCarousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIndex: 1,
+      currentIndex: 0,
       outfitItems: [],
       currentProductId: ''
     }
     this.addOutfit = this.addOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
   }
 
   addOutfit(id) {
@@ -61,21 +63,23 @@ class OutfitCarousel extends React.Component {
   // }
 
 
-//   next(){
-//     if (this.state.currentIndex < (this.state.length - this.props.show)) {
-//         this.setState({
-//           currentIndex: this.state.currentIndex + 1
-//         })
-//     }
-//   }
+  next(){
+    if (this.state.currentIndex < (this.state.outfitItems.length - 3)) {
+      this.setState({
+        currentIndex: this.state.currentIndex + 1
+      })
+    }
+  }
 
-//   prev(){
-//     if (this.state.currentIndex > 0) {
-//         this.setState({
-//           currentIndex: this.state.currentIndex - 1
-//         })
-//     }
-// }
+  prev(){
+    if (this.state.currentIndex > 0) {
+
+      this.setState({
+        currentIndex: this.state.currentIndex - 1
+      })
+    }
+
+}
 
   render() {
 
@@ -85,14 +89,19 @@ class OutfitCarousel extends React.Component {
         currentProductId={this.props.currentProductId}/>
 
         <div className="slider">
+        <button onClick={this.next}>
+            addCard
+          </button>
           <RelatedList
           products={this.state.outfitItems}
           type={"outfit"}
           isRelated={false}
           deleteOutfit={this.deleteOutfit}
           />
-
         </div>
+        <button onClick={this.prev}>
+            addCard
+          </button>
       </div>
 
 

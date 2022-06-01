@@ -57,18 +57,25 @@ class Carousel extends React.Component {
 
       <div className="wrapper">
         <div className="slider">
-          <button onClick={this.next}>
+          {
+            this.state.currentIndex > 0 &&
+          <button onClick={this.prev}>
             addCard
           </button>
+          }
           <RelatedList
           products={this.state.relatedItems}
           type={'related'}
           isRelated={true}
           shift={this.state.currentIndex}
           />
-          <button onClick={this.prev}>
+
+          {this.state.currentIndex < (this.state.relatedItems.length - 3) &&
+
+          <button onClick={this.next}>
             addCard
           </button>
+          }
         </div>
       </div>
 
