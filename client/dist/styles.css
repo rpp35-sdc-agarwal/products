@@ -191,7 +191,8 @@ button {
 .wrapper {
 
   display: flex;
-  width: 900px
+  width: 900px;
+
 
 }
 
@@ -260,7 +261,17 @@ ul.cardHolder.outfit {
   transition: 0.3s;
   /* max-width: 150px; */
   margin: 30px;
+  position: relative;
 
+}
+
+.deleteOutfit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
 }
 
 /* On mouse-over, add a deeper shadow */

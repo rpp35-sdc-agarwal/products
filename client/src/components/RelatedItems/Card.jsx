@@ -56,8 +56,8 @@ class Card extends React.Component {
 
         {this.props.type === 'outfit' &&
 
-        <button onClick={() => this.props.deleteOutfit(this.props.product.id)}>
-          outfit
+        <button className="deleteOutfit" onClick={() => this.props.deleteOutfit(this.props.product.id)}>
+          x
         </button>
         }
 

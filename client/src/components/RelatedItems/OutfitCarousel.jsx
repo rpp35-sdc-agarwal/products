@@ -84,6 +84,7 @@ class OutfitCarousel extends React.Component {
   render() {
 
     return (
+
       <div className="wrapper">
         <AddOutfit addOutfit={this.addOutfit}
         currentProductId={this.props.currentProductId}/>
