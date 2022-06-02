@@ -20,11 +20,7 @@ class Card extends React.Component {
     this.handleModalClick = this.handleModalClick.bind(this)
   }
 
-  // compare() {
-  //   this.setState({
-  //     compare: !this.state.compare
-  //   })
-  // }
+
 
   // handleGetCard() {
 
