@@ -14,6 +14,7 @@ class Card extends React.Component {
       compare: false
     }
     this.compare = this.compare.bind(this);
+
   }
 
   compare() {
@@ -31,25 +32,50 @@ class Card extends React.Component {
       price = <DefaultPrice price={this.props.product.default_price} />
     }
 
-    return (
-      <div className="card">
+    var photo = '';
+    if (this.props.product.photo) {
+      photo = this.props.product.photo;
+    } else {
+      photo = "https://via.placeholder.com/150"
+    }
 
+    var width = 310;
+    var shift = width * this.props.shift;
+
+    return (
+      <div className={`card ${this.props.type}`}
+      style={{ transform: `translateX(-${shift}px)` }}
+      >
+
+       {this.props.type === 'related' &&
 
         <button className="tooltip" onClick={this.compare}>
           <span className="tooltiptext">Compare</span>
         </button>
+       }
+
+        {this.props.type === 'outfit' &&
+
+        <button className="deleteOutfit" onClick={() => this.props.deleteOutfit(this.props.product.id)}>
+          x
+        </button>
+        }
 
 
         { this.props.isRelated && this.state.compare &&
           <CardModal toggleModal={this.compare}/>
         }
 
-        <img src="https://via.placeholder.com/150" alt="Avatar" ></img>
+
         <div className="container">
+          <img class="img-resize" src={photo} alt="Avatar" ></img>
           <h4><b>{this.props.product.category}</b></h4>
           <p>{this.props.product.name}</p>
           {price}
-          <StarRating rating={this.props.rating} />
+          {this.props.product.ratings &&
+
+            <StarRating rating={this.props.product.ratings} />
+          }
         </div>
 
 

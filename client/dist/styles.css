@@ -66,6 +66,8 @@
   -webkit-transform: rotate(45deg);
 }
 
+
+
 .arrowDiv {
   width: 50px;
   height: 50px;
@@ -189,18 +191,69 @@ button {
 .wrapper {
 
   display: flex;
+  width: 900px;
+
 
 }
 
 .slider {
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
+  position: relative;
 }
+
+.cButton {
+  border: 2px solid red;
+  position: absolute;
+  top: 50%;
+  border: none;
+  background: none;
+
+}
+
+.cButton.rightSide {
+  right: 20px;
+}
+
+.cButton.leftSide {
+  left: 10px;
+  z-index: 5;
+}
+
+
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  right: 10px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
 
 
 .cardHolder {
   display: flex;
 }
+
+ul.cardHolder.outfit {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
 
 .card {
   /* Add shadows to create the "card" effect */
@@ -208,7 +261,17 @@ button {
   transition: 0.3s;
   /* max-width: 150px; */
   margin: 30px;
+  position: relative;
 
+}
+
+.deleteOutfit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -230,6 +293,21 @@ button {
   padding: 0;
   background: transparent;
 }
+
+.img-resize {
+  height: 250px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.addOutfit {
+  height: 250px;
+  width: 200px;
+  font-size: large;
+  margin: 30px 30px 30px 70px;
+
+}
+
 
 .tooltip::before {
   content: "\f005";
@@ -294,7 +372,7 @@ button {
 .close:hover {
   color: rgb(255, 0, 0);
   cursor: pointer;
-} 
+}
 
 .toggle-button {
   font-weight: 550;
