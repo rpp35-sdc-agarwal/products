@@ -65,7 +65,7 @@ class RatingBreakdown extends React.Component {
         recommended: this.recommend().toFixed(0)
     });
 
-    this.props.setAvg((ratings / total).toFixed(2));
+    this.props.setAvg((ratings / total).toFixed(2), total);
   }
 
   breakdownObj(total, scores) {
