@@ -52,7 +52,7 @@ class Card extends React.Component {
       photo = "https://via.placeholder.com/150"
     }
 
-    var width = 310;
+    var width = 260;
     var shift = width * this.props.shift;
 
     return (

@@ -11,7 +11,9 @@ class Carousel extends React.Component {
     this.state = {
       currentIndex: 0,
       relatedItems: [],
-      currentProductId: ''
+      currentProductId: '',
+      clickedProduct: '',
+      overviewProduct: null
 
     }
     this.prev = this.prev.bind(this);
@@ -23,28 +25,43 @@ class Carousel extends React.Component {
       this.setState({
         currentProductId: this.props.currentProductId
       }, () => {
-        axios.get(`/products/${this.state.currentProductId}/related`)
-        .then((res) => {
+        console.log('what is current id', this.state.currentProductId)
+        var promises = [];
+        promises.push(axios.get(`/products/${this.state.currentProductId}/related`))
+        promises.push(axios.get(`/products/${this.state.currentProductId}`))
+        axios.all(promises)
+        .then(res => {
           this.setState({
-            relatedItems: res.data
-          }, () => console.log(this.state.relatedItems))
+            relatedItems: res[0].data,
+            overviewProduct: res[1].data
+          }, () => console.log('this.state.relatedItems', this.state.relatedItems,
+          'this.state.overviewproduct', this.state.overviewProduct))
         })
-        .catch((err) => console.log('there was an error'))
-      })
-    }
-  }
-
-  componentDidMount() {
-    //var id = Number(this.state.currentProductId)
-    axios.get(`/products/71699/related`)
-    .then(res => {
-      this.setState({
-       products: [...res.data]
 
       })
-    })
+
+
+
+
+
+        // })
+        // .then(axios.spread((data1) => {
+        //   console.log('data1', data1)
+        //   var relatedItems = data1;
+
+        //   this.setState({
+        //     relatedItems: relatedItems,
+
+
+        //   }, () => console.log('related items in carousel', this.state.relatedItems,
+        //   'overviewproduct in carousel',this.state.overviewProduct))
+        // }))
+        // .catch((err) => console.log('there was an error'))
+      }
 
   }
+
+
 
   shiftCarousel() {
     console.log('i made it here');
@@ -76,7 +93,13 @@ class Carousel extends React.Component {
           currentIndex: this.state.currentIndex - 1
         })
     }
-}
+  }
+
+  // handleModalClick(id) {
+  //   this.setState({
+  //     clickedProduct
+  //   })
+  // }
 
   render() {
 

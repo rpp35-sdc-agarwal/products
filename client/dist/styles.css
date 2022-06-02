@@ -193,9 +193,13 @@ button {
 
   display: flex;
   width: 900px;
-
-
 }
+
+.wrapper.outfit {
+  transform: translateX(-40px);
+}
+
+
 
 .slider {
   display: flex;
@@ -248,7 +252,7 @@ button {
   display: flex;
 }
 
-ul.cardHolder.outfit {
+ul.cardHolder {
   padding: 0px;
   margin: 0px;
 }
