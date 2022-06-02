@@ -47,7 +47,7 @@ class Questions extends React.Component {
             this.setState({
               questions: [results[0], results[1]]
             }, () => {
-              console.log('questions: ', this.state.questions)
+              console.log('stquestions: ', this.state.questions)
             })
           })
           .catch((err) => {
