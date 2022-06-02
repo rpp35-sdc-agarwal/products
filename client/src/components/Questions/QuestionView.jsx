@@ -27,7 +27,7 @@ class QuestionView extends React.Component {
         </div>
         {this.state.add ? <AnswerPopup toggleAnswer={this.addAnswer.bind(this)}/> : null}
         <div>
-        <AnswerList answers={this.props.question.answers} />
+        <AnswerList answers={this.props.question.answers} questionId={this.props.question.question_id} />
         </div>
       </div>
     )

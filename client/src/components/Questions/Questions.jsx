@@ -13,11 +13,12 @@ class Questions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      allQuestions: [],
       questions: [],
       more: true,
       search: '',
       add: false,
-      productId: ''
+      productId: '',
     }
     this.retrieveQuestions = this.retrieveQuestions.bind(this);
   }
@@ -46,9 +47,13 @@ class Questions extends React.Component {
           .then((results) => {
             console.log('results: ', results);
             this.setState({
+              allQuestions: [...results],
               questions: [results[0], results[1]]
             }, () => {
-              console.log('questions: ', this.state.questions)
+              console.log('questions: ', this.state.questions);
+              this.setState({
+                lastIndex: 1
+              })
             })
           })
           .catch((err) => {
@@ -68,23 +73,40 @@ class Questions extends React.Component {
   }
 
   toggleQuestionList () {
-    if (this.state.more) {
-      this.retrieveQuestions(this.state.productId)
-      .then((data) => {
-        console.log('data: ', data)
-
-        this.setState({
-          questions:[...data],
-        })
+    if (this.state.questions.length < this.state.allQuestions.length) {
+      let count = 1;
+      let currentQuestions = this.state.questions.slice();
+      
+      while (count <= 2) {
+        if (this.state.allQuestions[this.state.lastIndex + count]) {
+          currentQuestions.push(this.state.allQuestions[this.state.lastIndex + count]);
+        }
+        count += 1;
+      }
+      
+      this.setState({
+        lastIndex: currentQuestions.length - 1,
+        questions: [...currentQuestions]
+      }, () => {
+        console.log('currentQuestions: ', this.state.questions.length);
+        if (this.state.questions.length === this.state.allQuestions.length) {
+          this.setState({
+            more: !this.state.more
+          })
+        }
       })
     } else {
       this.setState({
-        questions:[this.state.questions[0], this.state.questions[1]]
+        more: !this.state.more
       })
     }
-    this.setState({
-      more: !this.state.more
-    })
+    
+    if (!this.state.more) {
+        this.setState({
+          questions:[this.state.allQuestions[0], this.state.allQuestions[1]],
+          lastIndex: 1
+        })
+      }
   }
 
   addQuestion () {

@@ -429,6 +429,7 @@ ul.cardHolder.outfit {
   border-radius: 5px;
   border: 2px solid black;
 }
+
 .QA-form {
   position: relative;
   margin-left: 20%;
@@ -493,7 +494,30 @@ ul.cardHolder.outfit {
   text-decoration: underline;
 }
 
+.QA-photo {
+  width: auto;
+  height: 100px;
+  margin: 10px 5px;
+  /* cursor: pointer; */
+}
 
+.QA-photo-container {
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.707);
+}
+
+/* .photo-full-screen {
+  width: 40%;
+  height: auto;
+  position: fixed;
+  top: 20%;
+  left:20%;
+  display: block;
+}
+
+div.close {
+  position: relative;
+} */
 
 /*****************************************************/
 /* Reviews */

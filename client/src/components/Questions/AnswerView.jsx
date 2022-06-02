@@ -16,9 +16,11 @@ class AnswerView extends React.Component {
     return (
       <div className='answer' data-testid='test-answerview'>
         <b>Answer:</b> {this.props.answer.body}
+        <div>
         {this.props.answer.photos.length !== 0 ? this.props.answer.photos.map((photo, i) => (
-          <AnswerPhoto photo={photo} key={i} />
+          <AnswerPhoto photo={photo} key={i} id={i} />
         )) : null}
+        </div>
         <div className='answer-info'>
         <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-options'> Yes ({this.props.answer.helpfulness}) </span> | <span className='answer-options'> Report </span>
         </div>
