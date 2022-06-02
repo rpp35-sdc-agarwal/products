@@ -140,10 +140,10 @@ button {
 .modal-card {
   background-color: white;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 30%;
+  left: 30%;
   width: 250px;
-  height: 500px;
+  height: 300px;
   padding: 20px;
   border-radius: 5px;
   border: 2px solid black;
