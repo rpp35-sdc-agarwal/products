@@ -76,15 +76,10 @@ app.get('/products/:product_id', (req, res) => {
 /////////////////////////////////////////////////////////
 //    Related Items Routes
 /////////////////////////////////////////////////////////
-<<<<<<< HEAD
-app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts],(req, res) => {
-  console.log('what is params', req.params.product_id)
-=======
 app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts, getRelated.getReviews], (req, res) => {
   res.json(res.products)
->>>>>>> main
 
-  res.json(res.products)
+
 })
 
 app.post('/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addOutfit.outfitSession], (req, res) => {

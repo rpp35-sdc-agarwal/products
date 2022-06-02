@@ -75,15 +75,8 @@ class App extends React.Component {
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
-<<<<<<< HEAD
-        <ReviewsContainer />
-        <RelatedItems
-        handleItemClick={this.handleItemClick.bind(this)}
-        products={this.state.productList}
-=======
         <RelatedItems handleItemClick={this.handleItemClick.bind(this)}
         products={this.props.products}
->>>>>>> main
         ratings={this.state.ratings}
         currentProductId={this.state.currentProductId}/>
         <Questions currentProductId={this.state.currentProductId} />
