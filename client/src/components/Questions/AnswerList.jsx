@@ -21,6 +21,16 @@ class AnswerList extends React.Component {
   
   render() {
     let answerKeys = Object.keys(this.props.answers)
+    if (!answerKeys.length) {
+      return (
+        <div className="answer-list">
+          <div className="answer">
+          <b>Answer:</b> No answers are available yet.
+        </div>
+        </div>
+        
+      )
+    }
     if (answerKeys.length <= 2 || this.state.expand === true) {
       return (
         <div className='answer-list' data-testid='test-aswerlist'>

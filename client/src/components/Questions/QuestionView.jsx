@@ -21,10 +21,9 @@ class QuestionView extends React.Component {
   
   render() {
     return (
-      <div>
-        -------------------------------------------------
+      <div className="QA-container">
         <div className='question' data-testid="test_questionview">
-          Q: {this.props.question.question_body} <span> Helpful? </span> <span className='question-options'> Yes ({this.props.question.question_helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-options'>Add Answer</span>
+          <b>Question:</b> {this.props.question.question_body} <span className='question-options'><span> Helpful? </span> <span className='question-clickable'> Yes ({this.props.question.question_helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-clickable'>Add Answer</span></span>
         </div>
         {this.state.add ? <AnswerPopup toggleAnswer={this.addAnswer.bind(this)}/> : null}
         <div>

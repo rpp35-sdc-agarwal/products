@@ -25,7 +25,7 @@ class Questions extends React.Component {
   async retrieveQuestions (productId) {
     let options = {
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/?product_id=${productId}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/?product_id=${productId}&count=100`,
       headers: {
         'Authorization': API
       }
@@ -96,13 +96,14 @@ class Questions extends React.Component {
   render() {
     return (
       <div id='QA' data-testid="test_questions">
+        <h2>Have a question?</h2>
         <Search handleSearch={this.handleSearch.bind(this)} />
         <QuestionList questions={this.state.questions} />
         {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE</button>}
         
         <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
         <div>
-          {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} /> : null}
+          {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} productId={this.state.productId} retrieveQuestions={this.retrieveQuestions.bind(this)} /> : null}
         </div>
       </div>
     )
