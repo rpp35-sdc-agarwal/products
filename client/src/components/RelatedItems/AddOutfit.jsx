@@ -1,12 +1,11 @@
 import React from 'react';
 
-const AddOutfit = () => {
+const AddOutfit = ({addOutfit, currentProductId}) => {
   return (
-    <div className={`card `}>
+    <button className="addOutfit" onClick={()=>addOutfit(currentProductId)}>
+        +
+      </button>
 
-      <img src="https://via.placeholder.com/150x200" alt="Avatar" ></img>
-
-    </div>
   )
 
 

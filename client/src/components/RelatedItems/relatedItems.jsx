@@ -19,13 +19,19 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <>
-         <Carousel products={this.props.products}
-         ratings={this.props.ratings}
-         currentProductId={this.props.currentProductId}/>
-        {/* <OutfitCarousel products={this.state.products}/> */}
+      <div>
+        <h4>RELATED ITEMS</h4>
+         <Carousel
+         products={this.state.products}
 
-     </>
+         currentProductId={this.props.currentProductId}/>
+        <h4>YOUR OUTFIT</h4>
+        <OutfitCarousel
+        products={this.state.products}
+
+        currentProductId={this.props.currentProductId}
+        />
+      </div>
     )
   }
 }

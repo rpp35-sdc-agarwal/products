@@ -1,8 +1,15 @@
+var cookieSession = require('cookie-session')
 const express = require('express');
 const API = require('../config.js')
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
+app.set('trust proxy', 1) // trust first proxy
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}))
 
 
 app.use(express.static(__dirname + '/../client/dist'));
@@ -10,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const getRelated = require('./middleware/relatedProducts.js')
+const addOutfit = require('./middleware/addOutfit.js')
 
 /////////////////////////////////////////////////////////
 //    Products Routes
@@ -68,11 +76,27 @@ app.get('/products/:product_id', (req, res) => {
 /////////////////////////////////////////////////////////
 //    Related Items Routes
 /////////////////////////////////////////////////////////
+<<<<<<< HEAD
 app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts],(req, res) => {
   console.log('what is params', req.params.product_id)
+=======
+app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts, getRelated.getReviews], (req, res) => {
+  res.json(res.products)
+>>>>>>> main
 
   res.json(res.products)
 })
+
+app.post('/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addOutfit.outfitSession], (req, res) => {
+
+
+  res.json(req.session.outfits)
+})
+
+app.post('/deleteOutfit', [addOutfit.deleteOutfit], (req, res) => {
+  res.json(req.session.outfits)
+})
+
 
 /////////////////////////////////////////////////////////
 //    Questions and Answers Routes

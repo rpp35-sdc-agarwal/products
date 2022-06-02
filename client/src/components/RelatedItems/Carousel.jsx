@@ -5,20 +5,33 @@ import RelatedList from './RelatedList.jsx'
 import Card from './Card.jsx'
 import axios from 'axios';
 
-
 class Carousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       currentIndex: 0,
-      products: this.props.products,
-      modalProduct: null
+      relatedItems: [],
+      currentProductId: ''
 
     }
-    console.log('what are props', props)
-    this.handleShift = this.shiftCarousel.bind(this);
-    this.handleShiftRight = this.shiftCarouselRight.bind(this);
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
+  }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      this.setState({
+        currentProductId: this.props.currentProductId
+      }, () => {
+        axios.get(`/products/${this.state.currentProductId}/related`)
+        .then((res) => {
+          this.setState({
+            relatedItems: res.data
+          }, () => console.log(this.state.relatedItems))
+        })
+        .catch((err) => console.log('there was an error'))
+      })
+    }
   }
 
   componentDidMount() {
@@ -49,31 +62,47 @@ class Carousel extends React.Component {
 
 
 
+  next(){
+    if (this.state.currentIndex < (this.state.relatedItems.length - 3)) {
+        this.setState({
+          currentIndex: this.state.currentIndex + 1
+        })
+    }
+  }
 
-//   prev(){
-//     if (this.state.currentIndex > 0) {
-//         this.setState({
-//           currentIndex: this.state.currentIndex - 1
-//         })
-//     }
-// }
+  prev(){
+    if (this.state.currentIndex > 0) {
+        this.setState({
+          currentIndex: this.state.currentIndex - 1
+        })
+    }
+}
 
   render() {
-    console.log('props in carousel: ', this.props);
+
     return (
 
       <div className="wrapper" data-testid="test-carousel">
         <div className="slider">
-          <RelatedList products={this.state.products}
-          type={this.props.type}
+          {
+            this.state.currentIndex > 0 &&
+          <button className="cButton leftSide" onClick={this.prev}>
+            <i class="arrow left"></i>
+          </button>
+          }
+          <RelatedList
+          products={this.state.relatedItems}
+          type={'related'}
           isRelated={true}
-          ratings={this.props.ratings}
           shift={this.state.currentIndex}
-          handleShift={this.handleShift}
-          handleShiftRight={this.handleShiftRight}
-
           />
 
+          {this.state.currentIndex < (this.state.relatedItems.length - 3) &&
+
+          <button className="cButton rightSide" onClick={this.next}>
+            <i class="arrow right"></i>
+          </button>
+          }
         </div>
       </div>
 
