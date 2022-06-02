@@ -370,6 +370,11 @@ ul.cardHolder.outfit {
 /*****************************************************/
 /* Questions and Answers */
 /*****************************************************/
+.question-list {
+  height: 40vh;
+  width: 80vw;
+  overflow: scroll;
+}
 
 .QA-search {
   width: 35%;

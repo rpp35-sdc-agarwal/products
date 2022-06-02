@@ -37,7 +37,6 @@ class Questions extends React.Component {
   }
 
   componentDidUpdate (prevProps) {
-    // console.log('currentProductId in componentDidUpdate: ', this.state.productId)
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.setState({
         productId: this.props.currentProductId
@@ -120,10 +119,14 @@ class Questions extends React.Component {
       <div id='QA' data-testid="test_questions">
         <h2>Have a question?</h2>
         <Search handleSearch={this.handleSearch.bind(this)} />
-        <QuestionList questions={this.state.questions} />
-        {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
         
-        <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+        {this.state.questions.length ? 
+          <div>
+             <QuestionList questions={this.state.questions} />
+            {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
+            <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+          </div> :  <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+        }
         <div>
           {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} productId={this.state.productId} retrieveQuestions={this.retrieveQuestions.bind(this)} /> : null}
         </div>
