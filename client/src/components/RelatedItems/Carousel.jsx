@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import RelatedList from './RelatedList.jsx'
 import Card from './Card.jsx'
 import axios from 'axios';
+import CardModal from './CardModal.jsx'
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -12,12 +13,15 @@ class Carousel extends React.Component {
       currentIndex: 0,
       relatedItems: [],
       currentProductId: '',
-      clickedProduct: '',
-      overviewProduct: null
+      clickedProduct: null,
+      overviewProduct: null,
+      compare: false
 
     }
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
+    this.handleModalClick = this.handleModalClick.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -95,17 +99,29 @@ class Carousel extends React.Component {
     }
   }
 
-  // handleModalClick(id) {
-  //   this.setState({
-  //     clickedProduct
-  //   })
-  // }
+  handleModalClick(product) {
+    this.setState({
+      clickedProduct: product,
+      compare: !this.state.compare
+    })
+  }
+
+  toggleModal() {
+    this.setState({
+      compare: !this.state.compare
+    })
+  }
 
   render() {
 
     return (
 
       <div className="wrapper" data-testid="test-carousel">
+        { this.state.compare &&
+          <CardModal modalData={this.state.clickedProduct}
+          overviewProduct={this.state.overviewProduct}
+          toggleModal={this.toggleModal}/>
+        }
         <div className="slider">
           {
             this.state.currentIndex > 0 &&
@@ -118,6 +134,7 @@ class Carousel extends React.Component {
           type={'related'}
           isRelated={true}
           shift={this.state.currentIndex}
+          handleModalClick={this.handleModalClick}
           />
 
           {this.state.currentIndex < (this.state.relatedItems.length - 3) &&

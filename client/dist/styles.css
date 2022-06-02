@@ -193,6 +193,7 @@ button {
 
   display: flex;
   width: 900px;
+  position: relative;
 }
 
 .wrapper.outfit {

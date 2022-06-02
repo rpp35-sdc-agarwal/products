@@ -12,18 +12,19 @@ class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      compare: false,
+
       overviewProduct: relatedProducts[0],
       // modalProduct: null,
     }
-    this.compare = this.compare.bind(this);
+
+    this.handleModalClick = this.handleModalClick.bind(this)
   }
 
-  compare() {
-    this.setState({
-      compare: !this.state.compare
-    })
-  }
+  // compare() {
+  //   this.setState({
+  //     compare: !this.state.compare
+  //   })
+  // }
 
   // handleGetCard() {
 
@@ -34,6 +35,10 @@ class Card extends React.Component {
 
 
   // }
+
+  handleModalClick() {
+    this.props.handleModalClick(this.props.product)
+  }
 
 
   render() {
@@ -62,7 +67,7 @@ class Card extends React.Component {
 
        {this.props.type === 'related' &&
 
-        <button className="tooltip" onClick={this.compare}>
+        <button className="tooltip" onClick={this.handleModalClick}>
           <span className="tooltiptext">Compare</span>
         </button>
        }
@@ -75,10 +80,7 @@ class Card extends React.Component {
         }
 
 
-        { this.props.isRelated && this.state.compare &&
-          <CardModal toggleModal={this.compare} modalData={this.props.product}
-          overviewProduct={this.state.overviewProduct}/>
-        }
+
 
 
         <div className="container">
