@@ -30,7 +30,7 @@ class Questions extends React.Component {
         'Authorization': API
       }
     }
-    
+
     let res = await axios(options);
     return res.data.results;
   }
@@ -56,7 +56,7 @@ class Questions extends React.Component {
           });
       })
     }
-    
+
   }
 
   handleSearch (keyword) {
@@ -72,7 +72,7 @@ class Questions extends React.Component {
       this.retrieveQuestions(this.state.productId)
       .then((data) => {
         console.log('data: ', data)
-        
+
         this.setState({
           questions:[...data],
         })
@@ -99,7 +99,7 @@ class Questions extends React.Component {
         <h2>Have a question?</h2>
         <Search handleSearch={this.handleSearch.bind(this)} />
         <QuestionList questions={this.state.questions} />
-        {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE</button>}
+        {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
         
         <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
         <div>
