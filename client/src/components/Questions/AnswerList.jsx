@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerView from './AnswerView.jsx'
-import API from '../../../../config.js';
-import axios from 'axios';
+// import API from '../../../../config.js';
+// import axios from 'axios';
 
 /*
   
@@ -15,27 +15,27 @@ class AnswerList extends React.Component {
     }
   }
   
-  async retrieveAnswers (questionId) {
-    let options = {
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${questionId}/answers/?count=100`,
-      headers: {
-        'Authorization': API
-      }
-    }
+  // async retrieveAnswers (questionId) {
+  //   let options = {
+  //     method: 'get',
+  //     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${questionId}/answers/?count=100`,
+  //     headers: {
+  //       'Authorization': API
+  //     }
+  //   }
 
-    let res = await axios(options);
-    return res.data.results;
-  }
+  //   let res = await axios(options);
+  //   return res.data.results;
+  // }
   
-  componentDidMount () {
-   this.retrieveAnswers(this.props.questionId)
-    .then((data) => {
-      this.setState({
-        answers: [...data]
-      })
-    });
-  }
+  // componentDidMount () {
+  //  this.retrieveAnswers(this.props.questionId)
+  //   .then((data) => {
+  //     this.setState({
+  //       answers: [...data]
+  //     })
+  //   });
+  // }
   
   toggleExpand () {
     this.setState({
@@ -44,8 +44,7 @@ class AnswerList extends React.Component {
   } 
   
   render() {
-    // let answerKeys = Object.keys(this.props.answers)
-    let answers = this.state.answers;
+    let answers = this.props.answers;
     if (!answers.length) {
       return (
         <div className="answer-list">

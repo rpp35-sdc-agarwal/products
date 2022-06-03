@@ -82,7 +82,7 @@ class QuestionPopup extends React.Component {
       this.setState({
         submitted: true
       }, ()=>{
-        this.props.retrieveQuestions();
+        this.props.retrieveQuestions(this.props.productId);
       })
     }
   }
@@ -104,14 +104,15 @@ class QuestionPopup extends React.Component {
           <div className="QA-form">
           <h4 className="QA-title">Post Your Question</h4>
           <p className="QA-subtitle">About the {this.props.currentProductName}</p>
+          <p>* Required</p>
           <form>
             <label className="QA-label">Your Question*</label>
-            <textarea type="text" className="QA-input" maxLength="1000" placeholder="please enter your question" onChange={this.handleQuestionInput.bind(this)} required></textarea>
+            <textarea type="text" className="QA-input" maxLength="1000" placeholder="Please enter your question" onChange={this.handleQuestionInput.bind(this)} required></textarea>
             <label className="QA-label">Your Nickname*</label>
-            <input type="text"className="QA-nickname" maxLength="60" onChange={this.handleNicknameInput.bind(this)} required></input>
+            <input type="text"className="QA-nickname" maxLength="60" placeholder="Example: jack543!" onChange={this.handleNicknameInput.bind(this)} required></input>
             <p className="QA-reminder">For privacy reasons, do not use your full name or email address</p>
             <label className="QA-label">Your Email*</label>
-            <input type="text" className="QA-email" onChange={this.handleEmailInput.bind(this)}required></input>
+            <input type="text" className="QA-email" placeholder="Example: jack@email.com”" onChange={this.handleEmailInput.bind(this)}required></input>
             <input type="submit" value="Submit" className="QA-submit" onClick={this.submitQuestion.bind(this)}></input>
             {this.state.submitted ? <p className="QA-reminder">Your question has been submitted successfully</p> : null}
           </form>

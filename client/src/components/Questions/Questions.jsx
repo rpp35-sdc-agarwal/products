@@ -87,7 +87,6 @@ class Questions extends React.Component {
         lastIndex: currentQuestions.length - 1,
         questions: [...currentQuestions]
       }, () => {
-        console.log('currentQuestions: ', this.state.questions.length);
         if (this.state.questions.length === this.state.allQuestions.length) {
           this.setState({
             more: !this.state.more
@@ -122,7 +121,7 @@ class Questions extends React.Component {
         
         {this.state.questions.length ? 
           <div>
-             <QuestionList questions={this.state.questions} />
+             <QuestionList questions={this.state.questions} currentProductName={this.props.currentProductName} />
             {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
             <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
           </div> :  <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
