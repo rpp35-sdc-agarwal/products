@@ -10,14 +10,15 @@ class AnswerView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      helpfulness: props.answer.helpfulness
+      helpfulness: props.answer.helpfulness,
+      reported: false
     }
   }
   
   async vote () {
     let options = {
       method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${this.props.answer.answer_id}/helpful`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${this.props.answer.answer_id}/helpful`,
       headers: {
         'Authorization': API
       }
@@ -29,8 +30,23 @@ class AnswerView extends React.Component {
     })
   }
   
+  async report () {
+    let options = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/answers/${this.props.answer.answer_id}/report`,
+      headers: {
+        'Authorization': API
+      }
+    }
+
+    let res = await axios(options);
+    this.setState({
+      reported: true
+    })
+  }
+  
   render() {
-    // console.log('answer: ', this.props.answer)
+    console.log('answer: ', this.props.answer)
     return (
       <div className='answer' data-testid='test-answerview'>
         <b>Answer:</b> {this.props.answer.body}
@@ -40,7 +56,7 @@ class AnswerView extends React.Component {
         )) : null}
         </div>
         <div className='answer-info'>
-        <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-options' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | <span className='answer-options'> Report </span>
+        <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-options' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | {this.state.reported ? <span className='answer-options'> Reported </span> : <span className='answer-options' onClick={this.report.bind(this)}> Report </span>}
         </div>
       </div>
     )
