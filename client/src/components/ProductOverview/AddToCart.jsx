@@ -13,7 +13,8 @@ class AddToCart extends React.Component {
 
   UNSAFE_componentWillReceiveProps(props) {
     this.setState({
-      currentStyle: props.currentStyle
+      currentStyle: props.currentStyle,
+      currentSku: ''
     })
   }
 
@@ -46,18 +47,18 @@ class AddToCart extends React.Component {
     const skusObject = this.state.currentStyle.skus
 
     return(
-      <div className='childDiv'>
-        <select onChange={this.handleChange}>
+      <div className='childDiv addToCart'>
+        <select onChange={this.handleChange} className='minimal'>
           <option value = ''>SELECT SIZE</option>
           {skus.map(sku =>
           <option value={sku} key={sku}>{skusObject[sku].size}</option>
           )}
         </select>
-        <select>
+        <select className='minimal'>
           {this.renderQuantity()}
         </select>
-        <button>Add To Cart</button>
-        <button className="tooltip"></button>
+        <button id='addButton'>Add To Cart</button>
+        <button className="tooltip" id='starButton'></button>
       </div>
     )
   }
