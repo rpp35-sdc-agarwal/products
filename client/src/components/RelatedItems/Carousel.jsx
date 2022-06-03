@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import RelatedList from './RelatedList.jsx'
 import Card from './Card.jsx'
 import axios from 'axios';
+import CardModal from './CardModal.jsx'
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -11,11 +12,16 @@ class Carousel extends React.Component {
     this.state = {
       currentIndex: 0,
       relatedItems: [],
-      currentProductId: ''
+      currentProductId: '',
+      clickedProduct: null,
+      overviewProduct: null,
+      compare: false
 
     }
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
+    this.handleModalClick = this.handleModalClick.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -23,16 +29,58 @@ class Carousel extends React.Component {
       this.setState({
         currentProductId: this.props.currentProductId
       }, () => {
-        axios.get(`/products/${this.state.currentProductId}/related`)
-        .then((res) => {
+        console.log('what is current id', this.state.currentProductId)
+        var promises = [];
+        promises.push(axios.get(`/products/${this.state.currentProductId}/related`))
+        promises.push(axios.get(`/products/${this.state.currentProductId}`))
+        axios.all(promises)
+        .then(res => {
           this.setState({
-            relatedItems: res.data
-          }, () => console.log(this.state.relatedItems))
+            relatedItems: res[0].data,
+            overviewProduct: res[1].data
+          }, () => console.log('this.state.relatedItems', this.state.relatedItems,
+          'this.state.overviewproduct', this.state.overviewProduct))
         })
-        .catch((err) => console.log('there was an error'))
+
       })
-    }
+
+
+
+
+
+        // })
+        // .then(axios.spread((data1) => {
+        //   console.log('data1', data1)
+        //   var relatedItems = data1;
+
+        //   this.setState({
+        //     relatedItems: relatedItems,
+
+
+        //   }, () => console.log('related items in carousel', this.state.relatedItems,
+        //   'overviewproduct in carousel',this.state.overviewProduct))
+        // }))
+        // .catch((err) => console.log('there was an error'))
+      }
+
   }
+
+
+
+  shiftCarousel() {
+    console.log('i made it here');
+    this.setState({
+      currentIndex: this.state.currentIndex + 1
+    }, () => console.log('i clicked a button'))
+  }
+
+  shiftCarouselRight() {
+    console.log('i made it here');
+    this.setState({
+      currentIndex: this.state.currentIndex -1
+    }, () => console.log('i clicked a button'))
+  }
+
 
 
   next(){
@@ -49,13 +97,31 @@ class Carousel extends React.Component {
           currentIndex: this.state.currentIndex - 1
         })
     }
-}
+  }
+
+  handleModalClick(product) {
+    this.setState({
+      clickedProduct: product,
+      compare: !this.state.compare
+    })
+  }
+
+  toggleModal() {
+    this.setState({
+      compare: !this.state.compare
+    })
+  }
 
   render() {
 
     return (
 
-      <div className="wrapper">
+      <div className="wrapper" data-testid="test-carousel">
+        { this.state.compare &&
+          <CardModal modalData={this.state.clickedProduct}
+          overviewProduct={this.state.overviewProduct}
+          toggleModal={this.toggleModal}/>
+        }
         <div className="slider">
           {
             this.state.currentIndex > 0 &&
@@ -68,6 +134,7 @@ class Carousel extends React.Component {
           type={'related'}
           isRelated={true}
           shift={this.state.currentIndex}
+          handleModalClick={this.handleModalClick}
           />
 
           {this.state.currentIndex < (this.state.relatedItems.length - 3) &&
