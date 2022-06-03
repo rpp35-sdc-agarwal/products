@@ -33,9 +33,61 @@ class Questions extends React.Component {
     }
 
     let res = await axios(options);
+    
+    this.setState({
+      allQuestions: [...res.data.results],
+      questions: [res.data.results[0], res.data.results[1]],
+    }, () => {
+      console.log('this.state.allQuestions in retrieveQuestions: ', this.state.allQuestions);
+      console.log('this.state.questions in retrieveQuestions: ', this.state.questions)
+      this.setState({
+        lastIndex: this.state.questions.length - 1,
+      })
+    })
+    
     return res.data.results;
   }
-
+  
+  // resetQuestions (productId) {
+  //   this.retrieveQuestions(productId)
+  //     .then(() => {
+  //       this.setState({
+  //         more: true,
+  //         add: false
+  //       })
+  //       console.log('reset after adding question')
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+  
+  // componentDidUpdate (prevProps) {
+  //   if (prevProps.currentProductId !== this.props.currentProductId) {
+  //     this.setState({
+  //       productId: this.props.currentProductId
+  //     }, () => {
+  //       console.log('state.productId: ', this.state.productId)
+  //       this.retrieveQuestions(this.state.productId)
+  //         .then((results) => {
+  //           console.log('results: ', results);
+  //           this.setState({
+  //             allQuestions: [...results],
+  //             questions: [results[0], results[1]]
+  //           }, () => {
+  //             console.log('questions: ', this.state.questions);
+  //             this.setState({
+  //               lastIndex: 1
+  //             })
+  //           })
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //         });
+  //     })
+  //   }
+  // }
+  
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.setState({
@@ -44,23 +96,13 @@ class Questions extends React.Component {
         console.log('state.productId: ', this.state.productId)
         this.retrieveQuestions(this.state.productId)
           .then((results) => {
-            console.log('results: ', results);
-            this.setState({
-              allQuestions: [...results],
-              questions: [results[0], results[1]]
-            }, () => {
-              console.log('questions: ', this.state.questions);
-              this.setState({
-                lastIndex: 1
-              })
-            })
+            console.log('retrieved all questions ', results);
           })
           .catch((err) => {
             console.log(err);
           });
       })
     }
-
   }
 
   handleSearch (keyword) {
@@ -101,8 +143,11 @@ class Questions extends React.Component {
     
     if (!this.state.more) {
         this.setState({
-          questions:[this.state.allQuestions[0], this.state.allQuestions[1]],
-          lastIndex: 1
+          questions:[this.state.allQuestions[0], this.state.allQuestions[1]]
+        }, () => {
+          this.setState({
+            lastIndex: this.state.questions.length - 1
+          })
         })
       }
   }
@@ -122,7 +167,7 @@ class Questions extends React.Component {
         {this.state.questions.length ? 
           <div>
              <QuestionList questions={this.state.questions} currentProductName={this.props.currentProductName} />
-            {this.state.more ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
+            {this.state.more || this.state.add ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
             <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
           </div> :  <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
         }

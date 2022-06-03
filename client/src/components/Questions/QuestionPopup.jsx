@@ -81,7 +81,7 @@ class QuestionPopup extends React.Component {
       
       this.setState({
         submitted: true
-      }, ()=>{
+      }, () => {
         this.props.retrieveQuestions(this.props.productId);
       })
     }
