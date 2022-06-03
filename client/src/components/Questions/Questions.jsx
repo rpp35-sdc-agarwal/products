@@ -19,6 +19,7 @@ class Questions extends React.Component {
       search: '',
       add: false,
       productId: '',
+      expandable: false
     }
     this.retrieveQuestions = this.retrieveQuestions.bind(this);
   }
@@ -38,8 +39,8 @@ class Questions extends React.Component {
       allQuestions: [...res.data.results],
       questions: [res.data.results[0], res.data.results[1]],
     }, () => {
-      console.log('this.state.allQuestions in retrieveQuestions: ', this.state.allQuestions);
-      console.log('this.state.questions in retrieveQuestions: ', this.state.questions)
+      // console.log('this.state.allQuestions in retrieveQuestions: ', this.state.allQuestions);
+      // console.log('this.state.questions in retrieveQuestions: ', this.state.questions)
       this.setState({
         lastIndex: this.state.questions.length - 1,
       })
@@ -93,10 +94,10 @@ class Questions extends React.Component {
       this.setState({
         productId: this.props.currentProductId
       }, () => {
-        console.log('state.productId: ', this.state.productId)
+        // console.log('state.productId: ', this.state.productId)
         this.retrieveQuestions(this.state.productId)
           .then((results) => {
-            console.log('retrieved all questions ', results);
+            // console.log('retrieved all questions ', results);
           })
           .catch((err) => {
             console.log(err);
@@ -112,8 +113,26 @@ class Questions extends React.Component {
       console.log('searched: ', this.state.search);
     })
   }
+  
+  checkExpand (questions, allQuestions) {
+    let element = document.getElementsByClassName('question-list');
+    if (questions.length > 2) {
+      element[0].classList.add('expand-question-list');
+      this.setState({
+        expandable: true
+      })
+    }
+    
+    if (questions.length <= 2) {
+      element[0].classList.remove('expand-question-list');
+      this.setState({
+        expandable: false
+      })
+    }
+  }
 
   toggleQuestionList () {
+    // If there are still questions in the allQuestions collection
     if (this.state.questions.length < this.state.allQuestions.length) {
       let count = 1;
       let currentQuestions = this.state.questions.slice();
@@ -129,17 +148,27 @@ class Questions extends React.Component {
         lastIndex: currentQuestions.length - 1,
         questions: [...currentQuestions]
       }, () => {
+        // check if questions collection has the same length with allQuestionss collection after adding new questions
         if (this.state.questions.length === this.state.allQuestions.length) {
           this.setState({
             more: !this.state.more
           })
         }
+        this.checkExpand(this.state.questions);
       })
     } else {
+      // otherwise, if there are no more questions,
       this.setState({
         more: !this.state.more
+      }, () => {
+        this.checkExpand(this.state.questions);
       })
     }
+    
+    // this.checkExpand(this.state.questions);
+    
+    console.log('more: ', this.state.more);
+    console.log('expand: ', this.state.expandable)
     
     if (!this.state.more) {
         this.setState({
@@ -159,6 +188,7 @@ class Questions extends React.Component {
   }
 
   render() {
+    console.log(document.getElementsByClassName('question-list'))
     return (
       <div id='QA' data-testid="test_questions">
         <h2>Have a question?</h2>

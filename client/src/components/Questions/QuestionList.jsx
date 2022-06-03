@@ -13,13 +13,6 @@ class QuestionList extends React.Component {
     }
   }
   
-  // checkExpand (questions) {
-  //   if (questions.length > 2) {
-  //     let element = document.getElementsByClassName('question-list');
-  //     element.classList.add('expanded-question-list')
-  //   }
-  // }
-  
   render() {
     return (
       <div className='question-list' data-testid="test_questionlist" >

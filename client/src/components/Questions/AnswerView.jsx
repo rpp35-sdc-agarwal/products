@@ -30,7 +30,7 @@ class AnswerView extends React.Component {
   }
   
   render() {
-    console.log('answer: ', this.props.answer)
+    // console.log('answer: ', this.props.answer)
     return (
       <div className='answer' data-testid='test-answerview'>
         <b>Answer:</b> {this.props.answer.body}
