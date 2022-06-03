@@ -49,6 +49,8 @@ class App extends React.Component {
       })
   }
 
+
+
   componentDidMount () {
     // console.log('in App componentDidMount');
     this.retrieveProducts();
@@ -89,6 +91,6 @@ class App extends React.Component {
 
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
-root.render(<App products={listProducts}/>);
+root.render(<App />);
 
 export default App;
