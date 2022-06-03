@@ -55,14 +55,12 @@ class QuestionView extends React.Component {
     }
 
     let res = await axios(options);
-    console.log('res: ', res);
     this.setState({
       helpfulness: this.state.helpfulness + 1
     })
   }
   
   render() {
-    console.log('helpfulness: ', this.state.helpfulness)
     return (
       <div className="QA-container">
         <div className='question' data-testid="test_questionview">
