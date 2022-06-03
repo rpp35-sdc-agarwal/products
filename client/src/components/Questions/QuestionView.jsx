@@ -13,7 +13,8 @@ class QuestionView extends React.Component {
     this.state = {
       answers: [],
       add: false,
-      helpfulness: props.question.question_helpfulness
+      helpfulness: props.question.question_helpfulness,
+      reported: props.question.reported
     }
   }
   
@@ -60,11 +61,29 @@ class QuestionView extends React.Component {
     })
   }
   
+  async report () {
+    let options = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${this.props.question.question_id}/report`,
+      headers: {
+        'Authorization': API
+      }
+    }
+
+    let res = await axios(options);
+    this.setState({
+      reported: true
+    }, () => {
+      console.log('reported')
+    })
+  }
+  
   render() {
+    console.log('question: ', this.props.question)
     return (
       <div className="QA-container">
         <div className='question' data-testid="test_questionview">
-          <b>Question:</b> {this.props.question.question_body} <span className='question-options'><span> Helpful? </span> <span className='question-clickable' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-clickable'>Add Answer</span></span>
+          <b>Question:</b> {this.props.question.question_body} <span className='question-options'><span> Helpful? </span> <span className='question-clickable' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-clickable'>Add Answer</span> | {this.state.reported ? <span className="QA-Report">Reported</span> : <span className="QA-Report" onClick={this.report.bind(this)} >Report</span>}</span>
         </div>
         {this.state.add ? <AnswerPopup currentProductName={this.props.currentProductName} questionId={this.props.question.question_id} toggleAnswer={this.addAnswer.bind(this)} retrieveAnswers={this.retrieveAnswers.bind(this)} /> : null}
         <div>
