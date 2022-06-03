@@ -172,13 +172,14 @@ button {
 .modal-card {
   background-color: white;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 100px;
+  top: 30%;
+  left: 30%;
+  width: 250px;
+  height: 300px;
   padding: 20px;
   border-radius: 5px;
   border: 2px solid black;
+  z-index: 5;
 }
 
 .star-outer {
@@ -213,10 +214,14 @@ button {
 .wrapper {
 
   display: flex;
-  width: 900px;
-
-
+  position: relative;
 }
+
+.wrapper.outfit {
+  transform: translateX(-40px);
+}
+
+
 
 .slider {
   display: flex;
@@ -234,7 +239,7 @@ button {
 }
 
 .cButton.rightSide {
-  right: 20px;
+  right: 0px;
 }
 
 .cButton.leftSide {
@@ -269,7 +274,7 @@ button {
   display: flex;
 }
 
-ul.cardHolder.outfit {
+ul.cardHolder {
   padding: 0px;
   margin: 0px;
 }
@@ -325,12 +330,18 @@ ul.cardHolder.outfit {
 .addOutfit {
   height: 250px;
   width: 200px;
-  font-size: large;
+  font-size: 40px;
   margin: 30px 30px 30px 70px;
 
 }
 
-
+.tooltip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+}
 .tooltip::before {
   content: "\f005";
   font-family: "Font Awesome 5 Free";
@@ -338,7 +349,7 @@ ul.cardHolder.outfit {
   color: #f8ce0b;
 }
 
-.tooltip .tooltiptext {
+.tooltiptext {
   visibility: hidden;
   width: 120px;
   background-color: black;
@@ -349,6 +360,8 @@ ul.cardHolder.outfit {
 
   /* Position the tooltip */
   position: absolute;
+  left: -50px;
+  top: -30px;
   z-index: 1;
 }
 

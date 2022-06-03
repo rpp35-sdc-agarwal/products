@@ -23,6 +23,8 @@ const addOutfit = require('./middleware/addOutfit.js')
 //    Products Routes
 /////////////////////////////////////////////////////////
 
+
+
 app.get('/products', (req, res) => {
 
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products`, {
@@ -35,6 +37,25 @@ app.get('/products', (req, res) => {
     res.json(response.data)
 
   })
+  .catch(err => console.log('there was an error'))
+})
+
+
+
+app.get('/products/:product_id', (req, res) => {
+
+  console.log('what is id', req.params.product_id)
+  var id = req.params.product_id
+  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}`, {
+    headers: {
+      'Authorization': API
+    }
+  })
+  .then(response => {
+    console.log('what is response', response)
+    res.json(response.data);
+  })
+
   .catch(err => console.log('there was an error'))
 })
 
@@ -57,6 +78,7 @@ app.get('/products', (req, res) => {
 /////////////////////////////////////////////////////////
 app.get('/products/:product_id/related', [getRelated.getRelatedProducts, getRelated.getRelatedStyles, getRelated.addPriceToProducts, getRelated.getReviews], (req, res) => {
   res.json(res.products)
+
 
 })
 
