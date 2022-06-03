@@ -12,7 +12,8 @@ class QuestionView extends React.Component {
     super(props);
     this.state = {
       answers: [],
-      add: false
+      add: false,
+      helpfulness: props.question.question_helpfulness
     }
   }
   
@@ -44,11 +45,28 @@ class QuestionView extends React.Component {
     })
   }
   
+  async vote () {
+    let options = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${this.props.question.question_id}/helpful`,
+      headers: {
+        'Authorization': API
+      }
+    }
+
+    let res = await axios(options);
+    console.log('res: ', res);
+    this.setState({
+      helpfulness: this.state.helpfulness + 1
+    })
+  }
+  
   render() {
+    console.log('helpfulness: ', this.state.helpfulness)
     return (
       <div className="QA-container">
         <div className='question' data-testid="test_questionview">
-          <b>Question:</b> {this.props.question.question_body} <span className='question-options'><span> Helpful? </span> <span className='question-clickable'> Yes ({this.props.question.question_helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-clickable'>Add Answer</span></span>
+          <b>Question:</b> {this.props.question.question_body} <span className='question-options'><span> Helpful? </span> <span className='question-clickable' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | <span onClick={this.addAnswer.bind(this)} className='question-clickable'>Add Answer</span></span>
         </div>
         {this.state.add ? <AnswerPopup currentProductName={this.props.currentProductName} questionId={this.props.question.question_id} toggleAnswer={this.addAnswer.bind(this)} retrieveAnswers={this.retrieveAnswers.bind(this)} /> : null}
         <div>
