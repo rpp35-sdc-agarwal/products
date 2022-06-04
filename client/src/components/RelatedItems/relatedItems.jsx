@@ -14,19 +14,18 @@ class RelatedItems extends React.Component {
     }
   }
 
-  componentDidMount() {
-    fetch('/products')
-    .then(res => res.json())
-    .then(data => console.log(data))
-  }
+
 
   render() {
     return (
       <div>
-         <Carousel products={this.props.products}
-         ratings={this.props.ratings}
-         handleItemClick={this.props.handleItemClick}/>
-        {/* <OutfitCarousel products={this.state.products}/> */}
+        <h4>RELATED ITEMS</h4>
+         <Carousel
+         currentProductId={this.props.currentProductId}/>
+        <h4>YOUR OUTFIT</h4>
+        <OutfitCarousel
+        currentProductId={this.props.currentProductId}
+        />
       </div>
     )
   }

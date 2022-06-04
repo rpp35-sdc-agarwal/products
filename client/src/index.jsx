@@ -23,8 +23,12 @@ class App extends React.Component {
       currentProductId: '',
       productList: this.props.products
     }
+    this.setAvg = this.setAvg.bind(this);
   }
 
+  setAvg(avgRating) {
+    this.setState({ avgRating: avgRating })
+  }
   // Retrive products from the backend and update the productList and currentProductId
   retrieveProducts () {
     axios.get('/products')
@@ -54,8 +58,12 @@ class App extends React.Component {
           // push state?
           console.log('products: ', this.state.productList);
           this.setState({
+<<<<<<< HEAD
             currentProductId: JSON.stringify(this.state.productList[0].id)
 
+=======
+            currentProductId: JSON.stringify(this.state.productList[1].id)
+>>>>>>> main
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
           })
@@ -66,6 +74,8 @@ class App extends React.Component {
         console.log(err);
       })
   }
+
+
 
   componentDidMount () {
     // console.log('in App componentDidMount');
@@ -89,14 +99,24 @@ class App extends React.Component {
       }
     */
   }
+
   render() {
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
+<<<<<<< HEAD
         <ReviewsContainer />
         <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.state.productList} ratings={this.state.ratings}/>
+=======
+        <RelatedItems handleItemClick={this.handleItemClick.bind(this)}
+        products={this.props.products}
+        ratings={this.state.ratings}
+        currentProductId={this.state.currentProductId}/>
+>>>>>>> main
         <Questions currentProductId={this.state.currentProductId} />
+        <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
+
       </div>
 
     )
@@ -106,6 +126,6 @@ class App extends React.Component {
 
 const container = document.getElementById('app') || document.createElement('div');
 const root = createRoot(container);
-root.render(<App products={listProducts}/>);
+root.render(<App />);
 
 export default App;
