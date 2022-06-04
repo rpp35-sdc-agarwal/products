@@ -88,6 +88,7 @@ app.post('/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addO
 })
 
 app.post('/deleteOutfit', [addOutfit.deleteOutfit], (req, res) => {
+  console.log('what are outfits after delete', req.session.outfits)
   res.json(req.session.outfits)
 })
 

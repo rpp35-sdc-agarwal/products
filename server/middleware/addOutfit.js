@@ -82,17 +82,20 @@ const outfitSession = (req, res, next) => {
 
 const deleteOutfit = (req, res, next) => {
   var id = req.body.product_id;
-  console.log('what is id', id)
+  console.log('what is id to delete', id)
   console.log('what are outfits', req.session.outfits)
   for (var i = 0; i < req.session.outfits.length; i++) {
     var outfitId = JSON.stringify(req.session.outfits[i].id);
     if (id === outfitId) {
-      console.log('i am in here, deleting')
+      console.log('id', id, 'outfitid', outfitId)
       req.session.outfits.splice(i, 1)
+
 
       break;
     }
   }
+
+  console.log('what is outfits in method', req.session.outfits)
   next()
 }
 
