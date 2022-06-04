@@ -46,17 +46,16 @@ class AnswerView extends React.Component {
   }
   
   render() {
-    console.log('answer: ', this.props.answer)
     return (
       <div className='answer' data-testid='test-answerview'>
-        <b>Answer:</b> {this.props.answer.body}
+        <span className="answer-body"><b>Answer:</b> {this.props.answer.body}</span>
         <div>
         {this.props.answer.photos.length !== 0 ? this.props.answer.photos.map((photo, i) => (
           <AnswerPhoto photo={photo} key={i} id={i} />
         )) : null}
         </div>
         <div className='answer-info'>
-        <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-options' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | {this.state.reported ? <span className='answer-options'> Reported </span> : <span className='answer-options' onClick={this.report.bind(this)}> Report </span>}
+        <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-clickable' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | {this.state.reported ? <span className='answer-clickable'> Reported </span> : <span className=' answer-clickable' onClick={this.report.bind(this)}> Report </span>}
         </div>
       </div>
     )

@@ -12,21 +12,38 @@ class Search extends React.Component {
     }
   }
   
-  onSearch () {
-    return this.props.handleSearch(this.state.term);
-  }
-  
-  onChange (e) {
-    this.setState({
-      term: e.target.value
-    })
+  onSearch (e) {
+    console.log(e.target.value)
+    
+    if (e.target.value.length >= 3) {
+      this.props.handleSearch(e.target.value);
+    } else {
+      this.props.handleSearch('');
+    }
+    // this.setState({
+    //   term: e.target.value
+    // }, () => {
+    //   if (this.state.term.length >= 3) {
+    //     this.props.handleSearch(this.state.term);
+      
+    // })
+    
+    // if (e.target.value.length >= 3 ) {
+    //   this.setState({
+    //     term: e.target.value
+    //   })
+    // } else {
+    //   this.setState({
+    //     term: ''
+    //   })
+    // }
+    // this.props.handleSearch(this.state.term);
   }
   
   render() {
     return (
       <div className='search-questions' data-testid='test-search'>
-        <input className="QA-search" type="text" onChange={this.onChange.bind(this)} placeholder="type your question or keyword" ></input>
-        <button onClick={this.onSearch.bind(this)} >SEARCH</button>
+        <input className="QA-search" type="text" onChange={this.onSearch.bind(this)} placeholder="&#128269; Have a question? Search for answers..." ></input>
       </div>
     )
   }

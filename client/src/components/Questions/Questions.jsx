@@ -49,19 +49,20 @@ class Questions extends React.Component {
     return res.data.results;
   }
   
-  // resetQuestions (productId) {
-  //   this.retrieveQuestions(productId)
-  //     .then(() => {
-  //       this.setState({
-  //         more: true,
-  //         add: false
-  //       })
-  //       console.log('reset after adding question')
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
+  resetQuestions (productId) {
+    this.retrieveQuestions(productId)
+      .then(() => {
+        this.setState({
+          more: true,
+          add: false,
+          search: ''
+        })
+        console.log('reset')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   
   // componentDidUpdate (prevProps) {
   //   if (prevProps.currentProductId !== this.props.currentProductId) {
@@ -107,11 +108,27 @@ class Questions extends React.Component {
   }
 
   handleSearch (keyword) {
-    this.setState({
-      search: keyword
-    }, () => {
-      console.log('searched: ', this.state.search);
-    })
+    if (keyword.length >= 3) {
+      this.setState({
+        search: keyword
+      }, () => {
+        let collection = this.state.allQuestions.filter((question) => {
+          return question.question_body.toLowerCase().includes(this.state.search.toLowerCase())
+        })
+        
+        if (collection.length) {
+          this.setState({
+            questions: [...collection]
+          }, () => {
+            console.log('questions in handleSearch: ', this.state.questions)
+            this.checkExpand(this.state.questions);
+          })
+        }
+      })
+    } else {
+      this.resetQuestions(this.state.productId);
+      this.checkExpand(this.state.questions);
+    }
   }
   
   checkExpand (questions, allQuestions) {
@@ -148,7 +165,7 @@ class Questions extends React.Component {
         lastIndex: currentQuestions.length - 1,
         questions: [...currentQuestions]
       }, () => {
-        // check if questions collection has the same length with allQuestionss collection after adding new questions
+        // check if questions collection has the same length with allQuestions collection after adding new questions
         if (this.state.questions.length === this.state.allQuestions.length) {
           this.setState({
             more: !this.state.more
@@ -164,11 +181,7 @@ class Questions extends React.Component {
         this.checkExpand(this.state.questions);
       })
     }
-    
-    // this.checkExpand(this.state.questions);
-    
-    console.log('more: ', this.state.more);
-    console.log('expand: ', this.state.expandable)
+
     
     if (!this.state.more) {
         this.setState({
@@ -188,7 +201,7 @@ class Questions extends React.Component {
   }
 
   render() {
-    console.log(document.getElementsByClassName('question-list'))
+    console.log('questions in Questions: ', this.state.questions)
     return (
       <div id='QA' data-testid="test_questions">
         <h2>Have a question?</h2>
