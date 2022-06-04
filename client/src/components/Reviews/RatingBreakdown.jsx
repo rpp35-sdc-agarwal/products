@@ -5,9 +5,9 @@ class RatingBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      metaData: null,
-      avgScore: null,
-      starVal: null,
+      metaData: 0,
+      avgScore: 0,
+      starVal:  0,
       recommended: null,
       revBreakdown: {}
     };
@@ -42,6 +42,9 @@ class RatingBreakdown extends React.Component {
   }
 
   avgScore(allScores) {
+    if (allScores.keys.length === 0) {
+      return
+    }
     //store the ratings in a results array
     var ratings = [];
     var total = 0;

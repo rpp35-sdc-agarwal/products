@@ -1,4 +1,5 @@
 import React from 'react';
+import Characteristics from '../ReviewComponents/Characteristics.jsx'
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -6,41 +7,39 @@ class ReviewForm extends React.Component {
     this.state = {
       rating: 0,
       recommend: null,
-      elements: [],
+      photos: [],
       count: 50,
       reviewSumm: '',
       reviewBody: '',
-      characterDescribe: {
-        Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'],
-        Width: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
-        Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Too wide'],
-        Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
-        Length: ['Runs Short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
-        Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long']
-      }
+      nickname: '',
+      email: '',
+      Size:'None selected',
+      Width:'None selected',
+      Comfort:'None selected',
+      Quality:'None selected',
+      Length:'None selected',
+      Fit:'None selected',
+      SizeRating: null,
+      WidthRating: null,
+      ComfortRating: null,
+      QualityRating: null,
+      LengthRating: null,
+      FitRating: null
     }
-    this.renderCharacter = this.renderCharacter.bind(this);
     this.recommendHandler = this.recommendHandler.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.ratingHandler = this.ratingHandler.bind(this);
-    this.characteristicHandler = this.characteristicHandler.bind(this);
     this.summaryHandler = this.summaryHandler.bind(this);
+    this.photoHandler = this.photoHandler.bind(this);
+    this.nameMailHandler = this.nameMailHandler.bind(this);
+    this.characteristicHandler = this.characteristicHandler.bind(this);
   }
 
   closePopup() {
     this.props.closePopup();
   }
 
-  componentDidMount() {
-    this.renderCharacter(this.props.metaData.characteristics);
-  }
-
-  characteristicHandler(e) {
-    //change the newly created state for this characteristic into the value selected
-    var characteristic = e.target.value.slice(1);
-    this.setState({ [characteristic]: e.target.value.slice(0, 1) }, console.log(this.state[characteristic], characteristic))
-  }
 
   summaryHandler(e) {
     this.setState({ reviewSumm: e.target.value });
@@ -66,50 +65,45 @@ class ReviewForm extends React.Component {
     }
   }
 
+  photoHandler(e) {
+    var result = [];
+    for (var i = 0; i < e.target.files.length; i++) {
+      result.push(URL.createObjectURL(e.target.files[i]));
+    }
+    this.setState({ photos: result })
+  }
+
+  nameMailHandler(e) {
+    if (e.target.id === 'nickname') {
+      this.setState({ nickname: e.target.value });
+    } else {
+      this.setState({ email: e.target.value });
+    }
+  }
+
+  characteristicHandler(e) {
+    var character = e.target.id;
+    var value = e.target.value.slice(1);
+    var rateName = e.target.id + 'Rating';
+    var rating = e.target.value.slice(0, 1);
+    console.log(e.target.value, e.target.id, e.target.character)
+    this.setState({
+      [character]: value,
+      [rateName]: rating
+    });
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
     //if any of the mandatory fields are not filled out prevent submission
+    //create a message to be displayed for the user
     //if the email is not in the correct format
     //if the images are invalid and unable to be uploaded
     console.log(e);
   }
 
-  renderCharacter(characters) {
-    var elements = [];
-    var newState = {};
-    for (var character in characters) {
-      var characteristic = (
-        <div key={characters[character].id}>
-          <div>{character}</div>
-          <div>{this.state.characterDescribe[character][this.state[character]]}</div>
-          <span>
-            <input type="radio" name="character"  id="1" value={"1" + character} onClick={this.characteristicHandler}/>
-            <label htmlFor="character">1</label>
-          </span>
-          <span>
-            <input type="radio" name="character"  id="2" value={"2" + character} onClick={this.characteristicHandler}/>
-            <label htmlFor="character">2</label>
-          </span>
-          <span>
-            <input type="radio" name="character"  id="3" value={"3" + character} onClick={this.characteristicHandler}/>
-            <label htmlFor="character">3</label>
-          </span>
-          <span>
-            <input type="radio" name="character"  id="4" value={"4" + character} onClick={this.characteristicHandler}/>
-            <label htmlFor="character">4</label>
-          </span>
-          <span>
-            <input type="radio" name="character"  id="5" value={"5" + character} onClick={this.characteristicHandler}/>
-            <label htmlFor="character">5</label>
-          </span>
-        </div>
-      );
-      newState[character] = 'None selected';
-      elements.push(characteristic);
-    }
-    newState.elements = elements
-    this.setState(newState);
-  }
+
 
   render() {
     //a line of five stars will be the rating, click one and that one and all others to its left will be filled
@@ -140,7 +134,6 @@ class ReviewForm extends React.Component {
       case '5':
         var rateDescribe = 'Great';
         break;
-
     }
 
 
@@ -167,12 +160,7 @@ class ReviewForm extends React.Component {
                 <label htmlFor="recommended">No</label>
               </div>
             </fieldset>
-            <fieldset>
-              <legend>How would you rate these characteristics?</legend>
-              {this.state.elements.map((element) => {
-                return element;
-              })}
-            </fieldset>
+              <Characteristics characteristicHandler={this.characteristicHandler} characteristics={this.props.metaData.characteristics}/>
             <fieldset>
               <div>
                 <label htmlFor="summary">Summarize your thoughts</label>
@@ -187,18 +175,21 @@ class ReviewForm extends React.Component {
             </fieldset>
             <fieldset>
               <legend>Photos</legend>
-              <input type="file" name="photos" accept="image.jpg" multiple={true}/>
+              <input type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
+              {this.state.photos.map((photo) => {
+                return (<img className="imgRev" src={photo}></img>);
+              })}
             </fieldset>
             <fieldset>
               <legend>Enter your nickname</legend>
               <div>
-                <input type="text" maxLength="60"></input>
+                <input type="text" maxLength="60" onChange={this.nameMailHandler} id="nickname"  value={this.state.nickname}></input>
               </div>
             </fieldset>
             <fieldset>
               <legend>Enter your email</legend>
               <div>
-                <input type="text" maxLength="60"></input>
+                <input type="text" maxLength="60" onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
               </div>
             </fieldset>
             <button onClick={this.handleSubmit}>Submit</button>
@@ -208,5 +199,6 @@ class ReviewForm extends React.Component {
     )
   }
 }
+//data url
 
 export default ReviewForm;
