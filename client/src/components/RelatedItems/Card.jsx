@@ -18,6 +18,7 @@ class Card extends React.Component {
     }
 
     this.handleModalClick = this.handleModalClick.bind(this)
+    this.handleUpdateUrl = this.handleUpdateUrl.bind(this);
   }
 
 
@@ -34,6 +35,23 @@ class Card extends React.Component {
 
   handleModalClick() {
     this.props.handleModalClick(this.props.product)
+  }
+
+  handleUpdateUrl() {
+    var id = this.props.product.id;
+    var state = history.state;
+    var url = ''
+    if (!state) {
+      url = `ip/${id}`;
+    } else {
+      url = `${id}`
+    }
+
+    var state = {
+      id: id
+    }
+    history.pushState(state, '', url)
+
   }
 
 
@@ -59,6 +77,7 @@ class Card extends React.Component {
     return (
       <div className={`card ${this.props.type}`}
       style={{ transform: `translateX(-${shift}px)` }}
+      onClick={this.handleUpdateUrl}
       >
 
        {this.props.type === 'related' &&
