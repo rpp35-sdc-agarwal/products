@@ -11,15 +11,11 @@ class Carousel extends React.Component {
     super(props)
     this.state = {
       currentIndex: 0,
-<<<<<<< HEAD
-
-=======
       relatedItems: [],
       currentProductId: '',
       clickedProduct: null,
       overviewProduct: null,
       compare: false
->>>>>>> main
 
     }
     this.prev = this.prev.bind(this);

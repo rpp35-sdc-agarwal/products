@@ -58,12 +58,8 @@ class App extends React.Component {
           // push state?
           console.log('products: ', this.state.productList);
           this.setState({
-<<<<<<< HEAD
             currentProductId: JSON.stringify(this.state.productList[0].id)
 
-=======
-            currentProductId: JSON.stringify(this.state.productList[1].id)
->>>>>>> main
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
           })
@@ -105,15 +101,10 @@ class App extends React.Component {
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
         <ProductOverview />
-<<<<<<< HEAD
-        <ReviewsContainer />
-        <RelatedItems handleItemClick={this.handleItemClick.bind(this)} products={this.state.productList} ratings={this.state.ratings}/>
-=======
         <RelatedItems handleItemClick={this.handleItemClick.bind(this)}
         products={this.props.products}
         ratings={this.state.ratings}
         currentProductId={this.state.currentProductId}/>
->>>>>>> main
         <Questions currentProductId={this.state.currentProductId} />
         <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
 
