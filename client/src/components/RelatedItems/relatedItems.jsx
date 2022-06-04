@@ -10,22 +10,23 @@ class RelatedItems extends React.Component {
     super(props)
     this.state = {
 
-      products: this.props.products
+
     }
   }
 
-  componentDidMount() {
-    fetch('/products')
-    .then(res => res.json())
-    .then(data => console.log(data))
-  }
+
 
   render() {
     return (
       <div>
-         <Carousel products={this.state.products}
-         ratings={this.props.ratings}/>
-        {/* <OutfitCarousel products={this.state.products}/> */}
+        <h4>RELATED ITEMS</h4>
+         <Carousel
+         currentProductId={this.props.currentProductId}
+         handleItemClick={this.props.handleItemClick}/>
+        <h4>YOUR OUTFIT</h4>
+        <OutfitCarousel
+        currentProductId={this.props.currentProductId}
+        />
       </div>
     )
   }
