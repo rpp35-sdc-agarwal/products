@@ -181,7 +181,7 @@ const getReviews = (req, res, next) => {
         res.products[i].ratings = avgScore(ratings)
       }
     }
-    console.log('what is products now', res.products)
+
 
     next()
   })

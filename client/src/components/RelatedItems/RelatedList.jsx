@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card.jsx'
 
-const RelatedList = ({products, type, deleteOutfit, shift, handleModalClick}) => {
+const RelatedList = ({products, type, deleteOutfit, shift, handleModalClick, handleItemClick}) => {
   var cards = products.map((product, i) => {
     return (
       <Card product={product}
@@ -10,6 +10,7 @@ const RelatedList = ({products, type, deleteOutfit, shift, handleModalClick}) =>
       deleteOutfit={deleteOutfit}
       shift={shift}
       handleModalClick={handleModalClick}
+      handleItemClick={handleItemClick}
 
        key={i}/>
     )

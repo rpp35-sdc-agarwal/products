@@ -51,6 +51,7 @@ class Card extends React.Component {
       id: id
     }
     history.pushState(state, '', url)
+    this.props.handleItemClick(id);
 
   }
 

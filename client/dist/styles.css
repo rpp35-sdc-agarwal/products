@@ -350,6 +350,10 @@ ul.cardHolder {
   transform: translateX(0px);
 }
 
+.card.outfit {
+  transform: translateX(0px);
+}
+
 .salePrice {
   color: red;
 }

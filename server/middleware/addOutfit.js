@@ -46,7 +46,7 @@ const addStyleToOutfit = (req, res, next) => {
 
     if (!photoFound) {
       res.outfit.photo = styles[0].photos[0].thumbnail_url
-      console.log('i made it to the photos conditional')
+
     }
     console.log('what is outfit at the end', res.outfit)
     next()
