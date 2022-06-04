@@ -397,6 +397,11 @@ ul.cardHolder {
 /*****************************************************/
 /* Questions and Answers */
 /*****************************************************/
+#QA {
+  width: 50%;
+  height: auto;
+}
+
 .question-list {
   height: 30vh;
   width: 70vw;
@@ -435,7 +440,7 @@ ul.cardHolder {
   color:rgb(90, 90, 90);
   float: right;
   font-size: 14px;
-  margin-right: 40px;
+  margin-right: 0.5vw;
 }
 
 .answer-info {

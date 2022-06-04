@@ -39,8 +39,6 @@ class Questions extends React.Component {
       allQuestions: [...res.data.results],
       questions: [res.data.results[0], res.data.results[1]],
     }, () => {
-      // console.log('this.state.allQuestions in retrieveQuestions: ', this.state.allQuestions);
-      // console.log('this.state.questions in retrieveQuestions: ', this.state.questions)
       this.setState({
         lastIndex: this.state.questions.length - 1,
       })
@@ -64,45 +62,16 @@ class Questions extends React.Component {
       })
   }
   
-  // componentDidUpdate (prevProps) {
-  //   if (prevProps.currentProductId !== this.props.currentProductId) {
-  //     this.setState({
-  //       productId: this.props.currentProductId
-  //     }, () => {
-  //       console.log('state.productId: ', this.state.productId)
-  //       this.retrieveQuestions(this.state.productId)
-  //         .then((results) => {
-  //           console.log('results: ', results);
-  //           this.setState({
-  //             allQuestions: [...results],
-  //             questions: [results[0], results[1]]
-  //           }, () => {
-  //             console.log('questions: ', this.state.questions);
-  //             this.setState({
-  //               lastIndex: 1
-  //             })
-  //           })
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //     })
-  //   }
-  // }
-  
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.setState({
         productId: this.props.currentProductId
       }, () => {
-        // console.log('state.productId: ', this.state.productId)
-        this.retrieveQuestions(this.state.productId)
-          .then((results) => {
-            // console.log('retrieved all questions ', results);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+          try {
+            this.retrieveQuestions(this.state.productId)
+          } catch (err) {
+            console.log(err)
+          }
       })
     }
   }
