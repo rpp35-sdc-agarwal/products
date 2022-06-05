@@ -19,6 +19,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 const getRelated = require('./middleware/relatedProducts.js')
 const addOutfit = require('./middleware/addOutfit.js')
 
+app.use('/ip*', (req, res) => {
+  res.redirect('/');
+})
+
 /////////////////////////////////////////////////////////
 //    Products Routes
 /////////////////////////////////////////////////////////
