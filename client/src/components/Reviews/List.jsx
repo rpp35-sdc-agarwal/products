@@ -100,7 +100,7 @@ class List extends React.Component {
           })}
         </div>
        {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
-       {this.state.form ? <ReviewForm closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
+       {this.state.form ? <ReviewForm product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
       </div>
     )
   }

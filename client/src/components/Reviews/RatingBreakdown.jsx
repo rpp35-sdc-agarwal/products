@@ -42,7 +42,7 @@ class RatingBreakdown extends React.Component {
   }
 
   avgScore(allScores) {
-    if (allScores.keys.length === 0) {
+    if (Object.keys(allScores).length === 0) {
       return
     }
     //store the ratings in a results array

@@ -17,7 +17,19 @@ class Characteristics extends React.Component {
       LengthRating: null,
       FitRating: null
     }
+    this.characteristicHandler = this.characteristicHandler.bind(this);
+  }
 
+  characteristicHandler(e) {
+    var character = e.target.id;
+    var value = e.target.value.slice(1);
+    var rateName = e.target.id + 'Rating';
+    var rating = e.target.value.slice(0, 1);
+    console.log(rating)
+    this.setState({
+      [character]: value,
+      [rateName]: rating
+    }, this.props.sensor(e, rating));
   }
 
   renderCharacter(characters) {
@@ -37,15 +49,15 @@ class Characteristics extends React.Component {
           <div>{character}</div>
           <div>{this.state[character]}</div>
           <div>
-            <input type="radio" name="character"  id={character} value={1 + descriptors[character][0]} onClick={this.props.characteristicHandler}/>
+            <input type="radio" name="character"  id={character} value={1 + descriptors[character][0]} onClick={this.characteristicHandler}/>
             <label htmlFor="character">1</label>
-            <input type="radio" name="character"  id={character} value={2 + descriptors[character][1]} onClick={this.props.characteristicHandler}/>
+            <input type="radio" name="character"  id={character} value={2 + descriptors[character][1]} onClick={this.characteristicHandler}/>
             <label htmlFor="character">2</label>
-            <input type="radio" name="character"  id={character} value={3 + descriptors[character][2]} onClick={this.props.characteristicHandler}/>
+            <input type="radio" name="character"  id={character} value={3 + descriptors[character][2]} onClick={this.characteristicHandler}/>
             <label htmlFor="character">3</label>
-            <input type="radio" name="character"  id={character} value={4 + descriptors[character][3]} onClick={this.props.characteristicHandler}/>
+            <input type="radio" name="character"  id={character} value={4 + descriptors[character][3]} onClick={this.characteristicHandler}/>
             <label htmlFor="character">4</label>
-            <input type="radio" name="character"  id={character} value={5 + descriptors[character][4]} onClick={this.props.characteristicHandler}/>
+            <input type="radio" name="character"  id={character} value={5 + descriptors[character][4]} onClick={this.characteristicHandler}/>
             <label htmlFor="character">5</label>
           </div>
           <span>{descriptors[character][0]}</span><span>{descriptors[character][4]}</span>

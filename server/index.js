@@ -112,6 +112,27 @@ app.get('/reviews', (req, res) => {
 
 });
 
+app.post('/reviews', (req, res) => {
+  req.query.rating = parseInt(req.query.rating);
+  req.query.product_id = parseInt(req.query.product_id);
+  if (req.query.recommend === 'true') {
+    req.query.recommend = true;
+  } else {
+    req.query.recommend = false;
+  }
+
+  var config = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
+    method: 'post',
+    headers: { 'Authorization': API },
+    params: req.query
+  }
+  axios(config)
+    .then()
+    .catch();
+  res.end()
+})
+
 app.get('/reviews/meta', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta',

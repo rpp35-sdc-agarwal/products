@@ -1,5 +1,6 @@
 import React from 'react';
 import Characteristics from '../ReviewComponents/Characteristics.jsx'
+import axios from 'axios';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -13,12 +14,6 @@ class ReviewForm extends React.Component {
       reviewBody: '',
       nickname: '',
       email: '',
-      Size:'None selected',
-      Width:'None selected',
-      Comfort:'None selected',
-      Quality:'None selected',
-      Length:'None selected',
-      Fit:'None selected',
       SizeRating: null,
       WidthRating: null,
       ComfortRating: null,
@@ -33,7 +28,8 @@ class ReviewForm extends React.Component {
     this.summaryHandler = this.summaryHandler.bind(this);
     this.photoHandler = this.photoHandler.bind(this);
     this.nameMailHandler = this.nameMailHandler.bind(this);
-    this.characteristicHandler = this.characteristicHandler.bind(this);
+    this.characteristicSensor = this.characteristicSensor.bind(this);
+    this.removePhotos = this.removePhotos.bind(this);
   }
 
   closePopup() {
@@ -81,26 +77,55 @@ class ReviewForm extends React.Component {
     }
   }
 
-  characteristicHandler(e) {
+  characteristicSensor(e, rating) {
     var character = e.target.id;
-    var value = e.target.value.slice(1);
-    var rateName = e.target.id + 'Rating';
-    var rating = e.target.value.slice(0, 1);
-    console.log(e.target.value, e.target.id, e.target.character)
-    this.setState({
-      [character]: value,
-      [rateName]: rating
-    });
+    this.setState({ [character]: true, [character + 'Rating']: rating});
   }
+
+  removePhotos(e) {
+    e.preventDefault();
+    e.target.previousSibling.value = null;
+    this.setState({ photos: [] });
+  }
+
 
 
   handleSubmit(e) {
     e.preventDefault();
+    var email = this.state.email.toLowerCase().match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
+    if( this.state.rating === 0 || this.state.recommend === null || this.state.count > 0 || this.state.reviewBody === '' || this.state.nickname === '' || !email ) {
+      alert('Not all required fields are filled out');
+      return;
+    }
+    var characteristics = {}
+    var metaChar = this.props.metaData.characteristics;
+    for (var character in metaChar) {
+      characteristics[metaChar[character].id] = parseInt(this.state[character + 'Rating']);
+    }
+
+    var config = {
+      url: 'http://localhost:3000/reviews',
+      method: 'post',
+      params: {
+        product_id: this.props.product_id,
+        rating: this.state.rating,
+        summary: this.state.reviewSumm,
+        body: this.state.reviewBody,
+        recommend: this.state.recommend,
+        name: this.state.nickname,
+        email: this.state.email,
+        photos: this.state.photos,
+        characteristics: characteristics
+      }
+    }
+    axios(config);
+
+
     //if any of the mandatory fields are not filled out prevent submission
     //create a message to be displayed for the user
     //if the email is not in the correct format
     //if the images are invalid and unable to be uploaded
-    console.log(e);
+
   }
 
 
@@ -160,7 +185,7 @@ class ReviewForm extends React.Component {
                 <label htmlFor="recommended">No</label>
               </div>
             </fieldset>
-              <Characteristics characteristicHandler={this.characteristicHandler} characteristics={this.props.metaData.characteristics}/>
+              <Characteristics sensor={this.characteristicSensor} characteristicHandler={this.characteristicHandler} characteristics={this.props.metaData.characteristics}/>
             <fieldset>
               <div>
                 <label htmlFor="summary">Summarize your thoughts</label>
@@ -176,9 +201,11 @@ class ReviewForm extends React.Component {
             <fieldset>
               <legend>Photos</legend>
               <input type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
+              <button onClick={this.removePhotos}>Remove photos</button>
               {this.state.photos.map((photo) => {
                 return (<img className="imgRev" src={photo}></img>);
               })}
+
             </fieldset>
             <fieldset>
               <legend>Enter your nickname</legend>
@@ -189,7 +216,7 @@ class ReviewForm extends React.Component {
             <fieldset>
               <legend>Enter your email</legend>
               <div>
-                <input type="text" maxLength="60" onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
+                <input type="email" maxLength="60" onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
               </div>
             </fieldset>
             <button onClick={this.handleSubmit}>Submit</button>
