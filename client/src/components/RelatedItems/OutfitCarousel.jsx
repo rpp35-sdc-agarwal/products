@@ -20,7 +20,7 @@ class OutfitCarousel extends React.Component {
     this.next = this.next.bind(this);
   }
 
-  addOutfit(id) {
+  addOutfit() {
     axios.post(`/addOutfit`, {
       "product_id": this.props.currentProductId
     })
@@ -35,7 +35,7 @@ class OutfitCarousel extends React.Component {
 
   deleteOutfit(id) {
     axios.post(`/deleteOutfit`, {
-      "product_id": this.props.currentProductId
+      "product_id": id
     })
     .then((res) => {
       this.setState({
