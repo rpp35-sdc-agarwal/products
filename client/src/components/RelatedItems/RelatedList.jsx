@@ -7,10 +7,10 @@ const RelatedList = ({products, type, deleteOutfit, shift, handleModalClick, han
       <Card product={product}
       type={type}
 
-      deleteOutfit={deleteOutfit}
+      deleteOutfit={type === 'outfit' ? deleteOutfit : undefined}
       shift={shift}
-      handleModalClick={handleModalClick}
-      handleItemClick={handleItemClick}
+      handleModalClick={type === 'related'? handleModalClick : undefined}
+      handleItemClick={type === 'related' ? handleItemClick : ()=>{}}
 
        key={i}/>
     )
