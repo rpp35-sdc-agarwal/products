@@ -1,5 +1,6 @@
 import React from 'react';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
+import ExpandedView from './ExpandedView.jsx';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -8,13 +9,21 @@ class ImageGallery extends React.Component {
       currentStyle: this.props.currentStyle,
       currentImageIndex: 0,
       thumbnailFirstIndex: 0,
-      thumbnailLastIndex: 5
+      thumbnailLastIndex: 5,
+      pop: false
     }
     this.handleImageChange = this.handleImageChange.bind(this);
     this.handleRLClick = this.handleRLClick.bind(this);
     this.handleDownArrowClick = this.handleDownArrowClick.bind(this);
     this.handleUpArrowClick = this.handleUpArrowClick.bind(this);
     this.renderImageDiv = this.renderImageDiv.bind(this);
+    this.togglePop = this.togglePop.bind(this);
+  }
+
+  togglePop() {
+    this.setState({
+      pop: !this.state.pop
+    })
   }
 
   handleDownArrowClick() {
@@ -100,7 +109,9 @@ class ImageGallery extends React.Component {
         </div>
         <img id = 'frame'
           src = {this.state.currentStyle.photos[this.state.currentImageIndex].url}
+          onClick = {this.togglePop}
         />
+        {this.state.pop ? <ExpandedView handleImageChange={this.handleImageChange} handleRLClick={this.handleRLClick}  photoIndex={this.state.currentImageIndex} togglePop={this.togglePop} currentStyle={this.state.currentStyle}/> : null}
       </div>
       )
     } else if (index === this.state.currentStyle.photos.length - 1) {
@@ -111,7 +122,9 @@ class ImageGallery extends React.Component {
         </div>
         <img id = 'frame'
           src = {this.state.currentStyle.photos[this.state.currentImageIndex].url}
+          onClick = {this.togglePop}
         />
+        {this.state.pop ? <ExpandedView handleImageChange={this.handleImageChange} handleRLClick={this.handleRLClick}  photoIndex={this.state.currentImageIndex} togglePop={this.togglePop} currentStyle={this.state.currentStyle}/> : null}
       </div>
       )
     } else {
@@ -125,7 +138,9 @@ class ImageGallery extends React.Component {
         </div>
         <img id = 'frame'
           src = {this.state.currentStyle.photos[this.state.currentImageIndex].url}
+          onClick = {this.togglePop}
         />
+        {this.state.pop ? <ExpandedView handleImageChange={this.handleImageChange} handleRLClick={this.handleRLClick}  photoIndex={this.state.currentImageIndex} togglePop={this.togglePop} currentStyle={this.state.currentStyle}/> : null}
       </div>
       )
     }

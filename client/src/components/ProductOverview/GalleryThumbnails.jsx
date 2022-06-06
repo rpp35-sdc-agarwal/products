@@ -62,8 +62,8 @@ class GalleryThumbnails extends React.Component {
   render() {
     return(
       <div id = 'galleryCarouselDiv'>
-        <div className='arrowDiv'>
-          <i className="arrow up" id={this.getUpArrowClassName()} onClick={this.props.handleUpArrowClick}></i>
+        <div className='o-arrowDiv'>
+          <i className="o-arrow up" id={this.getUpArrowClassName()} onClick={this.props.handleUpArrowClick}></i>
         </div>
         {this.state.currentStyle.photos.slice(this.state.thumbnailFirstIndex, this.state.thumbnailLastIndex).map((photo, index) =>
           <div className='galleryCarouselImageFrame' key={index} onClick={this.handleImageClick}>
@@ -72,8 +72,8 @@ class GalleryThumbnails extends React.Component {
             />
           </div>
         )}
-        <div className='arrowDiv'>
-          <i className="arrow down" id={this.getDownArrowClassName()} onClick={this.props.handleDownArrowClick}></i>
+        <div className='o-arrowDiv'>
+          <i className="o-arrow down" id={this.getDownArrowClassName()} onClick={this.props.handleDownArrowClick}></i>
         </div>
       </div>
     )

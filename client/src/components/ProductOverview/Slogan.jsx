@@ -1,4 +1,5 @@
 import React from 'react';
+
 class Slogan extends React.Component {
 
   constructor(props) {
@@ -11,17 +12,19 @@ class Slogan extends React.Component {
   render() {
     return(
       <div id='sloganDiv' className='childDiv'>
-        <div>
-          {this.state.productInfo.slogan}
+        <div id='desDiv'>
+          <h3>
+            {this.state.productInfo.slogan}
+          </h3>
+          <p>
+            {this.state.productInfo.description}
+          </p>
         </div>
-        <div>
-          {this.state.productInfo.description}
-        </div>
-        <div>
+        <div id='featuresDiv'>
           {this.state.productInfo.features.map((item, index) =>
-            <div key = {index}>
+            <li key = {index}>
               {item.feature}: {item.value}
-            </div>
+            </li>
           )}
         </div>
       </div>
