@@ -169,11 +169,12 @@ class ReviewForm extends React.Component {
           <h2>Write your review</h2>
           <h3>About the {'product name here'}</h3>
           <form>
+
             <fieldset>
               <legend>What would you rate this product?</legend>
               <input type="range" name="overall-rating" min="1" max="5" value={this.state.rating} onChange={this.ratingHandler}></input>{ rateDescribe }
-
             </fieldset>
+
             <fieldset>
               <legend>Do you recommend this product?</legend>
               <div>
@@ -185,7 +186,9 @@ class ReviewForm extends React.Component {
                 <label htmlFor="recommended">No</label>
               </div>
             </fieldset>
+
               <Characteristics sensor={this.characteristicSensor} characteristicHandler={this.characteristicHandler} characteristics={this.props.metaData.characteristics}/>
+
             <fieldset>
               <div>
                 <label htmlFor="summary">Summarize your thoughts</label>
@@ -198,6 +201,7 @@ class ReviewForm extends React.Component {
                 { charCount }
               </div>
             </fieldset>
+
             <fieldset>
               <legend>Photos</legend>
               <input type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
@@ -205,20 +209,22 @@ class ReviewForm extends React.Component {
               {this.state.photos.map((photo) => {
                 return (<img className="imgRev" src={photo}></img>);
               })}
-
             </fieldset>
+
             <fieldset>
               <legend>Enter your nickname</legend>
               <div>
                 <input type="text" maxLength="60" onChange={this.nameMailHandler} id="nickname"  value={this.state.nickname}></input>
               </div>
             </fieldset>
+
             <fieldset>
               <legend>Enter your email</legend>
               <div>
                 <input type="email" maxLength="60" onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
               </div>
             </fieldset>
+
             <button onClick={this.handleSubmit}>Submit</button>
           </form>
         </div>

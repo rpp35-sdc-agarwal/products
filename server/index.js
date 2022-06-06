@@ -97,6 +97,7 @@ app.get('/reviews', (req, res) => {
     method: 'get',
     headers: { 'Authorization': API },
     params: {
+      count: parseInt(req.query.count),
       product_id: parseInt(req.query.product_id),
       sort: req.query.filter
     }
@@ -120,17 +121,22 @@ app.post('/reviews', (req, res) => {
   } else {
     req.query.recommend = false;
   }
-
+  req.query.characteristics = JSON.parse(req.query.characteristics);
+  var query = req.query;
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
     method: 'post',
     headers: { 'Authorization': API },
-    params: req.query
+    data: query
   }
+  console.log(config);
   axios(config)
-    .then()
-    .catch();
-  res.end()
+    .then((data) => {
+      res.send(data.data);
+    })
+    .catch((err) => {
+      res.status(400).send(`There has been an error ${err}`)
+    });
 })
 
 app.get('/reviews/meta', (req, res) => {

@@ -32,7 +32,11 @@ class ProductBreakdown extends React.Component {
       <div data-testid="test_revProductBreakdown" className="ProductBreakdown">
         ProductBreakdown
         {this.state.categories.map((cat) => {
-          var rating = (parseInt(cat[1].value) / 5) * 100;
+          if (cat[1].value === null) {
+            var rating = 0;
+          } else {
+            var rating = (parseInt(cat[1].value) / 5) * 100;
+          }
           return (
             <div key={cat[1].id}>
               {cat[0]} <span className={cat[0].toLowerCase()}>{rating}</span>
