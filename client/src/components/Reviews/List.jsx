@@ -87,8 +87,9 @@ class List extends React.Component {
           .catch((err) => { console.log(err) });
   }
 
-  clickHandler() {
+  clickHandler(e) {
     //when button is clicked pop up form
+    this.setState({ form: !this.state.form })
   }
 
   //create a render key on state
