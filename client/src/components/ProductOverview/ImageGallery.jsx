@@ -1,6 +1,7 @@
 import React from 'react';
 import GalleryThumbnails from './GalleryThumbnails.jsx';
 import ExpandedView from './ExpandedView.jsx';
+import Magnifier from "react-magnifier";
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -107,10 +108,13 @@ class ImageGallery extends React.Component {
         <div>
           <button className='carousel-button next' value='next' onClick={this.handleRLClick}>&#8658;</button>
         </div>
-        <img id = 'frame'
+        {/* <img id = 'frame'
           src = {this.state.currentStyle.photos[this.state.currentImageIndex].url}
           onClick = {this.togglePop}
-        />
+        /> */}
+
+        <Magnifier id = 'frame' onClick = {this.togglePop} src={this.state.currentStyle.photos[this.state.currentImageIndex].url}/>
+
         {this.state.pop ? <ExpandedView handleImageChange={this.handleImageChange} handleRLClick={this.handleRLClick}  photoIndex={this.state.currentImageIndex} togglePop={this.togglePop} currentStyle={this.state.currentStyle}/> : null}
       </div>
       )
@@ -120,10 +124,13 @@ class ImageGallery extends React.Component {
         <div>
           <button className='carousel-button prev' value='prev' onClick={this.handleRLClick}>&#8656;</button>
         </div>
-        <img id = 'frame'
+        {/* <img id = 'frame'
           src = {this.state.currentStyle.photos[this.state.currentImageIndex].url}
           onClick = {this.togglePop}
-        />
+        /> */}
+
+        <Magnifier id = 'frame' onClick = {this.togglePop} src={this.state.currentStyle.photos[this.state.currentImageIndex].url}/>
+
         {this.state.pop ? <ExpandedView handleImageChange={this.handleImageChange} handleRLClick={this.handleRLClick}  photoIndex={this.state.currentImageIndex} togglePop={this.togglePop} currentStyle={this.state.currentStyle}/> : null}
       </div>
       )
@@ -136,10 +143,14 @@ class ImageGallery extends React.Component {
         <div>
           <button className='carousel-button next' value='next' onClick={this.handleRLClick}>&#8658;</button>
         </div>
-        <img id = 'frame'
+        {/* <img id = 'frame'
           src = {this.state.currentStyle.photos[this.state.currentImageIndex].url}
           onClick = {this.togglePop}
-        />
+        /> */}
+
+        <Magnifier id = 'frame' onClick = {this.togglePop} src={this.state.currentStyle.photos[this.state.currentImageIndex].url}/>
+
+
         {this.state.pop ? <ExpandedView handleImageChange={this.handleImageChange} handleRLClick={this.handleRLClick}  photoIndex={this.state.currentImageIndex} togglePop={this.togglePop} currentStyle={this.state.currentStyle}/> : null}
       </div>
       )

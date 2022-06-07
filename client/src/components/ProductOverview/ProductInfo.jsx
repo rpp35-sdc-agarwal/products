@@ -1,5 +1,6 @@
 import React from 'react';
 import StarRating from '../RelatedItems/StarRating.jsx';
+import {Link} from 'react-scroll';
 
 class ProductInfo extends React.Component {
   constructor(props) {
@@ -27,7 +28,8 @@ class ProductInfo extends React.Component {
     return(
       <div className='childDiv'>
         <div>
-          <StarRating rating={this.state.avgRating}/> read all {this.state.totalReviews} Reviews
+          <StarRating rating={this.state.avgRating}/>
+          <p className='ovReview'><Link activeClass="active" to="ReviewsContainer" spy={true} smooth={true}> read all {this.state.totalReviews} Reviews</Link></p>
         </div>
         <div>
           Category: {this.state.productInfo.category}

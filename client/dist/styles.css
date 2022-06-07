@@ -6,6 +6,7 @@
 #galleryDiv {
   width: 500px;
   height : 500px;
+  padding-right: 10px;
 }
 
 #imageDiv {
@@ -14,21 +15,22 @@
   display: inline-block;
 }
 
-/* #imageDiv img{
-  cursor: zoom-in;
-} */
-
 #galleryCarouselDiv {
   width: 50px;
   height: 450px;
   position:absolute;
+  z-index: 2;
 }
 
 
 #frame {
-  height:100%;
-  width:100%;
+  height:500px;
+  width:500px;
   object-fit: contain;
+}
+
+.magnifier > div {
+  background-size: 500% !important;
 }
 
 .galleryCarouselFrame {
@@ -364,6 +366,16 @@ select:-moz-focusring {
 
 #exCloseButton > button {
   border-radius: 50%;
+}
+
+.ovReview {
+  display: inline-block;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.ovReview:hover {
+  text-decoration: underline;
 }
 
 /* * {
