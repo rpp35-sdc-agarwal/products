@@ -9,7 +9,6 @@ class List extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
 
-<<<<<<< HEAD
   componentDidUpdate(oldProps) {
     if (oldProps.reviews !== this.props.reviews) {
       this.setState({
@@ -49,13 +48,6 @@ class List extends React.Component {
   }
 
 
-  clickHandler(e) {
-=======
-  clickHandler() {
->>>>>>> de98e3e4e716e4032fff10896a0414bced87878c
-    //when button is clicked pop up form
-  }
-
   render() {
     return (
       <div data-testid="test_revList" className="List">
@@ -64,7 +56,6 @@ class List extends React.Component {
           {this.props.reviews.map((review) => {
             return (
               <div key={review.review_id} className="rev-tile">
-<<<<<<< HEAD
                 <div className="rev-stars">stars: {review.rating} <span className="rev-username rev-date"> {review.reviewer_name}, {this.formatDate(review.date)}</span></div>
                 <div className="rev-summary"><b>{review.summary}</b></div>
                 <div className="rev-body">
@@ -79,23 +70,12 @@ class List extends React.Component {
                   {review.response}
                 </div>
                 <div className="rev-helpfulness">Helpful? <span>Yes ({review.helpfulness}) </span><span>| Report</span></div>
-=======
-                <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name} {review.date.slice(0, 10)}</span></div>
-                <div className="rev-summary">{review.summary}</div>
-                <div className="rev-body">{review.body}</div>
-                <div className="rev-response">{review.response}</div>
-                <div className="rev-helpfulness">{review.helpfulness} people found this review helpful</div>
->>>>>>> de98e3e4e716e4032fff10896a0414bced87878c
               </div>
             )
           })}
         </div>
-<<<<<<< HEAD
        {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
        {this.state.form ? <ReviewForm product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
-=======
-       <button>More Reviews</button><button>Write A Review</button>
->>>>>>> de98e3e4e716e4032fff10896a0414bced87878c
       </div>
     )
   }
