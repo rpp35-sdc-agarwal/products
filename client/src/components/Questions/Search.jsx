@@ -24,7 +24,7 @@ class Search extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='search-questions' data-testid='test-search'>
         <h4>Search questions</h4>
         <input type="text" onChange={this.onChange.bind(this)} ></input>
         <button onClick={this.onSearch.bind(this)} >SEARCH</button>

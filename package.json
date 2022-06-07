@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack --mode development --watch",
     "server-dev": "npx nodemon server/index.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage --watch",
+    "clear_jest": "jest --clearCache"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",
+    "cookie-session": "^2.0.0",
     "express": "^4.18.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
@@ -36,12 +38,11 @@
     "@babel/preset-react": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^14.1.1",
+    "@testing-library/user-event": "^14.2.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^8.14.0",
     "eslint-plugin-react": "^7.29.4",
-    "install": "^0.13.0",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "nodemon": "^2.0.16",

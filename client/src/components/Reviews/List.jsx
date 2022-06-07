@@ -1,21 +1,15 @@
 import React from 'react';
-import Photos from './tileComponents/Photos.jsx';
-import Body from './tileComponents/ReviewBody.jsx';
-import ReviewForm from './tileComponents/ReviewForm.jsx'
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      render: [],
-      form: false
-      // numDisplayed: 2
+      reviews: this.props.reviews
     }
     this.clickHandler = this.clickHandler.bind(this);
-    this.addTwoRevs = this.addTwoRevs.bind(this);
-    this.formatDate = this.formatDate.bind(this);
   }
 
+<<<<<<< HEAD
   componentDidUpdate(oldProps) {
     if (oldProps.reviews !== this.props.reviews) {
       this.setState({
@@ -56,31 +50,21 @@ class List extends React.Component {
 
 
   clickHandler(e) {
+=======
+  clickHandler() {
+>>>>>>> de98e3e4e716e4032fff10896a0414bced87878c
     //when button is clicked pop up form
-    this.setState({ form: !this.state.form })
   }
 
-  //create a render key on state
-  //this will contain the reviews to be rendered currently
-  //initially store the first two reviews there
-  //when show more is clicked it will render 2 more reviews by adding them to the render state
-
-
   render() {
-    if (this.state.render.length === 0 || this.state.render.length === this.props.reviews.length) {
-      var moreRevs = <span></span>
-    } else {
-      var moreRevs =  <button onClick={this.addTwoRevs}>More Reviews</button>
-    }
-
-
     return (
       <div data-testid="test_revList" className="List">
         List
         <div>
-          {this.state.render.map((review) => {
+          {this.props.reviews.map((review) => {
             return (
               <div key={review.review_id} className="rev-tile">
+<<<<<<< HEAD
                 <div className="rev-stars">stars: {review.rating} <span className="rev-username rev-date"> {review.reviewer_name}, {this.formatDate(review.date)}</span></div>
                 <div className="rev-summary"><b>{review.summary}</b></div>
                 <div className="rev-body">
@@ -95,12 +79,23 @@ class List extends React.Component {
                   {review.response}
                 </div>
                 <div className="rev-helpfulness">Helpful? <span>Yes ({review.helpfulness}) </span><span>| Report</span></div>
+=======
+                <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name} {review.date.slice(0, 10)}</span></div>
+                <div className="rev-summary">{review.summary}</div>
+                <div className="rev-body">{review.body}</div>
+                <div className="rev-response">{review.response}</div>
+                <div className="rev-helpfulness">{review.helpfulness} people found this review helpful</div>
+>>>>>>> de98e3e4e716e4032fff10896a0414bced87878c
               </div>
             )
           })}
         </div>
+<<<<<<< HEAD
        {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
        {this.state.form ? <ReviewForm product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
+=======
+       <button>More Reviews</button><button>Write A Review</button>
+>>>>>>> de98e3e4e716e4032fff10896a0414bced87878c
       </div>
     )
   }
