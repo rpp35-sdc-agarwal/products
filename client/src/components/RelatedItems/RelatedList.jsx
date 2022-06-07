@@ -1,18 +1,22 @@
 import React from 'react';
 import Card from './Card.jsx'
 
-const RelatedList = ({products, type, isRelated, ratings}) => {
+const RelatedList = ({products, type, deleteOutfit, shift, handleModalClick}) => {
   var cards = products.map((product, i) => {
     return (
       <Card product={product}
       type={type}
-      isRelated={isRelated}
-      rating={ratings[i]} key={i}/>
+
+      deleteOutfit={deleteOutfit}
+      shift={shift}
+      handleModalClick={handleModalClick}
+
+       key={i}/>
     )
 
   })
   return (
-    <ul className="cardHolder">
+    <ul className={`cardHolder ${type}`}>
       {cards}
     </ul>
   )

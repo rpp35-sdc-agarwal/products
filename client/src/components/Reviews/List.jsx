@@ -1,32 +1,23 @@
 import React from 'react';
 import Photos from './tileComponents/Photos.jsx';
 import Body from './tileComponents/ReviewBody.jsx';
-<<<<<<< HEAD
-=======
 import axios from 'axios';
 import ReviewForm from './tileComponents/ReviewForm.jsx';
->>>>>>> 8d0b2e05b3682be5215135097ecbb7dead3d51aa
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       render: [],
-<<<<<<< HEAD
-=======
       form: false,
 
->>>>>>> 8d0b2e05b3682be5215135097ecbb7dead3d51aa
       // numDisplayed: 2
     }
     this.clickHandler = this.clickHandler.bind(this);
     this.addTwoRevs = this.addTwoRevs.bind(this);
-<<<<<<< HEAD
-=======
     this.formatDate = this.formatDate.bind(this);
     this.helpfulHandler = this.helpfulHandler.bind(this);
     this.reportHandler = this.reportHandler.bind(this);
->>>>>>> 8d0b2e05b3682be5215135097ecbb7dead3d51aa
   }
 
   componentDidUpdate(oldProps) {
