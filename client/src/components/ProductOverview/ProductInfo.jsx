@@ -17,7 +17,8 @@ class ProductInfo extends React.Component {
     let ratingPercentage = (Number(props.avgRating)/5*100).toString() + '%';
     this.setState({
       currentStyle: props.currentStyle,
-      avgRating: ratingPercentage
+      avgRating: ratingPercentage,
+      productInfo: props.productInfo
     })
   }
 

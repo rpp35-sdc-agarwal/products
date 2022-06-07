@@ -38,7 +38,7 @@ class App extends React.Component {
         }, () => {
           console.log('products: ', this.state.productList);
           this.setState({
-            currentProductId: JSON.stringify(this.state.productList[1].id)
+            currentProductId: JSON.stringify(this.state.productList[2].id)
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
           })
@@ -74,7 +74,7 @@ class App extends React.Component {
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
-        <ProductOverview avgRating={this.state.avgRating}/>
+        <ProductOverview avgRating={this.state.avgRating} currentProductId={this.state.currentProductId}/>
         <RelatedItems handleItemClick={this.handleItemClick.bind(this)}
         products={this.props.products}
         ratings={this.state.ratings}

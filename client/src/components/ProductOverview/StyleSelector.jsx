@@ -17,7 +17,8 @@ class StyleSelector extends React.Component {
 
   UNSAFE_componentWillReceiveProps(props) {
     this.setState({
-      currentStyle: props.currentStyle
+      currentStyle: props.currentStyle,
+      styles: props.styles
     })
   }
 
