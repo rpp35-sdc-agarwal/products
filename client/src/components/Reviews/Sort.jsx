@@ -7,10 +7,12 @@ class Sort extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // data: null,
+      data: null,
       reviews: []
     }
     this.changeHandler = this.changeHandler.bind(this);
+    this.filterHandle = this.filterHandle.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
   }
 
   //Helpful - This sort order will prioritize reviews that have been found helpful.  The order can be found by subtracting “No” responses from “Yes” responses and sorting such that the highest score appears at the top.
@@ -18,18 +20,49 @@ class Sort extends React.Component {
   //Relevant - Relevance will be determined by a combination of both the date that the review was submitted as well as ‘helpfulness’ feedback received.  This combination should weigh the two characteristics such that recent reviews appear near the top, but do not outweigh reviews that have been found helpful.  Similarly, reviews that have been helpful should appear near the top, but should yield to more recent reviews if they are older.
 
   componentDidUpdate(oldProps) {
-    if (oldProps.product_id !== this.props.product_id) {
-      this.reviewReq(this.props.product_id)
+    if (oldProps.product_id !== this.props.product_id || oldProps.total !== this.props.total) {
+      this.reviewReq()
+    }
+    if (oldProps.filter !== this.props.filter) {
+      this.filterHandle(this.props.filter);
     }
   }
 
-  reviewReq(productId) {
+  filterHandle(filters) {
+    //take in the array of filters
+    //use the array to iterate through the reviews
+    if (filters.length === 0) {
+      this.resetFilters()
+      return;
+    }
+    var result = [];
+    var reviews = this.state.data.results;
+    for (var i = 0; i < reviews.length; i++) {
+      for (var j = 0; j < filters.length; j++) {
+        if (reviews[i].rating === filters[j]) {
+          result.push(reviews[i]);
+          break;
+        }
+      }
+    }
+    //use this.state.reviews
+    this.setState({ reviews: result });
+    //create a new array with ratings that match the filters
+  }
+
+  resetFilters() {
+    //when the button is clicked replace reviews with this.state.data.results
+    this.setState({ reviews: this.state.data.results });
+  }
+
+  reviewReq() {
     var config = {
       method: 'get',
       url: 'http://localhost:3000/reviews',
       params: {
         filter: 'relevant',
-        product_id: this.props.product_id
+        product_id: this.props.product_id,
+        count: this.props.total
       }
     }
     axios(config)
@@ -121,7 +154,7 @@ class Sort extends React.Component {
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
         </select>
-        <List reviews={this.state.reviews}/>
+        <List product_id={this.props.product_id} reviews={this.state.reviews} metaData={this.props.metaData}/>
       </div>
     )
   }

@@ -5,14 +5,14 @@ class QuestionPopup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     }
   }
-  
+
   closePopup () {
     this.props.toggleQuestion();
   }
-  
+
   render() {
     return(
       <div className="QA-modal" id="question-modal">

@@ -1,16 +1,32 @@
 import React from 'react';
 import Photos from './tileComponents/Photos.jsx';
 import Body from './tileComponents/ReviewBody.jsx';
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+import ReviewForm from './tileComponents/ReviewForm.jsx';
+>>>>>>> 8d0b2e05b3682be5215135097ecbb7dead3d51aa
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       render: [],
+<<<<<<< HEAD
+=======
+      form: false,
+
+>>>>>>> 8d0b2e05b3682be5215135097ecbb7dead3d51aa
       // numDisplayed: 2
     }
     this.clickHandler = this.clickHandler.bind(this);
     this.addTwoRevs = this.addTwoRevs.bind(this);
+<<<<<<< HEAD
+=======
+    this.formatDate = this.formatDate.bind(this);
+    this.helpfulHandler = this.helpfulHandler.bind(this);
+    this.reportHandler = this.reportHandler.bind(this);
+>>>>>>> 8d0b2e05b3682be5215135097ecbb7dead3d51aa
   }
 
   componentDidUpdate(oldProps) {
@@ -43,7 +59,42 @@ class List extends React.Component {
     }
   }
 
+  formatDate(date) {
+    var months = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'};
+    var month = months[date.slice(5, 7)];
+    var day = date.slice(8, 10);
+    var year = date.slice(0, 4);
+    date = `${month} ${day}, ${year}`
+    return date;
+  }
 
+  helpfulHandler(e) {
+    //when the yes is clicked, disable the clickability of the yes element
+    console.log('listening', e.target.innerHTML);
+    this.setState({ [e.target.className]: true })
+    //send a request to the api to mark the review as helpful
+    var config = {
+      url: `http://localhost:3000/reviews/${e.target.className}/helpful`,
+      method: 'put'
+    }
+    axios(config)
+      .then((response) => { console.log(response) })
+      .catch((err) => { console.log(err) });
+  }
+
+  reportHandler(e) {
+        //when the yes is clicked, disable the clickability of the yes element
+        console.log('reporting', e.target.innerHTML);
+        this.setState({ [e.target.className + 'Report']: true })
+        //send a request to the api to mark the review as helpful
+        var config = {
+          url: `http://localhost:3000/reviews/${e.target.className}/report`,
+          method: 'put'
+        }
+        axios(config)
+          .then((response) => { console.log(response) })
+          .catch((err) => { console.log(err) });
+  }
 
   clickHandler() {
     //when button is clicked pop up form
@@ -61,8 +112,7 @@ class List extends React.Component {
     } else {
       var moreRevs =  <button onClick={this.addTwoRevs}>More Reviews</button>
     }
-
-
+    //this.state[review.review_id] ? : null
     return (
       <div data-testid="test_revList" className="List">
         List
@@ -70,19 +120,31 @@ class List extends React.Component {
           {this.state.render.map((review) => {
             return (
               <div key={review.review_id} className="rev-tile">
-                <div className="rev-stars">{review.rating} <span className="rev-username rev-date">{review.reviewer_name} {review.date.slice(0, 10)}</span></div>
-                <div className="rev-summary">{review.summary}</div>
+                <div className="rev-stars">stars: {review.rating} <span className="rev-username rev-date"> {review.reviewer_name}, {this.formatDate(review.date)}</span></div>
+                <div className="rev-summary"><b>{review.summary}</b></div>
                 <div className="rev-body">
                   <Body body={review.body}/>
                   <Photos photos={review.photos}/>
                 </div>
-                <div className="rev-response">{review.response}</div>
-                <div className="rev-helpfulness">{review.helpfulness} people found this review helpful</div>
+                <div>
+                  {review.recommend ? 'checkmark I recommend this product' : ''}
+                </div>
+                <div className="rev-response">
+                  <b>{review.response ? 'Response:' : ''}</b><br/>
+                  {review.response}
+                </div>
+                <div className="rev-helpfulness">Helpful?
+                  <span className={review.review_id} onClick={!this.state[review.review_id] ? this.helpfulHandler : null}>
+                    Yes ({review.helpfulness})
+                  </span>
+                  {/* <span onClick={!this.state[review.review_id + 'Report'] ? this.reportHandler : null} >| Report</span> */}
+                </div>
               </div>
             )
           })}
         </div>
-       {moreRevs}<button>Write A Review</button>
+       {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
+       {this.state.form ? <ReviewForm product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
       </div>
     )
   }
