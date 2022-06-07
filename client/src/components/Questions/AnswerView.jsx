@@ -55,7 +55,7 @@ class AnswerView extends React.Component {
         )) : null}
         </div>
         <div className='answer-info'>
-        <span>by {this.props.answer.answerer_name} </span> | <span> Helpful? </span><span className='answer-clickable' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | {this.state.reported ? <span className='answer-clickable'> Reported </span> : <span className=' answer-clickable' onClick={this.report.bind(this)}> Report </span>}
+        <span>by {this.props.answer.answerer_name === 'Seller' ? <span className="seller">{this.props.answer.answerer_name}</span> : <span>{this.props.answer.answerer_name}</span>} </span> | <span> Helpful? </span><span className='answer-clickable' onClick={this.vote.bind(this)} > Yes ({this.state.helpfulness}) </span> | {this.state.reported ? <span className='answer-clickable'> Reported </span> : <span className=' answer-clickable' onClick={this.report.bind(this)}> Report </span>}
         </div>
       </div>
     )

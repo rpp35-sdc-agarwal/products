@@ -56,7 +56,7 @@ button:hover {
 } 
 
 
-input, textarea::placeholder {
+input, textarea {
   padding-left: 5px
 }
 
@@ -571,6 +571,10 @@ ul.cardHolder {
   display: block;
   margin-top: 20px;
   margin-bottom: 5px;
+}
+
+.seller {
+  font-weight: bold;
 }
 
 /* .photo-full-screen {

@@ -45,6 +45,7 @@ class AnswerList extends React.Component {
   
   render() {
     let answers = this.props.answers;
+    // console.log('answers: ', answers);
     if (!answers.length) {
       return (
         <div className="answer-list">

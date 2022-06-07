@@ -170,7 +170,7 @@ class Questions extends React.Component {
   }
 
   render() {
-    console.log('questions in Questions: ', this.state.questions)
+    // console.log('questions in Questions: ', this.state.questions)
     return (
       <div id='QA' data-testid="test_questions">
         <h2>Have a question?</h2>

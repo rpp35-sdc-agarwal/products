@@ -45,8 +45,24 @@ class AnswerPopup extends React.Component {
   }
   
   handlePhotoUpload (e) {
+    let urlArr = [];
+    for (let i = 0; i < e.target.files.length; i++) {
+      let current = e.target.files[i];
+      let currentURL = URL.createObjectURL(current);
+      urlArr.push(currentURL);
+      // let blob = URL.createObjectURL(e.target.files[i]);
+      // let reader = new FileReader();
+      // reader.readAsDataURL(blob);
+      // reader.onloadend = () => {
+      //   let currentURL = reader.result;
+      //   console.log('currentURL: ', currentURL)
+      //   urlArr.push(currentURL);
+      // }
+    }
     this.setState({
-      photos: [...e.target.files]
+      photos: [...urlArr]
+    }, () => {
+      console.log('photos: ', this.state.photos)
     })
   }
   
@@ -70,7 +86,6 @@ class AnswerPopup extends React.Component {
           photos: this.state.photos
         }
         
-        console.log('data in answerPopUp: ', data);
         console.log('this.props.questionId: ', this.props.questionId)
         let options = {
           method: 'post',
@@ -83,7 +98,9 @@ class AnswerPopup extends React.Component {
         }
         
         let res = await axios(options);
-        console.log(res);
+        console.log('res in Answer Popup: ', res);
+        console.log('data in Answer Popup: ', data)
+        
         // return res.data.results;
       } catch (err) {
         console.log(err);
