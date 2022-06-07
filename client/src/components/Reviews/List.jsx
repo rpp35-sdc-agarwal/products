@@ -23,7 +23,7 @@ class List extends React.Component {
   componentDidUpdate(oldProps) {
     if (oldProps.reviews !== this.props.reviews) {
       this.setState({
-         render: []
+          render: []
         }, () => {this.addTwoRevs()}
       );
       // console.log(this);
