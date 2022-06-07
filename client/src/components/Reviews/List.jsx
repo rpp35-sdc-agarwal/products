@@ -1,19 +1,23 @@
 import React from 'react';
 import Photos from './tileComponents/Photos.jsx';
 import Body from './tileComponents/ReviewBody.jsx';
-import ReviewForm from './tileComponents/ReviewForm.jsx'
+import axios from 'axios';
+import ReviewForm from './tileComponents/ReviewForm.jsx';
 
 class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       render: [],
-      form: false
+      form: false,
+
       // numDisplayed: 2
     }
     this.clickHandler = this.clickHandler.bind(this);
     this.addTwoRevs = this.addTwoRevs.bind(this);
     this.formatDate = this.formatDate.bind(this);
+    this.helpfulHandler = this.helpfulHandler.bind(this);
+    this.reportHandler = this.reportHandler.bind(this);
   }
 
   componentDidUpdate(oldProps) {
@@ -54,6 +58,33 @@ class List extends React.Component {
     return date;
   }
 
+  helpfulHandler(e) {
+    //when the yes is clicked, disable the clickability of the yes element
+    console.log('listening', e.target.innerHTML);
+    this.setState({ [e.target.className]: true })
+    //send a request to the api to mark the review as helpful
+    var config = {
+      url: `http://localhost:3000/reviews/${e.target.className}/helpful`,
+      method: 'put'
+    }
+    axios(config)
+      .then((response) => { console.log(response) })
+      .catch((err) => { console.log(err) });
+  }
+
+  reportHandler(e) {
+        //when the yes is clicked, disable the clickability of the yes element
+        console.log('reporting', e.target.innerHTML);
+        this.setState({ [e.target.className + 'Report']: true })
+        //send a request to the api to mark the review as helpful
+        var config = {
+          url: `http://localhost:3000/reviews/${e.target.className}/report`,
+          method: 'put'
+        }
+        axios(config)
+          .then((response) => { console.log(response) })
+          .catch((err) => { console.log(err) });
+  }
 
   clickHandler(e) {
     //when button is clicked pop up form
@@ -72,8 +103,7 @@ class List extends React.Component {
     } else {
       var moreRevs =  <button onClick={this.addTwoRevs}>More Reviews</button>
     }
-
-
+    //this.state[review.review_id] ? : null
     return (
       <div data-testid="test_revList" className="List">
         List
@@ -94,7 +124,12 @@ class List extends React.Component {
                   <b>{review.response ? 'Response:' : ''}</b><br/>
                   {review.response}
                 </div>
-                <div className="rev-helpfulness">Helpful? <span>Yes ({review.helpfulness}) </span><span>| Report</span></div>
+                <div className="rev-helpfulness">Helpful?
+                  <span className={review.review_id} onClick={!this.state[review.review_id] ? this.helpfulHandler : null}>
+                    Yes ({review.helpfulness})
+                  </span>
+                  {/* <span onClick={!this.state[review.review_id + 'Report'] ? this.reportHandler : null} >| Report</span> */}
+                </div>
               </div>
             )
           })}

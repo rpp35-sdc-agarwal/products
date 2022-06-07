@@ -158,6 +158,50 @@ app.get('/reviews/meta', (req, res) => {
     })
 });
 
+app.put('/reviews/:review_id/helpful', (req, res) => {
+  console.log(req.params);
+  var config = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/helpful`,
+    method: 'put',
+    headers: {
+      'Authorization': API
+    }
+  }
+  axios(config)
+    .then((response) => {
+      res.status(response.status).send(response.statusText);
+    })
+    .catch((err) => {
+      if (err.response) {
+        res.status(err.status).send(err.data);
+      } else if (err.request) {
+        res.send('The server may be down', err.request);
+      }
+    });
+})
+
+app.put('/reviews/:review_id/report', (req, res) => {
+  console.log(req.params);
+  var config = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/report`,
+    method: 'put',
+    headers: {
+      'Authorization': API
+    }
+  }
+  axios(config)
+    .then((response) => {
+      res.status(response.status).send(response.statusText);
+    })
+    .catch((err) => {
+      if (err.response) {
+        res.status(err.status).send(err.data);
+      } else if (err.request) {
+        res.send('The server may be down', err.request);
+      }
+    });
+})
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
