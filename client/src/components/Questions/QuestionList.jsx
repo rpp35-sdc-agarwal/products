@@ -24,13 +24,20 @@ class QuestionList extends React.Component {
       })
     }
   }
+
   
   render() {
     // console.log('questions in QuestionList: ', this.props.questions)
     return (
       <div className='question-list' data-testid="test_questionlist" >
-        {this.props.questions.map((question, i) => 
-          <QuestionView key={question.question_id} question={question} currentProductName={this.props.currentProductName} questionId={question.question_id} />
+        {this.props.questions.map((question, i) => {
+          if (question) {
+            return (
+              <QuestionView key={question.question_id} question={question} currentProductName={this.props.currentProductName} questionId={question.question_id} />
+            )
+            
+          }
+        }
         )}
       </div>
     )
