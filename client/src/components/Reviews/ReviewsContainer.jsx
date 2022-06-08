@@ -21,6 +21,7 @@ class ReviewsContainer extends React.Component {
     this.metaReq = this.metaReq.bind(this);
     this.totalRevs = this.totalRevs.bind(this);
     this.filterHandle = this.filterHandle.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
   }
 
   componentDidUpdate(oldProps) {
@@ -72,10 +73,15 @@ class ReviewsContainer extends React.Component {
     this.setState({ filters: filters });
   }
 
+  resetFilters(e) {
+    //when the reset button is pressed clear the array containing the filters
+    this.setState({ filters: [] });
+  }
+
   render() {
     return (
       <div data-testid="test_revContainer" className="ReviewsContainer">
-        <RatingBreakdown filterHandle={this.filterHandle} setAvg={this.props.setAvg} metaData={this.state.metaData}/>
+        <RatingBreakdown filters={this.state.filters} resetFilters={this.resetFilters} filterHandle={this.filterHandle} setAvg={this.props.setAvg} metaData={this.state.metaData}/>
         <ProductBreakdown metaData={this.state.metaData}/>
         <Sort filter={this.state.filters} total={this.state.totalRevs} product_id={this.props.product_id} metaData={this.state.metaData}/>
       </div>

@@ -15,7 +15,6 @@ class RatingBreakdown extends React.Component {
     this.breakdownObj = this.breakdownObj.bind(this);
     this.starPercent = this.starPercent.bind(this);
     this.recommend = this.recommend.bind(this);
-
   }
 
   // Each rating breakdown, consisting of the label, the bar, and the count, will act as a filter. Clicking on the breakdown for a star count will filter the reviews list so that only reviews of that rating display.  Hovering over this breakdown will change the background color to indicate it is actionable.
@@ -103,6 +102,19 @@ class RatingBreakdown extends React.Component {
   }
 
   render() {
+    //if there are filters change the var so the component displaying the applied filters will appear
+    if (this.props.filters.length > 0) {
+      var renderList = this.props.filters.join(', ');
+      var filterDiv = (
+        <>
+          Filters applied: {renderList}
+          <button className="general-button" onClick={this.props.resetFilters}>REMOVE ALL FILTERS</button>
+        </>
+      )
+    } else {
+      var filterDiv = null
+    };
+
     return (
       <div data-testid="test_revRatingBreakdown" className="RatingBreakdown">
         <h3>Ratings and Reviews</h3>
@@ -115,6 +127,9 @@ class RatingBreakdown extends React.Component {
           <div className='3' onClick={this.props.filterHandle}>3: {this.state.revBreakdown[3]}</div>
           <div className='2' onClick={this.props.filterHandle}>2: {this.state.revBreakdown[2]}</div>
           <div className='1' onClick={this.props.filterHandle}>1: {this.state.revBreakdown[1]}</div>
+        </div>
+        <div>
+          {filterDiv}
         </div>
       </div>
     )
