@@ -135,6 +135,7 @@ app.get('/reviews', (req, res) => {
     method: 'get',
     headers: { 'Authorization': API },
     params: {
+      count: parseInt(req.query.count),
       product_id: parseInt(req.query.product_id),
       sort: req.query.filter
     }
@@ -149,6 +150,32 @@ app.get('/reviews', (req, res) => {
     })
 
 });
+
+app.post('/reviews', (req, res) => {
+  req.query.rating = parseInt(req.query.rating);
+  req.query.product_id = parseInt(req.query.product_id);
+  if (req.query.recommend === 'true') {
+    req.query.recommend = true;
+  } else {
+    req.query.recommend = false;
+  }
+  req.query.characteristics = JSON.parse(req.query.characteristics);
+  var query = req.query;
+  var config = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
+    method: 'post',
+    headers: { 'Authorization': API },
+    data: query
+  }
+  console.log(config);
+  axios(config)
+    .then((data) => {
+      res.send(data.data);
+    })
+    .catch((err) => {
+      res.status(400).send(`There has been an error ${err}`)
+    });
+})
 
 app.get('/reviews/meta', (req, res) => {
   var config = {
@@ -169,6 +196,53 @@ app.get('/reviews/meta', (req, res) => {
     })
 });
 
+app.put('/reviews/:review_id/helpful', (req, res) => {
+  console.log(req.params);
+  var config = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/helpful`,
+    method: 'put',
+    headers: {
+      'Authorization': API
+    }
+  }
+  axios(config)
+    .then((response) => {
+      res.status(response.status).send(response.statusText);
+    })
+    .catch((err) => {
+      if (err.response) {
+        res.status(err.status).send(err.data);
+      } else if (err.request) {
+        res.send('The server may be down', err.request);
+      }
+    });
+})
+
+app.put('/reviews/:review_id/report', (req, res) => {
+  console.log(req.params);
+  var config = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/report`,
+    method: 'put',
+    headers: {
+      'Authorization': API
+    }
+  }
+  axios(config)
+    .then((response) => {
+      res.status(response.status).send(response.statusText);
+    })
+    .catch((err) => {
+      if (err.response) {
+        res.status(err.status).send(err.data);
+      } else if (err.request) {
+        res.send('The server may be down', err.request);
+      }
+    });
+})
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
+});
 
 
 const PORT = process.env.PORT || 3000;
