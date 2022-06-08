@@ -53,7 +53,7 @@ button:hover {
 .close:hover {
   color: rgb(157, 157, 157);
   cursor: pointer;
-} 
+}
 
 
 input, textarea {
@@ -72,6 +72,7 @@ input, textarea {
 #galleryDiv {
   width: 500px;
   height : 500px;
+  padding-right: 10px;
 }
 
 #imageDiv {
@@ -84,19 +85,31 @@ input, textarea {
   width: 50px;
   height: 450px;
   position:absolute;
+  z-index: 2;
 }
 
 
 #frame {
-  height:100%;
-  width:100%;
+  height:500px;
+  width:500px;
   object-fit: contain;
+}
+
+.magnifier > div {
+  background-size: 500% !important;
 }
 
 .galleryCarouselFrame {
   height:100%;
   width:100%;
   object-fit: contain;
+}
+
+.seletedCarouselFrame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+  border:1px solid black;
 }
 
 .galleryCarouselImageFrame {
@@ -110,7 +123,7 @@ input, textarea {
   -webkit-transform: rotate(-135deg);
 }
 
-.arrow {
+.o-arrow {
   border: solid gray;
   border-width: 0 4px 4px 0;
   display: inline-block;
@@ -119,7 +132,12 @@ input, textarea {
   cursor: pointer;
 }
 
-.arrow:hover {
+#hide{
+  border: solid white;
+  opacity: 0;
+}
+
+.o-arrow:hover {
   border: solid black;
   border-width: 0 4px 4px 0;
   display: inline-block;
@@ -134,7 +152,7 @@ input, textarea {
 
 
 
-.arrowDiv {
+.o-arrowDiv {
   width: 50px;
   height: 50px;
 }
@@ -167,13 +185,263 @@ input, textarea {
   left: 450px;
 }
 
+.carousel-button.exPrev {
+  left: 5%;
+  top: 50%
+}
+
+.carousel-button.exNext {
+  left: 90%;
+  top: 50%
+}
+
 .childDiv {
   float: left;
 }
 
+.addToCart {
+  margin: 5px;
+  width: 300px;
+}
+
 #sloganDiv {
-  width: 600px;
+  width: 800px;
   height: 200px;
+  padding: 10px;
+}
+
+.styleThumbnail {
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: 1px solid black;
+}
+
+.styleThumbnail img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.styleThumbnail div{
+  width: 15px;
+  height: 15px;
+  font-size: 14px;
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+.hideCheckMark{
+  display: none;
+}
+
+#styleSelector {
+  width: 250px;
+  height: 130px;
+}
+
+.addToCart > select {
+
+  /* styling */
+  background-color: white;
+  border: thin solid black;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.addToCart > button:hover {
+  cursor: pointer;
+}
+
+#starButton:hover, #addButton:hover {
+  background-color: darkgray;
+}
+
+#starButton, #addButton {
+    /* styling */
+  background-color: white;
+  border: thin solid black;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#addButton {
+  width: 200px;
+}
+
+#starButton {
+  width: 50px;
+  padding-right: 16px;
+  position: relative;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: gray;
+  outline: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+/* #sologanDiv > div {
+  position: relative;
+} */
+
+#desDiv {
+  width: 70%;
+  float: left;
+  border-right: 1px solid;
+  border-right-color: black;
+}
+
+#featuresDiv {
+  width: 20%;
+  float: left;
+  padding: 20px;
+  margin: 1px;
+}
+
+#expandedDiv {
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+  width: 800px;
+  height: 610px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#expandedContent {
+  background-color: white;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#expandedContent:hover {
+  cursor: zoom-in;
+}
+
+#iconsDiv {
+  width: auto;
+  height: 50px;
+  position: absolute;
+  top: 80%;
+  left: 5%;
+}
+
+#hideIcons {
+  display: none;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.iconFrame {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+#hideArrow {
+  display: none;
+}
+
+#exSelected {
+  border: 1px solid black;
+}
+
+#exCloseButton {
+  position: absolute;
+  left: 96.5%;
+  top: 1%;
+}
+
+#exCloseButton > button {
+  border-radius: 50%;
+}
+
+.ovReview {
+  display: inline-block;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.ovReview:hover {
+  text-decoration: underline;
 }
 
 
@@ -356,6 +624,7 @@ ul.cardHolder {
   background: none;
   border: none;
 }
+
 .tooltip::before {
   content: "\f005";
   font-family: "Font Awesome 5 Free";

@@ -1,23 +1,36 @@
 import React from 'react';
+import StarRating from '../RelatedItems/StarRating.jsx';
+import {Link} from 'react-scroll';
 
 class ProductInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       productInfo: this.props.productInfo,
-      currentStyle: this.props.styles[0],
+      currentStyle: this.props.currentStyle,
+      avgRating: '',
+      totalReviews: 1
     }
   }
 
+  UNSAFE_componentWillReceiveProps(props) {
+    let ratingPercentage = (Number(props.avgRating)/5*100).toString() + '%';
+    this.setState({
+      currentStyle: props.currentStyle,
+      avgRating: ratingPercentage,
+      productInfo: props.productInfo
+    })
+  }
 
 
   render() {
-    let salePriceHTML = <div><s>${this.state.currentStyle.sale_price}</s> <a style={{color: 'red'}}>${this.state.currentStyle.original_price}</a></div>
+    let salePriceHTML = <div><s>${this.state.currentStyle.original_price}</s> <a style={{color: 'red'}}>${this.state.currentStyle.sale_price}</a></div>
     let originPriceHTML = <div>${this.state.currentStyle.original_price}</div>
     return(
       <div className='childDiv'>
         <div>
-          Stars read all [#] Reviews
+          <StarRating rating={this.state.avgRating}/>
+          <p className='ovReview'><Link activeClass="active" to="ReviewsContainer" spy={true} smooth={true}> read all {this.state.totalReviews} Reviews</Link></p>
         </div>
         <div>
           Category: {this.state.productInfo.category}
