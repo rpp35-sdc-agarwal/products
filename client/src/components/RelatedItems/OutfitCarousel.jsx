@@ -20,7 +20,7 @@ class OutfitCarousel extends React.Component {
     this.next = this.next.bind(this);
   }
 
-  addOutfit(id) {
+  addOutfit() {
     axios.post(`/addOutfit`, {
       "product_id": this.props.currentProductId
     })
@@ -35,7 +35,7 @@ class OutfitCarousel extends React.Component {
 
   deleteOutfit(id) {
     axios.post(`/deleteOutfit`, {
-      "product_id": this.props.currentProductId
+      "product_id": id
     })
     .then((res) => {
       this.setState({
@@ -67,7 +67,7 @@ class OutfitCarousel extends React.Component {
     if (this.state.currentIndex < (this.state.outfitItems.length - 3)) {
       this.setState({
         currentIndex: this.state.currentIndex + 1
-      })
+      }, () => console.log('curr idx', this.state.currentIndex))
     }
   }
 
@@ -76,7 +76,7 @@ class OutfitCarousel extends React.Component {
 
       this.setState({
         currentIndex: this.state.currentIndex - 1
-      })
+      }, () => console.log('curr idx', this.state.currentIndex))
     }
 
 }
@@ -101,6 +101,7 @@ class OutfitCarousel extends React.Component {
           type={"outfit"}
           isRelated={false}
           deleteOutfit={this.deleteOutfit}
+          shift={this.state.currentIndex}
           />
         </div>
         {this.state.currentIndex < (this.state.outfitItems.length - 3) &&

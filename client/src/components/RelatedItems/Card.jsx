@@ -5,6 +5,8 @@ import StarRating from './StarRating.jsx'
 import CardModal from './CardModal.jsx'
 import SalePrice from './SalePrice.jsx'
 import DefaultPrice from './DefaultPrice.jsx'
+import withLogging from './withLogging.jsx'
+
 import axios from 'axios';
 import relatedProducts from '../../../data/relatedProducts.js'
 
@@ -12,12 +14,12 @@ class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      compare: false,
 
-      overviewProduct: relatedProducts[0],
-      // modalProduct: null,
     }
 
     this.handleModalClick = this.handleModalClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
 
@@ -34,6 +36,25 @@ class Card extends React.Component {
 
   handleModalClick() {
     this.props.handleModalClick(this.props.product)
+  }
+
+  handleClick(e) {
+    var id = this.props.product.id;
+    var state = history.state;
+    var url = ''
+    if (!state) {
+      url = `ip/${id}`;
+    } else {
+      url = `${id}`
+    }
+
+    var state = {
+      id: id
+    }
+    history.pushState(state, '', url)
+    this.props.handleItemClick(id);
+    this.props.handleClick(e);
+
   }
 
 
@@ -59,6 +80,7 @@ class Card extends React.Component {
     return (
       <div className={`card ${this.props.type}`}
       style={{ transform: `translateX(-${shift}px)` }}
+      onClick={this.handleClick}
       >
 
        {this.props.type === 'related' &&
@@ -97,4 +119,5 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+const CardWithLogging = withLogging(Card, 'relatedItems')
+export default CardWithLogging;

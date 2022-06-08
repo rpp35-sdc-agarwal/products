@@ -343,7 +343,7 @@ ul.cardHolder {
 
 .addOutfit {
   height: 250px;
-  width: 200px;
+  min-width: 200px;
   font-size: 40px;
   margin: 30px 30px 30px 70px;
 
@@ -383,6 +383,10 @@ ul.cardHolder {
   visibility: visible;
 }
 .card.related {
+  transform: translateX(0px);
+}
+
+.card.outfit {
   transform: translateX(0px);
 }
 

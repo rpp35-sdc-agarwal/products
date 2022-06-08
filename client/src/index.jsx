@@ -36,20 +36,42 @@ class App extends React.Component {
   // Retrive products from the backend and update the productList and currentProductId
   retrieveProducts () {
     axios.get('/products')
+
       .then((res) => {
+        // product list
+        // get id of first product
+        // push state?
+        var data = res.data;
+        var id = data[0].id;
+        var state = history.state;
+        var url = ''
+        if (!state) {
+          url = `ip/${id}`;
+        } else {
+          url = `${id}`
+        }
+
+        var state = {
+          id: id
+        }
+        history.pushState(state, '', url)
         this.setState({
           productList: [...res.data]
+
         }, () => {
+          // push state?
           console.log('products: ', this.state.productList);
           this.setState({
             currentProductId: JSON.stringify(this.state.productList[0].id),
-            currentProductName: this.state.productList[0].name
+            currentProductName: this.state.productList[0].name,
+            currentProductId: JSON.stringify(this.state.productList[0].id)
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
             console.log('current product name: ', this.state.currentProductName)
           })
         })
       })
+
       .catch((err) => {
         console.log(err);
       })
@@ -60,6 +82,10 @@ class App extends React.Component {
   componentDidMount () {
     // console.log('in App componentDidMount');
     this.retrieveProducts();
+    // get id of first product in list
+
+    /// url = "product id"
+    // history.pushstate(.., url)
   }
 
   handleItemClick(productId) {
