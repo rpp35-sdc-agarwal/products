@@ -240,10 +240,7 @@ app.put('/reviews/:review_id/report', (req, res) => {
     });
 })
 
-<<<<<<< HEAD
-=======
 
->>>>>>> oldReviews
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

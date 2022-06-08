@@ -42,6 +42,13 @@ class RatingBreakdown extends React.Component {
   recommend() {
     var recTrue = parseInt(this.state.metaData.recommended.true);
     var recFalse = parseInt(this.state.metaData.recommended.false);
+    if (!recTrue) {
+      recTrue = 0;
+    } else if (!recFalse) {
+      recFalse = 0
+    } else if (recTrue === 0 && recFalse === 0) {
+      return 0;
+    }
     var reco = (recTrue/(recTrue + recFalse)) * 100;
     return reco;
   }
