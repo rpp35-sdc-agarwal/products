@@ -1,4 +1,4 @@
-import {render, screen, cleanup, waitForElement} from '@testing-library/react';
+import {render, screen, cleanup, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
 import App from '../../client/src/index.jsx';
@@ -8,7 +8,7 @@ describe('Questions component', () => {
   test('Questions component should exist', async () => {
     const component = render(<Questions />);
     const QuestionElement = await component.findByTestId('test_questions');
-    expect(QuestionElement).toBeInTheDocument();
+    waitFor(() => expect(QuestionElement).toBeInTheDocument()) ;
   });
   
   test('Search component should exist', () => {
@@ -34,15 +34,23 @@ describe('Questions component', () => {
     });
   });
   
-  test('AnswerList component should exist', () => {
-    const component = render(<Questions />);
-    const AnswerListElement = component.findByTestId('test-aswerlist')
-    .then(() => {
+  test('AnswerList component should exist', async () => {
+    // const component = render(<Questions />);
+    // const AnswerListElement = component.findByTestId('test-aswerlist')
+    // .then(() => {
+    //   expect(AnswerListElement).toBeInTheDocument();
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
+    try {
+      const component = render(<Questions />);
+      const AnswerListElement = await component.findByTestId('test-aswerlist');
       expect(AnswerListElement).toBeInTheDocument();
-    })
-    .catch((err) => {
+    } catch (err) {
       console.log(err);
-    });
+    }
+    
   });
   
   test('AnswerView component should exist', () => {

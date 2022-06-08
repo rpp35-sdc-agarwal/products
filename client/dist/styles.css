@@ -1,3 +1,69 @@
+/*****************************************************/
+/* Web Page General */
+/*****************************************************/
+
+/* * {
+  padding: 0;
+  margin: 0;
+}
+*/
+
+/* html {
+  height: 100%;
+  padding-left: 20px;
+}  */
+
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+  padding-left: 20px;
+}
+
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  font-size: 14px;
+  font-weight: 550;
+  color: rgb(90, 90, 90);
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  margin: 25px 15px 15px 0px;
+  width: 200px;
+  height: 50px;
+  border-color: rgb(90, 90, 90);
+}
+
+button:hover {
+  border-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+.close {
+  color: Black;
+  float: right;
+}
+
+.close:hover {
+  color: rgb(157, 157, 157);
+  cursor: pointer;
+} 
+
+
+input, textarea {
+  padding-left: 5px
+}
+
+/*****************************************************/
+/* Product Overview */
+/*****************************************************/
+
 #container {
   width: 800px;
   height: 800px;
@@ -110,33 +176,13 @@
   height: 200px;
 }
 
-/* * {
-  padding: 0;
-  margin: 0
-}
 
-html {
-  height: 100%;
-}
 
-body {
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-button {
-  font-size: 16px;
-  cursor: pointer;
-}
 
+/*****************************************************/
+/* Related Items */
 /*****************************************************/
-/* Product Overview */
-/*****************************************************/
-
-
-
 .modal-card {
   background-color: white;
   position: absolute;
@@ -149,16 +195,6 @@ button {
   border: 2px solid black;
   z-index: 5;
 }
-
-.close {
-  color: Black;
-  float: right;
-}
-
-
-/*****************************************************/
-/* Related Items */
-/*****************************************************/
 
 .star-outer {
   display: inline-block;
@@ -365,6 +401,84 @@ ul.cardHolder {
 /*****************************************************/
 /* Questions and Answers */
 /*****************************************************/
+#QA {
+  width: 50%;
+  height: auto;
+}
+
+.question-list {
+  height: 30vh;
+  width: 70vw;
+  padding-right: 10px;
+  overflow: auto;
+}
+
+.question-list.expand-question-list {
+  height: 60vh;
+  width: 70vw;
+  padding-right: 10px;
+  overflow: auto;
+}
+
+.QA-search {
+  width: 70vw;
+  padding: 0px 0px 0px 10px;
+  height: 50px;
+  border: 2px solid rgba(90, 90, 90, 0.655);
+}
+
+.question {
+  border-left: 2px solid rgba(90, 90, 90, 0.655);
+  padding: 10px 10px 15px 10px;
+}
+
+.question-body {
+  font-weight: bold;
+}
+
+.question-body, .answer-body {
+  font-size: 16px;
+}
+
+.question-options {
+  color:rgb(90, 90, 90);
+  float: right;
+  font-size: 14px;
+  margin-right: 0.5vw;
+}
+
+.answer-info {
+  color:rgb(90, 90, 90);
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.question-clickable, .answer-clickable {
+  cursor: pointer;
+}
+
+.question-clickable:hover {
+  text-decoration: underline;
+}
+
+.answer-clickable:hover {
+  text-decoration: underline;
+}
+
+.answer-list {
+  border-left: 2px solid rgba(90, 90, 90, 0.655);
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+.answer {
+  padding-bottom: 10px;
+}
+
+.search-questions {
+  padding-bottom: 20px;
+}
 
 .QA-modal {
   position: relative;
@@ -381,21 +495,104 @@ ul.cardHolder {
   border: 2px solid black;
 }
 
-.close {
-  color: Black;
-  float: right;
+.QA-form {
+  position: relative;
+  margin-left: 20%;
+  width: 75%;
+  padding-bottom: 20px;
 }
 
-.close:hover {
-  color: rgb(255, 0, 0);
-  cursor: pointer;
+.QA-input {
+  width: 400px;
+  height: 100px;
+  position: relative;
+}
+
+.QA-nickname, .QA-email {
+  width: 200px;
+  bottom: 0%;
+  position: relative;
+}
+
+.QA-reminder {
+  font-style: italic;
+  color: rgb(141, 141, 141);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.QA-label {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: block;
+}
+
+.QA-title {
+  padding-bottom: 5px;
+  padding-top: 10px;
+  margin: 0;
+  width: 70%;
+}
+
+.QA-subtitle {
+  margin: 0;
+  font-style: italic;
+  color: rgb(141, 141, 141);
+  font-size: 12px;
+}
+
+.QA-submit {
+  display: block;
+  margin-top: 20px;
 }
 
 .toggle-button {
   font-weight: 550;
+  font-size: 14px;
   color: rgb(90, 90, 90);
   cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
+
+.toggle-button:hover {
+  text-decoration: underline;
+}
+
+.QA-photo {
+  width: auto;
+  height: 100px;
+  margin: 10px 5px;
+  /* cursor: pointer; */
+}
+
+.QA-photo-container {
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.707);
+}
+
+.answer-photo {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.seller {
+  font-weight: bold;
+}
+
+/* .photo-full-screen {
+  width: 40%;
+  height: auto;
+  position: fixed;
+  top: 20%;
+  left:20%;
+  display: block;
+}
+
+div.close {
+  position: relative;
+} */
 
 /*****************************************************/
 /* Reviews */

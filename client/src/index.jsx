@@ -21,7 +21,8 @@ class App extends React.Component {
       // currentProductId: '5',
       // productList: [...productListExample]
       currentProductId: '',
-      productList: this.props.products
+      currentProductName: '',
+      productList: []
     }
     this.setAvg = this.setAvg.bind(this);
   }
@@ -61,13 +62,12 @@ class App extends React.Component {
           // push state?
           console.log('products: ', this.state.productList);
           this.setState({
+            currentProductId: JSON.stringify(this.state.productList[0].id),
+            currentProductName: this.state.productList[0].name,
             currentProductId: JSON.stringify(this.state.productList[0].id)
-<<<<<<< HEAD
-
-=======
->>>>>>> main
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
+            console.log('current product name: ', this.state.currentProductName)
           })
         })
       })
@@ -114,7 +114,6 @@ class App extends React.Component {
         <Questions currentProductId={this.state.currentProductId} />
         <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
       </div>
-
     )
   }
 }
