@@ -171,22 +171,23 @@ class Questions extends React.Component {
 
   render() {
     // console.log('questions in Questions: ', this.state.questions)
+    console.log('currentProductName: ', this.props.currentProductName)
     return (
       <div id='QA' data-testid="test_questions">
-        <h2>Have a question?</h2>
-        <Search handleSearch={this.handleSearch.bind(this)} />
-        
-        {this.state.questions.length ? 
-          <div>
-             <QuestionList questions={this.state.questions} currentProductName={this.props.currentProductName} />
-            {this.state.more || this.state.add ? <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
-            <button className="general-button" onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
-          </div> :  <button className="general-button" onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
-        }
+      <h2>Have a question?</h2>
+      <Search handleSearch={this.handleSearch.bind(this)} />
+      
+      {this.state.questions.length ? 
         <div>
-          {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} productId={this.state.productId} retrieveQuestions={this.retrieveQuestions.bind(this)} /> : null}
-        </div>
+            <QuestionList questions={this.state.questions} currentProductName={this.props.currentProductName} />
+          {this.state.more || this.state.add ? <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
+          <button className="general-button" onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+        </div> :  <button className="general-button" onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+      }
+      <div>
+        {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} productId={this.state.productId} retrieveQuestions={this.retrieveQuestions.bind(this)} /> : null}
       </div>
+    </div>
     )
   }
 }
