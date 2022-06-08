@@ -135,6 +135,7 @@ class Carousel extends React.Component {
           isRelated={true}
           shift={this.state.currentIndex}
           handleModalClick={this.handleModalClick}
+          handleItemClick={this.props.handleItemClick}
           />
 
           {this.state.currentIndex < (this.state.relatedItems.length - 3) &&

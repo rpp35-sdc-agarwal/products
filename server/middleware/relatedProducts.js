@@ -99,19 +99,15 @@ const addPriceToProducts = (req, res, next) => {
   var products = res.products;
 
   for (var i = 0; i < res.styles.length; i++) {
-    console.log(res.styles[i]['product_id'])
+
     var styles = res.styles[i].results;
-    console.log(styles.length)
+
 
     var photoFound = false;
     for (var j = 0; j < styles.length; j++) {
 
-
-      console.log(styles[j]['default?'])
-
       if (styles[j]['default?']) {
-        console.log('what is price', styles[j].original_price)
-        console.log('what is price', styles[j].sale_price)
+
         var photo = styles[j].photos[0].thumbnail_url;
         if (photo) {
           products[i].photo = styles[j].photos[0].thumbnail_url
@@ -125,7 +121,7 @@ const addPriceToProducts = (req, res, next) => {
 
     if (!photoFound) {
       products[i].photo = styles[0].photos[0].thumbnail_url
-      console.log('i made it to the photos conditional')
+
     }
   }
   res.products = products
@@ -181,7 +177,7 @@ const getReviews = (req, res, next) => {
         res.products[i].ratings = avgScore(ratings)
       }
     }
-    console.log('what is products now', res.products)
+
 
     next()
   })

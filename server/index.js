@@ -19,10 +19,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 const getRelated = require('./middleware/relatedProducts.js')
 const addOutfit = require('./middleware/addOutfit.js')
 
+app.use('/ip*', (req, res) => {
+  res.redirect('/');
+})
+
 /////////////////////////////////////////////////////////
 //    Products Routes
 /////////////////////////////////////////////////////////
-
 
 
 app.get('/products', (req, res) => {
@@ -89,6 +92,7 @@ app.post('/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addO
 })
 
 app.post('/deleteOutfit', [addOutfit.deleteOutfit], (req, res) => {
+  console.log('what are outfits after delete', req.session.outfits)
   res.json(req.session.outfits)
 })
 

@@ -46,7 +46,7 @@ const addStyleToOutfit = (req, res, next) => {
 
     if (!photoFound) {
       res.outfit.photo = styles[0].photos[0].thumbnail_url
-      console.log('i made it to the photos conditional')
+
     }
     console.log('what is outfit at the end', res.outfit)
     next()
@@ -82,17 +82,20 @@ const outfitSession = (req, res, next) => {
 
 const deleteOutfit = (req, res, next) => {
   var id = req.body.product_id;
-  console.log('what is id', id)
-  console.log('what are outfits', req.session.outfits)
+
   for (var i = 0; i < req.session.outfits.length; i++) {
-    var outfitId = JSON.stringify(req.session.outfits[i].id);
+    var outfitId = req.session.outfits[i].id;
+    console.log('what is outfit id in loop', outfitId, 'what is id', id, typeof id)
     if (id === outfitId) {
-      console.log('i am in here, deleting')
+
       req.session.outfits.splice(i, 1)
+
 
       break;
     }
   }
+
+
   next()
 }
 
