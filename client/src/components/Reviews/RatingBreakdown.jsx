@@ -118,7 +118,7 @@ class RatingBreakdown extends React.Component {
     return (
       <div data-testid="test_revRatingBreakdown" className="RatingBreakdown">
         <h3>Ratings and Reviews</h3>
-        <h1>{this.state.avgScore}</h1><span>{this.state.starVal}</span>
+        <h1>{this.state.avgScore} Stars</h1><span>{this.state.starVal}</span>
         <div>{this.state.recommended}% recommended</div>
         <div>
           score breakdown bars

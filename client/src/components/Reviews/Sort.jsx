@@ -157,7 +157,7 @@ class Sort extends React.Component {
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
         </select>
-        <List product_id={this.props.product_id} reviews={this.state.reviews} metaData={this.props.metaData}/>
+        <List product_name={this.props.product_name} product_id={this.props.product_id} reviews={this.state.reviews} metaData={this.props.metaData}/>
       </div>
     )
   }

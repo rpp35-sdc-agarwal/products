@@ -83,7 +83,7 @@ class ReviewsContainer extends React.Component {
       <div data-testid="test_revContainer" className="ReviewsContainer">
         <RatingBreakdown filters={this.state.filters} resetFilters={this.resetFilters} filterHandle={this.filterHandle} setAvg={this.props.setAvg} metaData={this.state.metaData}/>
         <ProductBreakdown metaData={this.state.metaData}/>
-        <Sort filter={this.state.filters} total={this.state.totalRevs} product_id={this.props.product_id} metaData={this.state.metaData}/>
+        <Sort product_name={this.props.product_name} filter={this.state.filters} total={this.state.totalRevs} product_id={this.props.product_id} metaData={this.state.metaData}/>
       </div>
     )
   }
