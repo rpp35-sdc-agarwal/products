@@ -86,7 +86,8 @@ class Sort extends React.Component {
         url: 'http://localhost:3000/reviews',
         params: {
           filter: 'relevant',
-          product_id: this.state.data.product
+          product_id: this.state.data.product,
+          count: this.props.total
         }
       }
       axios(config)
@@ -106,7 +107,8 @@ class Sort extends React.Component {
         url: 'http://localhost:3000/reviews',
         params: {
           filter: 'helpful',
-          product_id: this.state.data.product
+          product_id: this.state.data.product,
+          count: this.props.total
         }
       }
       axios(config)
@@ -126,7 +128,8 @@ class Sort extends React.Component {
         url: 'http://localhost:3000/reviews',
         params: {
           filter: 'newest',
-          product_id: this.state.data.product
+          product_id: this.state.data.product,
+          count: this.props.total
         }
       }
       axios(config)

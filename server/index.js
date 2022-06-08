@@ -145,7 +145,7 @@ app.get('/reviews', (req, res) => {
       res.send(data.data);
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err.config);
       res.status(400).send(`There has been an error: ${err}`);
     })
 
@@ -240,6 +240,10 @@ app.put('/reviews/:review_id/report', (req, res) => {
     });
 })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> oldReviews
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
