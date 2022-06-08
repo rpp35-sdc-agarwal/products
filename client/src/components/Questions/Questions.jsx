@@ -179,9 +179,9 @@ class Questions extends React.Component {
         {this.state.questions.length ? 
           <div>
              <QuestionList questions={this.state.questions} currentProductName={this.props.currentProductName} />
-            {this.state.more || this.state.add ? <button onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
-            <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
-          </div> :  <button onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+            {this.state.more || this.state.add ? <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
+            <button className="general-button" onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
+          </div> :  <button className="general-button" onClick={this.addQuestion.bind(this)} >ADD A QUESTION +</button>
         }
         <div>
           {this.state.add ? <QuestionPopup toggleQuestion={this.addQuestion.bind(this)} currentProductName={this.props.currentProductName} productId={this.state.productId} retrieveQuestions={this.retrieveQuestions.bind(this)} /> : null}
