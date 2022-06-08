@@ -596,7 +596,7 @@ div.close {
 
 .imgRev {
   width: 150px;
-  height: 150px;
+  height: auto;
 }
 
 .rev-popup{

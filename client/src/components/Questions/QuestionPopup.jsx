@@ -12,7 +12,7 @@ class QuestionPopup extends React.Component {
       submitted: false,
     }
   }
-  
+
   closePopup () {
     this.props.toggleQuestion();
   }
