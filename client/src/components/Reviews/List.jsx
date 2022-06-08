@@ -102,7 +102,7 @@ class List extends React.Component {
     if (this.state.render.length === 0 || this.state.render.length === this.props.reviews.length) {
       var moreRevs = <span></span>
     } else {
-      var moreRevs =  <button onClick={this.addTwoRevs}>More Reviews</button>
+      var moreRevs =  <button onClick={this.addTwoRevs}>MORE REVIEWS</button>
     }
     //this.state[review.review_id] ? : null
     return (
@@ -135,7 +135,7 @@ class List extends React.Component {
             )
           })}
         </div>
-       {moreRevs}<button onClick={this.clickHandler}>Write A Review</button>
+       {moreRevs}<button onClick={this.clickHandler}>WRITE A REVIEW</button>
        {this.state.form ? <ReviewForm product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
       </div>
     )

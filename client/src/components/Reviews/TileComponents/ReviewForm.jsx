@@ -205,7 +205,7 @@ class ReviewForm extends React.Component {
             <fieldset>
               <legend>Photos</legend>
               <input type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
-              <button onClick={this.removePhotos}>Remove photos</button>
+              <button onClick={this.removePhotos}>REMOVE PHOTOS</button>
               {this.state.photos.map((photo) => {
                 return (<img className="imgRev" src={photo}></img>);
               })}
@@ -225,7 +225,7 @@ class ReviewForm extends React.Component {
               </div>
             </fieldset>
 
-            <button onClick={this.handleSubmit}>Submit</button>
+            <button onClick={this.handleSubmit}>SUBMIT</button>
           </form>
         </div>
       </div>
