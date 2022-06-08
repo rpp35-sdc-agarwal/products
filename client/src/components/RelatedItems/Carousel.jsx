@@ -141,7 +141,7 @@ class Carousel extends React.Component {
           {this.state.currentIndex < (this.state.relatedItems.length - 3) &&
 
           <button className="cButton rightSide" onClick={this.next}>
-            <i class="arrow right"></i>
+            <i className="arrow right"></i>
           </button>
           }
         </div>
