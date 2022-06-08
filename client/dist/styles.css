@@ -64,8 +64,8 @@ input, textarea {
 /* Product Overview */
 /*****************************************************/
 
-#container {
-  width: 800px;
+#OverviewContainer {
+  width: 850px;
   height: 800px;
 }
 
