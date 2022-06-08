@@ -81,9 +81,9 @@ class ExpandedView extends React.Component {
     let expandedContent = document.getElementById('expandedContent');
     let mWidth = expandedDiv.offsetWidth;
     let mHeight = expandedDiv.offsetHeight;
-    let clientX = (e.clientX - expandedDiv.offsetLeft)/mWidth * 100;
+    let clientX = (e.clientX - expandedDiv.offsetLeft)/mWidth * 100 - 40;
     let clientY = (e.clientY - expandedDiv.offsetTop)/mHeight * 100;
-    e.target.style.transform = 'translate(-'+clientX+'%, -'+clientY+'%) scale(2.5)';
+    e.target.style.transform = 'translate(-'+clientX+'%, -'+clientY+'%) scale(2)';
     e.target.style.cursor = 'zoom-out'
   }
 
