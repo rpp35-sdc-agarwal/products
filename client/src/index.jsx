@@ -26,8 +26,11 @@ class App extends React.Component {
     this.setAvg = this.setAvg.bind(this);
   }
 
-  setAvg(avgRating) {
-    this.setState({ avgRating: avgRating })
+  setAvg(avgRating, totalRevs) {
+    this.setState({
+      avgRating: avgRating,
+      totalRevs: totalRevs
+    });
   }
   // Retrive products from the backend and update the productList and currentProductId
   retrieveProducts () {
@@ -81,7 +84,6 @@ class App extends React.Component {
         currentProductId={this.state.currentProductId}/>
         <Questions currentProductId={this.state.currentProductId} />
         <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
-
       </div>
 
     )
