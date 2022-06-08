@@ -62,10 +62,6 @@ class App extends React.Component {
           console.log('products: ', this.state.productList);
           this.setState({
             currentProductId: JSON.stringify(this.state.productList[0].id)
-<<<<<<< HEAD
-
-=======
->>>>>>> main
           }, () => {
             console.log('current product id: ', this.state.currentProductId)
           })
