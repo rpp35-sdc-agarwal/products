@@ -8,8 +8,8 @@ class ProductInfo extends React.Component {
     this.state = {
       productInfo: this.props.productInfo,
       currentStyle: this.props.currentStyle,
-      avgRating: '',
-      totalReviews: 1
+      avgRating: this.props.avgRating,
+      totalReviews: this.props.totalRevs
     }
   }
 
@@ -18,7 +18,8 @@ class ProductInfo extends React.Component {
     this.setState({
       currentStyle: props.currentStyle,
       avgRating: ratingPercentage,
-      productInfo: props.productInfo
+      productInfo: props.productInfo,
+      totalReviews: props.totalRevs
     })
   }
 

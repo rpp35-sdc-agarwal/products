@@ -19,7 +19,11 @@ class StarRating extends React.Component {
     })
   }
 
-
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      rating: props.rating
+    })
+  }
 
   render() {
     const widthStyle = {
