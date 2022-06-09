@@ -13,20 +13,17 @@ const ModalElement = ({overviewValue, k, modalValue}) => {
 
   return (
     <tr>
-
-      <td>
+      <td className="related-items-row-name">
+        {k}
+      </td>
+      
+      <td className="related-items-rows">
         {o}
       </td>
 
-      <td>
-      {k}
-      </td>
-
-      <td>
+      <td className="related-items-rows">
         {m}
       </td>
-
-
 
     </tr>
   )
