@@ -1,5 +1,6 @@
 import React from 'react';
 import { sampleMeta } from './SampleData.js';
+import CharacterRating from './CharacteristicRating.jsx';
 
 class ProductBreakdown extends React.Component {
   constructor(props) {
@@ -37,8 +38,7 @@ class ProductBreakdown extends React.Component {
     }
 
     return (
-      <div data-testid="test_revProductBreakdown" className="ProductBreakdown">
-        ProductBreakdown
+      <div data-testid="test_revProductBreakdown" className="rev_product_breakdown">
         {this.state.categories.map((cat) => {
           if (cat[1].value === null) {
             var rating = 0;
@@ -46,10 +46,13 @@ class ProductBreakdown extends React.Component {
             var rating = (parseInt(cat[1].value) / 5) * 100;
           }
           return (
-            <div key={cat[1].id}>
-              {cat[0]} <span className={cat[0].toLowerCase()}>{rating}</span>
-              <div>
-                {descriptors[cat[0]][0]}<span>{descriptors[cat[0]][4]}</span>
+            <div className="rev-rating-bars" key={cat[1].id}>
+              {cat[0]}
+              <div className={cat[0].toLowerCase()}>
+                <CharacterRating rating={rating} />
+              </div>
+              <div className="breakdown-peripheral">
+                {descriptors[cat[0]][0]}<span className="rev_tile_info">{descriptors[cat[0]][4]}</span>
               </div>
             </div>
           )

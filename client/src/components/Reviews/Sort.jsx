@@ -150,9 +150,9 @@ class Sort extends React.Component {
 
   render() {
     return (
-      <div data-testid="test_revSort"className="Sort">
-        <label htmlFor="sorter">Sort on:</label>
-        <select name="sorter" onChange={this.changeHandler}>
+      <div data-testid="test_revSort" className="rev_sort">
+        <label htmlFor="sorter" className="rev-summary"><b>Sort By:</b></label>
+        <select name="sorter" className="sort_select" onChange={this.changeHandler}>
             <option value="relevant">Relevant</option>
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>

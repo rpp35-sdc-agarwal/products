@@ -3,6 +3,7 @@ import Photos from './tileComponents/Photos.jsx';
 import Body from './tileComponents/ReviewBody.jsx';
 import axios from 'axios';
 import ReviewForm from './tileComponents/ReviewForm.jsx';
+import StarRating from '../RelatedItems/StarRating.jsx';
 
 class List extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class List extends React.Component {
     this.formatDate = this.formatDate.bind(this);
     this.helpfulHandler = this.helpfulHandler.bind(this);
     this.reportHandler = this.reportHandler.bind(this);
+    this.createResponse = this.createResponse.bind(this);
   }
 
   componentDidUpdate(oldProps) {
@@ -92,6 +94,14 @@ class List extends React.Component {
     this.setState({ form: !this.state.form })
   }
 
+  createResponse(response) {
+    return (
+      <div className="rev-response tile_padding">
+        <div><b>Response:</b></div>
+        {response}
+      </div>
+    )
+  }
   //create a render key on state
   //this will contain the reviews to be rendered currently
   //initially store the first two reviews there
@@ -106,37 +116,36 @@ class List extends React.Component {
     }
     //this.state[review.review_id] ? : null
     return (
-      <div data-testid="test_revList" className="List">
-        List
-        <div>
-          {this.state.render.map((review) => {
-            return (
-              <div key={review.review_id} className="rev-tile">
-                <div className="rev-stars">stars: {review.rating} <span className="rev-username rev-date"> {review.reviewer_name}, {this.formatDate(review.date)}</span></div>
-                <div className="rev-summary"><b>{review.summary}</b></div>
-                <div className="rev-body">
-                  <Body body={review.body}/>
-                  <Photos photos={review.photos}/>
+      <div>
+        <div data-testid="test_revList" className="rev_list">
+          <div>
+            {this.state.render.map((review) => {
+              return (
+                <div key={review.review_id} className="rev-tile">
+                  <div className="rev-stars tile_padding"><StarRating rating={review.rating} /><span className="rev_tile_info tile_peripheral"> {review.reviewer_name}, {this.formatDate(review.date)}</span></div>
+                  <div className="rev-summary tile_padding"><b>{review.summary}</b></div>
+                  <div className="rev-body tile_padding">
+                    <Body body={review.body}/>
+                    <Photos photos={review.photos}/>
+                  </div>
+                  <div className="tile_padding">
+                    {review.recommend ? 'checkmark I recommend this product' : ''}
+                  </div>
+                  {review.response ? this.createResponse(review.response) : null}
+                  <div className="rev-helpfulness tile_padding tile_peripheral">
+                    <span className="yes_padding">Helpful?</span>
+                    <span className={review.review_id} onClick={!this.state[review.review_id] ? this.helpfulHandler : null}>
+                       Yes ({review.helpfulness})
+                    </span>
+                    <span className={review.review_id} onClick={!this.state[review.review_id + 'Report'] ? this.reportHandler : null} > | Report</span>
+                  </div>
                 </div>
-                <div>
-                  {review.recommend ? 'checkmark I recommend this product' : ''}
-                </div>
-                <div className="rev-response">
-                  <b>{review.response ? 'Response:' : ''}</b><br/>
-                  {review.response}
-                </div>
-                <div className="rev-helpfulness">Helpful?
-                  <span className={review.review_id} onClick={!this.state[review.review_id] ? this.helpfulHandler : null}>
-                    Yes ({review.helpfulness})
-                  </span>
-                  {/* <span onClick={!this.state[review.review_id + 'Report'] ? this.reportHandler : null} >| Report</span> */}
-                </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
-       {moreRevs}<button className="general-button" onClick={this.clickHandler}>WRITE A REVIEW</button>
-       {this.state.form ? <ReviewForm product_name={this.props.product_name} product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
+        {moreRevs}<button className="general-button" onClick={this.clickHandler}>WRITE A REVIEW</button>
+        {this.state.form ? <ReviewForm product_name={this.props.product_name} product_id={this.props.product_id} closePopup={this.clickHandler} metaData={this.props.metaData}/> : null}
       </div>
     )
   }

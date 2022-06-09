@@ -1,5 +1,7 @@
 import React from 'react';
 import { sampleMeta } from './SampleData.js';
+import StarRating from '../RelatedItems/StarRating.jsx';
+import BarRating from './BarRating.jsx';
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -106,31 +108,32 @@ class RatingBreakdown extends React.Component {
     if (this.props.filters.length > 0) {
       var renderList = this.props.filters.join(', ');
       var filterDiv = (
-        <>
-          Filters applied: {renderList}
-          <button className="general-button" onClick={this.props.resetFilters}>REMOVE ALL FILTERS</button>
-        </>
+        <div className="filter-display">
+          Filters applied:
+          <div className="filter-list">
+            {renderList}
+          </div>
+          <div>
+            <button className="filter-button" onClick={this.props.resetFilters}>REMOVE ALL FILTERS</button>
+          </div>
+        </div>
       )
     } else {
       var filterDiv = null
     };
 
     return (
-      <div data-testid="test_revRatingBreakdown" className="RatingBreakdown">
-        <h3>Ratings and Reviews</h3>
-        <h1>{this.state.avgScore} Stars</h1><span>{this.state.starVal}</span>
-        <div>{this.state.recommended}% recommended</div>
+      <div data-testid="test_revRatingBreakdown" className="rev_rating_breakdown">
+        <StarRating rating={this.state.avgScore} /><b className="rev-summary">{this.state.avgScore} Stars</b>
+        <div className="breakdown_padding">{this.state.recommended}% of reviews recommended this product</div>
         <div>
-          score breakdown bars
-          <div className='5' onClick={this.props.filterHandle}>5: {this.state.revBreakdown[5]}</div>
-          <div className='4' onClick={this.props.filterHandle}>4: {this.state.revBreakdown[4]}</div>
-          <div className='3' onClick={this.props.filterHandle}>3: {this.state.revBreakdown[3]}</div>
-          <div className='2' onClick={this.props.filterHandle}>2: {this.state.revBreakdown[2]}</div>
-          <div className='1' onClick={this.props.filterHandle}>1: {this.state.revBreakdown[1]}</div>
+          <div className="5 rev-rating-bars" onClick={this.props.filterHandle}><u className="5">5 stars</u> <BarRating name="5" rating={this.state.revBreakdown[5]} /></div>
+          <div className="4 rev-rating-bars" onClick={this.props.filterHandle}><u className="4">4 stars</u> <BarRating name="4" rating={this.state.revBreakdown[4]} /></div>
+          <div className="3 rev-rating-bars" onClick={this.props.filterHandle}><u className="3">3 stars</u> <BarRating name="3" rating={this.state.revBreakdown[3]} /></div>
+          <div className="2 rev-rating-bars" onClick={this.props.filterHandle}><u className="2">2 stars</u> <BarRating name="2" rating={this.state.revBreakdown[2]} /></div>
+          <div className="1 rev-rating-bars" onClick={this.props.filterHandle}><u className="1">1 stars</u> <BarRating name="1" rating={this.state.revBreakdown[1]} /></div>
         </div>
-        <div>
-          {filterDiv}
-        </div>
+        {filterDiv}
       </div>
     )
   }

@@ -19,6 +19,15 @@ class StarRating extends React.Component {
     })
   }
 
+  componentDidUpdate(oldProps) {
+    if (oldProps.rating !== this.props.rating) {
+      var rating = Math.round(this.props.rating / this.state.totalStars * 100)
+      var ratingRounded = `${Math.round(rating / 5) * 5}%`
+      this.setState({
+        rating: ratingRounded
+      })
+    }
+  }
 
 
   render() {
@@ -29,10 +38,7 @@ class StarRating extends React.Component {
     return (
       <div className="star-outer">
         <div className="star-inner" style={widthStyle} >
-
-
         </div>
-
       </div>
 
     )

@@ -164,7 +164,7 @@ class ReviewForm extends React.Component {
 
     return (
       <div className="rev-popup" id="rev-modal">
-        <div className="modal_content">
+        <div className="rev-modal-content">
           <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
           <h2>Write your review</h2>
           <h3>About the {this.props.product_name}</h3>
