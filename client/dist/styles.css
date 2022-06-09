@@ -62,14 +62,57 @@ input, textarea {
   padding-left: 5px
 }
 
+h2 {
+  font-size: 24px;
+}
+
+.header {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#header-border {
+  border-top: 40px solid #6a6a6a;
+}
+
+#logo {
+  width: 150px;
+  height: 150px;
+  /* justify-content: center; */
+  display: flex;
+  margin-bottom: 0px;
+  float: left;
+}
+
+.title {
+  justify-content: center;
+  line-height: 1.5;
+  display: inline-block;
+  margin-bottom: 30px;
+  margin-top: 31px;
+  margin-left: -10px;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
 /*****************************************************/
 /* Product Overview */
 /*****************************************************/
 
 #OverviewContainer {
-  width: 850px;
-  height: 800px;
-  margin: 0 auto;
+  max-width: fit-content;
+  height: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.product-options {
+  padding-left: 80px;
+    display: grid;
+    position: relative;
 }
 
 #galleryDiv {
@@ -94,14 +137,20 @@ input, textarea {
 
 
 #frame {
-  height:500px;
-  width:500px;
-  object-fit: contain;
+  height: 440px;
+    width: 540px;
+    object-fit: contain;
 }
 
 .magnifier > div {
   background-size: 500% !important;
 }
+
+.magnifier-image {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 
 .galleryCarouselFrame {
   height:100%;
@@ -181,13 +230,13 @@ input, textarea {
 }
 
 .carousel-button.prev {
-  left: 11%;
-  top: 50%;
+  left: 10%;
+  top: 45%;
 }
 
 .carousel-button.next {
-  left: 90%;
-  top: 50%;
+  left: 100%;
+  top: 45%;
 }
 
 .carousel-button.exPrev {
@@ -212,7 +261,7 @@ input, textarea {
 #sloganDiv {
   width: 800px;
   height: 200px;
-  padding: 10px;
+  margin-top: -50px;
 }
 
 .styleThumbnail {
@@ -357,17 +406,22 @@ select:-moz-focusring {
 } */
 
 #desDiv {
-  width: 70%;
-  float: left;
-  border-right: 1px solid;
-  border-right-color: black;
+  width: 60%;
+    float: left;
+    border-right: 3px solid;
+    border-right-color: #6a6a6a;
+    padding-right: 20px;
+    padding-left: 100px;
+    margin-top: 30px;
 }
 
 #featuresDiv {
-  width: 20%;
-  float: left;
-  padding: 20px;
-  margin: 1px;
+  float: right;
+  display: inline;
+  /* padding-left: 0px; */
+  margin-top: 25px;
+  margin-right: 20px;
+  position: relative;
 }
 
 #expandedDiv {
@@ -456,6 +510,17 @@ select:-moz-focusring {
 /*****************************************************/
 /* Related Items */
 /*****************************************************/
+#related-items {
+  max-width: fit-content;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+}
+
+.realted-items-title, .your-outfit {
+  float: left;
+}
+
 .modal-card {
   background-color: white;
   position: absolute;
@@ -561,8 +626,8 @@ select:-moz-focusring {
 }
 
 ul.cardHolder {
-  padding: 0px;
-  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 

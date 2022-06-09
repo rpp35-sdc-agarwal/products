@@ -174,7 +174,7 @@ class Questions extends React.Component {
     console.log('currentProductName: ', this.props.currentProductName)
     return (
       <div id='QA' data-testid="test_questions">
-      <h2>Have a question?</h2>
+      <h2>Customer Questions & Answers</h2>
       <Search handleSearch={this.handleSearch.bind(this)} />
       
       {this.state.questions.length ? 
