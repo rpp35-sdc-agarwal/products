@@ -88,9 +88,10 @@ class App extends React.Component {
     // history.pushstate(.., url)
   }
 
-  handleItemClick(productId) {
+  handleItemClick(productId, productName) {
     this.setState({
-      currentProductId: JSON.stringify(productId)
+      currentProductId: JSON.stringify(productId),
+      currentProductName: productName
     }, () => {
       console.log('updated state: ', this.state.currentProductId)
     })
