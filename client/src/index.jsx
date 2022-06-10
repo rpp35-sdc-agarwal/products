@@ -114,7 +114,7 @@ class App extends React.Component {
         ratings={this.state.ratings}
         currentProductId={this.state.currentProductId}/>
         <Questions currentProductId={this.state.currentProductId} currentProductName={this.state.currentProductName} />
-        <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
+        <ReviewsContainer product_name={this.state.currentProductName} setAvg={this.setAvg} product_id={this.state.currentProductId}/>
       </div>
     )
   }

@@ -86,7 +86,8 @@ class Sort extends React.Component {
         url: 'http://localhost:3000/reviews',
         params: {
           filter: 'relevant',
-          product_id: this.state.data.product
+          product_id: this.state.data.product,
+          count: this.props.total
         }
       }
       axios(config)
@@ -106,7 +107,8 @@ class Sort extends React.Component {
         url: 'http://localhost:3000/reviews',
         params: {
           filter: 'helpful',
-          product_id: this.state.data.product
+          product_id: this.state.data.product,
+          count: this.props.total
         }
       }
       axios(config)
@@ -126,7 +128,8 @@ class Sort extends React.Component {
         url: 'http://localhost:3000/reviews',
         params: {
           filter: 'newest',
-          product_id: this.state.data.product
+          product_id: this.state.data.product,
+          count: this.props.total
         }
       }
       axios(config)
@@ -147,14 +150,14 @@ class Sort extends React.Component {
 
   render() {
     return (
-      <div data-testid="test_revSort"className="Sort">
-        <label htmlFor="sorter">Sort on:</label>
-        <select name="sorter" onChange={this.changeHandler}>
+      <div data-testid="test_revSort" className="rev_sort">
+        <label htmlFor="sorter" className="rev-summary"><b>Sort By:</b></label>
+        <select name="sorter" className="sort_select" onChange={this.changeHandler}>
             <option value="relevant">Relevant</option>
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
         </select>
-        <List product_id={this.props.product_id} reviews={this.state.reviews} metaData={this.props.metaData}/>
+        <List product_name={this.props.product_name} product_id={this.props.product_id} reviews={this.state.reviews} metaData={this.props.metaData}/>
       </div>
     )
   }
