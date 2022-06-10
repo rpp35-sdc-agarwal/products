@@ -662,10 +662,8 @@ ul.cardHolder {
   margin-right: auto;
   max-width: fit-content;
   overflow: auto;
+  position: relative;
 }
-
-
-
 
 .card {
   /* Add shadows to create the "card" effect */
