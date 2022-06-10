@@ -1,0 +1,1 @@
+ssh -i "/Users/caixiuqi/SEI/Fec/AtelierOutfitters.cer" ubuntu@ec2-54-244-99-16.us-west-2.compute.amazonaws.com
