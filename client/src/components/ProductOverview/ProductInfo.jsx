@@ -31,7 +31,7 @@ class ProductInfo extends React.Component {
       <div className='childDiv'>
         <div>
           <StarRating rating={this.state.avgRating}/>
-          <p className='ovReview'><Link activeClass="active" to="ReviewsContainer" spy={true} smooth={true}> read all {this.state.totalReviews} Reviews</Link></p>
+          <p className='ovReview'><Link activeClass="active" to="reviews_container" spy={true} smooth={true}> read all {this.state.totalReviews} Reviews</Link></p>
         </div>
         <div>
           Category: {this.state.productInfo.category}
