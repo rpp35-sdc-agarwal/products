@@ -163,8 +163,8 @@ class ReviewForm extends React.Component {
       <div className="rev-popup" id="rev-modal">
         <div className="rev-modal-content">
           <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
-          <h2>Write your review</h2>
-          <h3>About the {this.props.product_name}</h3>
+          <div className="form-title">Write your review</div>
+          <div className="tile_peripheral">About the {this.props.product_name}</div>
           <form>
 
             <fieldset>
@@ -201,18 +201,18 @@ class ReviewForm extends React.Component {
             <fieldset>
               <legend>Comments</legend>
               <div>
-                <input type="text" name="summary" placeholder="Example: Best purchase ever!" onChange={this.summaryHandler} value={this.state.reviewSumm}></input>
+                <input className="form-summary" type="text" name="summary" placeholder="Example: Best purchase ever!" onChange={this.summaryHandler} value={this.state.reviewSumm}></input>
               </div>
-              <input type="text" minLength={this.state.count} maxLength="1000" placeholder="Why did you like the product or not?" onChange={this.changeHandler} value={this.state.reviewBody}></input>
-              <div>
+              <input className="form-body" type="text" minLength={this.state.count} maxLength="1000" placeholder="Why did you like the product or not?" onChange={this.changeHandler} value={this.state.reviewBody}></input>
+              <div className="tile_peripheral">
                 { charCount }
               </div>
             </fieldset>
 
             <fieldset>
               <legend>Photos</legend>
-              <input type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
-              <button onClick={this.removePhotos}>Remove photos</button>
+              <input className="filter-button" type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
+              <button className="" onClick={this.removePhotos}>Remove photos</button>
               <div>
                 {this.state.photos.map((photo) => {
                   return (<img className="imgRev" src={photo}></img>);
@@ -231,13 +231,13 @@ class ReviewForm extends React.Component {
               <legend>Enter your email</legend>
               <div>
                 <input type="email" maxLength="60" placeholder="Example: jackson11@email.com"onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
-                <div>
+                <div className="tile_peripheral">
                   For authentication reasons, you will not be emailed
                 </div>
               </div>
             </fieldset>
 
-            <button onClick={this.handleSubmit}>SUBMIT</button>
+            <button className=""onClick={this.handleSubmit}>Submit</button>
           </form>
         </div>
       </div>

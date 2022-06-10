@@ -1001,6 +1001,7 @@ div.close {
 }
 
 .imgRev {
+  margin: 5px;
   width: 150px;
   height: auto;
 }
@@ -1206,4 +1207,29 @@ div.close {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: #ccc;
+}
+
+.form-character-container {
+  width: 20%;
+  padding: 5px 0px;
+}
+
+.form-summary {
+  width: 40%;
+  height: 1.5em;
+  margin-bottom: 5px;
+}
+
+.form-body{
+  width: 80%;
+  height: 1.5em;
+}
+
+.form-title{
+  font-weight: bold;
+  font-size: larger;
+}
+
+.pad {
+  padding: 10px;
 }
