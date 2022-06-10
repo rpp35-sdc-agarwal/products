@@ -39,7 +39,9 @@ class Card extends React.Component {
   }
 
   handleClick(e) {
+    console.log("product name: ", this.props.product.name)
     var id = this.props.product.id;
+    var name = this.props.product.name
     var state = history.state;
     var url = ''
     if (!state) {
@@ -52,7 +54,7 @@ class Card extends React.Component {
       id: id
     }
     history.pushState(state, '', url)
-    this.props.handleItemClick(id);
+    this.props.handleItemClick(id, name);
     this.props.handleClick(e);
 
   }
