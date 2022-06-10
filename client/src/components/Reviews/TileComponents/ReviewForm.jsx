@@ -119,13 +119,10 @@ class ReviewForm extends React.Component {
       }
     }
     axios(config);
-
-
     //if any of the mandatory fields are not filled out prevent submission
     //create a message to be displayed for the user
     //if the email is not in the correct format
     //if the images are invalid and unable to be uploaded
-
   }
 
 
@@ -163,16 +160,28 @@ class ReviewForm extends React.Component {
 
 
     return (
-      <div className="rev-popup">
-        <div className="rev_modal_content">
+      <div className="rev-popup" id="rev-modal">
+        <div className="rev-modal-content">
           <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
           <h2>Write your review</h2>
-          <h3>About the {'product name here'}</h3>
-          <form className="">
+          <h3>About the {this.props.product_name}</h3>
+          <form>
 
             <fieldset>
               <legend>What would you rate this product?</legend>
-              <input type="range" name="overall-rating" min="1" max="5" value={this.state.rating} onChange={this.ratingHandler}></input>{ rateDescribe }
+              {/* <input className="rev-form-rating" type="range" name="overall-rating" min="1" max="5" value={this.state.rating} onChange={this.ratingHandler}></input><span>{ rateDescribe }</span> */}
+              <div className="rate">
+                <input type="radio" className="form-rating" name="rate" value="1"  onClick={this.ratingHandler}/>
+                <label className="radio-star" htmlFor="rate"></label>
+                <input type="radio" className="form-rating" name="rate" value="2"  onClick={this.ratingHandler}/>
+                <label className="radio-star" htmlFor="rate"></label>
+                <input type="radio" className="form-rating" name="rate" value="3"  onClick={this.ratingHandler}/>
+                <label className="radio-star" htmlFor="rate"></label>
+                <input type="radio" className="form-rating" name="rate" value="4"  onClick={this.ratingHandler}/>
+                <label className="radio-star" htmlFor="rate"></label>
+                <input type="radio" className="form-rating" name="rate" value="5"  onClick={this.ratingHandler}/>
+                <label className="radio-star" htmlFor="rate"></label>
+              </div>
             </fieldset>
 
             <fieldset>
@@ -180,7 +189,7 @@ class ReviewForm extends React.Component {
               <div>
                 <input type="radio" name="recommended" onClick={this.recommendHandler} id="recommended" value="yes"/>
                 <label htmlFor="recommended">Yes</label>
-              </div>
+             </div>
               <div>
                 <input type="radio" name="recommended" onClick={this.recommendHandler} id="!recommended" value="no"/>
                 <label htmlFor="recommended">No</label>
@@ -190,11 +199,9 @@ class ReviewForm extends React.Component {
               <Characteristics sensor={this.characteristicSensor} characteristicHandler={this.characteristicHandler} characteristics={this.props.metaData.characteristics}/>
 
             <fieldset>
+              <legend>Comments</legend>
               <div>
-                <label htmlFor="summary">Summarize your thoughts</label>
-              </div>
-              <div>
-                <input type="text" name="summary" onChange={this.summaryHandler} value={this.state.reviewSumm}></input>
+                <input type="text" name="summary" placeholder="Example: Best purchase ever!" onChange={this.summaryHandler} value={this.state.reviewSumm}></input>
               </div>
               <input type="text" minLength={this.state.count} maxLength="1000" placeholder="Why did you like the product or not?" onChange={this.changeHandler} value={this.state.reviewBody}></input>
               <div>
@@ -205,23 +212,28 @@ class ReviewForm extends React.Component {
             <fieldset>
               <legend>Photos</legend>
               <input type="file" name="photos" accept="image.jpg" multiple={true}  onChange={this.photoHandler}/>
-              <button onClick={this.removePhotos}>REMOVE PHOTOS</button>
-              {this.state.photos.map((photo) => {
-                return (<img className="imgRev" src={photo}></img>);
-              })}
+              <button onClick={this.removePhotos}>Remove photos</button>
+              <div>
+                {this.state.photos.map((photo) => {
+                  return (<img className="imgRev" src={photo}></img>);
+                })}
+              </div>
             </fieldset>
 
             <fieldset>
               <legend>Enter your nickname</legend>
               <div>
-                <input type="text" maxLength="60" onChange={this.nameMailHandler} id="nickname"  value={this.state.nickname}></input>
+                <input type="text" maxLength="60" placeholder="Example: jackson11!"onChange={this.nameMailHandler} id="nickname"  value={this.state.nickname}></input>
               </div>
             </fieldset>
 
             <fieldset>
               <legend>Enter your email</legend>
               <div>
-                <input type="email" maxLength="60" onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
+                <input type="email" maxLength="60" placeholder="Example: jackson11@email.com"onChange={this.nameMailHandler} id="email" value={this.state.email}></input>
+                <div>
+                  For authentication reasons, you will not be emailed
+                </div>
               </div>
             </fieldset>
 

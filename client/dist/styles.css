@@ -976,6 +976,22 @@ div.close {
 /*****************************************************/
 /* Reviews */
 /*****************************************************/
+.reviews_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 95vh;
+  width: 80vw;
+  padding: 15px;
+}
+
+.tile_padding {
+  padding: 5px;
+}
+
+.breakdown_padding {
+  padding: 5px 0;
+}
 
 .ReviewsContainer {
   width: 1200px;
@@ -993,16 +1009,201 @@ div.close {
   position: relative;
 }
 
-.rev_modal_content {
+.rev-modal-content {
   background-color: white;
   position: fixed;
   top: 20%;
-  bottom: 20%;
   left: 30%;
   width: 40%;
+  bottom: 20%;
   padding: 20px;
   border-radius: 5px;
   border: 2px solid black;
   overflow: auto;
 }
 
+
+
+.breakdown_container {
+  padding-left: 10px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 1; */
+}
+
+.rev_rating_breakdown{
+  display: flex;
+  flex-direction: column;
+}
+
+.rev_product_breakdown{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.rev_sort {
+  padding-top: 5%;
+  /* padding-left: 20px; */
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 4; */
+  order: 2;
+
+}
+
+.rev_list {
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.rev-tile {
+  padding: 5px;
+  border-bottom: solid;
+  border-color: #000;
+  border-width: thin;
+}
+
+.rev-summary {
+  font-size: larger;
+}
+
+.yes_padding {
+  padding-right: 0.2em;
+}
+
+.tile_peripheral {
+  font-size: small;
+  color: #5a5a5a;
+}
+
+.rev_tile_info {
+  float: right;
+}
+
+.rev-response{
+  margin: 5px;
+  padding: 2px;
+  background-color: #e4e4e4;
+}
+
+.sort_select {
+  width: 10em;
+}
+
+.rev-rating-bars {
+  padding: 5px 0 5px 0;
+}
+
+.bar-outer {
+  display: inline-block;
+  position: relative;
+  background-color: #ccc;
+  height: 0.6em;
+  width: 50%;
+  border-radius: 2px;
+  top: 10%;
+  bottom: 10%;
+}
+
+.bar-inner {
+  position: absolute;
+  background-color: #039d15;
+  left: 0;
+  height: 0.6em;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-radius: 2px;
+}
+
+.character-outer {
+  display: inline-block;
+  position: relative;
+  background-color: #ccc;
+  height: 0.6em;
+  width: 50%;
+  border-radius: 2px;
+  top: 10%;
+  bottom: 10%;
+
+}
+
+.character-inner{
+  position: absolute;
+  left: 0;
+  height: 0.6em;
+  white-space: nowrap;
+  overflow: hidden;
+  width: auto;
+  border-radius: 2px;
+}
+
+.character-inner::before {
+  content: "\f0d8";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: black;
+}
+
+.breakdown-peripheral {
+  font-size: small;
+  width: 60%;
+}
+
+.filter-display {
+  margin: 5px 0px;
+  border-style: solid;
+  border-width: thin;
+  padding: 5px;
+  width: 50%;
+}
+
+.filter-button {
+  font-size: 0.8em;
+  font-weight: 550;
+  color: rgb(90, 90, 90);
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  width: 180px;
+  height: 35px;
+  border-color: rgb(90, 90, 90);
+}
+
+.filter-button:hover {
+  border-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+.filter-list{
+  width: 50%;
+  margin: 5px;
+  padding-left: 5px;
+}
+
+.form-rating {
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+.radio-star{
+  height: 0.8em;
+  width: 0.5em;
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+
+
+.form-rating::backdrop {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}

@@ -72,7 +72,7 @@ class Characteristics extends React.Component {
     return (
       <fieldset>
         <legend>How would you rate these characteristics?</legend>
-        {this.renderCharacter(this.props.characteristics)}
+          {this.renderCharacter(this.props.characteristics)}
       </fieldset>
     )
   }
