@@ -102,7 +102,7 @@ class OutfitCarousel extends React.Component {
     return (
 
       <div className="wrapper outfit">
-        <button className="tooltip" id='starButton2' onClick={this.handleStarClick}></button>
+        {/* <button className="tooltip" id='starButton2' onClick={this.handleStarClick}></button> */}
         <AddOutfit addOutfit={this.addOutfit}
         currentProductId={this.props.currentProductId}/>
 

@@ -77,6 +77,7 @@ class QuestionView extends React.Component {
   }
   
   render() {
+    
     return (
       <div className="QA-container">
         <div className='question' data-testid="test_questionview">

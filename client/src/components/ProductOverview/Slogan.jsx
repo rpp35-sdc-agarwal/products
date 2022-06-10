@@ -21,6 +21,7 @@ class Slogan extends React.Component {
           </p>
         </div>
         <div id='featuresDiv'>
+          <h3>Item Details</h3>
           {this.state.productInfo.features.map((item, index) =>
             <li key = {index}>
               {item.feature}: {item.value}

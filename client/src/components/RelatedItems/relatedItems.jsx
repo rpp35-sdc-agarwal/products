@@ -18,12 +18,12 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <div>
-        <h4>RELATED ITEMS</h4>
+      <div id="related-items">
+        <h2 className="realted-items-title">Customers Also Viewed</h2>
          <Carousel
          currentProductId={this.props.currentProductId}
          handleItemClick={this.props.handleItemClick}/>
-        <h4>YOUR OUTFIT</h4>
+        <h2 className="your-outfit">Your Outfit</h2>
         <OutfitCarousel
         currentProductId={this.props.currentProductId}
         />

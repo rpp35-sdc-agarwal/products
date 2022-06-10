@@ -24,7 +24,7 @@ class StyleSelector extends React.Component {
 
   isSelected(styleId) {
     if(styleId === this.state.currentStyle.style_id) {
-      return '';
+      return 'CheckMark';
     } else {
       return 'hideCheckMark';
     }
