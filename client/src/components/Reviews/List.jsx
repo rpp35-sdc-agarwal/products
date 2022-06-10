@@ -129,7 +129,7 @@ class List extends React.Component {
                     <Photos photos={review.photos}/>
                   </div>
                   <div className="tile_padding">
-                    {review.recommend ? 'checkmark I recommend this product' : ''}
+                    {/* {review.recommend ? 'checkmark I recommend this product' : ''} */}
                   </div>
                   {review.response ? this.createResponse(review.response) : null}
                   <div className="rev-helpfulness tile_padding tile_peripheral">
