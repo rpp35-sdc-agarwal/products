@@ -1,5 +1,6 @@
 import React from 'react';
 import { sampleMeta } from './SampleData.js';
+import CharacterRating from './CharacteristicRating.jsx';
 
 class ProductBreakdown extends React.Component {
   constructor(props) {
@@ -27,10 +28,17 @@ class ProductBreakdown extends React.Component {
     //iterate throught the metadata object
     //find out which categories are included in the metadata
     //render the proper components corresponding to the categories
+    var descriptors = {
+      Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'],
+      Width: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
+      Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
+      Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
+      Length: ['Runs Short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
+      Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long']
+    }
 
     return (
-      <div data-testid="test_revProductBreakdown" className="ProductBreakdown">
-        ProductBreakdown
+      <div data-testid="test_revProductBreakdown" className="rev_product_breakdown">
         {this.state.categories.map((cat) => {
           if (cat[1].value === null) {
             var rating = 0;
@@ -38,8 +46,14 @@ class ProductBreakdown extends React.Component {
             var rating = (parseInt(cat[1].value) / 5) * 100;
           }
           return (
-            <div key={cat[1].id}>
-              {cat[0]} <span className={cat[0].toLowerCase()}>{rating}</span>
+            <div className="rev-rating-bars" key={cat[1].id}>
+              {cat[0]}
+              <div className={cat[0].toLowerCase()}>
+                <CharacterRating rating={rating} />
+              </div>
+              <div className="breakdown-peripheral">
+                {descriptors[cat[0]][0]}<span className="rev_tile_info">{descriptors[cat[0]][4]}</span>
+              </div>
             </div>
           )
         })}

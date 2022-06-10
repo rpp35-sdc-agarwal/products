@@ -45,22 +45,22 @@ class Characteristics extends React.Component {
     }
     for (var character in characters) {
       var characteristic = (
-        <div key={characters[character].id}>
+        <div className="form-character-container" key={characters[character].id}>
           <div>{character}</div>
-          <div>{this.state[character]}</div>
+          <div className="tile_peripheral">{this.state[character]}</div>
           <div>
-            <input type="radio" name={character}  id={character} value={1 + descriptors[character][0]} onClick={this.characteristicHandler}/>
-            <label htmlFor={character}>1</label>
-            <input type="radio" name={character}  id={character} value={2 + descriptors[character][1]} onClick={this.characteristicHandler}/>
-            <label htmlFor={character}>2</label>
-            <input type="radio" name={character}  id={character} value={3 + descriptors[character][2]} onClick={this.characteristicHandler}/>
-            <label htmlFor={character}>3</label>
-            <input type="radio" name={character}  id={character} value={4 + descriptors[character][3]} onClick={this.characteristicHandler}/>
-            <label htmlFor={character}>4</label>
-            <input type="radio" name={character}  id={character} value={5 + descriptors[character][4]} onClick={this.characteristicHandler}/>
-            <label htmlFor={character}>5</label>
+            <input className="character-button" type="radio" name={character}  id={character} value={1 + descriptors[character][0]} onClick={this.characteristicHandler}/>
+            <label htmlFor={character}></label>
+            <input className="character-button" type="radio" name={character}  id={character} value={2 + descriptors[character][1]} onClick={this.characteristicHandler}/>
+            <label htmlFor={character}></label>
+            <input className="character-button" type="radio" name={character}  id={character} value={3 + descriptors[character][2]} onClick={this.characteristicHandler}/>
+            <label htmlFor={character}></label>
+            <input className="character-button" type="radio" name={character}  id={character} value={4 + descriptors[character][3]} onClick={this.characteristicHandler}/>
+            <label htmlFor={character}></label>
+            <input className="character-button" type="radio" name={character}  id={character} value={5 + descriptors[character][4]} onClick={this.characteristicHandler}/>
+            <label htmlFor={character}></label>
           </div>
-          <span>{descriptors[character][0]}</span><span>{descriptors[character][4]}</span>
+          <span className="tile_peripheral">{descriptors[character][0]}</span><span className="tile_peripheral rev_tile_info">{descriptors[character][4]}</span>
         </div>
       );
         elements.push(characteristic);
@@ -72,7 +72,7 @@ class Characteristics extends React.Component {
     return (
       <fieldset>
         <legend>How would you rate these characteristics?</legend>
-        {this.renderCharacter(this.props.characteristics)}
+          {this.renderCharacter(this.props.characteristics)}
       </fieldset>
     )
   }
