@@ -61,12 +61,12 @@ class CardModal extends React.Component {
     console.log('what are conbined features', combinedFeatures)
     return(
       <div className="modal-card" data-testid="test-modal">
-        <span className="close" onClick={this.closePopup.bind(this)}>&times;</span>
+        <span className="related-items-close" onClick={this.closePopup.bind(this)}>&times;</span>
         <table>
           <tr>
-            <th>{this.props.overviewProduct.name}</th>
-            <th></th>
-            <th>{this.props.modalData.name}</th>
+            <th className="related-items-head"></th>
+            <th className="related-items-head">{this.props.overviewProduct.name}</th>
+            <th className="related-items-head">{this.props.modalData.name}</th>
           </tr>
           <tbody>{modalElements}</tbody>
 

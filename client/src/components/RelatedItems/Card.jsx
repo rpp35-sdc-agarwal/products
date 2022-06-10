@@ -103,13 +103,15 @@ class Card extends React.Component {
 
         <div className="container">
           <img className="img-resize" src={photo} alt="Avatar" ></img>
-          <h4><b>{this.props.product.category}</b></h4>
-          <p>{this.props.product.name}</p>
-          {price}
-          {this.props.product.ratings &&
-
-            <StarRating rating={this.props.product.ratings} />
-          }
+          <div className="related-card-info">
+            <h4><b>{this.props.product.category}</b></h4>
+            <p>{this.props.product.name}</p>
+            {price}
+            {this.props.product.ratings &&
+              <StarRating rating={this.props.product.ratings} />
+            }
+          </div>
+          
         </div>
 
 
