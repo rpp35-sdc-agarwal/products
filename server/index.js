@@ -142,11 +142,11 @@ app.get('/reviews', (req, res) => {
   }
   axios(config)
     .then((data) => {
-      res.send(data.data);
+      res.status(data.status).send(data.data);
     })
     .catch((err) => {
-      console.log(err);
-      res.status(400).send(`There has been an error: ${err}`);
+      console.log(err.config);
+      res.status(err.status).send(`There has been an error: ${err}`);
     })
 
 });
@@ -170,10 +170,10 @@ app.post('/reviews', (req, res) => {
   console.log(config);
   axios(config)
     .then((data) => {
-      res.send(data.data);
+      res.status(data.status).send(data.data);
     })
     .catch((err) => {
-      res.status(400).send(`There has been an error ${err}`)
+      res.status(err.status).send(`There has been an error ${err}`)
     });
 })
 
@@ -188,11 +188,10 @@ app.get('/reviews/meta', (req, res) => {
   }
   axios(config)
     .then((data) => {
-      res.status(200).send(data.data);
+      res.status(data.status).send(data.data);
     })
     .catch((err) => {
-      console.log(err);
-      res.status(400).send(`There has been an error`);
+      res.status(err.status).send(`There has been an error`);
     })
 });
 
@@ -239,6 +238,7 @@ app.put('/reviews/:review_id/report', (req, res) => {
       }
     });
 })
+
 
 const PORT = process.env.PORT || 3000;
 

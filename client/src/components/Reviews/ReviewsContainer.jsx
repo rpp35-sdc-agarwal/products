@@ -21,6 +21,7 @@ class ReviewsContainer extends React.Component {
     this.metaReq = this.metaReq.bind(this);
     this.totalRevs = this.totalRevs.bind(this);
     this.filterHandle = this.filterHandle.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
   }
 
   componentDidUpdate(oldProps) {
@@ -60,7 +61,7 @@ class ReviewsContainer extends React.Component {
     //when a rating is clicked it will change the reviews in list
     console.log(e.target.className);
     //get the rating from the element that is clicked
-    var rating = parseInt(e.target.className);
+    var rating = parseInt(e.target.className[0]);
     var filters = this.state.filters.slice();
     if (filters.includes(rating)) {
       var index = filters.indexOf(rating);
@@ -72,13 +73,23 @@ class ReviewsContainer extends React.Component {
     this.setState({ filters: filters });
   }
 
+  resetFilters(e) {
+    //when the reset button is pressed clear the array containing the filters
+    this.setState({ filters: [] });
+  }
+
   render() {
     return (
-      <div data-testid="test_revContainer" className="ReviewsContainer">
-        <RatingBreakdown filterHandle={this.filterHandle} setAvg={this.props.setAvg} metaData={this.state.metaData}/>
-        <ProductBreakdown metaData={this.state.metaData}/>
-        <Sort filter={this.state.filters} total={this.state.totalRevs} product_id={this.props.product_id} metaData={this.state.metaData}/>
-      </div>
+      <>
+        <div data-testid="test_revContainer" className="reviews_container">
+          <div className="breakdown_container">
+            <div><h3>Ratings and Reviews</h3></div>
+            <RatingBreakdown className= "rev_review_breakdown" filters={this.state.filters} resetFilters={this.resetFilters} filterHandle={this.filterHandle} setAvg={this.props.setAvg} metaData={this.state.metaData}/>
+            <ProductBreakdown metaData={this.state.metaData}/>
+          </div>
+          <Sort product_name={this.props.product_name} filter={this.state.filters} total={this.state.totalRevs} product_id={this.props.product_id} metaData={this.state.metaData}/>
+        </div>
+      </>
     )
   }
 }
