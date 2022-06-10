@@ -103,6 +103,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('currentProductName: ', this.state.currentProductName)
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}
@@ -111,7 +112,7 @@ class App extends React.Component {
         products={this.props.products}
         ratings={this.state.ratings}
         currentProductId={this.state.currentProductId}/>
-        <Questions currentProductId={this.state.currentProductId} />
+        <Questions currentProductId={this.state.currentProductId} currentProductName={this.state.currentProductName} />
         <ReviewsContainer setAvg={this.setAvg} product_id={this.state.currentProductId}/>
       </div>
     )

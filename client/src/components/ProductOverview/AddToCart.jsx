@@ -57,7 +57,7 @@ class AddToCart extends React.Component {
         <select className='minimal'>
           {this.renderQuantity()}
         </select>
-        <button id='addButton'>Add To Cart</button>
+        <button id='addButton'>ADD TO CART</button>
         <button className="tooltip" id='starButton'></button>
       </div>
     )

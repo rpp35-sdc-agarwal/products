@@ -62,14 +62,57 @@ input, textarea {
   padding-left: 5px
 }
 
+h2 {
+  font-size: 24px;
+}
+
+.header {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#header-border {
+  border-top: 40px solid #6a6a6a;
+}
+
+#logo {
+  width: 150px;
+  height: 150px;
+  /* justify-content: center; */
+  display: flex;
+  margin-bottom: 0px;
+  float: left;
+}
+
+.title {
+  justify-content: center;
+  line-height: 1.5;
+  display: inline-block;
+  margin-bottom: 30px;
+  margin-top: 31px;
+  margin-left: -10px;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
 /*****************************************************/
 /* Product Overview */
 /*****************************************************/
 
 #OverviewContainer {
-  width: 850px;
-  height: 800px;
-  margin: auto;
+  max-width: fit-content;
+  height: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.product-options {
+  padding-left: 80px;
+    display: grid;
+    position: relative;
 }
 
 #galleryDiv {
@@ -94,13 +137,18 @@ input, textarea {
 
 
 #frame {
-  height:500px;
-  width:500px;
-  object-fit: contain;
+  height: 440px;
+    width: 540px;
+    object-fit: contain;
 }
 
 .magnifier > div {
   background-size: 500% !important;
+}
+
+.magnifier-image {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .galleryCarouselFrame {
@@ -181,13 +229,13 @@ input, textarea {
 }
 
 .carousel-button.prev {
-  left: 11%;
-  top: 50%;
+  left: 10%;
+  top: 45%;
 }
 
 .carousel-button.next {
-  left: 90%;
-  top: 50%;
+  left: 100%;
+  top: 45%;
 }
 
 .carousel-button.exPrev {
@@ -212,7 +260,12 @@ input, textarea {
 #sloganDiv {
   width: 800px;
   height: 200px;
-  padding: 10px;
+  margin-top: -50px;
+}
+
+.CheckMark {
+  display: flex;
+  justify-content: center;
 }
 
 .styleThumbnail {
@@ -357,17 +410,22 @@ select:-moz-focusring {
 } */
 
 #desDiv {
-  width: 70%;
-  float: left;
-  border-right: 1px solid;
-  border-right-color: black;
+  width: 60%;
+    float: left;
+    border-right: 3px solid;
+    border-right-color: #6a6a6a;
+    padding-right: 20px;
+    padding-left: 100px;
+    margin-top: 30px;
 }
 
 #featuresDiv {
-  width: 20%;
-  float: left;
-  padding: 20px;
-  margin: 1px;
+  float: right;
+  display: inline;
+  /* padding-left: 0px; */
+  margin-top: 25px;
+  margin-right: 20px;
+  position: relative;
 }
 
 #expandedDiv {
@@ -456,22 +514,60 @@ select:-moz-focusring {
 /*****************************************************/
 /* Related Items */
 /*****************************************************/
+#related-items {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.realted-items-title, .your-outfit {
+  float: left;
+}
+
 .modal-card {
   background-color: white;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 340px;
+    height: 300px;
+    padding: 40px 40px 40px 35px;
+    border-radius: 5px;
+    border: 2px solid black;
+    z-index: 5;
+    justify-content: center;
+    display: flex;
+}
+
+.related-items-close {
+  color: Black;
+  float: right;
   position: absolute;
-  top: 30%;
-  left: 30%;
-  width: 250px;
-  height: 300px;
-  padding: 20px;
-  border-radius: 5px;
-  border: 2px solid black;
-  z-index: 5;
+  top: 3%;
+  left: 95%;
+  display: flex;
+}
+
+.related-items-close:hover {
+  color: rgb(157, 157, 157);
+  cursor: pointer;
+}
+
+.related-items-row-name {
+  text-align: left;
+}
+
+.related-items-rows {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .star-outer {
   display: inline-block;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .star-outer::before {
@@ -489,6 +585,7 @@ select:-moz-focusring {
   white-space: nowrap;
   overflow: hidden;
   width: 0;
+  margin-bottom: 10px;
 }
 
 .star-inner::before {
@@ -499,7 +596,6 @@ select:-moz-focusring {
 }
 
 .wrapper {
-
   display: flex;
   position: relative;
 }
@@ -537,10 +633,10 @@ select:-moz-focusring {
 
 
 .arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
+  border: solid #6c6c6c;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 10px;
 }
 
 .right {
@@ -562,8 +658,10 @@ select:-moz-focusring {
 }
 
 ul.cardHolder {
-  padding: 0px;
-  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+  overflow: auto;
 }
 
 
@@ -576,7 +674,12 @@ ul.cardHolder {
   /* max-width: 150px; */
   margin: 30px;
   position: relative;
+  cursor: pointer;
+}
 
+.related-card-info {
+  margin-left: 5px;
+  font-size: 14px;
 }
 
 .deleteOutfit {
@@ -624,7 +727,7 @@ ul.cardHolder {
 
 .tooltip {
   position: absolute;
-  top: 0;
+  margin: 10px;
   right: 0;
   background: none;
   border: none;
@@ -676,8 +779,10 @@ ul.cardHolder {
 /* Questions and Answers */
 /*****************************************************/
 #QA {
-  width: 50%;
+  max-width: fit-content;
   height: auto;
+  margin: 0 auto;
+  /* position: relative; */
 }
 
 .question-list {
@@ -871,6 +976,13 @@ div.close {
 /*****************************************************/
 /* Reviews */
 /*****************************************************/
+
+.ReviewsContainer {
+  width: 1200px;
+  /* max-width: fit-content; */
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .imgRev {
   width: 150px;

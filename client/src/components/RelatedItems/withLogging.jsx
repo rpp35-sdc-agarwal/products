@@ -14,7 +14,6 @@ function withLogging(WrappedComponent, data) {
 
     }
 
-
     handleClick(e) {
       var time = Date.now()
       var el = e.currentTarget.className;
@@ -28,8 +27,6 @@ function withLogging(WrappedComponent, data) {
       this.setState({
         clickEvent: data
       }, () => console.log('what is new data', this.state.clickEvent))
-
-
     }
 
     render() {
