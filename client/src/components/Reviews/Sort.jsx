@@ -55,7 +55,7 @@ class Sort extends React.Component {
     this.setState({ reviews: this.state.data.results });
   }
 
-  reviewReq() {
+  async reviewReq() {
     var config = {
       method: 'get',
       url: 'http://localhost:3000/reviews',
@@ -65,7 +65,7 @@ class Sort extends React.Component {
         count: this.props.total
       }
     }
-    axios(config)
+    await axios(config)
       .then((data) => {
         this.setState({
           data: data.data,
@@ -77,7 +77,7 @@ class Sort extends React.Component {
       });
   }
 
-  changeHandler(e) {
+  async changeHandler(e) {
     var filter = e.target.value;
     console.log('changed')
     if (filter === 'relevant') {
@@ -90,7 +90,7 @@ class Sort extends React.Component {
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,
@@ -111,7 +111,7 @@ class Sort extends React.Component {
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,
@@ -132,7 +132,7 @@ class Sort extends React.Component {
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,

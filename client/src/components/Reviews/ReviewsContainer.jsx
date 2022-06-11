@@ -39,7 +39,7 @@ class ReviewsContainer extends React.Component {
     this.setState({ totalRevs: total })
   }
 
-  metaReq() {
+  async metaReq() {
     var config = {
       method: 'get',
       url: 'http://localhost:3000/reviews/meta',
@@ -47,7 +47,7 @@ class ReviewsContainer extends React.Component {
         product_id: this.props.product_id
       }
     }
-    axios(config)
+    await axios(config)
       .then((data) => {
         this.setState({
           metaData: data.data
