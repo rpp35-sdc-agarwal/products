@@ -19,20 +19,15 @@ class StarRating extends React.Component {
     })
   }
 
-  UNSAFE_componentWillReceiveProps(props) {
-    this.setState({
-      rating: props.rating
-    })
+  componentDidUpdate(oldProps) {
+    if (oldProps.rating !== this.props.rating) {
+      var rating = Math.round(this.props.rating / this.state.totalStars * 100)
+      var ratingRounded = `${Math.round(rating / 5) * 5}%`
+      this.setState({
+        rating: ratingRounded
+      })
+    }
   }
-  // componentDidUpdate(oldProps) {
-  //   if (oldProps.rating !== this.props.rating) {
-  //     var rating = Math.round(this.props.rating / this.state.totalStars * 100)
-  //     var ratingRounded = `${Math.round(rating / 5) * 5}%`
-  //     this.setState({
-  //       rating: ratingRounded
-  //     })
-  //   }
-  // }
 
 
   render() {
