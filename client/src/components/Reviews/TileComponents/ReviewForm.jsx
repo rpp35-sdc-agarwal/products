@@ -119,6 +119,7 @@ class ReviewForm extends React.Component {
       }
     }
     axios(config);
+    this.closePopup();
     //if any of the mandatory fields are not filled out prevent submission
     //create a message to be displayed for the user
     //if the email is not in the correct format

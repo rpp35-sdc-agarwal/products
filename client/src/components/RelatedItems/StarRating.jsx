@@ -36,16 +36,16 @@ class StarRating extends React.Component {
 
 
   render() {
-    const widthStyle = {
-      width: this.state.rating
-    }
+
+    var widthStyle = {
+      width: `${(this.props.rating/5) * 100}%`
+    };
 
     return (
       <div className="star-outer">
-        <div className="star-inner" style={widthStyle} >
+        <div className="star-inner" style={widthStyle}>
         </div>
       </div>
-
     )
   }
 
