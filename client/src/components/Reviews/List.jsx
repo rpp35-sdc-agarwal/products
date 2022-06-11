@@ -67,7 +67,7 @@ class List extends React.Component {
     this.setState({ [e.target.className]: true })
     //send a request to the api to mark the review as helpful
     var config = {
-      url: `http://localhost:3000/reviews/${e.target.className}/helpful`,
+      url: `/reviews/${e.target.className}/helpful`,
       method: 'put'
     }
     await axios(config)
@@ -81,7 +81,7 @@ class List extends React.Component {
         this.setState({ [e.target.className + 'Report']: true })
         //send a request to the api to mark the review as helpful
         var config = {
-          url: `http://localhost:3000/reviews/${e.target.className}/report`,
+          url: `/reviews/${e.target.className}/report`,
           method: 'put'
         }
         await axios(config)

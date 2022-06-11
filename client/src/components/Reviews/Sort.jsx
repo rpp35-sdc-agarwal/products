@@ -58,7 +58,7 @@ class Sort extends React.Component {
   async reviewReq() {
     var config = {
       method: 'get',
-      url: 'http://localhost:3000/reviews',
+      url: '/reviews',
       params: {
         filter: 'relevant',
         product_id: this.props.product_id,
@@ -83,7 +83,7 @@ class Sort extends React.Component {
     if (filter === 'relevant') {
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
           filter: 'relevant',
           product_id: this.state.data.product,
@@ -104,7 +104,7 @@ class Sort extends React.Component {
       //sort so the reviews with the highest helpfulness are first
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
           filter: 'helpful',
           product_id: this.state.data.product,
@@ -125,7 +125,7 @@ class Sort extends React.Component {
       //sort so the reviews that were created most recently are first
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
           filter: 'newest',
           product_id: this.state.data.product,

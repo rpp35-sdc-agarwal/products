@@ -16,7 +16,7 @@ app.use(cookieSession({
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors())
+app.use(cors());
 
 const getRelated = require('./middleware/relatedProducts.js')
 const addOutfit = require('./middleware/addOutfit.js')
@@ -166,7 +166,10 @@ app.post('/reviews', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
     method: 'post',
-    headers: { 'Authorization': API },
+    headers: {
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
+    },
     data: query
   }
   console.log(config);
