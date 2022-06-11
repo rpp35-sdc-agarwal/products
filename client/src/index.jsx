@@ -7,7 +7,7 @@ import Questions from './components/Questions/Questions.jsx';
 import ReviewsContainer from './components/Reviews/ReviewsContainer.jsx';
 import ProductOverview from './components/ProductOverview/ProductOverview.jsx';
 import Carousel from './components/RelatedItems/Carousel.jsx';
-import RelatedItems from './components/RelatedItems/RelatedItems.jsx';
+import RelatedItems from './components/RelatedItems/relatedItems.jsx';
 import listProducts from '../data/listProducts.js'
 
 
