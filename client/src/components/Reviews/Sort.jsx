@@ -55,17 +55,17 @@ class Sort extends React.Component {
     this.setState({ reviews: this.state.data.results });
   }
 
-  reviewReq() {
+  async reviewReq() {
     var config = {
       method: 'get',
-      url: 'http://localhost:3000/reviews',
+      url: '/reviews',
       params: {
         filter: 'relevant',
         product_id: this.props.product_id,
         count: this.props.total
       }
     }
-    axios(config)
+    await axios(config)
       .then((data) => {
         this.setState({
           data: data.data,
@@ -77,20 +77,19 @@ class Sort extends React.Component {
       });
   }
 
-  changeHandler(e) {
+  async changeHandler(e) {
     var filter = e.target.value;
-    console.log('changed')
-    if (filter === 'relevant') {
+    console.log(typeof filter);
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
-          filter: 'relevant',
+          filter: e.target.value,
           product_id: this.state.data.product,
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,
@@ -100,49 +99,6 @@ class Sort extends React.Component {
         .catch((err) => {
           console.log(err);
         });
-    } else if (filter === 'helpful') {
-      //sort so the reviews with the highest helpfulness are first
-      var config = {
-        method: 'get',
-        url: 'http://localhost:3000/reviews',
-        params: {
-          filter: 'helpful',
-          product_id: this.state.data.product,
-          count: this.props.total
-        }
-      }
-      axios(config)
-          .then((data) => {
-        this.setState({
-          data: data.data,
-          reviews: data.data.results
-        });
-      })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else if (filter === 'newest') {
-      //sort so the reviews that were created most recently are first
-      var config = {
-        method: 'get',
-        url: 'http://localhost:3000/reviews',
-        params: {
-          filter: 'newest',
-          product_id: this.state.data.product,
-          count: this.props.total
-        }
-      }
-      axios(config)
-          .then((data) => {
-        this.setState({
-          data: data.data,
-          reviews: data.data.results
-        });
-      })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
   }
   //all message management will be handled by sort.
   //messages will be passed down to list in the order that they should be rendered
