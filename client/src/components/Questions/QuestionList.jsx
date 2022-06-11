@@ -35,7 +35,6 @@ class QuestionList extends React.Component {
             return (
               <QuestionView key={question.question_id} question={question} currentProductName={this.props.currentProductName} questionId={question.question_id} />
             )
-            
           }
         }
         )}

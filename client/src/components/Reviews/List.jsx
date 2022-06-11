@@ -1,8 +1,8 @@
 import React from 'react';
-import Photos from './tileComponents/Photos.jsx';
-import Body from './tileComponents/ReviewBody.jsx';
+import Photos from './TileComponents/Photos.jsx';
+import Body from './TileComponents/ReviewBody.jsx';
 import axios from 'axios';
-import ReviewForm from './tileComponents/ReviewForm.jsx';
+import ReviewForm from './TileComponents/ReviewForm.jsx';
 import StarRating from '../RelatedItems/StarRating.jsx';
 
 class List extends React.Component {
