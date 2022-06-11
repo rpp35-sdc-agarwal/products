@@ -1,8 +1,8 @@
 import React from 'react';
-import Photos from './tileComponents/Photos.jsx';
-import Body from './tileComponents/ReviewBody.jsx';
+import Photos from './TileComponents/Photos.jsx';
+import Body from './TileComponents/ReviewBody.jsx';
 import axios from 'axios';
-import ReviewForm from './tileComponents/ReviewForm.jsx';
+import ReviewForm from './TileComponents/ReviewForm.jsx';
 import StarRating from '../RelatedItems/StarRating.jsx';
 
 class List extends React.Component {
@@ -61,30 +61,30 @@ class List extends React.Component {
     return date;
   }
 
-  helpfulHandler(e) {
+  async helpfulHandler(e) {
     //when the yes is clicked, disable the clickability of the yes element
     console.log('listening', e.target.innerHTML);
     this.setState({ [e.target.className]: true })
     //send a request to the api to mark the review as helpful
     var config = {
-      url: `http://localhost:3000/reviews/${e.target.className}/helpful`,
+      url: `/reviews/${e.target.className}/helpful`,
       method: 'put'
     }
-    axios(config)
+    await axios(config)
       .then((response) => { console.log(response) })
       .catch((err) => { console.log(err) });
   }
 
-  reportHandler(e) {
+  async reportHandler(e) {
         //when the yes is clicked, disable the clickability of the yes element
         console.log('reporting', e.target.innerHTML);
         this.setState({ [e.target.className + 'Report']: true })
         //send a request to the api to mark the review as helpful
         var config = {
-          url: `http://localhost:3000/reviews/${e.target.className}/report`,
+          url: `/reviews/${e.target.className}/report`,
           method: 'put'
         }
-        axios(config)
+        await axios(config)
           .then((response) => { console.log(response) })
           .catch((err) => { console.log(err) });
   }

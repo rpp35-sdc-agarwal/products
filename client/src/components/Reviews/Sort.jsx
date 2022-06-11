@@ -55,17 +55,17 @@ class Sort extends React.Component {
     this.setState({ reviews: this.state.data.results });
   }
 
-  reviewReq() {
+  async reviewReq() {
     var config = {
       method: 'get',
-      url: 'http://localhost:3000/reviews',
+      url: '/reviews',
       params: {
         filter: 'relevant',
         product_id: this.props.product_id,
         count: this.props.total
       }
     }
-    axios(config)
+    await axios(config)
       .then((data) => {
         this.setState({
           data: data.data,
@@ -77,20 +77,20 @@ class Sort extends React.Component {
       });
   }
 
-  changeHandler(e) {
+  async changeHandler(e) {
     var filter = e.target.value;
     console.log('changed')
     if (filter === 'relevant') {
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
           filter: 'relevant',
           product_id: this.state.data.product,
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,
@@ -104,14 +104,14 @@ class Sort extends React.Component {
       //sort so the reviews with the highest helpfulness are first
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
           filter: 'helpful',
           product_id: this.state.data.product,
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,
@@ -125,14 +125,14 @@ class Sort extends React.Component {
       //sort so the reviews that were created most recently are first
       var config = {
         method: 'get',
-        url: 'http://localhost:3000/reviews',
+        url: '/reviews',
         params: {
           filter: 'newest',
           product_id: this.state.data.product,
           count: this.props.total
         }
       }
-      axios(config)
+      await axios(config)
           .then((data) => {
         this.setState({
           data: data.data,

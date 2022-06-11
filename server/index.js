@@ -1,6 +1,7 @@
 var cookieSession = require('cookie-session')
 const express = require('express');
-const API = require('../config.js')
+const API = require('../config.js');
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -15,6 +16,7 @@ app.use(cookieSession({
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 
 const getRelated = require('./middleware/relatedProducts.js')
 const addOutfit = require('./middleware/addOutfit.js')
@@ -164,7 +166,10 @@ app.post('/reviews', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
     method: 'post',
-    headers: { 'Authorization': API },
+    headers: {
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
+    },
     data: query
   }
   console.log(config);
@@ -181,7 +186,10 @@ app.get('/reviews/meta', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta',
     method: 'get',
-    headers: { 'Authorization': API },
+    headers: {
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
+    },
     params: {
       product_id: parseInt(req.query.product_id)
     }
@@ -201,7 +209,8 @@ app.put('/reviews/:review_id/helpful', (req, res) => {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/helpful`,
     method: 'put',
     headers: {
-      'Authorization': API
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
     }
   }
   axios(config)
@@ -223,7 +232,8 @@ app.put('/reviews/:review_id/report', (req, res) => {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/report`,
     method: 'put',
     headers: {
-      'Authorization': API
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
     }
   }
   axios(config)
