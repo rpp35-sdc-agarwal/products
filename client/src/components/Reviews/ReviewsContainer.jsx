@@ -42,7 +42,7 @@ class ReviewsContainer extends React.Component {
   async metaReq() {
     var config = {
       method: 'get',
-      url: 'http://localhost:3000/reviews/meta',
+      url: '/reviews/meta',
       params: {
         product_id: this.props.product_id
       }
