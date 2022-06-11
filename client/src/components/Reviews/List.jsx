@@ -115,6 +115,9 @@ class List extends React.Component {
       var moreRevs =  <button className="general-button" onClick={this.addTwoRevs}>MORE REVIEWS</button>
     }
     //this.state[review.review_id] ? : null
+
+
+
     return (
       <div>
         <div data-testid="test_revList" className="rev_list">
@@ -128,8 +131,10 @@ class List extends React.Component {
                     <Body body={review.body}/>
                     <Photos photos={review.photos}/>
                   </div>
-                  <div className="tile_padding">
-                    {review.recommend ? 'checkmark I recommend this product' : ''}
+                  <div className="tile_padding tile_peripheral">
+                    {review.recommend ? <>
+                      <span className="checkmark"></span> I recommend this product
+                    </> : null}
                   </div>
                   {review.response ? this.createResponse(review.response) : null}
                   <div className="rev-helpfulness tile_padding tile_peripheral">

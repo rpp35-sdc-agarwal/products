@@ -571,7 +571,6 @@ select:-moz-focusring {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: #ccc;
-
 }
 
 .star-inner {
@@ -989,7 +988,7 @@ div.close {
 }
 
 .ReviewsContainer {
-  width: 1200px;
+  width: 72vw;
   /* max-width: fit-content; */
   margin-left: auto;
   margin-right: auto;
@@ -1064,6 +1063,11 @@ div.close {
 
 .rev-summary {
   font-size: larger;
+}
+
+.breakdown-star-summary {
+  font-size: xx-large;
+
 }
 
 .yes_padding {
@@ -1163,7 +1167,7 @@ div.close {
   color: rgb(90, 90, 90);
   cursor: pointer;
   background-color: rgb(255, 255, 255);
-  width: 180px;
+  width: 90%;
   height: 35px;
   border-color: rgb(90, 90, 90);
 }
@@ -1195,8 +1199,6 @@ div.close {
   color: #ccc;
 }
 
-
-
 .form-rating::backdrop {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Free";
@@ -1225,6 +1227,10 @@ div.close {
   font-size: larger;
 }
 
-.pad {
-  padding: 10px;
+.checkmark::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+
 }

@@ -123,8 +123,9 @@ class RatingBreakdown extends React.Component {
     };
 
     return (
-      <div data-testid="test_revRatingBreakdown" className="rev_rating_breakdown">
-        <StarRating rating={this.state.avgScore} /><b className="rev-summary">{this.state.avgScore} Stars</b>
+      <div data-testid="test_revRatingBreakdown" className="">
+        <b className="breakdown-star-summary">{this.state.avgScore}</b>
+        <span><StarRating rating={this.state.avgScore} /></span>
         <div className="breakdown_padding">{this.state.recommended}% of reviews recommended this product</div>
         <div>
           <div className="5 rev-rating-bars" onClick={this.props.filterHandle}><u className="5">5 stars</u> <BarRating name="5" rating={this.state.revBreakdown[5]} /></div>

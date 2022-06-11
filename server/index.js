@@ -150,7 +150,6 @@ app.get('/reviews', (req, res) => {
       console.log(err.config);
       res.status(err.status).send(`There has been an error: ${err}`);
     })
-
 });
 
 app.post('/reviews', (req, res) => {
