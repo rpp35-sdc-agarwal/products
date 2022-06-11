@@ -12,12 +12,14 @@ class OutfitCarousel extends React.Component {
     this.state = {
       currentIndex: 0,
       outfitItems: [],
-      currentProductId: ''
+      currentProductId: '',
+      // isAdded: false
     }
     this.addOutfit = this.addOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
+    this.handleStarClick = this.handleStarClick.bind(this);
   }
 
   addOutfit() {
@@ -81,11 +83,26 @@ class OutfitCarousel extends React.Component {
 
 }
 
+  handleStarClick() {
+    // if(!this.state.isAdded) {
+      this.addOutfit();
+      // this.setState({
+      //   isAdded: !this.state.isAdded
+      // })
+    // } else {
+    //   this.setState({
+    //     isAdded: !this.state.isAdded
+    //   })
+    //   this.deleteOutfit(this.props.currentProductId)
+    // }
+  }
+
   render() {
 
     return (
 
       <div className="wrapper outfit">
+        {/* <button className="tooltip" id='starButton2' onClick={this.handleStarClick}></button> */}
         <AddOutfit addOutfit={this.addOutfit}
         currentProductId={this.props.currentProductId}/>
 
