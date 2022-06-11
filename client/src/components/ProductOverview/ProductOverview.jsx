@@ -55,7 +55,8 @@ class ProductOverview extends React.Component {
       let data = {};
       this.setState({
         currentProductId: this.props.currentProductId,
-        avgRating: this.props.avgRating
+        avgRating: this.props.avgRating,
+        totalRevs: this.props.totalRevs
       }, ()=>{
         this.retrieveProductInfo(Number(this.state.currentProductId))
           .then((results) => {
