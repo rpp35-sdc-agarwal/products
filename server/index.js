@@ -181,7 +181,10 @@ app.get('/reviews/meta', (req, res) => {
   var config = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta',
     method: 'get',
-    headers: { 'Authorization': API },
+    headers: {
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
+    },
     params: {
       product_id: parseInt(req.query.product_id)
     }
@@ -201,7 +204,8 @@ app.put('/reviews/:review_id/helpful', (req, res) => {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/helpful`,
     method: 'put',
     headers: {
-      'Authorization': API
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
     }
   }
   axios(config)
@@ -223,7 +227,8 @@ app.put('/reviews/:review_id/report', (req, res) => {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/report`,
     method: 'put',
     headers: {
-      'Authorization': API
+      'Authorization': API,
+      "Access-Control-Allow-Origin": "*"
     }
   }
   axios(config)
