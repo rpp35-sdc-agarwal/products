@@ -1,6 +1,7 @@
 var cookieSession = require('cookie-session')
 const express = require('express');
-const API = require('../config.js')
+const API = require('../config.js');
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -15,6 +16,7 @@ app.use(cookieSession({
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors())
 
 const getRelated = require('./middleware/relatedProducts.js')
 const addOutfit = require('./middleware/addOutfit.js')
