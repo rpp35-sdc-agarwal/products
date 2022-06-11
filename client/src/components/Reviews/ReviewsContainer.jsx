@@ -83,7 +83,7 @@ class ReviewsContainer extends React.Component {
       <>
         <div data-testid="test_revContainer" className="reviews_container">
           <div className="breakdown_container">
-            <div><h3>Ratings and Reviews</h3></div>
+            <div><h2>Customer Reviews</h2></div>
             <RatingBreakdown className= "rev_review_breakdown" filters={this.state.filters} resetFilters={this.resetFilters} filterHandle={this.filterHandle} setAvg={this.props.setAvg} metaData={this.state.metaData}/>
             <ProductBreakdown metaData={this.state.metaData}/>
           </div>
