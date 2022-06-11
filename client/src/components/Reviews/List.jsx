@@ -61,7 +61,7 @@ class List extends React.Component {
     return date;
   }
 
-  helpfulHandler(e) {
+  async helpfulHandler(e) {
     //when the yes is clicked, disable the clickability of the yes element
     console.log('listening', e.target.innerHTML);
     this.setState({ [e.target.className]: true })
@@ -70,12 +70,12 @@ class List extends React.Component {
       url: `http://localhost:3000/reviews/${e.target.className}/helpful`,
       method: 'put'
     }
-    axios(config)
+    await axios(config)
       .then((response) => { console.log(response) })
       .catch((err) => { console.log(err) });
   }
 
-  reportHandler(e) {
+  async reportHandler(e) {
         //when the yes is clicked, disable the clickability of the yes element
         console.log('reporting', e.target.innerHTML);
         this.setState({ [e.target.className + 'Report']: true })
@@ -84,7 +84,7 @@ class List extends React.Component {
           url: `http://localhost:3000/reviews/${e.target.className}/report`,
           method: 'put'
         }
-        axios(config)
+        await axios(config)
           .then((response) => { console.log(response) })
           .catch((err) => { console.log(err) });
   }
