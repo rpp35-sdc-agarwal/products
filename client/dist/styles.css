@@ -866,6 +866,7 @@ ul.cardHolder {
   padding: 20px;
   border-radius: 5px;
   border: 2px solid black;
+  z-index: 20;
 }
 
 .QA-form {
