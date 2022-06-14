@@ -4,6 +4,7 @@ const API = require('../config.js');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const axios = require('axios');
 app.set('trust proxy', 1) // trust first proxy
 
@@ -17,6 +18,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
+app.use(compression());
 
 const getRelated = require('./middleware/relatedProducts.js')
 const addOutfit = require('./middleware/addOutfit.js')
