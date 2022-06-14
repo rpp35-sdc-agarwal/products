@@ -47,7 +47,9 @@ class ProductOverview extends React.Component {
     if(prevProps.currentProductId !== this.props.currentProductId) {
       let data = {};
       this.setState({
-        currentProductId: this.props.currentProductId
+        currentProductId: this.props.currentProductId,
+        avgRating: this.props.avgRating,
+        totalRevs: this.props.totalRevs
       }, ()=>{
         this.retrieveProductInfo(Number(this.state.currentProductId))
           .then((results) => {
@@ -69,6 +71,13 @@ class ProductOverview extends React.Component {
           })
       })
     }
+  }
+
+  UNSAFE_componentWillReceiveProps(props) {
+    this.setState({
+      avgRating: props.avgRating,
+      totalRevs: props.totalRevs
+    })
   }
 
   handleStyleChange(styleId) {
@@ -100,11 +109,11 @@ class ProductOverview extends React.Component {
         <div id='OverviewContainer' data-testid='test_ProductOverview'>
           <ImageGallery currentStyle = {this.state.currentStyle}/>
           <div className="product-options">
-            <ProductInfo productInfo = {this.state.currentProduct.productInfo} currentStyle = {this.state.currentStyle} avgRating={this.props.avgRating}/>
+            <ProductInfo productInfo = {this.state.currentProduct.productInfo} currentStyle = {this.state.currentStyle} avgRating={this.state.avgRating} totalRevs={this.state.totalRevs}/>
             <StyleSelector handleStyleChange={this.handleStyleChange} styles = {this.state.currentProduct.productStyles.results} currentStyle = {this.state.currentStyle}/>
             <AddToCart currentStyle = {this.state.currentStyle}/>
           </div>
-          
+
           <Slogan productInfo = {this.state.currentProduct.productInfo}/>
         </div>
       )
