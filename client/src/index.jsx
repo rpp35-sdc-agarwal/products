@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 import productListExample from './examples/productList-example.js';
-import Questions from './components/Questions/Questions.jsx';
-import ReviewsContainer from './components/Reviews/ReviewsContainer.jsx';
-import ProductOverview from './components/ProductOverview/ProductOverview.jsx';
-import Carousel from './components/RelatedItems/Carousel.jsx';
-import RelatedItems from './components/RelatedItems/relatedItems.jsx';
-import listProducts from '../data/listProducts.js'
+// import Questions from './components/Questions/Questions.jsx';
+const Questions = React.lazy(() => import('./components/Questions/Questions.jsx'));
+// import ReviewsContainer from './components/Reviews/ReviewsContainer.jsx';
+const ReviewsContainer = React.lazy(() => import('./components/Reviews/ReviewsContainer.jsx'));
+// import ProductOverview from './components/ProductOverview/ProductOverview.jsx';
+const ProductOverview = React.lazy(() => import('./components/ProductOverview/ProductOverview.jsx'));
+// import Carousel from './components/RelatedItems/Carousel.jsx';
+const Carousel = React.lazy(() => import('./components/RelatedItems/Carousel.jsx'));
+// import RelatedItems from './components/RelatedItems/relatedItems.jsx';
+const RelatedItems = React.lazy(() => import('./components/RelatedItems/relatedItems.jsx'));
+// import listProducts from '../data/listProducts.js'
+
 
 
 class App extends React.Component {
