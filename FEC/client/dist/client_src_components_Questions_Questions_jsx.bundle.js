@@ -124,7 +124,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************/
 /***/ ((module) => {
 
-eval("var API_KEY = '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';\nmodule.exports = API_KEY;\n\n//# sourceURL=webpack://fec/./config.js?");
+eval("module.exports = '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';\n\n//# sourceURL=webpack://fec/./config.js?");
 
 /***/ })
 

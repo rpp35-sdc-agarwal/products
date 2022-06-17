@@ -4,8 +4,6 @@ const API = require('../../config.js')
 
 const getRelatedProducts = (req, res, next) => {
   var id = req.params.product_id
-  console.log('what is id', id)
-
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/related`, {
     headers: {
       'Authorization': API
@@ -50,8 +48,6 @@ const getRelatedProducts = (req, res, next) => {
 
 const getRelatedStyles = (req, res, next) => {
   var id = req.params.product_id
-  console.log('what is id', id)
-
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/related`, {
     headers: {
       'Authorization': API
@@ -130,7 +126,6 @@ const addPriceToProducts = (req, res, next) => {
 
 const getReviews = (req, res, next) => {
   var id = req.params.product_id
-  console.log('what is id', id)
 
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/related`, {
     headers: {

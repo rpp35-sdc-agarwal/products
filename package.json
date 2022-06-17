@@ -1,68 +1,26 @@
 {
-  "name": "fec",
+  "name": "overview",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack --mode development --watch",
-    "server-dev": "npx nodemon server/index.js",
-    "test": "jest --coverage",
-    "clear_jest": "jest --clearCache"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rpp35-Fec-Ethernet/Fec.git"
+    "url": "git+https://github.com/rpp35-sdc-agarwal/Overview.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rpp35-Fec-Ethernet/Fec/issues"
+    "url": "https://github.com/rpp35-sdc-agarwal/Overview/issues"
   },
-  "homepage": "https://github.com/Rpp35-Fec-Ethernet/Fec#readme",
-  "jest": {
-    "verbose": true,
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "jsx",
-      "js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/examples/"
-    ]
-  },
+  "homepage": "https://github.com/rpp35-sdc-agarwal/Overview#readme",
   "dependencies": {
-    "axios": "^0.27.2",
-    "body-parser": "^1.20.0",
-    "cookie-session": "^2.0.0",
-    "cors": "^2.8.5",
     "express": "^4.18.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-magnifier": "^3.0.4",
-    "react-scroll": "^1.8.7"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.17.10",
-    "@babel/plugin-transform-runtime": "^7.18.0",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^14.2.0",
-    "babel-loader": "^8.2.5",
-    "compression": "^1.7.4",
-    "css-loader": "^6.7.1",
-    "eslint": "^8.14.0",
-    "eslint-plugin-react": "^7.29.4",
-    "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0",
+    "jest": "^28.1.1",
     "nodemon": "^2.0.16",
-    "npm": "^8.9.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-merge": "^5.8.0"
+    "supertest": "^6.2.3"
   }
 }

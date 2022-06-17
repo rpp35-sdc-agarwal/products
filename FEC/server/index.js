@@ -50,8 +50,6 @@ app.get('/products', (req, res) => {
 
 
 app.get('/products/:product_id', (req, res) => {
-
-  console.log('what is id', req.params.product_id)
   var id = req.params.product_id
   axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}`, {
     headers: {
@@ -59,7 +57,6 @@ app.get('/products/:product_id', (req, res) => {
     }
   })
   .then(response => {
-    console.log('what is response', response)
     res.json(response.data);
   })
 
@@ -96,7 +93,6 @@ app.post('/addOutfit', [addOutfit.addOneOutfit, addOutfit.addStyleToOutfit, addO
 })
 
 app.post('/deleteOutfit', [addOutfit.deleteOutfit], (req, res) => {
-  console.log('what are outfits after delete', req.session.outfits)
   res.json(req.session.outfits)
 })
 
@@ -149,7 +145,6 @@ app.get('/reviews', (req, res) => {
       res.status(data.status).send(data.data);
     })
     .catch((err) => {
-      console.log(err.config);
       res.status(err.status).send(`There has been an error: ${err}`);
     })
 });
@@ -173,7 +168,6 @@ app.post('/reviews', (req, res) => {
     },
     data: query
   }
-  console.log(config);
   axios(config)
     .then((data) => {
       res.status(data.status).send(data.data);
@@ -205,7 +199,6 @@ app.get('/reviews/meta', (req, res) => {
 });
 
 app.put('/reviews/:review_id/helpful', (req, res) => {
-  console.log(req.params);
   var config = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/helpful`,
     method: 'put',
@@ -228,7 +221,6 @@ app.put('/reviews/:review_id/helpful', (req, res) => {
 })
 
 app.put('/reviews/:review_id/report', (req, res) => {
-  console.log(req.params);
   var config = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${req.params.review_id}/report`,
     method: 'put',
