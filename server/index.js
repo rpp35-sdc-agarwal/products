@@ -2,7 +2,7 @@ import express from 'express';
 const app = express();
 
 // example data to be replaced with an actual database
-import exampleData from './exampleData.js';
+import exampleData from './test/exampleData.js';
 
 app.get('/products/:product_id', (req, res) => {
   let product_id = req.params.product_id;
