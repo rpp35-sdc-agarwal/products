@@ -16,7 +16,7 @@ describe('Initialize testing suite', () => {
     });
     test('should send back correct product information', async () => {
       const response = await request(app).get(`/products/${product_id}`);
-      expect(response.data).toBe(exampleData.products);
+      expect(response.body).toStrictEqual(exampleData.product);
     });
   });
 
@@ -29,9 +29,9 @@ describe('Initialize testing suite', () => {
       const response = await request(app).get(`/products/${product_id}/styles`);
       expect(response.headers['content-type']).toEqual(expect.stringContaining('json'));
     });
-    test('should send back correct product information', async () => {
+    test('should send back correct product styles', async () => {
       const response = await request(app).get(`/products/${product_id}/styles`);
-      expect(response.data).toBe(exampleData.products);
+      expect(response.body).toStrictEqual(exampleData.styles);
     });
   });
 })
