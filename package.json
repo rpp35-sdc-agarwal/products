@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test-server": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage -- index.test.js",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "postgres-start": "brew services start postgresql",
+    "postgres-stop": "brew services stop postgresql"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,9 @@
   "homepage": "https://github.com/rpp35-sdc-agarwal/Overview#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "postgres": "^3.2.4",
+    "sequelize": "^6.21.0"
   },
   "devDependencies": {
     "jest": "^28.1.1",
