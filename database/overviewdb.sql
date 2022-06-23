@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS styles (
   id                INT       NOT NULL PRIMARY KEY,
   productId         INT       NOT NULL,
   name              TEXT      NOT NULL,
-  sale_price        TEXT,
+  sale_price        INT,
   original_price    INT       NOT NULL,
   default_style     INT       NOT NULL,
   FOREIGN KEY (productId)

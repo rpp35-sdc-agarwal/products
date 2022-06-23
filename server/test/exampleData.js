@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   product: {
     "id": 71699,
     "campus": "hr-rpp",
