@@ -8,23 +8,23 @@ let Products = db.define('products', {
     primaryKey: true
   },
   name: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   slogan: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   description: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   category: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   default_price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   }
 });
@@ -36,11 +36,11 @@ let Features = db.define('features', {
     primaryKey: true
   },
   feature: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   value: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   }
 });
@@ -60,7 +60,7 @@ let Styles = db.define('styles', {
     primaryKey: true
   },
   name: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   },
   sale_price: {
@@ -72,7 +72,7 @@ let Styles = db.define('styles', {
     allowNull: false
   },
   default_style: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.BOOLEAN,
     allowNull: false
   }
 });
@@ -92,11 +92,11 @@ let Photos = db.define('photos', {
     primaryKey: true
   },
   url: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: true
   },
   thumbnail_url: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING,
     allowNull: true
   }
 });
@@ -120,7 +120,7 @@ let Skus = db.define('skus', {
     allowNull: false
   },
   size: {
-    type: Sequelize.TEXT,
+    type: Sequelize.STRING(10),
     allowNull: false
   }
 });
