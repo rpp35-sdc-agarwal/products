@@ -1,8 +1,7 @@
 const express = require('express');
-
 const router = express.Router();
 const db = require('../database.js')
-let { Products }= require('../models.js');
+let { Products } = require('../models.js');
 
 router.get('/', (req, res) => {
   Products.findAll()

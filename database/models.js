@@ -8,25 +8,27 @@ let Products = db.define('products', {
     primaryKey: true
   },
   name: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   slogan: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   category: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   default_price: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 let Features = db.define('features', {
@@ -36,22 +38,25 @@ let Features = db.define('features', {
     primaryKey: true
   },
   feature: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   value: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 Products.hasMany(Features, {
   foreignKey: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    name: 'product_id'
   }
 });
-Features.belongsTo(Products);
+Features.belongsTo(Products, { foreignKey: 'product_id' } );
 
 let Styles = db.define('styles', {
   id: {
@@ -60,30 +65,33 @@ let Styles = db.define('styles', {
     primaryKey: true
   },
   name: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   sale_price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.TEXT,
     allowNull: true
   },
   original_price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   default_style: {
     type: Sequelize.BOOLEAN,
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 Products.hasMany(Styles, {
   foreignKey: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    name: 'product_id'
   }
 });
-Styles.belongsTo(Products);
+Styles.belongsTo(Products, { foreignKey: 'product_id' } );
 
 let Photos = db.define('photos', {
   id: {
@@ -92,22 +100,25 @@ let Photos = db.define('photos', {
     primaryKey: true
   },
   url: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: true
   },
   thumbnail_url: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: true
   }
+}, {
+  timestamps: false
 });
 
 Styles.hasMany(Photos, {
   foreignKey: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    name: 'style_id'
   }
 });
-Photos.belongsTo(Styles);
+Photos.belongsTo(Styles, { foreignKey: 'style_id' } );
 
 let Skus = db.define('skus', {
   id: {
@@ -123,15 +134,18 @@ let Skus = db.define('skus', {
     type: Sequelize.STRING(10),
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 Styles.hasMany(Skus, {
   foreignKey: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    name: 'style_id'
   }
 });
-Skus.belongsTo(Styles);
+Skus.belongsTo(Styles, { foreignKey: 'style_id' } );
 
 let Cart = db.define('cart', {
   id: {
@@ -144,18 +158,21 @@ let Cart = db.define('cart', {
     allowNull: false
   },
   active: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.BOOLEAN,
     allowNull: false
   }
+}, {
+  timestamps: false
 });
 
 Products.hasMany(Cart, {
   foreignKey: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
+    name: 'product_id'
   }
 });
-Cart.belongsTo(Products);
+Cart.belongsTo(Products, { foreignKey: 'product_id' } );
 
 Products.sync();
 Features.sync();
