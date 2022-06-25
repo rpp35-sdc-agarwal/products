@@ -1,17 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database.js')
-let { Products } = require('../models.js');
+let ProductServices = require('../services/ProductsService.js');
 
-router.get('/', (req, res) => {
-  Products.findAll()
-    .then(products => {
-      console.log(products);
-      res.sendStatus(200);
-    })
-    .catch(err => {
-      console.log('Error: ', err);
-    });
+router.get('/', async (req, res) => {
+  res.send(await ProductServices.getAllProducts());
+})
+
+router.get('/:product_id', async (req, res) => {
+  res.send(await ProductServices.getOneProduct(req.params.product_id));
 })
 
 module.exports = router;
