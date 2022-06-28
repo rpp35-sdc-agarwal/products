@@ -1,16 +1,16 @@
-const Models = require('../models.js');
+let { Products } = require('../models.js');
 
 module.exports = {
   getAllProducts: async () => {
     try {
-      products = await Models.Products.findAll()
+      products = await Products.findAll()
     } catch(err) {
       console.log('Error: ', err);
     }
   },
   getOneProduct: async (product_id) => {
     try {
-      const product = await Models.Products.findOne({
+      const product = await Products.findOne({
         where: {id: product_id}
       });
       product.dataValues.features = [];
