@@ -4,6 +4,7 @@ const db = require('../database.js')
 let ProductsService = require('../services/ProductsService.js');
 let StylesService = require('../services/StylesService.js')
 
+// /product/
 router.get('/', async (req, res) => {
   res.send(await ProductsService.getAllProducts());
 })
