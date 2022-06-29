@@ -157,25 +157,26 @@ let Cart = db.define('cart', {
     autoIncrement: true
   },
   user_session: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.UUID,
     allowNull: false
   },
   active: {
     type: Sequelize.BOOLEAN,
-    allowNull: false
+    allowNull: false,
+    defaultValue: true
   }
 }, {
   timestamps: false
 });
 
-Products.hasMany(Cart, {
+Skus.hasMany(Cart, {
   foreignKey: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    name: 'product_id'
+    name: 'sku_id'
   }
 });
-Cart.belongsTo(Products, { foreignKey: 'product_id' } );
+Cart.belongsTo(Skus, { foreignKey: 'sku_id' } );
 
 // INTIALZING (SYNCING) TABLES TO DATABASES
 

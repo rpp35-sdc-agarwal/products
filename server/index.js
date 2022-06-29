@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const genuuid = require('uuid/v4');
+const { v4: genuuid } = require('uuid');
 const sessions = require('express-session');
 const cookieParser = require('cookie-parser');
 const oneDay = 1000 * 60 * 60 * 24;
@@ -15,7 +15,7 @@ app.use(sessions({
   saveUninitialized: true,
   cookie: { maxAge: oneDay },
   resave: false,
-  genid: (req) => {
+  genid: function (req) {
     console.log('session id created!');
     return genuuid();
   }

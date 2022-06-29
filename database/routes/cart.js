@@ -3,14 +3,12 @@ const router = express.Router();
 const db = require('../database.js')
 let CartService = require('../services/CartService.js');
 
-router.get('/:user_session', async (req, res) => {
-  console.log(req.session);
-  res.send(await CartService.getCart(req.params.user_session));
+router.get('/', async (req, res) => {
+  res.send(await CartService.getCart(req.session.id));
 })
 
 router.post('/:sku_id', async (req, res) => {
-  console.log(req.sessionID);
-  res.send(await CartService.postCart(req.params.sku_id));
+  res.send(await CartService.postCart(req.params.sku_id, req.session.id));
 })
 
 module.exports = router;
