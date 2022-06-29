@@ -1,9 +1,32 @@
 const express = require('express');
-const db = require('../database/database');
 const app = express();
+const genuuid = require('uuid/v4');
+const sessions = require('express-session');
+const cookieParser = require('cookie-parser');
+const oneDay = 1000 * 60 * 60 * 24;
+const db = require('../database/database');
 
 // example data to be replaced with an actual database
 let exampleData = require('./test/exampleData');
+
+// session middleware
+app.use(sessions({
+  secret: 'sdc-secret',
+  saveUninitialized: true,
+  cookie: { maxAge: oneDay },
+  resave: false,
+  genid: (req) => {
+    console.log('session id created!');
+    return genuuid();
+  }
+}))
+
+// parse incoming data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// cookie parser middleware
+app.use(cookieParser());
 
 
 // Testing database connection
@@ -13,12 +36,7 @@ let exampleData = require('./test/exampleData');
 
 // Routes
 app.use('/products', require('../database/routes/products.js'));
-app.use('/features', require('../database/routes/features.js'));
-app.use('/styles', require('../database/routes/styles.js'));
-app.use('/photos', require('../database/routes/photos.js'));
-app.use('/skus', require('../database/routes/skus.js'));
 app.use('/cart', require('../database/routes/cart.js'));
-
 
 app.get('/products/:product_id', (req, res) => {
   let product_id = req.params.product_id;

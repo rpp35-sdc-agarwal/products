@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const db = require('./database.js');
 
+// MODELS
+
 let Products = db.define('products', {
   id: {
     type: Sequelize.INTEGER,
@@ -151,7 +153,8 @@ let Cart = db.define('cart', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
   user_session: {
     type: Sequelize.INTEGER,
@@ -173,6 +176,8 @@ Products.hasMany(Cart, {
   }
 });
 Cart.belongsTo(Products, { foreignKey: 'product_id' } );
+
+// INTIALZING (SYNCING) TABLES TO DATABASES
 
 Products.sync();
 Features.sync();
