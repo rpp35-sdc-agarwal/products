@@ -3,7 +3,7 @@ let { Products, Features } = require('../models.js');
 module.exports = {
   getAllProducts: async () => {
     try {
-      let products = await Products.findAll()
+      return await Products.findAll({ limit: 5 })
     } catch(err) {
       console.log('Error: ', err);
     }

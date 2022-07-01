@@ -14,8 +14,10 @@ router.get('/:product_id', async (req, res) => {
 })
 
 router.get('/:product_id/styles', async (req, res) => {
-  let styles = await StylesService.getProductStyle(req.params.product_id);
-  res.status(200).send(styles);
+  let data = { product_id: req.params.product_id };
+  data.results = await StylesService.getProductStyle(req.params.product_id);
+  console.log(data);
+  res.status(200).send(data);
 })
 
 module.exports = router;

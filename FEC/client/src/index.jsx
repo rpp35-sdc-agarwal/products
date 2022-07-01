@@ -48,6 +48,7 @@ class App extends React.Component {
         // get id of first product
         // push state?
         var data = res.data;
+        console.log('products: ', data)
         var id = data[0].id;
         var state = history.state;
         var url = ''
@@ -66,14 +67,11 @@ class App extends React.Component {
 
         }, () => {
           // push state?
-          console.log('products: ', this.state.productList);
           this.setState({
             currentProductId: JSON.stringify(this.state.productList[0].id),
             currentProductName: this.state.productList[0].name,
             currentProductId: JSON.stringify(this.state.productList[0].id)
           }, () => {
-            console.log('current product id: ', this.state.currentProductId)
-            console.log('current product name: ', this.state.currentProductName)
           })
         })
       })
@@ -98,8 +96,6 @@ class App extends React.Component {
     this.setState({
       currentProductId: JSON.stringify(productId),
       currentProductName: productName
-    }, () => {
-      console.log('updated state: ', this.state.currentProductId)
     })
     /* We also need a click handler in the RelatedItems component to pass the the clicked product id to the App component and update id
     something like this:
@@ -110,7 +106,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('currentProductName: ', this.state.currentProductName)
     return(
       <div data-testid="test_app">
         {/* Make sure to comment out components that are not built yet to avoid errors*/}

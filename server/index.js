@@ -3,11 +3,14 @@ const app = express();
 const { v4: genuuid } = require('uuid');
 const sessions = require('express-session');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const oneDay = 1000 * 60 * 60 * 24;
 const db = require('../database/database');
 
 // example data to be replaced with an actual database
 let exampleData = require('./test/exampleData');
+
+app.use(cors());
 
 // session middleware
 app.use(sessions({

@@ -34,7 +34,7 @@ app.use('/ip*', (req, res) => {
 
 app.get('/products', (req, res) => {
 
-  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products`, {
+  axios(`http://localhost:8080/products`, {
     headers: {
       'Authorization': API
     }
@@ -51,7 +51,7 @@ app.get('/products', (req, res) => {
 
 app.get('/products/:product_id', (req, res) => {
   var id = req.params.product_id
-  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}`, {
+  axios(`http://localhost:8080/products/${id}`, {
     headers: {
       'Authorization': API
     }
