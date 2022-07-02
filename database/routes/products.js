@@ -16,7 +16,6 @@ router.get('/:product_id', async (req, res) => {
 router.get('/:product_id/styles', async (req, res) => {
   let data = { product_id: req.params.product_id };
   data.results = await StylesService.getProductStyle(req.params.product_id);
-  console.log(data);
   res.status(200).send(data);
 })
 

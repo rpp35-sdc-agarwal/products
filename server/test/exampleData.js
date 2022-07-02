@@ -1,382 +1,361 @@
 module.exports = {
   product: {
     "id": 71699,
-    "campus": "hr-rpp",
-    "name": "Morning Joggers",
-    "slogan": "Make yourself a morning person",
-    "description": "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
-    "category": "Pants",
-    "default_price": "40.00",
-    "created_at": "2022-05-11T19:38:15.373Z",
-    "updated_at": "2022-05-11T19:38:15.373Z",
+    "name": "Fiona Dress",
+    "slogan": "Porro dolores soluta inventore rerum vitae quia quas amet quia.",
+    "description": "Dolore voluptatum voluptas qui atque fuga hic. Labore vel ea in accusantium iusto doloribus voluptas et ut. Ea voluptatem ut. Ab sint laboriosam officiis. Amet autem est debitis illum.",
+    "category": "Dress",
+    "default_price": "389",
     "features": [
         {
-            "feature": "Fabric",
-            "value": "100% Cotton"
+            "id": 159381,
+            "feature": "Buttons",
+            "value": "Ivory",
+            "product_id": 71699
         },
         {
-            "feature": "Cut",
-            "value": "Skinny"
+            "id": 159382,
+            "feature": "Fair Trade Certified",
+            "value": "null",
+            "product_id": 71699
+        }
+      ]
+  },
+  style: {
+    "product_id": "71699",
+    "results": [
+        {
+            "id": 141068,
+            "name": "Olive",
+            "sale_price": "null",
+            "original_price": "389",
+            "default_style": false,
+            "product_id": 71699,
+            "photos": [
+                {
+                    "id": 407950,
+                    "url": "https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1511&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1513531926349-466f15ec8cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141068
+                },
+                {
+                    "id": 407951,
+                    "url": "https://images.unsplash.com/photo-1488554378835-f7acf46e6c98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141068
+                },
+                {
+                    "id": 407952,
+                    "url": "https://images.unsplash.com/photo-1519862170344-6cd5e49cb996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1515110371136-7e393289662c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141068
+                }
+            ],
+            "skus": {
+                "813633": {
+                    "quantity": 48,
+                    "size": "XS"
+                },
+                "813634": {
+                    "quantity": 37,
+                    "size": "S"
+                },
+                "813635": {
+                    "quantity": 8,
+                    "size": "M"
+                },
+                "813636": {
+                    "quantity": 38,
+                    "size": "L"
+                },
+                "813637": {
+                    "quantity": 17,
+                    "size": "XL"
+                },
+                "813638": {
+                    "quantity": 53,
+                    "size": "XXL"
+                }
+            }
+        },
+        {
+            "id": 141064,
+            "name": "Purple",
+            "sale_price": "null",
+            "original_price": "389",
+            "default_style": true,
+            "product_id": 71699,
+            "photos": [
+                {
+                    "id": 407938,
+                    "url": "https://images.unsplash.com/photo-1558191053-c03db2757e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141064
+                },
+                {
+                    "id": 407939,
+                    "url": "https://images.unsplash.com/photo-1514866726862-0f081731e63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1430390456011-25ac9244999c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141064
+                },
+                {
+                    "id": 407940,
+                    "url": "https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141064
+                }
+            ],
+            "skus": {
+                "813609": {
+                    "quantity": 49,
+                    "size": "XS"
+                },
+                "813610": {
+                    "quantity": 48,
+                    "size": "S"
+                },
+                "813611": {
+                    "quantity": 46,
+                    "size": "M"
+                },
+                "813612": {
+                    "quantity": 32,
+                    "size": "L"
+                },
+                "813613": {
+                    "quantity": 31,
+                    "size": "XL"
+                },
+                "813614": {
+                    "quantity": 54,
+                    "size": "XXL"
+                }
+            }
+        },
+        {
+            "id": 141065,
+            "name": "Lime",
+            "sale_price": "null",
+            "original_price": "389",
+            "default_style": false,
+            "product_id": 71699,
+            "photos": [
+                {
+                    "id": 407941,
+                    "url": "https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1511&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1554774853-d50f9c681ae2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141065
+                },
+                {
+                    "id": 407942,
+                    "url": "https://images.unsplash.com/photo-1517720359744-6d12f8a09b10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141065
+                },
+                {
+                    "id": 407943,
+                    "url": "https://images.unsplash.com/photo-1501813722636-45de2fe4f9b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1530073391204-7b34a1497281?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141065
+                },
+                {
+                    "id": 407944,
+                    "url": "https://images.unsplash.com/photo-1513531926349-466f15ec8cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1513531926349-466f15ec8cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141065
+                }
+            ],
+            "skus": {
+                "813615": {
+                    "quantity": 46,
+                    "size": "XS"
+                },
+                "813616": {
+                    "quantity": 38,
+                    "size": "S"
+                },
+                "813617": {
+                    "quantity": 17,
+                    "size": "M"
+                },
+                "813618": {
+                    "quantity": 34,
+                    "size": "L"
+                },
+                "813619": {
+                    "quantity": 48,
+                    "size": "XL"
+                },
+                "813620": {
+                    "quantity": 25,
+                    "size": "XXL"
+                }
+            }
+        },
+        {
+            "id": 141066,
+            "name": "Pink",
+            "sale_price": "null",
+            "original_price": "389",
+            "default_style": false,
+            "product_id": 71699,
+            "photos": [
+                {
+                    "id": 407945,
+                    "url": "https://images.unsplash.com/photo-1547257965-087be799b084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141066
+                },
+                {
+                    "id": 407946,
+                    "url": "https://images.unsplash.com/photo-1501813722636-45de2fe4f9b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1532244769164-ff64ddeefa45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141066
+                }
+            ],
+            "skus": {
+                "813621": {
+                    "quantity": 54,
+                    "size": "XS"
+                },
+                "813622": {
+                    "quantity": 5,
+                    "size": "S"
+                },
+                "813623": {
+                    "quantity": 47,
+                    "size": "M"
+                },
+                "813624": {
+                    "quantity": 48,
+                    "size": "L"
+                },
+                "813625": {
+                    "quantity": 39,
+                    "size": "XL"
+                },
+                "813626": {
+                    "quantity": 7,
+                    "size": "XXL"
+                }
+            }
+        },
+        {
+            "id": 141067,
+            "name": "Blue",
+            "sale_price": "null",
+            "original_price": "389",
+            "default_style": false,
+            "product_id": 71699,
+            "photos": [
+                {
+                    "id": 407947,
+                    "url": "https://images.unsplash.com/photo-1532244769164-ff64ddeefa45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1513531926349-466f15ec8cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141067
+                },
+                {
+                    "id": 407948,
+                    "url": "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1534481909716-9a482087f27d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141067
+                },
+                {
+                    "id": 407949,
+                    "url": "https://images.unsplash.com/photo-1519482816300-1490fdf2c2bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141067
+                }
+            ],
+            "skus": {
+                "813627": {
+                    "quantity": 35,
+                    "size": "XS"
+                },
+                "813628": {
+                    "quantity": 11,
+                    "size": "S"
+                },
+                "813629": {
+                    "quantity": 9,
+                    "size": "M"
+                },
+                "813630": {
+                    "quantity": 20,
+                    "size": "L"
+                },
+                "813631": {
+                    "quantity": 38,
+                    "size": "XL"
+                },
+                "813632": {
+                    "quantity": 28,
+                    "size": "XXL"
+                }
+            }
+        },
+        {
+            "id": 141069,
+            "name": "Orchid",
+            "sale_price": "null",
+            "original_price": "389",
+            "default_style": false,
+            "product_id": 71699,
+            "photos": [
+                {
+                    "id": 407953,
+                    "url": "https://images.unsplash.com/photo-1517278322228-3fe7a86cf6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1519857609704-61e751edba25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141069
+                },
+                {
+                    "id": 407954,
+                    "url": "https://images.unsplash.com/photo-1554735490-80893c93b06f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1513531926349-466f15ec8cc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141069
+                },
+                {
+                    "id": 407955,
+                    "url": "https://images.unsplash.com/photo-1465124982537-9f918f1e1aaf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+                    "thumbnail_url": "https://images.unsplash.com/photo-1503146695898-afdf8ce5d5a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+                    "style_id": 141069
+                }
+            ],
+            "skus": {
+                "813639": {
+                    "quantity": 55,
+                    "size": "XS"
+                },
+                "813640": {
+                    "quantity": 32,
+                    "size": "S"
+                },
+                "813641": {
+                    "quantity": 41,
+                    "size": "M"
+                },
+                "813642": {
+                    "quantity": 0,
+                    "size": "L"
+                },
+                "813643": {
+                    "quantity": 47,
+                    "size": "XL"
+                },
+                "813644": {
+                    "quantity": 59,
+                    "size": "XXL"
+                }
+            }
+        }
+      ]
+    },
+    cart: [
+        {
+            "id": 5,
+            "user_session": "8dbb58c6-a779-4c89-8b66-22bf39f87400",
+            "active": true,
+            "sku_id": 413404
         }
     ]
-  },
-  styles: {
-      "product_id": "71699",
-      "results": [
-          {
-              "style_id": 444228,
-              "name": "Black",
-              "original_price": "40.00",
-              "sale_price": null,
-              "default?": true,
-              "photos": [
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1492447105260-2e947425b5cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1548133464-29abc661eb5c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1548133464-29abc661eb5c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1500340520802-1687634cbe38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1500340520802-1687634cbe38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1559304022-afbf28f53c4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1559304022-afbf28f53c4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1656&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1554921148-83d8ceda2095?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1554921148-83d8ceda2095?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  }
-              ],
-              "skus": {
-                  "2580562": {
-                      "quantity": 8,
-                      "size": "XS"
-                  },
-                  "2580563": {
-                      "quantity": 16,
-                      "size": "S"
-                  },
-                  "2580564": {
-                      "quantity": 17,
-                      "size": "M"
-                  },
-                  "2580565": {
-                      "quantity": 10,
-                      "size": "L"
-                  },
-                  "2580566": {
-                      "quantity": 15,
-                      "size": "XL"
-                  },
-                  "2580567": {
-                      "quantity": 6,
-                      "size": "XXL"
-                  }
-              }
-          },
-          {
-              "style_id": 444229,
-              "name": "Grey",
-              "original_price": "40.00",
-              "sale_price": null,
-              "default?": false,
-              "photos": [
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1562542082-519ebcdb43e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1562542082-519ebcdb43e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2057&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1562542132-8555e1b583f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1562542132-8555e1b583f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=2057&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1562542096-218d8f9760bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1562542096-218d8f9760bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2057&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1562542119-19d015b93c45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1562542119-19d015b93c45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2057&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1516684810863-e49c82f1f092?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1516684810863-e49c82f1f092?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=965&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1490427712608-588e68359dbd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1490427712608-588e68359dbd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  }
-              ],
-              "skus": {
-                  "2580568": {
-                      "quantity": 8,
-                      "size": "XS"
-                  },
-                  "2580569": {
-                      "quantity": 16,
-                      "size": "S"
-                  },
-                  "2580570": {
-                      "quantity": 17,
-                      "size": "M"
-                  },
-                  "2580571": {
-                      "quantity": 10,
-                      "size": "L"
-                  },
-                  "2580572": {
-                      "quantity": 15,
-                      "size": "XL"
-                  },
-                  "2580573": {
-                      "quantity": 6,
-                      "size": "XXL"
-                  }
-              }
-          },
-          {
-              "style_id": 444230,
-              "name": "Goldenrod",
-              "original_price": "40.00",
-              "sale_price": "35.00",
-              "default?": false,
-              "photos": [
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1530073391204-7b34a1497281?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1530073391204-7b34a1497281?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1482876555840-f31c5ebbff1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1482876555840-f31c5ebbff1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1426647451887-5f2be01918a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1426647451887-5f2be01918a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1517438476312-10d79c077509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1517438476312-10d79c077509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1485646979142-d4abb57a876f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1485646979142-d4abb57a876f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=962&q=80"
-                  }
-              ],
-              "skus": {
-                  "2580574": {
-                      "quantity": 8,
-                      "size": "XS"
-                  },
-                  "2580575": {
-                      "quantity": 16,
-                      "size": "S"
-                  },
-                  "2580576": {
-                      "quantity": 17,
-                      "size": "M"
-                  },
-                  "2580577": {
-                      "quantity": 10,
-                      "size": "L"
-                  },
-                  "2580578": {
-                      "quantity": 15,
-                      "size": "XL"
-                  },
-                  "2580579": {
-                      "quantity": 6,
-                      "size": "XXL"
-                  }
-              }
-          },
-          {
-              "style_id": 444231,
-              "name": "Maroon",
-              "original_price": "40.00",
-              "sale_price": "35.00",
-              "default?": false,
-              "photos": [
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1519857609704-61e751edba25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1519857609704-61e751edba25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1499714832275-d6205d94c35d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1499714832275-d6205d94c35d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1532244769164-ff64ddeefa45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1532244769164-ff64ddeefa45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1549540806-76ce9007b674?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1549540806-76ce9007b674?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1554136920-a1df2909d8f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1554136920-a1df2909d8f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1541214880206-03318856c6c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1541214880206-03318856c6c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  }
-              ],
-              "skus": {
-                  "2580580": {
-                      "quantity": 8,
-                      "size": "XS"
-                  },
-                  "2580581": {
-                      "quantity": 16,
-                      "size": "S"
-                  },
-                  "2580582": {
-                      "quantity": 17,
-                      "size": "M"
-                  },
-                  "2580583": {
-                      "quantity": 10,
-                      "size": "L"
-                  },
-                  "2580584": {
-                      "quantity": 15,
-                      "size": "XL"
-                  },
-                  "2580585": {
-                      "quantity": 6,
-                      "size": "XXL"
-                  }
-              }
-          },
-          {
-              "style_id": 444232,
-              "name": "Chartreuse",
-              "original_price": "40.00",
-              "sale_price": "25.00",
-              "default?": false,
-              "photos": [
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1530073391204-7b34a1497281?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1530073391204-7b34a1497281?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1482876555840-f31c5ebbff1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1482876555840-f31c5ebbff1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1426647451887-5f2be01918a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1426647451887-5f2be01918a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1517438476312-10d79c077509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1517438476312-10d79c077509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1485646979142-d4abb57a876f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1485646979142-d4abb57a876f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=962&q=80"
-                  }
-              ],
-              "skus": {
-                  "2580586": {
-                      "quantity": 8,
-                      "size": "XS"
-                  },
-                  "2580587": {
-                      "quantity": 16,
-                      "size": "S"
-                  },
-                  "2580588": {
-                      "quantity": 17,
-                      "size": "M"
-                  },
-                  "2580589": {
-                      "quantity": 10,
-                      "size": "L"
-                  },
-                  "2580590": {
-                      "quantity": 15,
-                      "size": "XL"
-                  },
-                  "2580591": {
-                      "quantity": 6,
-                      "size": "XXL"
-                  }
-              }
-          },
-          {
-              "style_id": 444233,
-              "name": "White",
-              "original_price": "40.00",
-              "sale_price": null,
-              "default?": false,
-              "photos": [
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1510390099355-23e690d8129d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1510390099355-23e690d8129d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1547257965-087be799b084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1547257965-087be799b084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1510217167326-549ae78e4738?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1510217167326-549ae78e4738?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1470282312847-28b943046dc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1470282312847-28b943046dc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1552904219-f4b87efe8792?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1552904219-f4b87efe8792?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80"
-                  },
-                  {
-                      "thumbnail_url": "https://images.unsplash.com/photo-1519241978701-4302ab53de1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-                      "url": "https://images.unsplash.com/photo-1519241978701-4302ab53de1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-                  }
-              ],
-              "skus": {
-                  "2580592": {
-                      "quantity": 8,
-                      "size": "XS"
-                  },
-                  "2580593": {
-                      "quantity": 16,
-                      "size": "S"
-                  },
-                  "2580594": {
-                      "quantity": 17,
-                      "size": "M"
-                  },
-                  "2580595": {
-                      "quantity": 10,
-                      "size": "L"
-                  },
-                  "2580596": {
-                      "quantity": 15,
-                      "size": "XL"
-                  },
-                  "2580597": {
-                      "quantity": 6,
-                      "size": "XXL"
-                  }
-              }
-          }
-      ]
-  }
 }

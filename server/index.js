@@ -41,15 +41,4 @@ app.use(cookieParser());
 app.use('/products', require('../database/routes/products.js'));
 app.use('/cart', require('../database/routes/cart.js'));
 
-// for initial testing suite, will need to remove later
-app.get('/products/:product_id', (req, res) => {
-  let product_id = req.params.product_id;
-  res.status(200).send(exampleData.product);
-});
-
-app.get('/products/:product_id/styles', (req, res) => {
-  let product_id = req.params.product_id;
-  res.status(200).send(exampleData.styles);
-});
-
 module.exports = app
