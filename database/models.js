@@ -157,7 +157,7 @@ let Cart = db.define('cart', {
     autoIncrement: true
   },
   user_session: {
-    type: Sequelize.UUID,
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   active: {

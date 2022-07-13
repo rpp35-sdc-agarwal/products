@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/:sku_id', async (req, res) => {
+  console.log(req.session.id);
   res.status(201).send(await CartService.postCart(req.params.sku_id, req.session.id));
 })
 

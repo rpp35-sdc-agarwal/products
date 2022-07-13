@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const { v4: genuuid } = require('uuid');
 const sessions = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -19,8 +18,8 @@ app.use(sessions({
   cookie: { maxAge: oneDay },
   resave: false,
   genid: function (req) {
-    console.log('session id created!');
-    return genuuid();
+    let session = Math.floor(1000 + Math.random() * 9000);
+    return session;
   }
 }))
 
