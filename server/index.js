@@ -38,6 +38,5 @@ app.use(cookieParser());
 
 // Routes
 app.use('/products', require('../database/routes/products.js'));
-app.use('/cart', require('../database/routes/cart.js'));
 
 module.exports = app

@@ -1,15 +1,31 @@
-let { Products, Features } = require('../models.js');
+let { Products, Related, Features } = require('../models.js');
 
 module.exports = {
   getAllProducts: async (limit = 10) => {
     // let offset = Math.floor(Math.random() * (1000001 - 1) + 1);
     let offset = 1;
-    return await Products.findAll({ offset, limit: 10 });
+    return await Products.findAll({
+      benchmark: true,
+      logging: console.log,
+      offset,
+      limit: 10 });
   },
   getOneProduct: async (product_id) => {
     return await Products.findOne({
-      where: {id: product_id},
-      include: { model: Features }
+      benchmark: true,
+      logging: console.log,
+      where: { id: product_id },
+      include: {
+        model: Features,
+        separate: true
+      }
+    });
+  },
+  getRelated: async (product_id) => {
+    return Related.findAll({
+      benchmark: true,
+      logging: console.log,
+      where: { id: product_id }
     });
   }
 }

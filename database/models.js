@@ -33,6 +33,29 @@ let Products = db.define('products', {
   timestamps: false
 });
 
+let Related = db.define('related', {
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true
+  },
+  related_product_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+}, {
+  timestamps: false
+});
+
+Products.hasMany(Related, {
+  foreignKey: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    name: 'product_id'
+  }
+});
+Related.belongsTo(Products, { foreignKey: 'product_id' } );
+
 let Features = db.define('features', {
   id: {
     type: Sequelize.INTEGER,
@@ -157,7 +180,7 @@ let Cart = db.define('cart', {
     autoIncrement: true
   },
   user_session: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   active: {
@@ -181,6 +204,7 @@ Cart.belongsTo(Skus, { foreignKey: 'sku_id' } );
 // INTIALZING (SYNCING) TABLES TO DATABASES
 
 Products.sync();
+Related.sync();
 Features.sync();
 Styles.sync();
 Photos.sync();
@@ -189,6 +213,7 @@ Cart.sync();
 
 module.exports = {
   Products,
+  Related,
   Features,
   Styles,
   Photos,

@@ -3,8 +3,19 @@ let { Styles, Photos, Skus } = require('../models.js');
 module.exports = {
   getProductStyle: async (product_id) => {
     return await Styles.findAll({
+      benchmark: true,
+      logging: console.log,
       where: { product_id },
-      include: [{ model: Photos }, { model: Skus }]
+      include: [
+        {
+          model: Photos,
+          separate: true
+        },
+        {
+          model: Skus,
+          separate: true
+        }
+      ]
     })
     .then(styles => {
       styles.forEach(style => {

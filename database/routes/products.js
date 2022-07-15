@@ -19,4 +19,10 @@ router.get('/:product_id/styles', async (req, res) => {
   res.status(200).send(data);
 })
 
+router.get('/:product_id/related', async (req, res) => {
+  let data = { product_id: req.params.product_id };
+  data.results = await StylesService.getProductStyle(req.params.product_id);
+  res.status(200).send(data);
+})
+
 module.exports = router;
