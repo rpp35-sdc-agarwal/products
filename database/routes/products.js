@@ -13,13 +13,11 @@ router.get('/:product_id', async (req, res) => {
   res.status(200).send(await ProductsService.getOneProduct(req.params.product_id));
 })
 
-router.get('/:product_id/styles', async (req, res) => {
-  let data = { product_id: req.params.product_id };
-  data.results = await StylesService.getProductStyle(req.params.product_id);
-  res.status(200).send(data);
+router.get('/:product_id/related', async (req, res) => {
+  res.status(200).send(await ProductsService.getRelated(req.params.product_id));
 })
 
-router.get('/:product_id/related', async (req, res) => {
+router.get('/:product_id/styles', async (req, res) => {
   let data = { product_id: req.params.product_id };
   data.results = await StylesService.getProductStyle(req.params.product_id);
   res.status(200).send(data);

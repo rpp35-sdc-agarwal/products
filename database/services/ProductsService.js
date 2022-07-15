@@ -22,10 +22,12 @@ module.exports = {
     });
   },
   getRelated: async (product_id) => {
-    return Related.findAll({
+    let results = await Related.findAll({
       benchmark: true,
       logging: console.log,
-      where: { id: product_id }
-    });
+      attributes: [ 'related_product_id' ],
+      where: { product_id }
+    })
+    return results.map(result => result.dataValues['related_product_id']);
   }
 }
