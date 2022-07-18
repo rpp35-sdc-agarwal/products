@@ -8,12 +8,10 @@ module.exports = {
       where: { product_id },
       include: [
         {
-          model: Photos,
-          separate: true
+          model: Photos
         },
         {
-          model: Skus,
-          separate: true
+          model: Skus
         }
       ]
     })
@@ -27,6 +25,12 @@ module.exports = {
           }
         })
         style.dataValues.skus = skus;
+        if (style.dataValues.photos.length === 0) {
+          style.dataValues.photos.push({
+            "url": null,
+            "thumbnail_url": null,
+          })
+        }
       })
       return styles;
     });

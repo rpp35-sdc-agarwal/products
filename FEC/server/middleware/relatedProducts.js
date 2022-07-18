@@ -93,9 +93,9 @@ const getRelatedStyles = (req, res, next) => {
 
 const addPriceToProducts = (req, res, next) => {
   var products = res.products;
-
+  console.log(products);
   for (var i = 0; i < res.styles.length; i++) {
-
+    console.log(res.styles);
     var styles = res.styles[i].results;
 
 

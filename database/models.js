@@ -84,7 +84,7 @@ Products.hasMany(Features, {
 Features.belongsTo(Products, { foreignKey: 'product_id' } );
 
 let Styles = db.define('styles', {
-  id: {
+  style_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true
@@ -101,7 +101,7 @@ let Styles = db.define('styles', {
     type: Sequelize.TEXT,
     allowNull: false
   },
-  default_style: {
+  'default?': {
     type: Sequelize.BOOLEAN,
     allowNull: false
   }
@@ -172,35 +172,6 @@ Styles.hasMany(Skus, {
 });
 Skus.belongsTo(Styles, { foreignKey: 'style_id' } );
 
-let Cart = db.define('cart', {
-  id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  user_session: {
-    type: Sequelize.TEXT,
-    allowNull: false
-  },
-  active: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false,
-    defaultValue: true
-  }
-}, {
-  timestamps: false
-});
-
-Skus.hasMany(Cart, {
-  foreignKey: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    name: 'sku_id'
-  }
-});
-Cart.belongsTo(Skus, { foreignKey: 'sku_id' } );
-
 // INTIALZING (SYNCING) TABLES TO DATABASES
 
 Products.sync();
@@ -209,7 +180,6 @@ Features.sync();
 Styles.sync();
 Photos.sync();
 Skus.sync();
-Cart.sync();
 
 module.exports = {
   Products,
@@ -217,6 +187,5 @@ module.exports = {
   Features,
   Styles,
   Photos,
-  Skus,
-  Cart
+  Skus
 }
