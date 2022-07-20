@@ -4,3 +4,4 @@ coverage
 .DS_Store
 etl
 k6.js
+summary.html
