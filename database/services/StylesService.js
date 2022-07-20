@@ -8,15 +8,18 @@ module.exports = {
       where: { product_id },
       include: [
         {
-          model: Photos
-        },
-        {
+          model: Photos,
+          required: false
+        }, {
           model: Skus
         }
       ]
     })
     .then(styles => {
       styles.forEach(style => {
+        if (style.dataValues.sale_price === 'null') {
+          style.dataValues.sale_price = null;
+        }
         let skus = {};
         style.dataValues.skus.forEach(sku => {
           skus[sku.dataValues.id] = {
@@ -25,11 +28,11 @@ module.exports = {
           }
         })
         style.dataValues.skus = skus;
-        if (style.dataValues.photos.length === 0) {
-          style.dataValues.photos.push({
+        if (style.photos.length === 0) {
+          style.photos = [{
             "url": null,
-            "thumbnail_url": null,
-          })
+            "thumbnail_url": null
+          }]
         }
       })
       return styles;

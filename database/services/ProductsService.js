@@ -17,14 +17,20 @@ module.exports = {
     });
   },
   getOneProduct: async (product_id) => {
-    return await Products.findOne({
+    let product = await Products.findOne({
       benchmark: true,
       logging: console.log,
       where: { id: product_id },
       include: {
         model: Features
       }
-    });
+    })
+    product.features.forEach(feature => {
+      if (feature.dataValues.value === "null") {
+        feature.dataValues.value = null;
+      }
+    })
+    return product;
   },
   getRelated: async (product_id) => {
     let results = await Related.findAll({

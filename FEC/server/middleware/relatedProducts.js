@@ -116,6 +116,7 @@ const addPriceToProducts = (req, res, next) => {
     }
 
     if (!photoFound) {
+      console.log(styles);
       products[i].photo = styles[0].photos[0].thumbnail_url
 
     }

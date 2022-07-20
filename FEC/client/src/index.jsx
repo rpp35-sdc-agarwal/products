@@ -48,7 +48,6 @@ class App extends React.Component {
         // get id of first product
         // push state?
         var data = res.data;
-        console.log('products: ', data)
         var id = data[0].id;
         var state = history.state;
         var url = ''
