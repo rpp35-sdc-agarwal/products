@@ -7,37 +7,26 @@ module.exports = {
       logging: console.log,
       where: { product_id },
       raw: true,
-      nest: true
-      // include: [
-      //   {
-      //     model: Photos,
-      //     required: false
-      //   }, {
-      //     model: Skus
-      //   }
-      // ]
+      nest: true,
+      include: [ Photos, Skus ]
     })
-    .then(async styles => {
-      // console.log(styles);
-      for (let i = 0; i < styles.length; i++) {
-        styles[i].photos = await Photos.findAll({
-          where: { style_id: styles[i].style_id },
-          raw: true,
-          nest: true
-        });
-        if (styles[i].photos.length === 0) {
-          styles[i].photos.push({
-            url: null,
-            thumbnail_url: null
-          })
+    .then(styles => {
+      let transformedStyles = [];
+      styles.forEach(style => {
+        // if there exists the style_id in transformedStyles
+        if (transformedStyles.some(tStyle => tStyle.style_id === style.style_id)) {
+          // find the index of that style in the transformedStyles
+          let index = transformedStyles.findIndex(object => { return object.style_id === style.style_id });
+          // append the sku into the transformedStyles
+          transformedStyles[index].skus.push(style.skus);
+        } else {
+          // if not found, set up the photos and skus as arrays and push the style into the transformedStyles
+          style.skus = [style.skus];
+          style.photos = [style.photos];
+          transformedStyles.push(style);
         }
-        styles[i].skus = await Skus.findAll({
-          where: { style_id: styles[i].style_id },
-          raw: true,
-          nest: true
-        });
-      }
-      return styles;
+      })
+      return transformedStyles
     })
     .then(styles => {
       styles.forEach(style => {
