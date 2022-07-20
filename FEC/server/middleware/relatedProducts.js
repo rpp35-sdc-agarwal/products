@@ -93,9 +93,7 @@ const getRelatedStyles = (req, res, next) => {
 
 const addPriceToProducts = (req, res, next) => {
   var products = res.products;
-  console.log(products);
   for (var i = 0; i < res.styles.length; i++) {
-    console.log(res.styles);
     var styles = res.styles[i].results;
 
 
@@ -103,7 +101,6 @@ const addPriceToProducts = (req, res, next) => {
     for (var j = 0; j < styles.length; j++) {
 
       if (styles[j]['default?']) {
-
         var photo = styles[j].photos[0].thumbnail_url;
         if (photo) {
           products[i].photo = styles[j].photos[0].thumbnail_url
@@ -116,7 +113,6 @@ const addPriceToProducts = (req, res, next) => {
     }
 
     if (!photoFound) {
-      console.log(styles);
       products[i].photo = styles[0].photos[0].thumbnail_url
 
     }
@@ -143,7 +139,7 @@ const getReviews = (req, res, next) => {
       var id = results.data[i]
 
       var config = {
-        url: 'http://localhost:8080/reviews/meta',
+        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta',
         method: 'get',
         headers: { 'Authorization': API },
         params: {

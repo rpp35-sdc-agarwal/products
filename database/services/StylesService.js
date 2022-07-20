@@ -6,36 +6,54 @@ module.exports = {
       benchmark: true,
       logging: console.log,
       where: { product_id },
-      include: [
-        {
-          model: Photos,
-          required: false
-        }, {
-          model: Skus
+      raw: true,
+      nest: true
+      // include: [
+      //   {
+      //     model: Photos,
+      //     required: false
+      //   }, {
+      //     model: Skus
+      //   }
+      // ]
+    })
+    .then(async styles => {
+      // console.log(styles);
+      for (let i = 0; i < styles.length; i++) {
+        styles[i].photos = await Photos.findAll({
+          where: { style_id: styles[i].style_id },
+          raw: true,
+          nest: true
+        });
+        if (styles[i].photos.length === 0) {
+          styles[i].photos.push({
+            url: null,
+            thumbnail_url: null
+          })
         }
-      ]
+        styles[i].skus = await Skus.findAll({
+          where: { style_id: styles[i].style_id },
+          raw: true,
+          nest: true
+        });
+      }
+      return styles;
     })
     .then(styles => {
       styles.forEach(style => {
-        if (style.dataValues.sale_price === 'null') {
-          style.dataValues.sale_price = null;
+        if (style.sale_price === 'null') {
+          style.sale_price = null;
         }
         let skus = {};
-        style.dataValues.skus.forEach(sku => {
-          skus[sku.dataValues.id] = {
-            quantity: sku.dataValues.quantity,
-            size: sku.dataValues.size
+        style.skus.forEach(sku => {
+          skus[sku.id] = {
+            quantity: sku.quantity,
+            size: sku.size
           }
         })
-        style.dataValues.skus = skus;
-        if (style.photos.length === 0) {
-          style.photos = [{
-            "url": null,
-            "thumbnail_url": null
-          }]
-        }
+        style.skus = skus;
       })
       return styles;
-    });
+    })
   }
 }

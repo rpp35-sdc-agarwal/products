@@ -2,8 +2,8 @@ let { Products, Related, Features } = require('../models.js');
 
 module.exports = {
   getAllProducts: async () => {
-    let offset = Math.floor(Math.random() * (1000001 - 1) + 1);
-    // let offset = 1;
+    // let offset = Math.floor(Math.random() * (1000001 - 1) + 1);
+    let offset = 1;
     return await Products.findAll({
       benchmark: true,
       logging: console.log,
