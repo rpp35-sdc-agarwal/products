@@ -1,0 +1,10 @@
+node_modules/
+.eslintrc.js
+.babelrc
+client/dist/bundle.js
+config.js
+.DS_Store
+coverage/
+*.cer
+*.pem
+

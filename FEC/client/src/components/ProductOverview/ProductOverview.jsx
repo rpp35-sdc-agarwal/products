@@ -20,7 +20,7 @@ class ProductOverview extends React.Component {
   async retrieveProductInfo (productId) {
     let options = {
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${productId}`,
+      url: `http://localhost:8080/products/${productId}`,
       headers: {
         'Authorization': API
       }
@@ -33,12 +33,11 @@ class ProductOverview extends React.Component {
   async retrieveProductStyles (productId) {
     let options = {
       method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${productId}/styles`,
+      url: `http://localhost:8080/products/${productId}/styles`,
       headers: {
         'Authorization': API
       }
     }
-
     let res = await axios(options);
     return res.data
   }

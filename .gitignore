@@ -1,10 +1,8 @@
-node_modules/
-.eslintrc.js
-.babelrc
-client/dist/bundle.js
-config.js
+node_modules
+.env
+coverage
 .DS_Store
-coverage/
-*.cer
-*.pem
-
+etl
+k6.js
+sdc.pem
+summary.html

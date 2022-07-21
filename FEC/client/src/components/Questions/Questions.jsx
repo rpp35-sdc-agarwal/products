@@ -34,7 +34,7 @@ class Questions extends React.Component {
     }
 
     let res = await axios(options);
-    
+
     this.setState({
       allQuestions: [...res.data.results],
       questions: [res.data.results[0], res.data.results[1]],
@@ -43,10 +43,10 @@ class Questions extends React.Component {
         lastIndex: this.state.questions.length - 1,
       })
     })
-    
+
     return res.data.results;
   }
-  
+
   resetQuestions (productId) {
     this.retrieveQuestions(productId)
       .then(() => {
@@ -61,7 +61,7 @@ class Questions extends React.Component {
         console.log(err)
       })
   }
-  
+
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.setState({
@@ -84,12 +84,11 @@ class Questions extends React.Component {
         let collection = this.state.allQuestions.filter((question) => {
           return question.question_body.toLowerCase().includes(this.state.search.toLowerCase())
         })
-        
+
         if (collection.length) {
           this.setState({
             questions: [...collection]
           }, () => {
-            console.log('questions in handleSearch: ', this.state.questions)
             this.checkExpand(this.state.questions);
           })
         }
@@ -99,7 +98,7 @@ class Questions extends React.Component {
       this.checkExpand(this.state.questions);
     }
   }
-  
+
   checkExpand (questions, allQuestions) {
     let element = document.getElementsByClassName('question-list');
     if (questions.length > 2) {
@@ -108,7 +107,7 @@ class Questions extends React.Component {
         expandable: true
       })
     }
-    
+
     if (questions.length <= 2) {
       element[0].classList.remove('expand-question-list');
       this.setState({
@@ -122,14 +121,14 @@ class Questions extends React.Component {
     if (this.state.questions.length < this.state.allQuestions.length) {
       let count = 1;
       let currentQuestions = this.state.questions.slice();
-      
+
       while (count <= 2) {
         if (this.state.allQuestions[this.state.lastIndex + count]) {
           currentQuestions.push(this.state.allQuestions[this.state.lastIndex + count]);
         }
         count += 1;
       }
-      
+
       this.setState({
         lastIndex: currentQuestions.length - 1,
         questions: [...currentQuestions]
@@ -151,7 +150,7 @@ class Questions extends React.Component {
       })
     }
 
-    
+
     if (!this.state.more) {
         this.setState({
           questions:[this.state.allQuestions[0], this.state.allQuestions[1]]
@@ -171,13 +170,12 @@ class Questions extends React.Component {
 
   render() {
     // console.log('questions in Questions: ', this.state.questions)
-    console.log('currentProductName: ', this.props.currentProductName)
     return (
       <div id='QA' data-testid="test_questions">
       <h2>Customer Questions & Answers</h2>
       <Search handleSearch={this.handleSearch.bind(this)} />
-      
-      {this.state.questions.length ? 
+
+      {this.state.questions.length ?
         <div>
             <QuestionList questions={this.state.questions} currentProductName={this.props.currentProductName} />
           {this.state.more || this.state.add ? <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>MORE QUESTIONS</button> : <button className="general-button" onClick={this.toggleQuestionList.bind(this)}>COLLAPSE QUESTIONS</button>}
