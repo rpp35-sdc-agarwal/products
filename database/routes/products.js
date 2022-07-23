@@ -20,14 +20,6 @@ router.get('/:product_id/related', async (req, res) => {
 router.get('/:product_id/styles', async (req, res) => {
   let data = { product_id: req.params.product_id };
   data.results = await StylesService.getProductStyle(req.params.product_id);
-  // data.results.forEach(style => {
-  //   if (style.dataValues.photos.length === 0) {
-  //     style.dataValues.photos = [{
-  //       url: null,
-  //       thumbnail_url: null
-  //     }];
-  //   }
-  // })
   res.status(200).send(data);
 })
 
