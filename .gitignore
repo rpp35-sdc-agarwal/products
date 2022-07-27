@@ -6,3 +6,4 @@ etl
 k6.js
 sdc.pem
 summary.html
+dump.rdb
