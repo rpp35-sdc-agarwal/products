@@ -84,7 +84,7 @@ module.exports = {
         model: Features
       }
     })
-    product.features.forEach(feature => {
+    product[0].dataValues.features.forEach(feature => {
       if (feature.dataValues.value === "null") {
         feature.dataValues.value = null;
       }
