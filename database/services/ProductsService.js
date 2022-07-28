@@ -7,6 +7,8 @@ module.exports = {
     return await Products.findAll({
       benchmark: true,
       logging: console.log,
+      raw: true,
+      nest: true,
       where: { id: [
         offset,
         offset + 1,
@@ -17,28 +19,42 @@ module.exports = {
     });
   },
   getOneProduct: async (product_id) => {
-    let product = await Products.findOne({
+    let product = await Products.findAll({
       benchmark: true,
       logging: console.log,
+      raw: true,
+      nest: true,
       where: { id: product_id },
       include: {
         model: Features
       }
     })
+    .then(sameProducts => {
+      let product = sameProducts[0];
+      let features = [];
+      sameProducts.forEach(product => {
+        features.push(product.features);
+      })
+      product.features = features;
+      return product;
+    })
     product.features.forEach(feature => {
-      if (feature.dataValues.value === "null") {
-        feature.dataValues.value = null;
+      if (feature.value === "null") {
+        feature.value = null;
       }
     })
+    console.log(product);
     return product;
   },
   getRelated: async (product_id) => {
     let results = await Related.findAll({
       benchmark: true,
+      raw: true,
+      nest: true,
       logging: console.log,
       attributes: [ 'related_product_id' ],
       where: { product_id }
     })
-    return results.map(result => result.dataValues['related_product_id']);
+    return results.map(result => result['related_product_id']);
   }
 }
