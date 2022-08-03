@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/products', require('../database/routes/products.js'));
 
 // for Loader.io testing
-app.get('/loaderio-80cc5ac8e73127a799fb931e825b81e9', (req, res) => {
-  res.send('loaderio-80cc5ac8e73127a799fb931e825b81e9');
+app.get('/loaderio-ab7ffaaaad249436638d06119005756e', (req, res) => {
+  res.send('loaderio-ab7ffaaaad249436638d06119005756e');
 });
 
 module.exports = app
