@@ -6,15 +6,15 @@ let ProductsService = require('../services/ProductsService.js');
 let StylesService = require('../services/StylesService.js');
 require('dotenv').config();
 
-const client = createClient();
+const client = createClient({
+  url: process.env.REDISURL
+});
 
 let start = async function () {
   await client.connect();
 }
 
 start();
-
-const DEFAULT_EXPIRATION = 86400;
 
 // /product/
 router.get('/', async (req, res) => {
@@ -54,7 +54,7 @@ let getSetCache = async function (key, callback) {
         return JSON.parse(results);
       } else {
         results = await callback();
-        client.set(key, JSON.stringify(results), { EX: DEFAULT_EXPIRATION });
+        client.set(key, JSON.stringify(results));
         return results;
       }
     })
