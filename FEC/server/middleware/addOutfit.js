@@ -4,7 +4,7 @@ const API = require('../../config.js')
 const addOneOutfit = (req, res, next) => {
   var id = req.body.product_id;
   console.log('did i make it here', id)
-  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}`, {
+  axios(`http://localhost:8080/products/${id}`, {
   headers: {
     'Authorization': API
     }
@@ -20,7 +20,7 @@ const addOneOutfit = (req, res, next) => {
 
 const addStyleToOutfit = (req, res, next) => {
   var id = req.body.product_id
-  axios(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${id}/styles`, {
+  axios(`http://localhost:8080/products/${id}/styles`, {
     headers: {
       'Authorization': API
     }

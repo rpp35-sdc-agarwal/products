@@ -7,7 +7,7 @@ let StylesService = require('../services/StylesService.js');
 require('dotenv').config();
 
 const client = createClient({
-  url: process.env.REDISURL
+  // url: process.env.REDISURL
 });
 
 let start = async function () {
@@ -25,15 +25,16 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:product_id', async (req, res) => {
+  console.log(req.params.product_id);
   let product = await getSetCache(`product${req.params.product_id}`, async () => {
     return await ProductsService.getOneProduct(req.params.product_id);
   })
-  res.status(200).json(product);
+  res.status(200).json(product[0]);
 })
 
 router.get('/:product_id/related', async (req, res) => {
   let related = await getSetCache(`related${req.params.product_id}`, async () => {
-    return await ProductsService.getOneProduct(req.params.product_id);
+    return await ProductsService.getRelated(req.params.product_id);
   })
   res.status(200).json(related);
 })
